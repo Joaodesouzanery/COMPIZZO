@@ -1,5 +1,5 @@
 {
- "version": 4,
+ "version": 5,
  "obras": [
   {
    "id": "o1",
@@ -8,7 +8,12 @@
    "bac": 326855.0,
    "precoPiso": 0,
    "modoReceita": "preco",
-   "inicio": "2026-07-13"
+   "inicio": "2026-07-13",
+   "aliases": [
+    "supera",
+    "supera 613 sul",
+    "supera 613 sul nestor"
+   ]
   },
   {
    "id": "o2",
@@ -17,7 +22,13 @@
    "bac": 0,
    "precoPiso": 0,
    "modoReceita": "preco",
-   "inicio": "2026-07-13"
+   "inicio": "2026-07-13",
+   "aliases": [
+    "brasal",
+    "brasal lago sul orla",
+    "brasal lago sul",
+    "brasal orla"
+   ]
   },
   {
    "id": "o3",
@@ -26,7 +37,11 @@
    "bac": 0,
    "precoPiso": 0,
    "modoReceita": "preco",
-   "inicio": "2026-09-28"
+   "inicio": "2026-09-28",
+   "aliases": [
+    "emplavi horizon",
+    "horizon"
+   ]
   },
   {
    "id": "o4",
@@ -35,7 +50,12 @@
    "bac": 195900.65,
    "precoPiso": 0,
    "modoReceita": "preco",
-   "inicio": "2026-08-31"
+   "inicio": "2026-08-31",
+   "aliases": [
+    "314",
+    "sqs 314",
+    "sqs 314 bloco d"
+   ]
   },
   {
    "id": "o5",
@@ -43,7 +63,10 @@
    "status": "Programada",
    "bac": 0,
    "precoPiso": 0,
-   "modoReceita": "preco"
+   "modoReceita": "preco",
+   "aliases": [
+    "parque nacional"
+   ]
   },
   {
    "id": "o6",
@@ -51,7 +74,10 @@
    "status": "Em andamento",
    "bac": 0,
    "precoPiso": 0,
-   "modoReceita": "preco"
+   "modoReceita": "preco",
+   "aliases": [
+    "parque cidade"
+   ]
   },
   {
    "id": "o7",
@@ -59,7 +85,11 @@
    "status": "Programada",
    "bac": 0,
    "precoPiso": 0,
-   "modoReceita": "preco"
+   "modoReceita": "preco",
+   "aliases": [
+    "concessionaria lime",
+    "lime"
+   ]
   },
   {
    "id": "o8",
@@ -67,7 +97,10 @@
    "status": "Concluída",
    "bac": 0,
    "precoPiso": 0,
-   "modoReceita": "preco"
+   "modoReceita": "preco",
+   "aliases": [
+    "itamaraty"
+   ]
   },
   {
    "id": "o9",
@@ -75,7 +108,10 @@
    "status": "Concluída",
    "bac": 0,
    "precoPiso": 0,
-   "modoReceita": "preco"
+   "modoReceita": "preco",
+   "aliases": [
+    "elleven"
+   ]
   },
   {
    "id": "o10",
@@ -85,7 +121,13 @@
    "precoPiso": 0,
    "modoReceita": "preco",
    "inicio": "2026-08-31",
-   "fim": "2026-09-11"
+   "fim": "2026-09-11",
+   "aliases": [
+    "excellence",
+    "excellence pks",
+    "excellence pks condominio",
+    "pks"
+   ]
   },
   {
    "id": "o11",
@@ -93,7 +135,10 @@
    "status": "Em andamento",
    "bac": 0,
    "precoPiso": 0,
-   "modoReceita": "preco"
+   "modoReceita": "preco",
+   "aliases": [
+    "tcu"
+   ]
   },
   {
    "id": "o12",
@@ -103,7 +148,12 @@
    "precoPiso": 0,
    "modoReceita": "preco",
    "inicio": "2026-06-08",
-   "fim": "2026-06-15"
+   "fim": "2026-06-15",
+   "aliases": [
+    "geely",
+    "geely 509 norte",
+    "509 norte"
+   ]
   }
  ],
  "funcionarios": [
@@ -123,7 +173,15 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Antonio Oliver Rodrigues de Sousa",
+   "aliases": [
+    "antonio oliver"
+   ],
+   "obrasRdo": [
+    "o1"
+   ],
+   "rdosN": 11
   },
   {
    "id": "f2",
@@ -141,7 +199,19 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Antonio Wanderson Nascimento da Silva",
+   "aliases": [
+    "antonio vanderson",
+    "antonio wanderson",
+    "wanderson"
+   ],
+   "obrasRdo": [
+    "o2",
+    "o1",
+    "o12"
+   ],
+   "rdosN": 23
   },
   {
    "id": "f3",
@@ -159,7 +229,15 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Francisco Roniele Alves Araujo",
+   "aliases": [
+    "roniele"
+   ],
+   "obrasRdo": [
+    "o1"
+   ],
+   "rdosN": 4
   },
   {
    "id": "f4",
@@ -177,7 +255,15 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Francisco Renan",
+   "aliases": [
+    "renan"
+   ],
+   "obrasRdo": [
+    "o1"
+   ],
+   "rdosN": 1
   },
   {
    "id": "f5",
@@ -195,7 +281,15 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Samuel Cardoso Pereira de Mesquita",
+   "aliases": [
+    "samuel"
+   ],
+   "obrasRdo": [
+    "o1"
+   ],
+   "rdosN": 6
   },
   {
    "id": "f6",
@@ -213,7 +307,15 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Antonio Claudiney Barbosa dos Santos",
+   "aliases": [
+    "claudiney"
+   ],
+   "obrasRdo": [
+    "o1"
+   ],
+   "rdosN": 17
   },
   {
    "id": "f7",
@@ -231,7 +333,18 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Iramilton Madeira da Conceissao",
+   "aliases": [
+    "iramilton madeira",
+    "iramilton"
+   ],
+   "obrasRdo": [
+    "o2",
+    "o12",
+    "o1"
+   ],
+   "rdosN": 19
   },
   {
    "id": "f8",
@@ -249,7 +362,17 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Tiago Rodrigues Barbosa",
+   "aliases": [
+    "thiaguinho",
+    "thiago",
+    "tiago"
+   ],
+   "obrasRdo": [
+    "o1"
+   ],
+   "rdosN": 5
   },
   {
    "id": "f9",
@@ -267,7 +390,16 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Romario Oliveira de Sousa",
+   "aliases": [
+    "romario"
+   ],
+   "obrasRdo": [
+    "o1",
+    "o2"
+   ],
+   "rdosN": 16
   },
   {
    "id": "f10",
@@ -285,7 +417,17 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Jhones dos Santos de Souza",
+   "aliases": [
+    "jhone",
+    "jhones"
+   ],
+   "obrasRdo": [
+    "o1",
+    "o10"
+   ],
+   "rdosN": 6
   },
   {
    "id": "f11",
@@ -303,7 +445,13 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Matheus",
+   "aliases": [
+    "matheus"
+   ],
+   "obrasRdo": [],
+   "rdosN": 0
   },
   {
    "id": "f12",
@@ -321,7 +469,13 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Arlindo",
+   "aliases": [
+    "arlindo"
+   ],
+   "obrasRdo": [],
+   "rdosN": 0
   },
   {
    "id": "f13",
@@ -339,7 +493,128 @@
    "taxaHora": null,
    "salario": null,
    "heSab": null,
-   "heDom": null
+   "heDom": null,
+   "nomeCompleto": "Antonio Cicero",
+   "aliases": [
+    "antonio cicero",
+    "cicero"
+   ],
+   "obrasRdo": [
+    "o1",
+    "o4"
+   ],
+   "rdosN": 2
+  },
+  {
+   "id": "f14",
+   "nome": "Roberty",
+   "nomeCompleto": "Roberty Rodrigues dos Santos",
+   "aliases": [
+    "roberty rodrigues",
+    "robert rodrigues",
+    "robert",
+    "roberty"
+   ],
+   "funcao": "",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o12",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null,
+   "obrasRdo": [
+    "o2",
+    "o12"
+   ],
+   "rdosN": 16
+  },
+  {
+   "id": "f15",
+   "nome": "Edson",
+   "nomeCompleto": "Edson Alves",
+   "aliases": [
+    "edson alves"
+   ],
+   "funcao": "",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o12",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null,
+   "obrasRdo": [
+    "o12"
+   ],
+   "rdosN": 6
+  },
+  {
+   "id": "f16",
+   "nome": "Walace",
+   "nomeCompleto": "Walace Jedai Antunes Pickina",
+   "aliases": [
+    "walace"
+   ],
+   "funcao": "",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o1",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null,
+   "obrasRdo": [
+    "o1"
+   ],
+   "rdosN": 12
+  },
+  {
+   "id": "f17",
+   "nome": "Vinicius",
+   "nomeCompleto": "Vinicius de Carvalho Martins",
+   "aliases": [
+    "eng vinicius martins",
+    "engenheiro vinicius martins",
+    "vinicius martins",
+    "vinicius de carvalho martins",
+    "vinicus martins",
+    "vinicius"
+   ],
+   "funcao": "Engenheiro",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null,
+   "obrasRdo": [],
+   "rdosN": 0
   }
  ],
  "avaliadores": [
@@ -5163,15 +5438,15 @@
    "obraInferida": false,
    "data": "2026-06-08",
    "titulo": "RDO Compizzo — Geely - 509 Norte",
-   "responsavel": "Antônio Cícero",
+   "responsavel": "Antonio Cicero",
    "clima": "",
    "climaTxt": "Manhã: Bom · Tarde: Bom · Noite: Bom",
    "diaTxt": "",
    "maoObra": [
-    "Antônio Vanderson",
-    "Edson Alves",
-    "Iramilton Madeira",
-    "Robert Rodrigues"
+    "Wanderson",
+    "Edson",
+    "Iramilton",
+    "Roberty"
    ],
    "pessoas": 4,
    "fases": [],
@@ -5192,8 +5467,22 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Antônio Cícero",
-   "respData": "2026-06-08"
+   "respNome": "Antonio Cicero",
+   "respData": "2026-06-08",
+   "maoObraOrig": [
+    "Antônio Vanderson",
+    "Edson Alves",
+    "Iramilton Madeira",
+    "Robert Rodrigues"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f15",
+    "f7",
+    "f14"
+   ],
+   "responsavelId": "f13",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi2",
@@ -5204,15 +5493,15 @@
    "obraInferida": true,
    "data": "2026-06-09",
    "titulo": "RDO Compizzo",
-   "responsavel": "Antônio Cícero",
+   "responsavel": "Antonio Cicero",
    "clima": "",
    "climaTxt": "Manhã: Bom · Tarde: Bom · Noite: Bom",
    "diaTxt": "",
    "maoObra": [
-    "Antônio Vanderson",
-    "Robert Rodrigues",
-    "Iramilton Madeira",
-    "Edson Alves"
+    "Wanderson",
+    "Roberty",
+    "Iramilton",
+    "Edson"
    ],
    "pessoas": 4,
    "fases": [],
@@ -5232,8 +5521,22 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Antônio Cícero",
-   "respData": "2026-06-09"
+   "respNome": "Antonio Cicero",
+   "respData": "2026-06-09",
+   "maoObraOrig": [
+    "Antônio Vanderson",
+    "Robert Rodrigues",
+    "Iramilton Madeira",
+    "Edson Alves"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f14",
+    "f7",
+    "f15"
+   ],
+   "responsavelId": "f13",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi3",
@@ -5244,15 +5547,15 @@
    "obraInferida": false,
    "data": "2026-06-10",
    "titulo": "RDO Compizzo — Obra Geely - 509 Norte",
-   "responsavel": "Antônio Cícero",
+   "responsavel": "Antonio Cicero",
    "clima": "",
    "climaTxt": "Manhã: Bom · Tarde: Bom · Noite: Bom",
    "diaTxt": "",
    "maoObra": [
-    "Antonio Vanderson",
-    "Iramilton Madeira",
-    "Edson Alves",
-    "Robert Rodrigues"
+    "Wanderson",
+    "Iramilton",
+    "Edson",
+    "Roberty"
    ],
    "pessoas": 4,
    "fases": [],
@@ -5272,8 +5575,22 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Antônio Cícero",
-   "respData": "2026-06-10"
+   "respNome": "Antonio Cicero",
+   "respData": "2026-06-10",
+   "maoObraOrig": [
+    "Antonio Vanderson",
+    "Iramilton Madeira",
+    "Edson Alves",
+    "Robert Rodrigues"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f15",
+    "f14"
+   ],
+   "responsavelId": "f13",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi4",
@@ -5284,15 +5601,15 @@
    "obraInferida": false,
    "data": "2026-06-11",
    "titulo": "RDO Compizzo — Obra Geely - 509 Norte",
-   "responsavel": "Antônio Cícero",
+   "responsavel": "Antonio Cicero",
    "clima": "",
    "climaTxt": "Manhã: Bom · Tarde: Bom · Noite: Bom",
    "diaTxt": "",
    "maoObra": [
-    "Antonio Vanderson",
-    "Iramilton Madeira",
-    "Edson Alves",
-    "Robert"
+    "Wanderson",
+    "Iramilton",
+    "Edson",
+    "Roberty"
    ],
    "pessoas": 4,
    "fases": [],
@@ -5312,8 +5629,22 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Antônio Cícero",
-   "respData": "2026-06-11"
+   "respNome": "Antonio Cicero",
+   "respData": "2026-06-11",
+   "maoObraOrig": [
+    "Antonio Vanderson",
+    "Iramilton Madeira",
+    "Edson Alves",
+    "Robert"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f15",
+    "f14"
+   ],
+   "responsavelId": "f13",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi5",
@@ -5346,7 +5677,10 @@
    "fotosQtd": 0,
    "proximo": "",
    "respNome": "",
-   "respData": "2026-06-12"
+   "respData": "2026-06-12",
+   "maoObraOrig": [],
+   "maoObraIds": [],
+   "pessoasConferidas": 0
   },
   {
    "id": "rdoi6",
@@ -5357,15 +5691,15 @@
    "obraInferida": false,
    "data": "2026-06-12",
    "titulo": "RDO Compizzo — Geely - 509 Norte",
-   "responsavel": "Antônio Cícero",
+   "responsavel": "Antonio Cicero",
    "clima": "",
    "climaTxt": "Manhã: Chuva · Tarde: Chuva · Noite:",
    "diaTxt": "",
    "maoObra": [
-    "Antônio Wanderson",
-    "Iramilton Madeira",
-    "Edson Alves",
-    "Roberty Rodrigues"
+    "Wanderson",
+    "Iramilton",
+    "Edson",
+    "Roberty"
    ],
    "pessoas": 4,
    "fases": [],
@@ -5385,8 +5719,22 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Antônio Cícero",
-   "respData": "2026-06-12"
+   "respNome": "Antonio Cicero",
+   "respData": "2026-06-12",
+   "maoObraOrig": [
+    "Antônio Wanderson",
+    "Iramilton Madeira",
+    "Edson Alves",
+    "Roberty Rodrigues"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f15",
+    "f14"
+   ],
+   "responsavelId": "f13",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi7",
@@ -5397,15 +5745,15 @@
    "obraInferida": false,
    "data": "2026-06-15",
    "titulo": "RDO Compizzo — Geely - 509 NORTE",
-   "responsavel": "Antônio Cícero",
+   "responsavel": "Antonio Cicero",
    "clima": "",
    "climaTxt": "Manhã: Bom · Tarde: Bom · Noite: Bom",
    "diaTxt": "",
    "maoObra": [
-    "Antônio Wanderson",
-    "Iramilton Madeira",
-    "Edson Alves",
-    "Roberty Rodrigues"
+    "Wanderson",
+    "Iramilton",
+    "Edson",
+    "Roberty"
    ],
    "pessoas": 4,
    "fases": [],
@@ -5425,8 +5773,22 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Antônio Cícero",
-   "respData": "2026-06-15"
+   "respNome": "Antonio Cicero",
+   "respData": "2026-06-15",
+   "maoObraOrig": [
+    "Antônio Wanderson",
+    "Iramilton Madeira",
+    "Edson Alves",
+    "Roberty Rodrigues"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f15",
+    "f14"
+   ],
+   "responsavelId": "f13",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi8",
@@ -5437,14 +5799,15 @@
    "obraInferida": false,
    "data": "2026-07-13",
    "titulo": "RDO Compizzo — SUPERA - 613 Sul - Nestor",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "01",
    "maoObra": [
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Oliver Rodrigues de Sousa",
-    "Walace Jedai Antunes Pickina Romario Oliveira de Sousa"
+    "Claudiney",
+    "Antônio Oliver",
+    "Walace",
+    "Romário"
    ],
    "pessoas": 4,
    "fases": [],
@@ -5468,8 +5831,21 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "Dar continuidade no lixamento e revisar área liberada para execução da meta. Eng. Vinicius Martins RESPONSÁVEL PELO RDO                                        FISCALIZAÇÃO                                        CONTRATADA",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-13"
+   "respNome": "Vinicius",
+   "respData": "2026-07-13",
+   "maoObraOrig": [
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Oliver Rodrigues de Sousa",
+    "Walace Jedai Antunes Pickina Romario Oliveira de Sousa"
+   ],
+   "maoObraIds": [
+    "f6",
+    "f1",
+    "f16",
+    "f9"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi9",
@@ -5480,14 +5856,14 @@
    "obraInferida": false,
    "data": "2026-07-13",
    "titulo": "RDO Compizzo — BRASAL - LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "01",
    "maoObra": [
-    "Iramilton Madeira da Conceissão",
-    "Antonio Wanderson Nascimento da Silva",
-    "Roberty Rodrigues dos Santos"
+    "Iramilton",
+    "Wanderson",
+    "Roberty"
    ],
    "pessoas": 3,
    "fases": [],
@@ -5513,8 +5889,20 @@
    "fotos": [],
    "fotosQtd": 3,
    "proximo": "Dar continuidade no lixamento, limpar e se possivel iniciar o primer.",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-13"
+   "respNome": "Vinicius",
+   "respData": "2026-07-13",
+   "maoObraOrig": [
+    "Iramilton Madeira da Conceissão",
+    "Antonio Wanderson Nascimento da Silva",
+    "Roberty Rodrigues dos Santos"
+   ],
+   "maoObraIds": [
+    "f7",
+    "f2",
+    "f14"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi10",
@@ -5525,14 +5913,14 @@
    "obraInferida": false,
    "data": "2026-07-14",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "2",
    "maoObra": [
-    "Iramilton Madeira da Conceissão",
-    "Antonio Wanderson Nascimento da Silva",
-    "Roberty Rodrigues dos Santos"
+    "Iramilton",
+    "Wanderson",
+    "Roberty"
    ],
    "pessoas": 3,
    "fases": [
@@ -5566,8 +5954,20 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "Dar continuidade no lixamento e iniciar aspiração do piso. Engenheiro Vinicius Martins RESPONSÁVEL PELO RDO                                        FISCALIZAÇÃO                                         CONTRATADA",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-14"
+   "respNome": "Vinicius",
+   "respData": "2026-07-14",
+   "maoObraOrig": [
+    "Iramilton Madeira da Conceissão",
+    "Antonio Wanderson Nascimento da Silva",
+    "Roberty Rodrigues dos Santos"
+   ],
+   "maoObraIds": [
+    "f7",
+    "f2",
+    "f14"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi11",
@@ -5578,14 +5978,14 @@
    "obraInferida": false,
    "data": "2026-07-15",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "03",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Roberty Rodrigues dos Santos",
-    "Iramilton Madeira da Conceissão"
+    "Wanderson",
+    "Roberty",
+    "Iramilton"
    ],
    "pessoas": 3,
    "fases": [
@@ -5616,8 +6016,20 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "Dar continuidade no Primer Eng. Vinicius Martins RESPONSÁVEL PELO RDO                                       FISCALIZAÇÃO                                         CONTRATADA",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-15"
+   "respNome": "Vinicius",
+   "respData": "2026-07-15",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Roberty Rodrigues dos Santos",
+    "Iramilton Madeira da Conceissão"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f14",
+    "f7"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi12",
@@ -5628,14 +6040,14 @@
    "obraInferida": false,
    "data": "2026-07-15",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "03",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Roberty Rodrigues dos Santos",
-    "Iramilton Madeira da Conceissão"
+    "Wanderson",
+    "Roberty",
+    "Iramilton"
    ],
    "pessoas": 3,
    "fases": [
@@ -5666,8 +6078,20 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "Dar continuidade no Primer Eng. Vinicius Martins RESPONSÁVEL PELO RDO                                       FISCALIZAÇÃO                                           CONTRATADA",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-15"
+   "respNome": "Vinicius",
+   "respData": "2026-07-15",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Roberty Rodrigues dos Santos",
+    "Iramilton Madeira da Conceissão"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f14",
+    "f7"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi13",
@@ -5678,14 +6102,14 @@
    "obraInferida": false,
    "data": "2026-07-16",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Iramilton Madeira da Conceissão",
-    "Roberty Rodrigues dos Santos"
+    "Wanderson",
+    "Iramilton",
+    "Roberty"
    ],
    "pessoas": 3,
    "fases": [],
@@ -5707,8 +6131,20 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "Realizar 2°demão de primer na área liberada (1000m²) Eng. Vinicius Martins RESPONSÁVEL PELO RDO                                       FISCALIZAÇÃO                                        CONTRATADA",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-16"
+   "respNome": "Vinicius",
+   "respData": "2026-07-16",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Iramilton Madeira da Conceissão",
+    "Roberty Rodrigues dos Santos"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f14"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi14",
@@ -5719,14 +6155,14 @@
    "obraInferida": false,
    "data": "2026-07-17",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "5",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Iramilton Madeira da Conceissão",
-    "Roberty Rodrigues dos Santos"
+    "Wanderson",
+    "Iramilton",
+    "Roberty"
    ],
    "pessoas": 3,
    "fases": [],
@@ -5748,8 +6184,20 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-17"
+   "respNome": "Vinicius",
+   "respData": "2026-07-17",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Iramilton Madeira da Conceissão",
+    "Roberty Rodrigues dos Santos"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f14"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi15",
@@ -5760,14 +6208,14 @@
    "obraInferida": false,
    "data": "2026-07-20",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "5",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Iramilton Madeira da Conceissão",
-    "Roberty Rodrigues dos Santos"
+    "Wanderson",
+    "Iramilton",
+    "Roberty"
    ],
    "pessoas": 3,
    "fases": [],
@@ -5789,8 +6237,20 @@
    "fotos": [],
    "fotosQtd": 9,
    "proximo": "Lixamento com Resinados",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-20"
+   "respNome": "Vinicius",
+   "respData": "2026-07-20",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Iramilton Madeira da Conceissão",
+    "Roberty Rodrigues dos Santos"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f14"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi16",
@@ -5801,14 +6261,14 @@
    "obraInferida": false,
    "data": "2026-07-21",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "07",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Iramilton Madeira da Conceissão",
-    "Roberty Rodrigues dos Santos"
+    "Wanderson",
+    "Iramilton",
+    "Roberty"
    ],
    "pessoas": 3,
    "fases": [],
@@ -5828,8 +6288,20 @@
    "fotos": [],
    "fotosQtd": 3,
    "proximo": "Finalizar o lixamento total",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-21"
+   "respNome": "Vinicius",
+   "respData": "2026-07-21",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Iramilton Madeira da Conceissão",
+    "Roberty Rodrigues dos Santos"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f14"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi17",
@@ -5840,14 +6312,14 @@
    "obraInferida": false,
    "data": "2026-07-22",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "08",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Iramilton Madeira da Conceissão",
-    "Roberty Rodrigues dos Santos"
+    "Wanderson",
+    "Iramilton",
+    "Roberty"
    ],
    "pessoas": 3,
    "fases": [],
@@ -5869,8 +6341,20 @@
    "fotos": [],
    "fotosQtd": 8,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-22"
+   "respNome": "Vinicius",
+   "respData": "2026-07-22",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Iramilton Madeira da Conceissão",
+    "Roberty Rodrigues dos Santos"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f14"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi18",
@@ -5881,14 +6365,15 @@
    "obraInferida": false,
    "data": "2026-07-20",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "06",
    "maoObra": [
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Oliver Rodrigues de Sousa",
-    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+    "Claudiney",
+    "Antônio Oliver",
+    "Romário",
+    "Walace"
    ],
    "pessoas": 4,
    "fases": [
@@ -5916,8 +6401,21 @@
    "fotos": [],
    "fotosQtd": 19,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-20"
+   "respNome": "Vinicius",
+   "respData": "2026-07-20",
+   "maoObraOrig": [
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Oliver Rodrigues de Sousa",
+    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+   ],
+   "maoObraIds": [
+    "f6",
+    "f1",
+    "f9",
+    "f16"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi19",
@@ -5950,7 +6448,10 @@
    "fotosQtd": 0,
    "proximo": "",
    "respNome": "",
-   "respData": "2026-07-23"
+   "respData": "2026-07-23",
+   "maoObraOrig": [],
+   "maoObraIds": [],
+   "pessoasConferidas": 0
   },
   {
    "id": "rdoi20",
@@ -5983,7 +6484,10 @@
    "fotosQtd": 0,
    "proximo": "",
    "respNome": "",
-   "respData": "2026-07-24"
+   "respData": "2026-07-24",
+   "maoObraOrig": [],
+   "maoObraIds": [],
+   "pessoasConferidas": 0
   },
   {
    "id": "rdoi21",
@@ -5994,14 +6498,15 @@
    "obraInferida": false,
    "data": "2026-07-23",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "09",
    "maoObra": [
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Oliver Rodrigues de Sousa",
-    "Walace Jedai Antunes Pickina Romario Oliveira de Sousa"
+    "Claudiney",
+    "Antônio Oliver",
+    "Walace",
+    "Romário"
    ],
    "pessoas": 4,
    "fases": [
@@ -6029,8 +6534,21 @@
    "fotos": [],
    "fotosQtd": 2,
    "proximo": "Iniciar check list. Para realizar raspadinha.",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-23"
+   "respNome": "Vinicius",
+   "respData": "2026-07-23",
+   "maoObraOrig": [
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Oliver Rodrigues de Sousa",
+    "Walace Jedai Antunes Pickina Romario Oliveira de Sousa"
+   ],
+   "maoObraIds": [
+    "f6",
+    "f1",
+    "f16",
+    "f9"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi22",
@@ -6041,14 +6559,15 @@
    "obraInferida": false,
    "data": "2026-07-24",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "10",
    "maoObra": [
-    "Antonio Oliver Rodrigues de Sousa",
-    "Walace Jedai Antunes Pickina",
-    "Romario Oliveira de Sousa Antonio Claudiney Barbosa dos Santos"
+    "Antônio Oliver",
+    "Walace",
+    "Romário",
+    "Claudiney"
    ],
    "pessoas": 4,
    "fases": [],
@@ -6070,8 +6589,21 @@
    "fotos": [],
    "fotosQtd": 4,
    "proximo": "Fazer a 2ºDemão de Primer na parte Junta D e Lixar a parte da Junta ABC",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-24"
+   "respNome": "Vinicius",
+   "respData": "2026-07-24",
+   "maoObraOrig": [
+    "Antonio Oliver Rodrigues de Sousa",
+    "Walace Jedai Antunes Pickina",
+    "Romario Oliveira de Sousa Antonio Claudiney Barbosa dos Santos"
+   ],
+   "maoObraIds": [
+    "f1",
+    "f16",
+    "f9",
+    "f6"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi23",
@@ -6082,14 +6614,15 @@
    "obraInferida": false,
    "data": "2026-07-28",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "12",
    "maoObra": [
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Oliver Rodrigues de Sousa",
-    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+    "Claudiney",
+    "Antônio Oliver",
+    "Romário",
+    "Walace"
    ],
    "pessoas": 4,
    "fases": [],
@@ -6109,8 +6642,21 @@
    "fotos": [],
    "fotosQtd": 5,
    "proximo": "PINTURA !!!!!!!!!!!!",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-28"
+   "respNome": "Vinicius",
+   "respData": "2026-07-28",
+   "maoObraOrig": [
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Oliver Rodrigues de Sousa",
+    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+   ],
+   "maoObraIds": [
+    "f6",
+    "f1",
+    "f9",
+    "f16"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi24",
@@ -6121,14 +6667,15 @@
    "obraInferida": false,
    "data": "2026-07-27",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "11",
    "maoObra": [
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Oliver Rodrigues de Sousa",
-    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+    "Claudiney",
+    "Antônio Oliver",
+    "Romário",
+    "Walace"
    ],
    "pessoas": 4,
    "fases": [],
@@ -6150,8 +6697,21 @@
    "fotos": [],
    "fotosQtd": 4,
    "proximo": "PINTURA CINZA (VAGAS)",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-27"
+   "respNome": "Vinicius",
+   "respData": "2026-07-27",
+   "maoObraOrig": [
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Oliver Rodrigues de Sousa",
+    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+   ],
+   "maoObraIds": [
+    "f6",
+    "f1",
+    "f9",
+    "f16"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi25",
@@ -6162,14 +6722,15 @@
    "obraInferida": false,
    "data": "2026-07-21",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "07",
    "maoObra": [
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Oliver Rodrigues de Sousa",
-    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+    "Claudiney",
+    "Antônio Oliver",
+    "Romário",
+    "Walace"
    ],
    "pessoas": 4,
    "fases": [],
@@ -6189,8 +6750,21 @@
    "fotos": [],
    "fotosQtd": 20,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-21"
+   "respNome": "Vinicius",
+   "respData": "2026-07-21",
+   "maoObraOrig": [
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Oliver Rodrigues de Sousa",
+    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+   ],
+   "maoObraIds": [
+    "f6",
+    "f1",
+    "f9",
+    "f16"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi26",
@@ -6201,14 +6775,15 @@
    "obraInferida": false,
    "data": "2026-07-22",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "08",
    "maoObra": [
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Oliver Rodrigues de Sousa",
-    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+    "Claudiney",
+    "Antônio Oliver",
+    "Romário",
+    "Walace"
    ],
    "pessoas": 4,
    "fases": [
@@ -6236,8 +6811,21 @@
    "fotos": [],
    "fotosQtd": 5,
    "proximo": "2°Demão de Primer nos 2400m²",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-22"
+   "respNome": "Vinicius",
+   "respData": "2026-07-22",
+   "maoObraOrig": [
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Oliver Rodrigues de Sousa",
+    "Romario Oliveira de Sousa Walace Jedai Antunes Pickina"
+   ],
+   "maoObraIds": [
+    "f6",
+    "f1",
+    "f9",
+    "f16"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi27",
@@ -6248,14 +6836,14 @@
    "obraInferida": false,
    "data": "2026-07-28",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "12",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Iramilton Madeira da Conceissão",
-    "Roberty Rodrigues dos Santos"
+    "Wanderson",
+    "Iramilton",
+    "Roberty"
    ],
    "pessoas": 3,
    "fases": [
@@ -6283,8 +6871,20 @@
    "fotos": [],
    "fotosQtd": 3,
    "proximo": "Marcar pontos no 2ºSubsolo",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-07-28"
+   "respNome": "Vinicius",
+   "respData": "2026-07-28",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Iramilton Madeira da Conceissão",
+    "Roberty Rodrigues dos Santos"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f14"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 3
   },
   {
    "id": "rdoi28",
@@ -6300,9 +6900,10 @@
    "climaTxt": "",
    "diaTxt": "",
    "maoObra": [
-    "Walace Jedai Antunes Pickina",
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Oliver Rodrigues de Sousa Romario Oliveira de Sousa"
+    "Walace",
+    "Claudiney",
+    "Antônio Oliver",
+    "Romário"
    ],
    "pessoas": 4,
    "fases": [
@@ -6329,7 +6930,19 @@
    "fotosQtd": 3,
    "proximo": "Pintura Azul",
    "respNome": "",
-   "respData": "2026-07-29"
+   "respData": "2026-07-29",
+   "maoObraOrig": [
+    "Walace Jedai Antunes Pickina",
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Oliver Rodrigues de Sousa Romario Oliveira de Sousa"
+   ],
+   "maoObraIds": [
+    "f16",
+    "f6",
+    "f1",
+    "f9"
+   ],
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi29",
@@ -6340,14 +6953,15 @@
    "obraInferida": false,
    "data": "2026-08-03",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "",
    "maoObra": [
-    "Walace Jedai Antunes Pickina",
-    "Romario Oliveira de Sousa",
-    "Antonio Claudiney Barbosa dos Santos Antonio Oliver Rodrigues de Sousa"
+    "Walace",
+    "Romário",
+    "Claudiney",
+    "Antônio Oliver"
    ],
    "pessoas": 4,
    "fases": [],
@@ -6365,8 +6979,21 @@
    "fotos": [],
    "fotosQtd": 10,
    "proximo": "Raspadinha 1100m²",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-08-03"
+   "respNome": "Vinicius",
+   "respData": "2026-08-03",
+   "maoObraOrig": [
+    "Walace Jedai Antunes Pickina",
+    "Romario Oliveira de Sousa",
+    "Antonio Claudiney Barbosa dos Santos Antonio Oliver Rodrigues de Sousa"
+   ],
+   "maoObraIds": [
+    "f16",
+    "f9",
+    "f6",
+    "f1"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi30",
@@ -6377,14 +7004,15 @@
    "obraInferida": false,
    "data": "2026-08-20",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Thiaguinho (Completar INFO)",
-    "Samuel (COMPLETAR INFO) Antonio Claudiney Barbosa dos Santos"
+    "Wanderson",
+    "Thiago",
+    "Samuel",
+    "Claudiney"
    ],
    "pessoas": 4,
    "fases": [],
@@ -6402,8 +7030,21 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-08-20"
+   "respNome": "Vinicius",
+   "respData": "2026-08-20",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Thiaguinho (Completar INFO)",
+    "Samuel (COMPLETAR INFO) Antonio Claudiney Barbosa dos Santos"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f8",
+    "f5",
+    "f6"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 4
   },
   {
    "id": "rdoi31",
@@ -6414,16 +7055,17 @@
    "obraInferida": false,
    "data": "2026-08-24",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "",
    "maoObra": [
-    "Samuel (COMPLETAR INFO)",
-    "Thiaguinho (Completar INFO)",
-    "Walace Jedai Antunes Pickina",
-    "Jhones dos Santos de Souza Antonio Wanderson Nascimento da Silva",
-    "Antonio Claudiney Barbosa dos Santos"
+    "Samuel",
+    "Thiago",
+    "Walace",
+    "Jhone",
+    "Wanderson",
+    "Claudiney"
    ],
    "pessoas": 6,
    "fases": [],
@@ -6443,8 +7085,25 @@
    "fotos": [],
    "fotosQtd": 14,
    "proximo": "Lixamento de Piso de Concreto - 1ºSubsolo Junta ABCD Pintura Barrado - 2ºSubsolo Junta ABCD Pintura Branco - 1º Subsolo Junta ABCD",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-08-24"
+   "respNome": "Vinicius",
+   "respData": "2026-08-24",
+   "maoObraOrig": [
+    "Samuel (COMPLETAR INFO)",
+    "Thiaguinho (Completar INFO)",
+    "Walace Jedai Antunes Pickina",
+    "Jhones dos Santos de Souza Antonio Wanderson Nascimento da Silva",
+    "Antonio Claudiney Barbosa dos Santos"
+   ],
+   "maoObraIds": [
+    "f5",
+    "f8",
+    "f16",
+    "f10",
+    "f2",
+    "f6"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 6
   },
   {
    "id": "rdoi32",
@@ -6455,13 +7114,13 @@
    "obraInferida": false,
    "data": "2026-08-24",
    "titulo": "RDO Compizzo — BRASAL LAGO SUL - ORLA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "43",
    "maoObra": [
-    "Romario Oliveira de Sousa",
-    "Iramilton Madeira da Conceissão"
+    "Romário",
+    "Iramilton"
    ],
    "pessoas": 2,
    "fases": [
@@ -6487,8 +7146,18 @@
    "fotos": [],
    "fotosQtd": 3,
    "proximo": "Aspiração p/ Primer.",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-08-24"
+   "respNome": "Vinicius",
+   "respData": "2026-08-24",
+   "maoObraOrig": [
+    "Romario Oliveira de Sousa",
+    "Iramilton Madeira da Conceissão"
+   ],
+   "maoObraIds": [
+    "f9",
+    "f7"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 2
   },
   {
    "id": "rdoi33",
@@ -6523,7 +7192,10 @@
    "fotosQtd": 0,
    "proximo": "",
    "respNome": "",
-   "respData": "2026-08-25"
+   "respData": "2026-08-25",
+   "maoObraOrig": [],
+   "maoObraIds": [],
+   "pessoasConferidas": 0
   },
   {
    "id": "rdoi34",
@@ -6539,12 +7211,13 @@
    "climaTxt": "",
    "diaTxt": "44",
    "maoObra": [
-    "Walace Jedai Antunes Pickina",
-    "Romario Oliveira de Sousa",
-    "Jhones dos Santos de Souza",
-    "Iramilton Madeira da Conceissão Antonio Wanderson Nascimento da Silva",
-    "Antonio Oliver Rodrigues de Sousa",
-    "Antonio Claudiney Barbosa dos Santos"
+    "Walace",
+    "Romário",
+    "Jhone",
+    "Iramilton",
+    "Wanderson",
+    "Antônio Oliver",
+    "Claudiney"
    ],
    "pessoas": 7,
    "fases": [],
@@ -6568,7 +7241,25 @@
    "fotosQtd": 0,
    "proximo": "",
    "respNome": "",
-   "respData": "2026-08-25"
+   "respData": "2026-08-25",
+   "maoObraOrig": [
+    "Walace Jedai Antunes Pickina",
+    "Romario Oliveira de Sousa",
+    "Jhones dos Santos de Souza",
+    "Iramilton Madeira da Conceissão Antonio Wanderson Nascimento da Silva",
+    "Antonio Oliver Rodrigues de Sousa",
+    "Antonio Claudiney Barbosa dos Santos"
+   ],
+   "maoObraIds": [
+    "f16",
+    "f9",
+    "f10",
+    "f7",
+    "f2",
+    "f1",
+    "f6"
+   ],
+   "pessoasConferidas": 7
   },
   {
    "id": "rdoi35",
@@ -6579,16 +7270,18 @@
    "obraInferida": false,
    "data": "2026-08-26",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "46",
    "maoObra": [
-    "Antonio Wanderson Nascimento da Silva",
-    "Antonio Claudiney Barbosa dos Santos",
-    "Jhones dos Santos de Souza Romario Oliveira de Sousa",
-    "FRANCISCO RONIELE ALVES ARAUJO",
-    "SAMUEL CARDOSO PEREIRA DE MESQUITA Antonio Cicero"
+    "Wanderson",
+    "Claudiney",
+    "Jhone",
+    "Romário",
+    "Roniele",
+    "Samuel",
+    "Antonio Cicero"
    ],
    "pessoas": 7,
    "fases": [
@@ -6626,8 +7319,26 @@
    "fotos": [],
    "fotosQtd": 10,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-08-26"
+   "respNome": "Vinicius",
+   "respData": "2026-08-26",
+   "maoObraOrig": [
+    "Antonio Wanderson Nascimento da Silva",
+    "Antonio Claudiney Barbosa dos Santos",
+    "Jhones dos Santos de Souza Romario Oliveira de Sousa",
+    "FRANCISCO RONIELE ALVES ARAUJO",
+    "SAMUEL CARDOSO PEREIRA DE MESQUITA Antonio Cicero"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f6",
+    "f10",
+    "f9",
+    "f3",
+    "f5",
+    "f13"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 7
   },
   {
    "id": "rdoi36",
@@ -6638,12 +7349,12 @@
    "obraInferida": false,
    "data": "2026-08-31",
    "titulo": "RDO Compizzo — EXCELLENCE PKS - CONDOMINIO",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "1",
    "maoObra": [
-    "Jhones dos Santos de Souza"
+    "Jhone"
    ],
    "pessoas": 1,
    "fases": [
@@ -6678,8 +7389,16 @@
    "fotos": [],
    "fotosQtd": 2,
    "proximo": "Dar continuidade no primer 1ºdemão. Junta A.B.C.D 1ºSubsolo.",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-08-31"
+   "respNome": "Vinicius",
+   "respData": "2026-08-31",
+   "maoObraOrig": [
+    "Jhones dos Santos de Souza"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 1
   },
   {
    "id": "rdoi37",
@@ -6690,12 +7409,12 @@
    "obraInferida": false,
    "data": "2026-09-01",
    "titulo": "RDO Compizzo — EXCELLENCE PKS - CONDOMINIO",
-   "responsavel": "Antônio Cícero",
+   "responsavel": "Antonio Cicero",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "2",
    "maoObra": [
-    "Jhones dos Santos de Souza"
+    "Jhone"
    ],
    "pessoas": 1,
    "fases": [],
@@ -6715,8 +7434,16 @@
    "fotos": [],
    "fotosQtd": 3,
    "proximo": "",
-   "respNome": "Antônio Cícero",
-   "respData": "2026-09-01"
+   "respNome": "Antonio Cicero",
+   "respData": "2026-09-01",
+   "maoObraOrig": [
+    "Jhones dos Santos de Souza"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "responsavelId": "f13",
+   "pessoasConferidas": 1
   },
   {
    "id": "rdoi38",
@@ -6727,7 +7454,7 @@
    "obraInferida": false,
    "data": "2026-09-01",
    "titulo": "RDO Compizzo — SQS 314 Bloco D",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "2",
@@ -6753,8 +7480,12 @@
    "fotos": [],
    "fotosQtd": 0,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-09-01"
+   "respNome": "Vinicius",
+   "respData": "2026-09-01",
+   "maoObraOrig": [],
+   "maoObraIds": [],
+   "responsavelId": "f17",
+   "pessoasConferidas": 0
   },
   {
    "id": "rdoi39",
@@ -6765,16 +7496,17 @@
    "obraInferida": false,
    "data": "2026-09-01",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Antonio Wanderson Nascimento da Silva",
+   "responsavel": "Wanderson",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "",
    "maoObra": [
-    "Antonio Claudiney Barbosa dos Santos",
-    "Antonio Wanderson Nascimento da Silva",
-    "Romario Oliveira de Sousa TIAGO RODRIGUES BARBOSA",
-    "SAMUEL CARDOSO PEREIRA DE MESQUITA",
-    "FRANCISCO RONIELE ALVES ARAUJO"
+    "Claudiney",
+    "Wanderson",
+    "Romário",
+    "Thiago",
+    "Samuel",
+    "Roniele"
    ],
    "pessoas": 6,
    "fases": [
@@ -6800,8 +7532,25 @@
    "fotos": [],
    "fotosQtd": 4,
    "proximo": "",
-   "respNome": "Antonio Wanderson Nascimento da Silva",
-   "respData": "2026-09-01"
+   "respNome": "Wanderson",
+   "respData": "2026-09-01",
+   "maoObraOrig": [
+    "Antonio Claudiney Barbosa dos Santos",
+    "Antonio Wanderson Nascimento da Silva",
+    "Romario Oliveira de Sousa TIAGO RODRIGUES BARBOSA",
+    "SAMUEL CARDOSO PEREIRA DE MESQUITA",
+    "FRANCISCO RONIELE ALVES ARAUJO"
+   ],
+   "maoObraIds": [
+    "f6",
+    "f2",
+    "f9",
+    "f8",
+    "f5",
+    "f3"
+   ],
+   "responsavelId": "f2",
+   "pessoasConferidas": 6
   },
   {
    "id": "rdoi40",
@@ -6812,16 +7561,17 @@
    "obraInferida": false,
    "data": "2026-09-02",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "",
    "maoObra": [
-    "SAMUEL CARDOSO PEREIRA DE MESQUITA",
-    "TIAGO RODRIGUES BARBOSA",
-    "FRANCISCO RONIELE ALVES ARAUJO Romario Oliveira de Sousa",
-    "Antonio Wanderson Nascimento da Silva",
-    "Antonio Claudiney Barbosa dos Santos"
+    "Samuel",
+    "Thiago",
+    "Roniele",
+    "Romário",
+    "Wanderson",
+    "Claudiney"
    ],
    "pessoas": 6,
    "fases": [
@@ -6858,8 +7608,25 @@
    "fotos": [],
    "fotosQtd": 14,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-09-02"
+   "respNome": "Vinicius",
+   "respData": "2026-09-02",
+   "maoObraOrig": [
+    "SAMUEL CARDOSO PEREIRA DE MESQUITA",
+    "TIAGO RODRIGUES BARBOSA",
+    "FRANCISCO RONIELE ALVES ARAUJO Romario Oliveira de Sousa",
+    "Antonio Wanderson Nascimento da Silva",
+    "Antonio Claudiney Barbosa dos Santos"
+   ],
+   "maoObraIds": [
+    "f5",
+    "f8",
+    "f3",
+    "f9",
+    "f2",
+    "f6"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 6
   },
   {
    "id": "rdoi41",
@@ -6870,7 +7637,7 @@
    "obraInferida": false,
    "data": "2026-09-03",
    "titulo": "RDO Compizzo — SQS 314 Bloco D",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "",
@@ -6903,8 +7670,12 @@
    "fotos": [],
    "fotosQtd": 3,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-09-03"
+   "respNome": "Vinicius",
+   "respData": "2026-09-03",
+   "maoObraOrig": [],
+   "maoObraIds": [],
+   "responsavelId": "f17",
+   "pessoasConferidas": 0
   },
   {
    "id": "rdoi42",
@@ -6915,12 +7686,12 @@
    "obraInferida": false,
    "data": "2026-09-02",
    "titulo": "RDO Compizzo — EXCELLENCE PKS - CONDOMINIO",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Sol",
    "climaTxt": "",
    "diaTxt": "3",
    "maoObra": [
-    "Jhones dos Santos de Souza"
+    "Jhone"
    ],
    "pessoas": 1,
    "fases": [],
@@ -6938,8 +7709,16 @@
    "fotos": [],
    "fotosQtd": 4,
    "proximo": "",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-09-02"
+   "respNome": "Vinicius",
+   "respData": "2026-09-02",
+   "maoObraOrig": [
+    "Jhones dos Santos de Souza"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 1
   },
   {
    "id": "rdoi43",
@@ -6950,17 +7729,19 @@
    "obraInferida": false,
    "data": "2026-09-08",
    "titulo": "RDO Compizzo — SUPERA",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Chuva",
    "climaTxt": "",
    "diaTxt": "9",
    "maoObra": [
-    "Francisco Renan (FALTA INFOS)",
-    "SAMUEL CARDOSO PEREIRA DE MESQUITA",
-    "TIAGO RODRIGUES BARBOSA FRANCISCO RONIELE ALVES ARAUJO",
-    "Romario Oliveira de Sousa",
-    "Iramilton Madeira da Conceissão Antonio Wanderson Nascimento da Silva",
-    "Antonio Claudiney Barbosa dos Santos"
+    "Renan",
+    "Samuel",
+    "Thiago",
+    "Roniele",
+    "Romário",
+    "Iramilton",
+    "Wanderson",
+    "Claudiney"
    ],
    "pessoas": 8,
    "fases": [],
@@ -6982,8 +7763,28 @@
    "fotos": [],
    "fotosQtd": 20,
    "proximo": "Execução de Pintura AZUL Junta A/B/C/D",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-09-08"
+   "respNome": "Vinicius",
+   "respData": "2026-09-08",
+   "maoObraOrig": [
+    "Francisco Renan (FALTA INFOS)",
+    "SAMUEL CARDOSO PEREIRA DE MESQUITA",
+    "TIAGO RODRIGUES BARBOSA FRANCISCO RONIELE ALVES ARAUJO",
+    "Romario Oliveira de Sousa",
+    "Iramilton Madeira da Conceissão Antonio Wanderson Nascimento da Silva",
+    "Antonio Claudiney Barbosa dos Santos"
+   ],
+   "maoObraIds": [
+    "f4",
+    "f5",
+    "f8",
+    "f3",
+    "f9",
+    "f7",
+    "f2",
+    "f6"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 8
   },
   {
    "id": "rdoi44",
@@ -6994,7 +7795,7 @@
    "obraInferida": false,
    "data": "2026-09-08",
    "titulo": "RDO Compizzo — SQS 314 Bloco D",
-   "responsavel": "Vinicius de Carvalho Martins",
+   "responsavel": "Vinicius",
    "clima": "Nublado",
    "climaTxt": "",
    "diaTxt": "",
@@ -7017,8 +7818,16 @@
    "fotos": [],
    "fotosQtd": 6,
    "proximo": "Revisão final de lixamento do piso, pintura branca paredes, tetos",
-   "respNome": "Vinicius de Carvalho Martins",
-   "respData": "2026-09-08"
+   "respNome": "Vinicius",
+   "respData": "2026-09-08",
+   "maoObraOrig": [
+    "Antonio Cicero"
+   ],
+   "maoObraIds": [
+    "f13"
+   ],
+   "responsavelId": "f17",
+   "pessoasConferidas": 1
   }
  ],
  "metaMensal": {

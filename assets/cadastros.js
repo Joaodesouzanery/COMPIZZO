@@ -4,6 +4,7 @@ const FUNC_STATUS = ['Ativo', 'Férias', 'Afastado', 'Desligado'];
 const CONTRATOS = ['CLT', 'PJ', 'Terceirizado', 'Autônomo', 'Estágio', 'Aprendiz'];
 const REGIMES = ['Padrão (5x2)', '6x1', '12x36', 'Escala 4x2', 'Sob demanda'];
 const numOrNull = v => (v === '' || v == null || isNaN(parseBR(v)) ? null : parseBR(v));
+function rdoObrasOf(f) { const c = {}; (S.rdos || []).forEach(r => { if ((r.maoObra || []).includes(f.nome)) c[r.obraId] = (c[r.obraId] || 0) + 1; }); const l = Object.entries(c).sort((a, b) => b[1] - a[1]); return l.length ? l.map(([o, n]) => `${esc(short ? short(obraNome(o)) : obraNome(o))} <small style="color:var(--mut)">(${n})</small>`).join('<br>') : '<small style="color:var(--mut)">—</small>'; }
 const eff = (f, k) => (f[k] != null ? f[k] : ((S.cargos.find(c => c.nome === f.funcao) || {})[k] ?? null));
 
 function formModal(title, fields, v, action) {
@@ -18,7 +19,8 @@ function formModal(title, fields, v, action) {
 const readForm = fields => { const o = {}; for (const f of fields) { const el = $('#ff_' + f.k); o[f.k] = f.t === 'num' ? numOrNull(el.value) : el.value.trim(); } return o; };
 
 const FUNC_FIELDS = () => [
-  { k: 'nome', l: 'Nome completo', req: 1, w: 1 },
+  { k: 'nome', l: 'Nome (como aparece nas telas)', req: 1 },
+  { k: 'nomeCompleto', l: 'Nome completo', hint: 'como nos RDOs' },
   { k: 'funcao', l: 'Função / Cargo', req: 1, t: 'select', opts: ['', ...S.cargos.map(c => c.nome)] },
   { k: 'matricula', l: 'Matrícula', ph: 'MAT-0001' },
   { k: 'setor', l: 'Departamento / Setor', ph: 'Frente de Trabalho' },
@@ -39,7 +41,7 @@ CAD.func = () => {
   const list = S.funcionarios.filter(f => (!q || norm(f.nome + ' ' + (f.funcao || '')).includes(q)) && (fs === 'all' || (f.status || 'Ativo') === fs) && (obraF === 'all' || f.obraId === obraF));
   const eq = id => (S.equipes.find(e => e.id === id) || {}).nome || '—';
   return `<div class="row sp" style="margin-bottom:12px"><div class="row"><input id="fq" placeholder="Buscar…" value="${esc(tab.fq || '')}"><div class="tabs" style="margin:0">${['Ativo', 'Férias', 'Afastado', 'Desligado', 'all'].map(k => `<button data-ffs="${k}" class="${fs === k ? 'on' : ''}">${k === 'all' ? 'Todos' : k}</button>`).join('')}</div></div><button class="btn pri" data-cad="newFunc">Novo funcionário</button></div>
-  <div class="card tw"><table><tr><th>Nome</th><th>Cargo</th><th>Obra / Local</th><th>Equipe</th><th>Contrato</th><th>Regime</th><th>Status</th><th class="n">Taxa/h</th><th class="n">Salário</th><th class="n">HE sáb/dom</th><th></th></tr>${list.map(f => `<tr><td><b>${esc(f.nome)}</b><small style="display:block;color:var(--mut)">${esc(f.matricula || '')}${f.admissao ? ' · adm. ' + fdate(f.admissao) : ''}</small></td><td>${esc(f.funcao || '—')}</td><td>${esc(f.obraId ? obraNome(f.obraId) : f.local || '—')}</td><td>${esc(eq(f.equipeId))}</td><td>${esc(f.contrato || '')}</td><td>${esc(f.regime || '')}</td><td><span class="pill ${f.status === 'Ativo' || !f.status ? 'g' : f.status === 'Desligado' ? 'r' : 'a'}">${esc(f.status || 'Ativo')}</span></td><td class="n">${f.taxaHora != null ? brl(f.taxaHora) : '—'}</td><td class="n">${f.salario != null ? brl(f.salario) : '—'}</td><td class="n">${eff(f, 'heSab') != null ? brl(eff(f, 'heSab')) : '—'} / ${eff(f, 'heDom') != null ? brl(eff(f, 'heDom')) : '—'}</td><td><button class="btn sm" data-cad="editFunc:${f.id}">Editar</button></td></tr>`).join('') || '<tr><td colspan="11">Nenhum funcionário.</td></tr>'}</table></div>`;
+  <div class="card tw"><table><tr><th>Nome</th><th>Cargo</th><th>Obra / Local</th><th>Obras nos RDOs</th><th>Equipe</th><th>Contrato</th><th>Regime</th><th>Status</th><th class="n">Taxa/h</th><th class="n">Salário</th><th class="n">HE sáb/dom</th><th></th></tr>${list.map(f => `<tr><td><b>${esc(f.nome)}</b>${f.nomeCompleto && f.nomeCompleto !== f.nome ? `<small style="display:block;color:var(--mut)">${esc(f.nomeCompleto)}</small>` : ''}<small style="display:block;color:var(--mut)">${esc(f.matricula || '')}${f.admissao ? ' · adm. ' + fdate(f.admissao) : ''}</small></td><td>${esc(f.funcao || '—')}</td><td>${esc(f.obraId ? obraNome(f.obraId) : f.local || '—')}</td><td>${rdoObrasOf(f)}</td><td>${esc(eq(f.equipeId))}</td><td>${esc(f.contrato || '')}</td><td>${esc(f.regime || '')}</td><td><span class="pill ${f.status === 'Ativo' || !f.status ? 'g' : f.status === 'Desligado' ? 'r' : 'a'}">${esc(f.status || 'Ativo')}</span></td><td class="n">${f.taxaHora != null ? brl(f.taxaHora) : '—'}</td><td class="n">${f.salario != null ? brl(f.salario) : '—'}</td><td class="n">${eff(f, 'heSab') != null ? brl(eff(f, 'heSab')) : '—'} / ${eff(f, 'heDom') != null ? brl(eff(f, 'heDom')) : '—'}</td><td><button class="btn sm" data-cad="editFunc:${f.id}">Editar</button></td></tr>`).join('') || '<tr><td colspan="12">Nenhum funcionário.</td></tr>'}</table></div>`;
 };
 CAD.equipes = () => `<div class="row sp" style="margin-bottom:12px"><p class="sub" style="margin:0">Equipes são formadas pelos funcionários vinculados a elas.</p><button class="btn pri" data-cad="newEq">Nova equipe</button></div>
   <div class="grid g3">${S.equipes.map(e => { const m = S.funcionarios.filter(f => f.equipeId === e.id && f.status !== 'Desligado'); return `<div class="card"><div class="row sp"><h2>${esc(e.nome)}</h2><button class="btn sm" data-cad="editEq:${e.id}">Editar</button></div><div class="mono" style="margin:6px 0">${esc(obraNome(e.obraId))} · líder ${esc(e.lider || '—')}</div>${m.map(f => `<div class="row sp" style="padding:4px 0;border-bottom:1px solid var(--line)"><span>${esc(f.nome)}</span><small style="color:var(--mut)">${esc(f.funcao || '')}</small></div>`).join('') || '<small class="sub">Sem membros.</small>'}</div>`; }).join('')}</div>`;
@@ -59,7 +61,7 @@ EXT.click.push(async e => {
   else if (a === 'editFunc') { editId = id; const x = S.funcionarios.find(z => z.id === id); formModal('Editar funcionário', FUNC_FIELDS(), { ...x, taxaHora: MON(x.taxaHora), salario: MON(x.salario), heSab: MON(x.heSab), heDom: MON(x.heDom) }, 'saveFunc'); }
   else if (a === 'saveFunc') {
     const fl = FUNC_FIELDS(), o = readForm(fl); if (!o.nome || !o.funcao) return alert('Informe nome e função/cargo.'), true;
-    if (editId) Object.assign(S.funcionarios.find(z => z.id === editId), o); else S.funcionarios.push({ id: uid('f'), ...o });
+    if (editId) { const x = S.funcionarios.find(z => z.id === editId); if (o.nome !== x.nome) S.rdos.forEach(r => { r.maoObra = (r.maoObra || []).map(n => (n === x.nome ? o.nome : n)); if (r.responsavel === x.nome) r.responsavel = o.nome; }); Object.assign(x, o); } else S.funcionarios.push({ id: uid('f'), aliases: [], ...o });
     save(); closeModal(); render();
   }
   else if (a === 'newEq') { editId = null; formModal('Nova equipe', EQ_FIELDS(), {}, 'saveEq'); }

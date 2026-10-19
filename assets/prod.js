@@ -99,7 +99,7 @@ function rdoForm() {
 }
 function rdoList() {
   const list = S.rdos.filter(r => obraF === 'all' || r.obraId === obraF).sort((a, b) => b.data.localeCompare(a.data));
-  return `<div class="card tw"><table><tr><th>Data</th><th>Obra</th><th class="n">Dia</th><th class="n">m²</th><th class="n">RUP</th><th>Responsável</th><th>Status</th><th></th></tr>${list.map(r => { const c = rdoCalc(r), o = getObra(r.obraId); return `<tr><td>${fdate(r.data)}</td><td>${esc(o ? o.nome : '— sem obra —')}${r.importado ? ' <span class="pill">#' + r.numero + '</span>' : ''}</td><td class="n">${r.diaTxt || diaObra(o, r.data) || '—'}</td><td class="n">${num(c.m2)}</td><td class="n">${c.rup == null ? '—' : c.rup.toFixed(2).replace('.', ',')}</td><td>${esc(r.responsavel || '—')}</td><td><span class="pill ${r.status === 'salvo' ? 'g' : 'a'}">${r.status === 'salvo' ? 'Salvo' : 'Rascunho'}</span></td><td><button class="btn sm" data-rd="open:${r.id}">Abrir</button> <button class="btn sm" data-rd="del:${r.id}">Excluir</button></td></tr>`; }).join('') || '<tr><td colspan="8">Nenhum RDO ainda. Clique em “Novo RDO”.</td></tr>'}</table></div>`;
+  return `<div class="card tw"><table><tr><th>Data</th><th>Obra</th><th class="n">Dia</th><th class="n">m²</th><th class="n">RUP</th><th>Responsável / equipe</th><th>Status</th><th></th></tr>${list.map(r => { const c = rdoCalc(r), o = getObra(r.obraId); return `<tr><td>${fdate(r.data)}</td><td>${esc(o ? o.nome : '— sem obra —')}${r.importado ? ' <span class="pill">#' + r.numero + '</span>' : ''}</td><td class="n">${r.diaTxt || diaObra(o, r.data) || '—'}</td><td class="n">${num(c.m2)}</td><td class="n">${c.rup == null ? '—' : c.rup.toFixed(2).replace('.', ',')}</td><td>${esc(r.responsavel || '—')}${(r.maoObra || []).length ? `<small style="display:block;color:var(--mut)">${esc(r.maoObra.join(', '))}</small>` : ''}</td><td><span class="pill ${r.status === 'salvo' ? 'g' : 'a'}">${r.status === 'salvo' ? 'Salvo' : 'Rascunho'}</span></td><td><button class="btn sm" data-rd="open:${r.id}">Abrir</button> <button class="btn sm" data-rd="del:${r.id}">Excluir</button></td></tr>`; }).join('') || '<tr><td colspan="8">Nenhum RDO ainda. Clique em “Novo RDO”.</td></tr>'}</table></div>`;
 }
 function parseRdoTexto(txt) {
   const out = { fases: [], materiais: [] }; let sec = '';
@@ -123,9 +123,9 @@ function parseRdoTexto(txt) {
 function aplicaTexto(p) {
   const o = findObra(p.obra); if (o) rd.obraId = o.id;
   if (p.data) { const m = p.data.match(/(\d{2})\/(\d{2})\/(\d{4})/); if (m) rd.data = `${m[3]}-${m[2]}-${m[1]}`; }
-  if (p.responsavel) rd.responsavel = p.responsavel;
+  if (p.responsavel) { const f = findFunc(p.responsavel); rd.responsavel = f ? f.nome : p.responsavel; }
   if (p.clima) rd.clima = CLIMAS.find(c => norm(c) === norm(p.clima)) || 'Outros';
-  if (p.mao) rd.maoObra = [...new Set(p.mao.split(/,| e /).map(s => s.trim()).filter(Boolean))];
+  if (p.mao) rd.maoObra = [...new Set(p.mao.split(/,| e /).map(s => s.trim()).filter(Boolean).map(n => { const f = findFunc(n); return f ? f.nome : n; }))];
   if (p.descricao) rd.descricao = p.descricao; if (p.hh) rd.hh = parseBR(p.hh); if (p.sp) rd.horasSemProd = parseBR(p.sp);
   if (p.obs) rd.obs = p.obs; if (p.proximo) rd.proximo = p.proximo;
   if (p.eq) rd.equipamentos = p.eq.split(',').map(s => s.trim()).filter(Boolean);

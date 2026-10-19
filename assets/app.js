@@ -59,7 +59,13 @@ function matchMat(q) {
 }
 function findObra(name) {
   const n = norm(name || ''); if (!n) return null;
-  return S.obras.find(o => norm(o.nome) === n) || S.obras.find(o => norm(o.nome).includes(n) || n.includes(norm(o.nome))) || null;
+  const al = o => [norm(o.nome), ...(o.aliases || [])];
+  return S.obras.find(o => al(o).includes(n)) || S.obras.find(o => al(o).some(x => x && (x.includes(n) || n.includes(x)))) || null;
+}
+function findFunc(name) {
+  const n = norm(name || '').replace(/\(.*?\)/g, '').replace(/\./g, ' ').replace(/\s+/g, ' ').trim(); if (!n) return null;
+  const al = f => [norm(f.nome), norm(f.nomeCompleto || ''), ...(f.aliases || [])].filter(Boolean);
+  return S.funcionarios.find(f => al(f).includes(n)) || S.funcionarios.find(f => al(f).some(x => n.startsWith(x + ' ') || x.startsWith(n + ' '))) || null;
 }
 const retiradasF = () => S.retiradas.filter(r => obraF === 'all' || r.obraId === obraF);
 function boletoInfo(b) {
