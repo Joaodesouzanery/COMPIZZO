@@ -99,7 +99,7 @@ function rdoForm() {
 }
 function rdoList() {
   const list = S.rdos.filter(r => obraF === 'all' || r.obraId === obraF).sort((a, b) => b.data.localeCompare(a.data));
-  return `<div class="card tw"><table><tr><th>Data</th><th>Obra</th><th class="n">Dia</th><th class="n">m²</th><th class="n">RUP</th><th>Responsável</th><th>Status</th><th></th></tr>${list.map(r => { const c = rdoCalc(r), o = getObra(r.obraId); return `<tr><td>${fdate(r.data)}</td><td>${esc(o ? o.nome : '—')}</td><td class="n">${diaObra(o, r.data) ?? '—'}</td><td class="n">${num(c.m2)}</td><td class="n">${c.rup == null ? '—' : c.rup.toFixed(2).replace('.', ',')}</td><td>${esc(r.responsavel || '—')}</td><td><span class="pill ${r.status === 'salvo' ? 'g' : 'a'}">${r.status === 'salvo' ? 'Salvo' : 'Rascunho'}</span></td><td><button class="btn sm" data-rd="open:${r.id}">Abrir</button> <button class="btn sm" data-rd="del:${r.id}">Excluir</button></td></tr>`; }).join('') || '<tr><td colspan="8">Nenhum RDO ainda. Clique em “Novo RDO”.</td></tr>'}</table></div>`;
+  return `<div class="card tw"><table><tr><th>Data</th><th>Obra</th><th class="n">Dia</th><th class="n">m²</th><th class="n">RUP</th><th>Responsável</th><th>Status</th><th></th></tr>${list.map(r => { const c = rdoCalc(r), o = getObra(r.obraId); return `<tr><td>${fdate(r.data)}</td><td>${esc(o ? o.nome : '— sem obra —')}${r.importado ? ' <span class="pill">#' + r.numero + '</span>' : ''}</td><td class="n">${r.diaTxt || diaObra(o, r.data) || '—'}</td><td class="n">${num(c.m2)}</td><td class="n">${c.rup == null ? '—' : c.rup.toFixed(2).replace('.', ',')}</td><td>${esc(r.responsavel || '—')}</td><td><span class="pill ${r.status === 'salvo' ? 'g' : 'a'}">${r.status === 'salvo' ? 'Salvo' : 'Rascunho'}</span></td><td><button class="btn sm" data-rd="open:${r.id}">Abrir</button> <button class="btn sm" data-rd="del:${r.id}">Excluir</button></td></tr>`; }).join('') || '<tr><td colspan="8">Nenhum RDO ainda. Clique em “Novo RDO”.</td></tr>'}</table></div>`;
 }
 function parseRdoTexto(txt) {
   const out = { fases: [], materiais: [] }; let sec = '';
@@ -209,12 +209,68 @@ function parseCalTexto(txt, obraId) {
 }
 const names_inList = s => s.split(/,| e /).map(x => x.trim()).filter(x => x && S.funcionarios.some(f => norm(f.nome) === norm(x.replace(/\(.*\)/, '').trim()) || norm(f.nome).startsWith(norm(x.replace(/\(.*\)/, '').trim()))) ).map(x => x.replace(/\(.*\)/, '').trim());
 
+
+/* ---------- Cobertura diária de RDO ---------- */
+const FIRST_RDO = obraId => S.rdos.filter(r => r.obraId === obraId).map(r => r.data).sort()[0];
+function obraWindow(o) {
+  if (o.status === 'Programada' && !o.inicio) return null;
+  const ini = o.inicio || FIRST_RDO(o.id); if (!ini) return null;
+  const last = S.rdos.filter(r => r.obraId === o.id).map(r => r.data).sort().pop();
+  let fim = o.fim || (o.status === 'Concluída' ? last : today()); if (!fim) fim = today();
+  return { ini, fim: fim > today() ? today() : fim };
+}
+const diaUtil = d => dowIdx(d) < 6 && !S.feriados[d];
+function covData(mes) {
+  const [Y, M] = mes.split('-').map(Number), nd = new Date(Date.UTC(Y, M, 0)).getUTCDate();
+  const days = Array.from({ length: nd }, (_, i) => `${mes}-${String(i + 1).padStart(2, '0')}`);
+  const obras = S.obras.map(o => ({ o, w: obraWindow(o) }));
+  return { days, obras };
+}
+function covView() {
+  const all = S.rdos.map(r => r.data).sort(), first = all[0] || today().slice(0, 7) + '-01';
+  const meses = []; for (let m = first.slice(0, 7); m <= today().slice(0, 7);) { meses.push(m); const [y, mo] = m.split('-').map(Number); m = mo === 12 ? `${y + 1}-01` : `${y}-${String(mo + 1).padStart(2, '0')}`; }
+  const mes = tab.cvm && meses.includes(tab.cvm) ? tab.cvm : meses[meses.length - 1 - (meses.length > 1 && !S.rdos.some(r => r.data.startsWith(meses[meses.length - 1])) ? 1 : 0)];
+  const { days, obras } = covData(mes), show = tab.cvall ? obras : obras.filter(x => x.w && (obraF === 'all' || x.o.id === obraF) && x.w.fim >= days[0] && x.w.ini <= days[days.length - 1]);
+  const cols = (obraF === 'all' ? show : show.filter(x => x.o.id === obraF));
+  const byKey = {}; S.rdos.forEach(r => { (byKey[r.obraId + '|' + r.data] = byKey[r.obraId + '|' + r.data] || []).push(r); });
+  const rows = days.slice().reverse().filter(d => d <= today()).map(d => {
+    let exp = 0, ok = 0;
+    const cells = cols.map(({ o, w }) => {
+      const rs = byKey[o.id + '|' + d] || [], inWin = w && d >= w.ini && d <= w.fim, esperado = inWin && diaUtil(d);
+      const salvos = rs.filter(r => r.status === 'salvo'), dr = rs.filter(r => r.status !== 'salvo');
+      if (esperado) exp++; if (salvos.length) ok++;
+      if (salvos.length) { const m2 = salvos.reduce((a, r) => a + rdoCalc(r).m2, 0); return `<td><button class="cv ok" data-cv="open:${salvos[0].id}" title="${esc(salvos[0].titulo || '')}">✔ ${salvos.length > 1 ? salvos.length + ' RDOs' : 'RDO'}${m2 ? `<br>${num(m2)} m²` : ''}</button></td>`; }
+      if (dr.length) return `<td><button class="cv dr" data-cv="open:${dr[0].id}">◐ rascunho</button></td>`;
+      if (esperado) return `<td><button class="cv no" data-cv="new:${o.id}:${d}" title="Criar RDO">✖ sem RDO</button></td>`;
+      return `<td><span class="cv na">${inWin ? (S.feriados[d] ? 'feriado' : '') : '▫'}</span></td>`;
+    });
+    const fx = !diaUtil(d);
+    return `<tr class="${fx ? 'fx' : ''}"><td><b>${fdate(d).slice(0, 5)}</b> <small style="color:var(--mut)">${DOW[dowIdx(d)]}</small>${exp ? `<small style="display:block" class="${ok === exp ? 'ok' : ok ? 'amb' : 'bad'}">${ok} de ${exp}</small>` : ''}</td>${cells.join('')}</tr>`;
+  }).join('');
+  // resumo por obra no mês
+  const sum = cols.map(({ o, w }) => {
+    const exp = days.filter(d => d <= today() && w && d >= w.ini && d <= w.fim && diaUtil(d)), com = exp.filter(d => (byKey[o.id + '|' + d] || []).some(r => r.status === 'salvo'));
+    const pct = exp.length ? com.length / exp.length * 100 : null, falta = exp.length - com.length;
+    return `<div class="card" style="margin:0"><div class="mono">${esc(short(o.nome))}</div><div class="kpi"><div class="v" style="font-size:26px">${pct == null ? '—' : pct.toFixed(0) + '%'}</div></div><small class="sub">${exp.length ? `${com.length} de ${exp.length} dias úteis com RDO · <span class="${falta ? 'bad' : 'ok'}">${falta} sem RDO</span>` : 'sem dias esperados neste mês'}</small></div>`;
+  }).join('');
+  const orfaos = S.rdos.filter(r => !r.obraId), inf = S.rdos.filter(r => r.obraInferida);
+  const semInicio = obras.filter(x => !x.w).map(x => short(x.o.nome));
+  return `<div class="row sp" style="margin-bottom:12px"><div class="tabs" style="margin:0">${meses.map(m => `<button data-cvm="${m}" class="${m === mes ? 'on' : ''}">${MESES[+m.slice(5) - 1].slice(0, 3)}/${m.slice(2, 4)}</button>`).join('')}</div><label class="row"><input type="checkbox" data-cvall="1" ${tab.cvall ? 'checked' : ''}> mostrar todas as obras cadastradas</label></div>
+  <div class="grid g4" style="margin-bottom:14px">${sum || '<p class="sub">Nenhuma obra com expediente neste mês.</p>'}</div>
+  <div class="card"><div class="row sp"><h2>Cobertura de RDO por dia · ${MESES[+mes.slice(5) - 1]}/${mes.slice(0, 4)}</h2><div class="legend" style="margin:0"><span class="ok">✔ com RDO</span><span class="amb">◐ rascunho</span><span class="bad">✖ sem RDO</span><span>▫ fora do período/expediente</span></div></div>
+  <div class="cov" style="margin-top:10px"><table><tr><th>Dia</th>${cols.map(({ o }) => `<th>${esc(short(o.nome))}</th>`).join('')}</tr>${rows || '<tr><td>Sem dias.</td></tr>'}</table></div>
+  <p class="sub" style="margin-top:8px">Dia esperado = segunda a sábado, sem feriado, entre o início e o fim da obra. Clique em ✖ para criar o RDO do dia.</p></div>
+  ${orfaos.length ? `<div class="alert">${orfaos.length} RDO(s) importado(s) sem obra identificada (nº ${orfaos.map(r => r.numero).join(', ')}) — abra e escolha a obra.</div>` : ''}
+  ${inf.length ? `<p class="sub">RDO nº ${inf.map(r => r.numero).join(', ')} sem obra no título: atribuído(s) a ${esc(obraNome(inf[0].obraId))} pela data e equipe — confirme.</p>` : ''}
+  ${!tab.cvall && semInicio.length ? `<p class="sub">Sem início cadastrado (não aparecem acima): ${semInicio.map(esc).join(', ')}. Marque “mostrar todas” ou informe o início em Metas de produção.</p>` : ''}`;
+}
+
 VIEWS.prod = () => {
   const t = tab.p || 'rdo';
-  const tabs = [['rdo', 'RDO'], ['metas', 'Metas de produção'], ['mc', 'Metas e calendário'], ['agenda', 'Agenda semanal']];
+  const tabs = [['rdo', 'RDO'], ['cov', 'Cobertura diária'], ['metas', 'Metas de produção'], ['mc', 'Metas e calendário'], ['agenda', 'Agenda semanal']];
   if (t === 'rdo' && rd && tab.rdoEdit) return rdoForm();
   const act = t === 'rdo' ? '<button class="btn pri" data-rd="new">Novo RDO</button>' : '';
-  const body = t === 'rdo' ? rdoList() : t === 'metas' ? metasView() : t === 'mc' ? calView() : agendaView();
+  const body = t === 'rdo' ? rdoList() : t === 'cov' ? covView() : t === 'metas' ? metasView() : t === 'mc' ? calView() : agendaView();
   return `${head('Produção e RDO', 'Diário de obra · metas · calendário', act)}<div class="tabs">${tabs.map(([k, l]) => `<button data-pt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
 };
 
@@ -223,6 +279,9 @@ const rdRender = () => { rdSync(); render(); };
 EXT.click.push(async e => {
   const g = e.target.closest('[data-goto]'); if (g) { tab.p = g.dataset.goto; tab.rdoEdit = false; return false; }
   const nav = e.target.closest('[data-nav]'); if (nav && nav.dataset.nav !== 'prod') return false;
+  const cvm = e.target.closest('[data-cvm]'); if (cvm) { tab.cvm = cvm.dataset.cvm; render(); return true; }
+  const cv = e.target.closest('[data-cv]');
+  if (cv) { const [a, x, y] = cv.dataset.cv.split(':'); if (a === 'open') { rd = JSON.parse(JSON.stringify(S.rdos.find(z => z.id === x))); } else { rd = novoRdo(); rd.obraId = x; rd.data = y; rd.respData = y; } tab.p = 'rdo'; tab.rdoEdit = true; render(); return true; }
   const pt = e.target.closest('[data-pt]'); if (pt) { rdSync(); tab.p = pt.dataset.pt; tab.rdoEdit = false; render(); return true; }
   const cm = e.target.closest('[data-cm]'); if (cm) { tab.cm = cm.dataset.cm; render(); return true; }
   const cal = e.target.closest('[data-cal]');
@@ -290,6 +349,7 @@ EXT.change.push(async e => {
   const t = e.target;
   if (t.dataset.struct && (t.dataset.r || t.dataset.ra)) { rdSync(); if (t.dataset.ra) { const [l, i, k] = t.dataset.ra.split(':'); if (l === 'fases' && k === 'faseId') { const f = S.fases.find(x => x.id === t.value); rd.fases[i].un = f ? f.un : 'm²'; } } render(); return true; }
   if (t.dataset.ra && t.dataset.ra.endsWith(':un')) { rdSync(); return true; }
+  if (t.dataset.cvall) { tab.cvall = t.checked; render(); return true; }
   if (t.dataset.pobra) { tab.po = t.value; render(); return true; }
   if (t.dataset.cf !== undefined) { tab.cf = t.value; render(); return true; }
   if (t.dataset.aw) { tab.aw = t.value; render(); return true; }
