@@ -1,18 +1,333 @@
 {
- "version": 2,
+ "version": 3,
  "obras": [
   {
    "id": "o1",
-   "nome": "Supera",
-   "status": "Em andamento"
+   "nome": "Supera 613 Sul",
+   "status": "Em andamento",
+   "bac": 326855.0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "inicio": "2026-09-16"
+  },
+  {
+   "id": "o2",
+   "nome": "Brasal Orla — Lago Sul",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "inicio": "2026-09-16"
+  },
+  {
+   "id": "o3",
+   "nome": "Emplavi Horizon",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "inicio": "2026-09-28"
+  },
+  {
+   "id": "o4",
+   "nome": "314",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "inicio": "2026-09-23"
+  },
+  {
+   "id": "o5",
+   "nome": "Parque Nacional",
+   "status": "Programada",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco"
+  },
+  {
+   "id": "o6",
+   "nome": "Parque Cidade — Manutenção",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco"
+  },
+  {
+   "id": "o7",
+   "nome": "Concessionária Lime — Asa Norte",
+   "status": "Programada",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco"
+  },
+  {
+   "id": "o8",
+   "nome": "Itamaraty",
+   "status": "Concluída",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco"
+  },
+  {
+   "id": "o9",
+   "nome": "Elleven (Lago Norte)",
+   "status": "Concluída",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco"
+  },
+  {
+   "id": "o10",
+   "nome": "Excellence (PKS)",
+   "status": "Concluída",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco"
+  },
+  {
+   "id": "o11",
+   "nome": "TCU",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco"
   }
  ],
  "funcionarios": [
   {
    "id": "f1",
    "nome": "Antônio Oliver",
+   "funcao": "",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
    "obraId": "o1",
-   "funcao": ""
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f2",
+   "nome": "Wanderson",
+   "funcao": "Líder",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o1",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e1",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f3",
+   "nome": "Roniele",
+   "funcao": "Pintor",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o1",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e1",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f4",
+   "nome": "Renan",
+   "funcao": "1/2 Oficial de Pintor",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o3",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e3",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f5",
+   "nome": "Samuel",
+   "funcao": "Ajudante",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o1",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e1",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f6",
+   "nome": "Claudiney",
+   "funcao": "1/2 Oficial de Pintor",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o1",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e1",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f7",
+   "nome": "Iramilton",
+   "funcao": "Líder",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o2",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e2",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f8",
+   "nome": "Thiago",
+   "funcao": "Ajudante",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o2",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e2",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f9",
+   "nome": "Romário",
+   "funcao": "Ajudante",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o2",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e2",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f10",
+   "nome": "Jhone",
+   "funcao": "1/2 Oficial de Pintor",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o6",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e5",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f11",
+   "nome": "Matheus",
+   "funcao": "",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o1",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f12",
+   "nome": "Arlindo",
+   "funcao": "Terceirizado",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o4",
+   "local": "",
+   "admissao": "",
+   "contrato": "Terceirizado",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e4",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "f13",
+   "nome": "Antonio Cicero",
+   "funcao": "Encarregado",
+   "matricula": "",
+   "setor": "Frente de Trabalho",
+   "obraId": "o6",
+   "local": "",
+   "admissao": "",
+   "contrato": "CLT",
+   "regime": "Padrão (5x2)",
+   "equipeId": "e5",
+   "status": "Ativo",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
   }
  ],
  "avaliadores": [
@@ -925,5 +1240,3996 @@
    ]
   }
  ],
- "totalInformado": 12305.97
+ "totalInformado": 12305.97,
+ "calendario": [
+  {
+   "obraId": "o1",
+   "data": "2026-09-16",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "1ºSS Barrado A/B/C/D",
+   "equipe": [
+    "Roniele"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k0"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-16",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "1ºSS Primer/raspadinha E/F",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k1"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-16",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "2ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k2"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-17",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "1ºSS Barrado A/B/C/D",
+   "equipe": [
+    "Roniele"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k3"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-17",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "1ºSS Primer/raspadinha E/F",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k4"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-17",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "2ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k5"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-18",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "1ºSS Barrado A/B/C/D",
+   "equipe": [
+    "Roniele"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k6"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-18",
+   "tipo": "PINTURA PISO",
+   "tipos": [],
+   "texto": "1ºSS Pintura CINZA E/F",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k7"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-18",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "2ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k8"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-19",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "1ºSS Barrado A/B/C/D",
+   "equipe": [
+    "Roniele"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k9"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-19",
+   "tipo": "PINTURA PISO",
+   "tipos": [],
+   "texto": "1ºSS Pintura AZUL E/F",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k10"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-21",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "1ºSS Barrado A/B/C/D/E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k11"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-21",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "2ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k12"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-22",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "1ºSS Barrado A/B/C/D/E/F",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k13"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-22",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "2ºSS Primer / raspadinha",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k14"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-23",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "1ºSS Barrado A/B/C/D/E/F",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k15"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-23",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "2ºSS Primer / raspadinha",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k16"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-09-23",
+   "tipo": "OUTRO",
+   "tipos": [],
+   "texto": "314 — turno contrário 16h–19h",
+   "equipe": [
+    "Roniele",
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k17"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-24",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k18"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-24",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "2ºSS Primer / raspadinha",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k19"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-09-24",
+   "tipo": "OUTRO",
+   "tipos": [],
+   "texto": "314 — turno contrário 16h–19h",
+   "equipe": [
+    "Roniele",
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k20"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-25",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k21"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-25",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "2ºSS Primer / raspadinha",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k22"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-09-25",
+   "tipo": "OUTRO",
+   "tipos": [],
+   "texto": "314 — turno contrário 16h–19h",
+   "equipe": [
+    "Roniele",
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k23"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-26",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k24"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-09-26",
+   "tipo": "OUTRO",
+   "tipos": [],
+   "texto": "314 — turno contrário 16h–19h",
+   "equipe": [
+    "Roniele",
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k25"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-28",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k26"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-28",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "2ºSS Primer / raspadinha",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k27"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-09-28",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k28"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-09-28",
+   "tipo": "PRIMER",
+   "tipos": [],
+   "texto": "314 — Primer",
+   "equipe": [
+    "Roniele",
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k29"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-29",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k30"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-29",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "2ºSS Lixamento E/F",
+   "equipe": [
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k31"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-29",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "2ºSS Primer / raspadinha",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k32"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-09-29",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k33"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-09-29",
+   "tipo": "PRIMER",
+   "tipos": [],
+   "texto": "314 — Primer",
+   "equipe": [
+    "Roniele",
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k34"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-09-29",
+   "tipo": "MUTIRÃO",
+   "tipos": [],
+   "texto": "CSS Vinicius Lime — mutirão (equipe dividida) Equipe dividida",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k35"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-30",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k36"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-09-30",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "2ºSS Lixamento E/F",
+   "equipe": [
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k37"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-09-30",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "2ºSS Primer / raspadinha",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Romário"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k38"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-09-30",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k39"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-09-30",
+   "tipo": "MUTIRÃO",
+   "tipos": [],
+   "texto": "CSS Vinicius Lime — mutirão (equipe dividida) Equipe dividida",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k40"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-01",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k41"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-01",
+   "tipo": "OUTRO",
+   "tipos": [],
+   "texto": "2ºSS Aspiração e limpeza E/F",
+   "equipe": [
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k42"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-01",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k43"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-01",
+   "tipo": "MUTIRÃO",
+   "tipos": [],
+   "texto": "314 — Pintura (mutirão a partir das 16h) Equipe em mutirão",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k44"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-01",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k45"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-01",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k46"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-02",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k47"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-02",
+   "tipo": "PRIMER",
+   "tipos": [],
+   "texto": "2ºSS Primer E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k48"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-02",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Lixamento, canaletas, trincas e juntas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k49"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-02",
+   "tipo": "MUTIRÃO",
+   "tipos": [],
+   "texto": "314 — Pintura (mutirão a partir das 16h) Equipe em mutirão",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k50"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-02",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k51"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-02",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k52"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-03",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Demarcação de vagas",
+   "equipe": [
+    "Wanderson",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k53"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-03",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "2ºSS Raspadinha E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k54"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-03",
+   "tipo": "MUTIRÃO",
+   "tipos": [],
+   "texto": "MUTIRÃO ALOJAMENTO — Primer",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k55"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-03",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k56"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-05",
+   "tipo": "PINTURA PISO",
+   "tipos": [],
+   "texto": "2ºSS Pintura AZUL E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k57"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-05",
+   "tipo": "PRIMER",
+   "tipos": [],
+   "texto": "1ºSS Primer 2ª demão",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k58"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-05",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k59"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-05",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k60"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-06",
+   "tipo": "PINTURA PISO",
+   "tipos": [],
+   "texto": "2ºSS Pintura CINZA E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k61"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-06",
+   "tipo": "RASPADINHA",
+   "tipos": [],
+   "texto": "1ºSS Primer / raspadinha",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k62"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-06",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k63"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-06",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k64"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-07",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "2ºSS Barrado AZUL/BRANCO E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k65"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-07",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [],
+   "texto": "1ºSS Primer / check-list p/ pintura",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k66"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-07",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k67"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-07",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k68"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-08",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "2ºSS Barrado AZUL/BRANCO E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k69"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-08",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [],
+   "texto": "1ºSS Primer / check-list p/ pintura",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k70"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-08",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k71"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-08",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k72"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-09",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "2ºSS Barrado AZUL/BRANCO E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k73"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-09",
+   "tipo": "PINTURA PISO",
+   "tipos": [],
+   "texto": "1ºSS Pintura geral",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k74"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-09",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k75"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-09",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k76"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-10",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "2ºSS Barrado AZUL/BRANCO E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k77"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-10",
+   "tipo": "MUTIRÃO",
+   "tipos": [],
+   "texto": "MUTIRÃO ALOJAMENTO — Demarcação de vagas (1 dia, sem pintar)",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k78"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-10",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k79"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-12",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "2ºSS Barrado AZUL/BRANCO E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k80"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-12",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "2ºSS Demarcação de vagas E/F",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k81"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-12",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Pintura de demarcação de vagas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k82"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-12",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k83"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-12",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k84"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-13",
+   "tipo": "BARRADO",
+   "tipos": [],
+   "texto": "2ºSS Barrado AZUL/BRANCO E/F",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k85"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-13",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "2ºSS Demarcação de vagas E/F",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k86"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-13",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Pintura de demarcação de vagas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k87"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-13",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k88"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-13",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k89"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-14",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento de paredes com máquina alugada",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k90"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-14",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Pintura demarcação / números / incêndio / setas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k91"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-14",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k92"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-14",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [
+    "MANUTENÇÃO"
+   ],
+   "texto": "Manutenção Parque Cidade",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Claudiney",
+    "Thiago",
+    "Romário",
+    "Jhone",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k93"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-15",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento de paredes com máquina alugada",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k94"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-15",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [],
+   "texto": "1ºSS Pintura demarcação / números / incêndio / setas",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k95"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-15",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Corte e limpeza dos pontos revisados + preenchimento com primer",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k96"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-15",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k97"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-15",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [],
+   "texto": "Parque Cidade — manutenção",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k98"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-16",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento de paredes com máquina alugada",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k99"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-16",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [],
+   "texto": "1ºSS Check-list final",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k100"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-16",
+   "tipo": "PRIMER",
+   "tipos": [
+    "PRIMER"
+   ],
+   "texto": "Preenchimento com primer dos pontos revisados",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k101"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-10-16",
+   "tipo": "ESCADAS",
+   "tipos": [],
+   "texto": "Caixas de escadas das 4 torres — piso e rodapé",
+   "equipe": [
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Calendário Geral",
+   "id": "k102"
+  },
+  {
+   "obraId": "o6",
+   "data": "2026-10-16",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [
+    "MANUTENÇÃO"
+   ],
+   "texto": "Manutenção Parque Cidade",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Claudiney",
+    "Romário",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k103"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-17",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list barrado 2º Subsolo (manutenção)",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k104"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-17",
+   "tipo": "PRIMER",
+   "tipos": [
+    "PRIMER",
+    "HORA EXTRA"
+   ],
+   "texto": "Finalizar preenchimento com primer dos pontos revisados Equipe Alojamento — Roniele e ajudante",
+   "equipe": [
+    "Roniele"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k105"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-19",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list barrados 1º e 2º Subsolo (repintura e revisão geral)",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Iramilton",
+    "Romário",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k106"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-19",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento e tratamento de piso liberado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k107"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-19",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Polimento p/ raspadinha",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k108"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-20",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list barrados 1º e 2º Subsolo (repintura e revisão geral)",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Iramilton",
+    "Romário",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k109"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-20",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento e tratamento de piso liberado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k110"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-20",
+   "tipo": "RASPADINHA",
+   "tipos": [
+    "RASPADINHA"
+   ],
+   "texto": "Execução de raspadinha",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k111"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-21",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list barrados 1º e 2º Subsolo (repintura e revisão geral)",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Iramilton",
+    "Romário",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k112"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-21",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento e tratamento de piso liberado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k113"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-21",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura 1ª cor",
+   "equipe": [
+    "Roniele",
+    "Claudiney",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k114"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-22",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list barrados 1º e 2º Subsolo (pintura junta E/F e revisão geral)",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Iramilton",
+    "Romário",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k115"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-22",
+   "tipo": "PRIMER",
+   "tipos": [
+    "PRIMER"
+   ],
+   "texto": "Primer 1ª demão piso liberado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k116"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-22",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura 2ª cor",
+   "equipe": [
+    "Roniele",
+    "Claudiney",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k117"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-23",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list barrados 1º e 2º Subsolo (pintura junta E/F e revisão geral)",
+   "equipe": [
+    "Wanderson",
+    "Samuel",
+    "Iramilton",
+    "Romário",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k118"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-10-23",
+   "tipo": "PRIMER",
+   "tipos": [
+    "PRIMER"
+   ],
+   "texto": "Primer 2ª demão piso liberado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k119"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-23",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Início demarcação com fita crepe",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k120"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-24",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO",
+    "MUTIRÃO"
+   ],
+   "texto": "Demarcação, números e faixas",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k121"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-26",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Execução de barrados 1º e 2º Subsolo",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney",
+    "Iramilton",
+    "Romário",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k122"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-26",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final pintura epóxi + início pintura barrado cinza",
+   "equipe": [
+    "Roniele",
+    "Thiago",
+    "Arlindo"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k123"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-27",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Execução de barrados 1º e 2º Subsolo",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Samuel",
+    "Claudiney",
+    "Iramilton",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k124"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-27",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Entrega do piso à engenharia do condomínio + pintura barrado cinza",
+   "equipe": [
+    "Arlindo"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k125"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-28",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Execução de barrados 1º e 2º Subsolo + início lixamento 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Renan",
+    "Samuel",
+    "Claudiney",
+    "Iramilton",
+    "Matheus"
+   ],
+   "cond": "se liberado",
+   "fonte": "Meta 4",
+   "id": "k126"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-28",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Finalização pintura barrado cinza",
+   "equipe": [
+    "Arlindo"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k127"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-29",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Execução de barrados 1º e 2º Subsolo + lixamento 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Renan",
+    "Samuel",
+    "Claudiney",
+    "Iramilton",
+    "Matheus"
+   ],
+   "cond": "se liberado",
+   "fonte": "Meta 4",
+   "id": "k128"
+  },
+  {
+   "obraId": "o4",
+   "data": "2026-10-29",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Instalar protetor de colunas",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k129"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-10-30",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Execução de barrados 1º e 2º Subsolo + lixamento 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Renan",
+    "Samuel",
+    "Claudiney",
+    "Iramilton",
+    "Matheus"
+   ],
+   "cond": "se liberado",
+   "fonte": "Meta 4",
+   "id": "k130"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-03",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento e tratamento de piso 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Thiago",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k131"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-03",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "1º Subsolo — revisão geral e lixamento para nova raspadinha",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k132"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-03",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Polimento de piso p/ raspadinha — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k133"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-04",
+   "tipo": "PRIMER",
+   "tipos": [
+    "PRIMER"
+   ],
+   "texto": "Primer 1ª demão piso 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Thiago",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k134"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-04",
+   "tipo": "RASPADINHA",
+   "tipos": [
+    "RASPADINHA",
+    "MUTIRÃO"
+   ],
+   "texto": "1º Subsolo — nova raspadinha",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k135"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-04",
+   "tipo": "RASPADINHA",
+   "tipos": [
+    "RASPADINHA"
+   ],
+   "texto": "Raspadinha — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k136"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-05",
+   "tipo": "PRIMER",
+   "tipos": [
+    "PRIMER"
+   ],
+   "texto": "Primer 2ª demão piso 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Thiago",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k137"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-05",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "1º Subsolo — pintura CINZA",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k138"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-05",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura 1ª cor — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k139"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-06",
+   "tipo": "RASPADINHA",
+   "tipos": [
+    "RASPADINHA"
+   ],
+   "texto": "Raspadinha piso 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Thiago",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k140"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-06",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "1º Subsolo — pintura AZUL",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k141"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-06",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura 2ª cor — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k142"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-07",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura piso CINZA 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Thiago",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k143"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-07",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO",
+    "MUTIRÃO"
+   ],
+   "texto": "Demarcação de vagas com fita crepe",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k144"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-09",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura piso AZUL 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Roniele",
+    "Thiago",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k145"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-09",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações 1º Subsolo",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k146"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-09",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura 3ª cor — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k147"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-10",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Demarcação fita crepe 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k148"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-10",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações 1º Subsolo",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k149"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-10",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Início demarcação fita crepe — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k150"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-10",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Início pelas escadas",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k151"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-11",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Demarcação fita crepe 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k152"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-11",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações 1º Subsolo",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k153"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-11",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Demarcação fita crepe — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k154"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-11",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k155"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-12",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Demarcação fita crepe 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k156"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-12",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações 1º Subsolo",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k157"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-12",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO",
+    "MUTIRÃO"
+   ],
+   "texto": "Demarcação fita crepe — 1º Subsolo (finalizar demarcação até 13/11)",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k158"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-12",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k159"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-13",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k160"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-13",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações 1º Subsolo",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k161"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-13",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura da demarcação — 1º Subsolo (finalizar até 13/11)",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k162"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-13",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k163"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-14",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura demarcações, faixas e símbolos",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k164"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-14",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k165"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-16",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações 2º Subsolo junta E/F",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k166"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-16",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Polimento primer 2º Subsolo",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k167"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-16",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Início execução barrado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k168"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-16",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k169"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-17",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final 1º e 2º Subsolo",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k170"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-17",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Preparação para raspadinha 2º Subsolo",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k171"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-17",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Execução barrado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k172"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-17",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k173"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-18",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final 1º e 2º Subsolo",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k174"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-18",
+   "tipo": "RASPADINHA",
+   "tipos": [
+    "RASPADINHA",
+    "MUTIRÃO"
+   ],
+   "texto": "Raspadinha 2º Subsolo",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k175"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-18",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Execução barrado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k176"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-18",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k177"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-19",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final 1º e 2º Subsolo",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k178"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-19",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura CINZA 2º Subsolo — iniciar após o almoço (deslocamento das equipes de outras obras)",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k179"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-19",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Execução barrado — 1º Subsolo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k180"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-19",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k181"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-23",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Subir p/ Térreo — pintura demarcações externas com PU",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k182"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-23",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Início demarcação com fita crepe",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k183"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-23",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Início lixamento e tratamento de piso — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k184"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-23",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k185"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-24",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Subir p/ Térreo — pintura demarcações externas com PU",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k186"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-24",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Demarcação com fita crepe",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k187"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-24",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento e tratamento de piso — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k188"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-24",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k189"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-25",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações externas",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k190"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-25",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k191"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-25",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento e tratamento de piso — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k192"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-25",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k193"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-26",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações externas",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k194"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-26",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k195"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-26",
+   "tipo": "PRIMER",
+   "tipos": [
+    "PRIMER"
+   ],
+   "texto": "Primer 1ª demão — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k196"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-26",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k197"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-27",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações externas",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k198"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-27",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k199"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-27",
+   "tipo": "PRIMER",
+   "tipos": [
+    "PRIMER"
+   ],
+   "texto": "Primer 2ª demão — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k200"
+  },
+  {
+   "obraId": "o5",
+   "data": "2026-11-27",
+   "tipo": "ESCADAS",
+   "tipos": [
+    "ESCADAS"
+   ],
+   "texto": "Tratamento e pintura em escadas de emergência",
+   "equipe": [
+    "Roniele",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k201"
+  },
+  {
+   "obraId": "o2",
+   "data": "2026-11-28",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcações Iramilton, Samuel (+ mutirão se necessário)",
+   "equipe": [
+    "Samuel",
+    "Iramilton"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k202"
+  },
+  {
+   "obraId": "o1",
+   "data": "2026-11-30",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Dia do Evangélico — confirmar Finalizar pintura demarcações externas",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k203"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-11-30",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Dia do Evangélico — confirmar Polimento e preparação p/ raspadinha — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k204"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-01",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Polimento e preparação p/ raspadinha — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k205"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-02",
+   "tipo": "RASPADINHA",
+   "tipos": [
+    "RASPADINHA",
+    "MUTIRÃO"
+   ],
+   "texto": "Raspadinha — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k206"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-03",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura 1ª cor — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k207"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-04",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura 2ª cor — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k208"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-07",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura 3ª cor — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k209"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-08",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Demarcação fita crepe — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k210"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-09",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Demarcação fita crepe — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k211"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-10",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcação, símbolos, faixas e números — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k212"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-11",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcação, símbolos, faixas e números — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k213"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-14",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Pintura demarcação, símbolos, faixas e números — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k214"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-15",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA",
+    "MUTIRÃO"
+   ],
+   "texto": "Check list final piso + início barrado — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k215"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-16",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura barrado — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k216"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-17",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura barrado — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k217"
+  },
+  {
+   "obraId": "o3",
+   "data": "2026-12-18",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO",
+    "MUTIRÃO"
+   ],
+   "texto": "Pintura barrado — Térreo",
+   "equipe": [
+    "Renan",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Meta 4",
+   "id": "k218"
+  }
+ ],
+ "agenda": [
+  {
+   "data": "2026-09-08",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "Antonio Cicero",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "ITAMARATY Execução de antiderrapante na entrada da rampa. ELLEVEN (Lago Norte) Recuperação de piso."
+  },
+  {
+   "data": "2026-09-09",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "Antonio Cicero",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "ELLEVEN (Lago Norte) Finalizar execução de piso."
+  },
+  {
+   "data": "2026-09-10",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "Antonio Cicero",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "EXCELLENCE (PKS) Execução de proteção, lixamento e preenchimento de juntas e trincas."
+  },
+  {
+   "data": "2026-09-11",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "Antonio Cicero",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "EXCELLENCE (PKS) Finalizar execução do serviço. TCU Lixamento e preparação de piso p/ pintura."
+  },
+  {
+   "data": "2026-09-12",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "Antonio Cicero",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "TCU Lixamento e preparação de piso p/ pintura."
+  },
+  {
+   "data": "2026-09-08",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Pintor Líder)",
+    "Iramilton e Roniele (Pintores)",
+    "Renan (½ Of. Pintor)",
+    "Claudiney, Samuel e Tiago",
+    "(Ajudantes)"
+   ],
+   "texto": "JUNTAS A / B / C / D Check list p/ pintura de piso: raspadinha, fechamento de buracos e proteção. JUNTAS E / F Aspiração e limpeza. Se viável, executar primer na Junta E."
+  },
+  {
+   "data": "2026-09-09",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Pintor Líder)",
+    "Iramilton e Roniele (Pintores)",
+    "Renan (½ Of. Pintor)",
+    "Claudiney, Samuel e Tiago",
+    "(Ajudantes)"
+   ],
+   "texto": "JUNTAS A / B / C / D Pintura geral CINZA. JUNTAS E / F Se viável, executar primer na Junta E."
+  },
+  {
+   "data": "2026-09-10",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Pintor Líder)",
+    "Iramilton e Roniele (Pintores)",
+    "Renan (½ Of. Pintor)",
+    "Claudiney, Samuel e Tiago",
+    "(Ajudantes)"
+   ],
+   "texto": "JUNTAS A / B / C / D Pintura geral AZUL."
+  },
+  {
+   "data": "2026-09-11",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Pintor Líder)",
+    "Iramilton e Roniele (Pintores)",
+    "Renan (½ Of. Pintor)",
+    "Claudiney, Samuel e Tiago",
+    "(Ajudantes)"
+   ],
+   "texto": "JUNTAS A / B / C / D Pintura de barrado AZUL. JUNTAS E / F Execução de primer."
+  },
+  {
+   "data": "2026-09-12",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Pintor Líder)",
+    "Iramilton e Roniele (Pintores)",
+    "Renan (½ Of. Pintor)",
+    "Claudiney, Samuel e Tiago",
+    "(Ajudantes)"
+   ],
+   "texto": "JUNTAS A / B / C / D Pintura de barrado AZUL. JUNTAS E / F Execução de raspadinha."
+  },
+  {
+   "data": "2026-09-08",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado"
+   ],
+   "texto": "PISO Lixamento — revisão de pontos com contaminantes e cantos (máquina de canto e lixadeira). REVISÃO DE PINTURA Revisão da pintura branca."
+  },
+  {
+   "data": "2026-09-09",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado"
+   ],
+   "texto": "PISO Lixamento — revisão de pontos com contaminantes e cantos (máquina de canto). REVISÃO DE PINTURA Revisão da pintura branca."
+  },
+  {
+   "data": "2026-09-10",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado"
+   ],
+   "texto": "PISO Aspiração e limpeza de piso. REVISÃO DE PINTURA Revisão da pintura branca e faixa amarela."
+  },
+  {
+   "data": "2026-09-11",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado"
+   ],
+   "texto": "PISO Aspersão de estruturante no piso. REVISÃO DE PINTURA Revisão da pintura branca e faixa amarela."
+  },
+  {
+   "data": "2026-09-12",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado"
+   ],
+   "texto": "Sem programação para sábado."
+  },
+  {
+   "data": "2026-09-14",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Líder)",
+    "Roniele · Renan",
+    "Claudiney · Samuel"
+   ],
+   "texto": "2º SUBSOLO Check list final — Juntas A/B/C/D. JUNTAS E / F / G Lixamento, primer e raspadinha. 1º SUBSOLO Demarcação com fita crepe — Juntas A/B/C/D."
+  },
+  {
+   "data": "2026-09-15",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Líder)",
+    "Roniele · Renan",
+    "Claudiney · Samuel"
+   ],
+   "texto": "2º SUBSOLO Check list final — Juntas A/B/C/D. JUNTAS E / F / G Lixamento, primer e raspadinha. 1º SUBSOLO Demarcação com fita crepe — Juntas A/B/C/D."
+  },
+  {
+   "data": "2026-09-16",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Líder)",
+    "Roniele · Renan",
+    "Claudiney · Samuel"
+   ],
+   "texto": "JUNTAS E / F / G Lixamento, primer e raspadinha. 1º SUBSOLO Demarcação com fita crepe — Juntas A/B/C/D."
+  },
+  {
+   "data": "2026-09-17",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Líder)",
+    "Roniele · Renan",
+    "Claudiney · Samuel"
+   ],
+   "texto": "JUNTAS E / F / G Pintura AZUL. 1º SUBSOLO Pintura da demarcação — Juntas A/B/C/D."
+  },
+  {
+   "data": "2026-09-18",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Líder)",
+    "Roniele · Renan",
+    "Claudiney · Samuel"
+   ],
+   "texto": "JUNTAS E / F / G Pintura CINZA. 1º SUBSOLO Pintura da demarcação — Juntas A/B/C/D."
+  },
+  {
+   "data": "2026-09-19",
+   "equipe": "SUPERA",
+   "encarregado": "",
+   "membros": [
+    "Wanderson (Líder)",
+    "Roniele · Renan",
+    "Claudiney · Samuel"
+   ],
+   "texto": "1º SUBSOLO Pintura da demarcação — Juntas A/B/C/D."
+  },
+  {
+   "data": "2026-09-14",
+   "equipe": "BRASAL",
+   "encarregado": "",
+   "membros": [
+    "Iramilton (Líder)",
+    "Thiago · Romário"
+   ],
+   "texto": "APOIO SUPERA Equipe deslocada p/ o Supera — check list final."
+  },
+  {
+   "data": "2026-09-15",
+   "equipe": "BRASAL",
+   "encarregado": "",
+   "membros": [
+    "Iramilton (Líder)",
+    "Thiago · Romário"
+   ],
+   "texto": "2º SUBSOLO Lixamento + aspiração e limpeza p/ primer."
+  },
+  {
+   "data": "2026-09-16",
+   "equipe": "BRASAL",
+   "encarregado": "",
+   "membros": [
+    "Iramilton (Líder)",
+    "Thiago · Romário"
+   ],
+   "texto": "2º SUBSOLO Execução de primer."
+  },
+  {
+   "data": "2026-09-17",
+   "equipe": "BRASAL",
+   "encarregado": "",
+   "membros": [
+    "Iramilton (Líder)",
+    "Thiago · Romário"
+   ],
+   "texto": "1º SUBSOLO Execução de lixamento. 2º SUBSOLO Execução de primer."
+  },
+  {
+   "data": "2026-09-18",
+   "equipe": "BRASAL",
+   "encarregado": "",
+   "membros": [
+    "Iramilton (Líder)",
+    "Thiago · Romário"
+   ],
+   "texto": "1º SUBSOLO Execução de primer. 2º SUBSOLO Execução de primer."
+  },
+  {
+   "data": "2026-09-19",
+   "equipe": "BRASAL",
+   "encarregado": "",
+   "membros": [
+    "Iramilton (Líder)",
+    "Thiago · Romário"
+   ],
+   "texto": "Sem programação."
+  },
+  {
+   "data": "2026-09-14",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado (Arlindo)"
+   ],
+   "texto": "TERCEIRIZADO (ARLINDO) Equipe terceirizada em execução."
+  },
+  {
+   "data": "2026-09-15",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado (Arlindo)"
+   ],
+   "texto": "TERCEIRIZADO (ARLINDO) Equipe terceirizada em execução."
+  },
+  {
+   "data": "2026-09-16",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado (Arlindo)"
+   ],
+   "texto": "TERCEIRIZADO (ARLINDO) Equipe terceirizada em execução."
+  },
+  {
+   "data": "2026-09-17",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado (Arlindo)"
+   ],
+   "texto": "TERCEIRIZADO (ARLINDO) Equipe terceirizada em execução. LIXAMENTO · LIMPEZA · PRIMER · RASPADINHA Início do serviço (17 a 19/09)."
+  },
+  {
+   "data": "2026-09-18",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado (Arlindo)"
+   ],
+   "texto": "TERCEIRIZADO (ARLINDO) Último dia da equipe terceirizada. LIXAMENTO · LIMPEZA · PRIMER · RASPADINHA Serviço em execução."
+  },
+  {
+   "data": "2026-09-19",
+   "equipe": "314",
+   "encarregado": "",
+   "membros": [
+    "Terceirizado (Arlindo)"
+   ],
+   "texto": "LIXAMENTO · LIMPEZA · PRIMER · RASPADINHA Conclusão do serviço."
+  },
+  {
+   "data": "2026-09-14",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "Sem programação."
+  },
+  {
+   "data": "2026-09-15",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "EXCELLENCE Revisão de trincas do piso. TCU Pintura de demarcação e sinalização."
+  },
+  {
+   "data": "2026-09-16",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "EXCELLENCE Revisão de trincas do piso. TCU Pintura de demarcação e sinalização."
+  },
+  {
+   "data": "2026-09-17",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "EXCELLENCE Revisão de trincas do piso."
+  },
+  {
+   "data": "2026-09-18",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "EXCELLENCE Revisão de trincas do piso — conclusão."
+  },
+  {
+   "data": "2026-09-19",
+   "equipe": "MANUTENÇÃO",
+   "encarregado": "",
+   "membros": [
+    "Jhone (½ Of. Pintor)"
+   ],
+   "texto": "Sem programação."
+  }
+ ],
+ "feriados": {
+  "2026-10-12": "N. Sra. Aparecida",
+  "2026-11-02": "Finados",
+  "2026-11-15": "Proclamação da República",
+  "2026-11-20": "Consciência Negra",
+  "2026-11-30": "Dia do Evangélico (DF) — confirmar",
+  "2026-09-07": "Independência"
+ },
+ "cargos": [
+  {
+   "id": "cg1",
+   "nome": "Encarregado",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "cg2",
+   "nome": "Líder",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "cg3",
+   "nome": "Pintor",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "cg4",
+   "nome": "1/2 Oficial de Pintor",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "cg5",
+   "nome": "Ajudante",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  },
+  {
+   "id": "cg6",
+   "nome": "Terceirizado",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null
+  }
+ ],
+ "equipes": [
+  {
+   "id": "e1",
+   "nome": "Supera",
+   "lider": "Wanderson",
+   "obraId": "o1"
+  },
+  {
+   "id": "e2",
+   "nome": "Brasal",
+   "lider": "Iramilton",
+   "obraId": "o2"
+  },
+  {
+   "id": "e3",
+   "nome": "Horizon",
+   "lider": "Renan",
+   "obraId": "o3"
+  },
+  {
+   "id": "e4",
+   "nome": "314",
+   "lider": "",
+   "obraId": "o4"
+  },
+  {
+   "id": "e5",
+   "nome": "Manutenção",
+   "lider": "Antonio Cicero",
+   "obraId": "o6"
+  },
+  {
+   "id": "e6",
+   "nome": "Parque Nacional",
+   "lider": "Roniele",
+   "obraId": "o5"
+  }
+ ],
+ "fases": [
+  {
+   "id": "fa1",
+   "nome": "Lixamento de Piso de Concreto",
+   "un": "m²",
+   "peso": 15.5,
+   "preco": null,
+   "ativa": true
+  },
+  {
+   "id": "fa2",
+   "nome": "Tratamento de Juntas, Trincas e Checklist p/ Primer",
+   "un": "m²",
+   "peso": 8,
+   "preco": null,
+   "ativa": true
+  },
+  {
+   "id": "fa3",
+   "nome": "Primer 1ª demão",
+   "un": "m²",
+   "peso": 10,
+   "preco": null,
+   "ativa": true
+  },
+  {
+   "id": "fa4",
+   "nome": "Primer 2ª demão",
+   "un": "m²",
+   "peso": 10,
+   "preco": null,
+   "ativa": true
+  },
+  {
+   "id": "fa5",
+   "nome": "Raspadinha",
+   "un": "m²",
+   "peso": 10,
+   "preco": null,
+   "ativa": true
+  },
+  {
+   "id": "fa6",
+   "nome": "Pintura",
+   "un": "m²",
+   "peso": 15.5,
+   "preco": null,
+   "ativa": true
+  },
+  {
+   "id": "fa7",
+   "nome": "Demarcação — Fita Crepe",
+   "un": "m",
+   "peso": 15.5,
+   "preco": null,
+   "ativa": true
+  },
+  {
+   "id": "fa8",
+   "nome": "Pintura de Demarcações, Números e Incêndio",
+   "un": "un",
+   "peso": 15.5,
+   "preco": null,
+   "ativa": true
+  }
+ ],
+ "metas": [],
+ "rdos": [],
+ "metaMensal": {
+  "periodo": "16/09/2026 a 16/10/2026",
+  "liquidoDesc": {
+   "imposto": 0.3,
+   "retencao": 0.05,
+   "entrada": 20000,
+   "entradaObra": "o1"
+  },
+  "obras": [
+   {
+    "obraId": "o1",
+    "bruto": 229001.65,
+    "liquido": 128851.07,
+    "itens": [
+     {
+      "d": "Pintura epóxi piso",
+      "q": 5794,
+      "un": "m²",
+      "p": 28.94
+     },
+     {
+      "d": "Pintura epóxi parede",
+      "q": 1403,
+      "un": "m²",
+      "p": 27.65
+     },
+     {
+      "d": "Epóxi demarcação de vagas",
+      "q": 1500,
+      "un": "ml",
+      "p": 8.75
+     },
+     {
+      "d": "Pintura acrílica parede",
+      "q": 1106.51,
+      "un": "m²",
+      "p": 8.5
+     }
+    ]
+   },
+   {
+    "obraId": "o2",
+    "bruto": 104271.0,
+    "liquido": 67776.15,
+    "itens": [
+     {
+      "d": "Pintura/demarcação",
+      "q": 1700,
+      "un": "m²",
+      "p": 24.35
+     },
+     {
+      "d": "Primer/raspadinha",
+      "q": 4400,
+      "un": "m²",
+      "p": 14.29
+     }
+    ]
+   },
+   {
+    "obraId": "o3",
+    "bruto": 42282.72,
+    "liquido": 27483.76,
+    "itens": [
+     {
+      "d": "Pintura epóxi",
+      "q": 1463.07,
+      "un": "m²",
+      "p": 28.9
+     }
+    ]
+   },
+   {
+    "obraId": "o4",
+    "bruto": 80000.0,
+    "liquido": 52000.0,
+    "itens": [],
+    "estimado": true
+   },
+   {
+    "obraId": "o7",
+    "bruto": 30000.0,
+    "liquido": 19500.0,
+    "itens": [],
+    "estimado": true
+   }
+  ],
+  "totalBruto": 485555.37,
+  "totalLiquido": 295610.98
+ }
 }

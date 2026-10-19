@@ -73,7 +73,8 @@ function boletoInfo(b) {
 }
 
 /* ---------- UI base ---------- */
-const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['estoque', 'Estoque'], ['compras', 'Compras e orçamentos'], ['boletos', 'Boletos'], ['mao', 'Mão de obra']];
+const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['estoque', 'Estoque'], ['prod', 'Produção e RDO'], ['compras', 'Compras e orçamentos'], ['boletos', 'Boletos'], ['mao', 'Mão de obra']];
+const EXT = { click: [], input: [], change: [] }, CAD = {}, PROD = {};
 function renderNav() {
   const al = S.materiais.filter(m => stat(m) !== 'ok').length;
   $('#nav').innerHTML = NAV.map(([k, l]) => `<button data-nav="${k}" class="${view === k ? 'on' : ''}">${l}${k === 'estoque' && al ? `<span class="pill r badge">${al}</span>` : ''}</button>`).join('');
@@ -102,7 +103,7 @@ const VIEWS = {
       <div class="ticks">${ticks}</div><div class="legend"><span>▌ Em estoque</span><span class="amb">▌ Crítico</span><span class="red">▌ Zerado</span><span>Cada marca é um material</span></div></div></div>
     <div class="grid g2"><div class="card"><div class="row sp"><h2>Alertas de estoque</h2><button class="btn sm" data-nav="estoque">Ver estoque</button></div><div class="list">${alertList}</div></div>
       <div><div class="card"><div class="mono">Gasto em compras</div><div class="kpi"><div class="v">${brl(gasto)}</div></div><small class="sub">${S.compras.length} fornecedores · informado ${brl(S.totalInformado)} ${Math.abs(gasto - S.totalInformado) < .02 ? '<span class="ok">✓ confere</span>' : '<span class="bad">≠ diverge</span>'}</small></div>
-      <div class="card"><h2>Boletos a vencer</h2><div class="list">${bol.map(({ b, i }) => `<div class="it"><div class="t"><b>${esc(b.fornecedor)} · NF ${esc(b.nf)}</b><small>próx. venc. ${fdate(i.prox)}</small></div><span class="pill ${i.dias < 0 ? 'r' : i.dias <= 7 ? 'a' : ''}">${i.dias < 0 ? 'vencido' : 'em ' + i.dias + ' d'}</span></div>`).join('') || '<p class="sub">Sem boletos abertos.</p>'}</div></div></div></div>
+      ${metaCard()}<div class="card"><h2>Boletos a vencer</h2><div class="list">${bol.map(({ b, i }) => `<div class="it"><div class="t"><b>${esc(b.fornecedor)} · NF ${esc(b.nf)}</b><small>próx. venc. ${fdate(i.prox)}</small></div><span class="pill ${i.dias < 0 ? 'r' : i.dias <= 7 ? 'a' : ''}">${i.dias < 0 ? 'vencido' : 'em ' + i.dias + ' d'}</span></div>`).join('') || '<p class="sub">Sem boletos abertos.</p>'}</div></div></div></div>
     <div class="card"><h2>Últimas retiradas</h2>${retiradasTable(retiradasF().slice(-8).reverse())}</div>`;
   },
   obras() {
@@ -157,14 +158,15 @@ const VIEWS = {
       const rk = funcs.map(f => { const av = S.avaliacoes.filter(a => a.funcId === f.id).sort((a, b) => a.periodo.localeCompare(b.periodo)); return { f, last: av[av.length - 1], n: av.length }; }).sort((a, b) => (b.last?.nota ?? -1) - (a.last?.nota ?? -1));
       body = `<div class="card tw"><table><tr><th>#</th><th>Funcionário</th><th>Obra</th><th>Último período</th><th class="n">Faltas</th><th class="n">Atrasos</th><th class="n">Nota</th><th>Classificação</th><th class="n">Avaliações</th></tr>${rk.map((r, i) => `<tr><td>${i + 1}</td><td><b>${esc(r.f.nome)}</b></td><td>${esc(obraNome(r.f.obraId))}</td><td>${r.last ? esc(r.last.periodo) : '—'}</td><td class="n">${r.last?.faltas ?? '—'}</td><td class="n">${r.last?.atrasos ?? '—'}</td><td class="n"><b>${r.last ? r.last.nota.toFixed(1) : '—'}</b></td><td>${r.last ? `<span class="pill ${classCss(r.last.cls)}">${r.last.cls}</span>` : '<span class="pill">Sem avaliação</span>'}</td><td class="n">${r.n}</td></tr>`).join('') || '<tr><td>Sem funcionários.</td></tr>'}</table></div>
       <div class="card"><h2>Histórico</h2><div class="tw"><table><tr><th>Período</th><th>Funcionário</th><th>Obra</th><th class="n">Média</th><th class="n">Faltas</th><th class="n">Atrasos</th><th class="n">Nota final</th><th>Classificação</th></tr>${S.avaliacoes.filter(a => funcs.some(f => f.id === a.funcId)).slice().reverse().map(a => `<tr><td>${esc(a.periodo)}</td><td>${esc((S.funcionarios.find(f => f.id === a.funcId) || {}).nome)}</td><td>${esc(obraNome(a.obraId))}</td><td class="n">${a.media.toFixed(2)}</td><td class="n">${a.faltas}</td><td class="n">${a.atrasos}</td><td class="n"><b>${a.nota.toFixed(1)}</b></td><td><span class="pill ${classCss(a.cls)}">${a.cls}</span></td></tr>`).join('') || '<tr><td>Nenhuma avaliação ainda.</td></tr>'}</table></div></div>`;
-    } else {
+    } else if (CAD[t]) { body = CAD[t](); }
+    else {
       const av = S.avaliadores; const d = new Date(); const q = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')} · ${d.getDate() <= 15 ? '1ª' : '2ª'} quinzena`;
       body = `<div class="card"><div class="grid g3"><div><label class="mono">Funcionário</label><br><select id="aF">${S.funcionarios.map(f => `<option value="${f.id}">${esc(f.nome)} — ${esc(obraNome(f.obraId))}</option>`).join('')}</select></div><div><label class="mono">Período</label><br><input id="aP" value="${q}" style="width:100%"></div><div class="row"><div><label class="mono">Faltas</label><br><input id="aFa" type="number" min="0" value="0" style="width:90px"></div><div><label class="mono">Atrasos</label><br><input id="aAt" type="number" min="0" value="0" style="width:90px"></div></div></div>
       <p class="sub" style="margin-top:14px">Notas de 0 a 10 por competência. Nota final = média ×10 − faltas×5 − atrasos.</p>
       <div class="tw"><table><tr><th>Competência</th>${av.map(a => `<th class="n">${esc(a)}</th>`).join('')}</tr>${COMPS.map((c, i) => `<tr><td>${c}</td>${av.map((a, j) => `<td class="n"><input class="sc" data-c="${i}" data-a="${j}" type="number" min="0" max="10" step="0.5" style="width:80px"></td>`).join('')}</tr>`).join('')}</table></div>
       <div class="row sp" style="margin-top:14px"><div id="prev" class="kpi"><div class="mono">Resultado</div><div class="v">—</div></div><button class="btn blue" data-act="saveAval">Salvar avaliação</button></div></div>`;
     }
-    return `${head('Mão de obra', 'Avaliação de desempenho · quinzenal', `<button class="btn" data-act="novoFunc">Novo funcionário</button>`)}<div class="tabs"><button data-mt="ranking" class="${t === 'ranking' ? 'on' : ''}">Ranking e histórico</button><button data-mt="aval" class="${t === 'aval' ? 'on' : ''}">Nova avaliação</button></div>${body}`;
+    return `${head('Mão de obra', 'Avaliação de desempenho · quinzenal', `<button class="btn" data-mt="func">Cadastros</button>`)}<div class="tabs">${[['ranking', 'Ranking e histórico'], ['aval', 'Nova avaliação'], ['func', 'Funcionários'], ['equipes', 'Equipes'], ['cargos', 'Cargos']].map(([k, l]) => `<button data-mt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
   }
 };
 function retiradasTable(rs) {
@@ -246,6 +248,7 @@ const readAsDataless = f => f;
 
 /* ---------- eventos ---------- */
 document.addEventListener('click', async e => {
+  for (const fn of EXT.click) if (await fn(e)) return;
   const t = e.target.closest('[data-nav],[data-act],[data-fs],[data-ct],[data-mt],[data-pay],[data-open]'); if (!t) { if (e.target.id === 'modal') closeModal(); return; }
   const d = t.dataset;
   if (d.nav) { view = d.nav; render(); window.scrollTo(0, 0); }
@@ -287,16 +290,18 @@ function readAval() {
 }
 document.addEventListener('input', e => {
   const t = e.target;
+  for (const fn of EXT.input) if (fn(e)) return;
   if (t.id === 'q') { tab.q = t.value; const p = t.selectionStart; render(); const n = $('#q'); n.focus(); n.setSelectionRange(p, p); }
   else if (t.dataset.crit) { const m = S.materiais.find(x => x.id === t.dataset.crit); m.critica = Math.max(0, +t.value || 0); save(); renderNav(); }
   else if (t.classList.contains('sc') || t.id === 'aFa' || t.id === 'aAt') { const r = readAval(); $('#prev').innerHTML = r ? `<div class="mono">Resultado</div><div class="v">${r.nota.toFixed(1)} <span class="pill ${classCss(r.cls)}">${r.cls}</span></div><small class="sub">média ${r.media.toFixed(2)} → ${(r.media * 10).toFixed(1)} pts</small>` : '<div class="mono">Resultado</div><div class="v">—</div>'; }
 });
 document.addEventListener('change', async e => {
   const t = e.target;
+  for (const fn of EXT.change) if (await fn(e)) return;
   if (t.dataset.up) { const b = S.boletos.find(x => x.id === t.dataset.up); for (const f of t.files) (b.arquivos = b.arquivos || []).push(await putFile(f)); save(); render(); }
   else if (t.dataset.cc) cdraft[+t.dataset.cc].criar = t.checked;
   else if (t.id === 'obraSel') { obraF = t.value; render(); }
 });
 $('#btnExport').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(S, null, 1)], { type: 'application/json' })); a.download = 'compizzo-dados-' + today() + '.json'; a.click(); };
 $('#btnReset').onclick = () => { if (confirm('Descartar alterações locais e voltar à base publicada?')) { localStorage.removeItem(LS); location.reload(); } };
-load().then(render).catch(err => { $('#view').innerHTML = '<p class="bad">Erro ao carregar dados: ' + esc(err.message) + '</p>'; });
+function metaCard() { const m = S.metaMensal; if (!m) return ''; return `<div class="card"><div class="mono">Meta de faturamento · ${esc(m.periodo)}</div><div class="kpi"><div class="v">${brl(m.totalBruto)}</div></div><small class="sub">líquido previsto ${brl(m.totalLiquido)} · ${m.obras.length} frentes</small> <button class="btn sm" data-nav="prod" data-goto="mc">Ver</button></div>`; }

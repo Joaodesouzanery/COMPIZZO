@@ -42,3 +42,12 @@ table{width:100%;border-collapse:collapse}th{font:500 10.5px var(--mono);letter-
 .mob{display:none}
 @media(max-width:900px){.shell{grid-template-columns:1fr;padding:0 10px}.side{position:static;height:auto;border-radius:20px}nav{display:flex;flex-wrap:wrap;gap:4px}nav button{width:auto}.g2,.g3,.g4{grid-template-columns:1fr 1fr}.main{padding:18px 16px}h1{font-size:24px}.kpi.big .v{font-size:42px}}
 @media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.cal{overflow-x:auto}.cdh,.cgrid{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:4px;min-width:860px}.cdh span{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);padding:2px 6px}
+.cd{background:var(--soft);border:1px solid var(--line);border-radius:10px;min-height:96px;padding:5px;display:flex;flex-direction:column;gap:3px}.cd.out{opacity:.4}.cd.sab{background:#fff2e0}.cd.dom{background:var(--bg);opacity:.75}.cd.hoje{outline:2px solid var(--blue)}
+@media(prefers-color-scheme:dark){.cd.sab{background:#3a2d17}}
+.cdn{display:flex;justify-content:space-between;align-items:center}.cd small{font-size:10.5px;color:var(--mut);display:block}
+.chip{font-size:11.5px;line-height:1.25;border-radius:7px;padding:4px 6px;cursor:pointer;border-left:4px solid var(--mut);background:var(--panel);overflow-wrap:anywhere}.chip small{display:block}.chip i{font-style:normal;color:var(--amb)}
+.tc{border-color:#1f8a4c;background:#e6f5ec}.tp{border-color:#8a6d3b;background:#f3ecdf}.tr{border-color:#0b3fbf;background:#e8eefc}.ts{border-color:#7c3aed;background:#efe7fd}.tn{border-color:#0891b2;background:#e0f4f9}.td{border-color:#c58a00;background:#fff6dc}.tb{border-color:#be185d;background:#fce7f1}.tm{border-color:#c0392b;background:#fdecea}.te{border-color:#475569;background:#e8ecf1}.tt{border-color:#0f766e;background:#def5f1}.to{border-color:#6f6f7a;background:var(--soft)}
+@media(prefers-color-scheme:dark){.chip{color:#111114}}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;border-left:4px solid;margin-right:5px;vertical-align:middle}
+@media print{body{background:#fff}.side,.top .row,.tabs,.modal,.btn{display:none!important}.shell{display:block;margin:0;padding:0;max-width:none}.main{box-shadow:none;border-radius:0;padding:0}.card{break-inside:avoid;border-color:#bbb}input,select,textarea{border:0!important;padding:0!important;background:transparent!important;appearance:none}.dz{display:none}}

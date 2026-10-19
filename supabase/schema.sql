@@ -15,3 +15,17 @@ create table avaliacoes (id uuid primary key default gen_random_uuid(), func_id 
 do $$ declare t text; begin foreach t in array array['obras','materiais','retiradas','ajustes','fornecedores','cotacoes','compras','boletos','parcelas','funcionarios','avaliacoes'] loop
  execute format('alter table %I enable row level security', t);
  execute format('create policy "auth_all" on %I for all to authenticated using (true) with check (true)', t); end loop; end $$;
+
+-- Fase 2: produção, RDO, cadastros e calendário
+create table cargos (id uuid primary key default gen_random_uuid(), nome text not null, taxa_hora numeric, salario numeric, he_sab numeric, he_dom numeric);
+create table equipes (id uuid primary key default gen_random_uuid(), nome text not null, lider text, obra_id uuid references obras);
+alter table obras add column bac numeric, add column inicio date, add column preco_piso numeric, add column modo_receita text default 'preco', add column fase_preco jsonb default '{}';
+alter table funcionarios add column matricula text, add column setor text, add column local text, add column admissao date, add column contrato text, add column regime text, add column equipe_id uuid references equipes, add column status text default 'Ativo', add column taxa_hora numeric, add column salario numeric, add column he_sab numeric, add column he_dom numeric;
+create table fases (id uuid primary key default gen_random_uuid(), nome text not null, un text, peso numeric, ativa boolean default true);
+create table metas (id uuid primary key default gen_random_uuid(), obra_id uuid references obras, inicio date, fim date, qtds jsonb);
+create table rdos (id uuid primary key default gen_random_uuid(), obra_id uuid references obras, data date, status text, conteudo jsonb);
+create table calendario (id uuid primary key default gen_random_uuid(), obra_id uuid references obras, data date, tipo text, texto text, equipe text[], cond text, fonte text);
+create table agenda (id uuid primary key default gen_random_uuid(), data date, equipe text, encarregado text, membros text[], texto text);
+do $$ declare t text; begin foreach t in array array['cargos','equipes','fases','metas','rdos','calendario','agenda'] loop
+ execute format('alter table %I enable row level security', t);
+ execute format('create policy "auth_all" on %I for all to authenticated using (true) with check (true)', t); end loop; end $$;
