@@ -1,0 +1,929 @@
+{
+ "version": 2,
+ "obras": [
+  {
+   "id": "o1",
+   "nome": "Supera",
+   "status": "Em andamento"
+  }
+ ],
+ "funcionarios": [
+  {
+   "id": "f1",
+   "nome": "Antônio Oliver",
+   "obraId": "o1",
+   "funcao": ""
+  }
+ ],
+ "avaliadores": [
+  "Cícero",
+  "Vinicius"
+ ],
+ "materiais": [
+  {
+   "id": "m1",
+   "nome": "Thinner 18L",
+   "codigo": "THN05L",
+   "unidade": "un",
+   "qtd": 0.0,
+   "critica": 5,
+   "ultimoPedido": "2025-11-01",
+   "nota": null
+  },
+  {
+   "id": "m2",
+   "nome": "Fita 48mm",
+   "codigo": "FT48X24",
+   "unidade": "cx",
+   "qtd": 4.0,
+   "critica": 1,
+   "ultimoPedido": "2025-12-10",
+   "nota": "Planilha: 4 cx (24un)"
+  },
+  {
+   "id": "m3",
+   "nome": "Fita 24mm",
+   "codigo": "FT24X48",
+   "unidade": "cx",
+   "qtd": 5.0,
+   "critica": 1,
+   "ultimoPedido": "2025-12-05",
+   "nota": "Planilha: 5 cx (48un)"
+  },
+  {
+   "id": "m4",
+   "nome": "Lona 110M",
+   "codigo": "PLP110M",
+   "unidade": "rolos",
+   "qtd": 12.0,
+   "critica": 5,
+   "ultimoPedido": "2025-10-20",
+   "nota": null
+  },
+  {
+   "id": "m5",
+   "nome": "Plug macho branco",
+   "codigo": "PMB10A",
+   "unidade": "un",
+   "qtd": 19.0,
+   "critica": 5,
+   "ultimoPedido": "2025-11-15",
+   "nota": null
+  },
+  {
+   "id": "m6",
+   "nome": "Plug fêmea branco",
+   "codigo": "PFB10A",
+   "unidade": "un",
+   "qtd": 20.0,
+   "critica": 5,
+   "ultimoPedido": "2025-11-15",
+   "nota": null
+  },
+  {
+   "id": "m7",
+   "nome": "Disco de corte diamantado",
+   "codigo": "DCD9IN",
+   "unidade": "un",
+   "qtd": 17.0,
+   "critica": 5,
+   "ultimoPedido": "2025-12-01",
+   "nota": null
+  },
+  {
+   "id": "m8",
+   "nome": "Trena 5M",
+   "codigo": "TRN05M",
+   "unidade": "un",
+   "qtd": 2.0,
+   "critica": 5,
+   "ultimoPedido": "2025-11-20",
+   "nota": null
+  },
+  {
+   "id": "m9",
+   "nome": "Fita isolante 18MM",
+   "codigo": "FI18MM",
+   "unidade": "un",
+   "qtd": 10.0,
+   "critica": 5,
+   "ultimoPedido": "2025-10-25",
+   "nota": null
+  },
+  {
+   "id": "m10",
+   "nome": "Estiletes",
+   "codigo": "ESTPAD",
+   "unidade": "un",
+   "qtd": 3.0,
+   "critica": 5,
+   "ultimoPedido": "2025-12-08",
+   "nota": null
+  },
+  {
+   "id": "m11",
+   "nome": "Rolo 9CM",
+   "codigo": "RL9CM",
+   "unidade": "rolos",
+   "qtd": 2.0,
+   "critica": 5,
+   "ultimoPedido": "2025-11-05",
+   "nota": null
+  },
+  {
+   "id": "m12",
+   "nome": "Rolo 23cm",
+   "codigo": "RL23CM",
+   "unidade": "rolos",
+   "qtd": 3.0,
+   "critica": 5,
+   "ultimoPedido": "2025-11-05",
+   "nota": null
+  },
+  {
+   "id": "m13",
+   "nome": "Óculos de proteção",
+   "codigo": "OCPROT",
+   "unidade": "un",
+   "qtd": 18.0,
+   "critica": 5,
+   "ultimoPedido": "2025-10-01",
+   "nota": null
+  },
+  {
+   "id": "m14",
+   "nome": "Protetores auriculares",
+   "codigo": "PRTAUR",
+   "unidade": "un",
+   "qtd": 84.0,
+   "critica": 20,
+   "ultimoPedido": "2025-10-01",
+   "nota": null
+  },
+  {
+   "id": "m15",
+   "nome": "Panos de chão",
+   "codigo": "PNLMP",
+   "unidade": "un",
+   "qtd": 0.0,
+   "critica": 5,
+   "ultimoPedido": "2025-12-12",
+   "nota": null
+  },
+  {
+   "id": "m16",
+   "nome": "Suporte de rolo pintura comum (23Cm)",
+   "codigo": "SRPC01",
+   "unidade": "un",
+   "qtd": 4.0,
+   "critica": 5,
+   "ultimoPedido": "2025-11-05",
+   "nota": null
+  },
+  {
+   "id": "m17",
+   "nome": "Rolo 5CM",
+   "codigo": "SRPT01",
+   "unidade": "un",
+   "qtd": 5.0,
+   "critica": 5,
+   "ultimoPedido": "2025-11-05",
+   "nota": null
+  },
+  {
+   "id": "m18",
+   "nome": "Disco de lixa",
+   "codigo": "DLX120",
+   "unidade": "un",
+   "qtd": 10.0,
+   "critica": 5,
+   "ultimoPedido": "2025-12-03",
+   "nota": null
+  },
+  {
+   "id": "m19",
+   "nome": "Bota TAM 43",
+   "codigo": "BTA42",
+   "unidade": "un",
+   "qtd": 7.0,
+   "critica": 5,
+   "ultimoPedido": "2025-10-01",
+   "nota": null
+  },
+  {
+   "id": "m20",
+   "nome": "Bota TAM 40",
+   "codigo": "BTA40",
+   "unidade": "un",
+   "qtd": 0.0,
+   "critica": 5,
+   "ultimoPedido": "2025-10-01",
+   "nota": null
+  },
+  {
+   "id": "m21",
+   "nome": "Luva pigmentada",
+   "codigo": "LVPGM",
+   "unidade": "pares",
+   "qtd": 0.0,
+   "critica": 5,
+   "ultimoPedido": "2025-10-01",
+   "nota": null
+  },
+  {
+   "id": "m22",
+   "nome": "Capacete amarelo",
+   "codigo": "CAPAM",
+   "unidade": "un",
+   "qtd": 11.0,
+   "critica": 5,
+   "ultimoPedido": "2025-10-01",
+   "nota": null
+  },
+  {
+   "id": "m23",
+   "nome": "Capacete marrom",
+   "codigo": "CAPMR",
+   "unidade": "un",
+   "qtd": 1.0,
+   "critica": 5,
+   "ultimoPedido": "2025-10-01",
+   "nota": null
+  },
+  {
+   "id": "m24",
+   "nome": "Velcro Preto",
+   "codigo": "VELCPR",
+   "unidade": "m",
+   "qtd": 20.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": "Planilha: 20M"
+  },
+  {
+   "id": "m25",
+   "nome": "Plugs Steck",
+   "codigo": "PLGSTCK",
+   "unidade": "un",
+   "qtd": 5.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m26",
+   "nome": "Luva Látex Bicolor",
+   "codigo": "LNS",
+   "unidade": "rolos",
+   "qtd": 96.0,
+   "critica": 20,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m27",
+   "nome": "Galochas",
+   "codigo": "GLCH",
+   "unidade": "pares",
+   "qtd": 0.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m28",
+   "nome": "Máscaras PFF2",
+   "codigo": "MSCR",
+   "unidade": "un",
+   "qtd": 100.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m29",
+   "nome": "Desempenadeiras",
+   "codigo": "DSPN",
+   "unidade": "un",
+   "qtd": 27.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m30",
+   "nome": "Calça (Uniforme)",
+   "codigo": "CLC",
+   "unidade": "un",
+   "qtd": 10.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m31",
+   "nome": "Camisa GG (Uniforme)",
+   "codigo": "CMSGG",
+   "unidade": "un",
+   "qtd": 0.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m32",
+   "nome": "Camisa G (Uniforme)",
+   "codigo": "CMSG",
+   "unidade": "un",
+   "qtd": 33.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m33",
+   "nome": "Camisa M (Uniforme)",
+   "codigo": "CMSM",
+   "unidade": "un",
+   "qtd": 0.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m34",
+   "nome": "Macacões",
+   "codigo": "MCC",
+   "unidade": "un",
+   "qtd": 10.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m35",
+   "nome": "Espátula 4cm",
+   "codigo": null,
+   "unidade": "un",
+   "qtd": 10.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m36",
+   "nome": "Espátula 12cm",
+   "codigo": null,
+   "unidade": "un",
+   "qtd": 15.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m37",
+   "nome": "Abafadores",
+   "codigo": null,
+   "unidade": "un",
+   "qtd": 10.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  },
+  {
+   "id": "m38",
+   "nome": "Kit Máscaras com 2 filtros",
+   "codigo": null,
+   "unidade": "un",
+   "qtd": 11.0,
+   "critica": 5,
+   "ultimoPedido": null,
+   "nota": null
+  }
+ ],
+ "pedidos": [
+  {
+   "produto": "Lona Plastica Preta",
+   "qtd": 5.0,
+   "unidade": "Und",
+   "obs": null
+  },
+  {
+   "produto": "Rolo de 9cm",
+   "qtd": 24.0,
+   "unidade": "Und",
+   "obs": null
+  },
+  {
+   "produto": "Rolo de 15cm",
+   "qtd": 10.0,
+   "unidade": "Und",
+   "obs": null
+  },
+  {
+   "produto": "Fita Crepe 48x50",
+   "qtd": 120,
+   "unidade": "Und",
+   "obs": null
+  },
+  {
+   "produto": "Fita Crepe 24x50",
+   "qtd": 144,
+   "unidade": "Und",
+   "obs": null
+  },
+  {
+   "produto": "Pano de Chão",
+   "qtd": 60.0,
+   "unidade": "Und",
+   "obs": null
+  },
+  {
+   "produto": "Rodo p/ Primer",
+   "qtd": 10.0,
+   "unidade": "Und",
+   "obs": "Verificar estoque ultima compra de Goiania - Verificar possibilidade de compra em Goiania devido a preço mais barato"
+  },
+  {
+   "produto": "Saco de Lixo 200Lts",
+   "qtd": 100.0,
+   "unidade": "Und",
+   "obs": null
+  },
+  {
+   "produto": "Trena 8m",
+   "qtd": 4.0,
+   "unidade": "Und",
+   "obs": null
+  },
+  {
+   "produto": "Thinner 5L",
+   "qtd": 10.0,
+   "unidade": "Und",
+   "obs": null
+  }
+ ],
+ "retiradas": [],
+ "ajustes": [],
+ "avaliacoes": [],
+ "boletos": [
+  {
+   "id": "b1",
+   "fornecedor": "Condor",
+   "compraId": "c1",
+   "nf": "607512",
+   "emissao": "2026-09-24",
+   "totalNF": 2284.47,
+   "parcelas": [
+    {
+     "n": 1,
+     "venc": "2026-10-22",
+     "valor": 761.49,
+     "pago": false
+    },
+    {
+     "n": 2,
+     "venc": "2026-11-19",
+     "valor": 761.49,
+     "pago": false
+    },
+    {
+     "n": 3,
+     "venc": "2026-12-17",
+     "valor": 761.49,
+     "pago": false
+    }
+   ],
+   "obs": "Boleto 1: R$ 757,49 + tarifa bancária R$ 4,00. NF-e 607512, 22 volumes.",
+   "arquivos": []
+  }
+ ],
+ "fornecedores": [
+  "Pepe Tintas",
+  "Itatiaia",
+  "Campeão",
+  "Vulcão",
+  "Unitintas",
+  "Condor",
+  "Melhores Marcas",
+  "Terra Util"
+ ],
+ "cotacoes": [
+  {
+   "material": "Fita crepe 48mm",
+   "precos": [
+    8.85,
+    7.74,
+    16.33,
+    19.66,
+    8.72,
+    8.06,
+    null,
+    11.87
+   ]
+  },
+  {
+   "material": "Fita crepe 24mm",
+   "precos": [
+    4.66,
+    3.87,
+    8.82,
+    8.61,
+    4.36,
+    3.91,
+    8.29,
+    5.52
+   ]
+  },
+  {
+   "material": "Trena 8M",
+   "precos": [
+    17.67,
+    33.25,
+    54.14,
+    62.06,
+    null,
+    27.68,
+    48.5,
+    43.78
+   ]
+  },
+  {
+   "material": "Estilete",
+   "precos": [
+    6.26,
+    18.24,
+    3.58,
+    24.4,
+    null,
+    8.37,
+    17.99,
+    10.28
+   ]
+  },
+  {
+   "material": "Cx rolo 23cm",
+   "precos": [
+    17.21,
+    17.92,
+    26.45,
+    null,
+    26.25,
+    8.75,
+    13.99,
+    null
+   ]
+  },
+  {
+   "material": "Cx rolo 9cm",
+   "precos": [
+    10.21,
+    11.45,
+    12.64,
+    null,
+    13.28,
+    9.95,
+    12.7,
+    12.7
+   ]
+  },
+  {
+   "material": "Cx rolo 15cm",
+   "precos": [
+    13.37,
+    18.38,
+    14.79,
+    null,
+    20.39,
+    15.42,
+    20.28,
+    19.97
+   ]
+  },
+  {
+   "material": "Escova copo de aço",
+   "precos": [
+    9.33,
+    null,
+    null,
+    41.9,
+    null,
+    14.55,
+    18.75,
+    18.47
+   ]
+  },
+  {
+   "material": "Espátula aço 12cm",
+   "precos": [
+    11.93,
+    10.68,
+    19.36,
+    12.6,
+    12.46,
+    5.63,
+    4.79,
+    5.18
+   ]
+  },
+  {
+   "material": "Espátula aço 4cm",
+   "precos": [
+    8.13,
+    5.3,
+    14.85,
+    null,
+    8.66,
+    4.47,
+    3.52,
+    3.82
+   ]
+  },
+  {
+   "material": "Pincel 0,5 (Trincha 1/2\")",
+   "precos": [
+    1.85,
+    1.99,
+    null,
+    3.05,
+    null,
+    1.14,
+    2.58,
+    null
+   ]
+  },
+  {
+   "material": "Pincel 1cm (Trincha 1\")",
+   "precos": [
+    null,
+    3.18,
+    null,
+    null,
+    3.53,
+    1.9,
+    4.49,
+    null
+   ]
+  },
+  {
+   "material": "Pincel 2cm (Trincha 2\")",
+   "precos": [
+    null,
+    null,
+    null,
+    null,
+    5.93,
+    3.64,
+    6.79,
+    7.49
+   ]
+  },
+  {
+   "material": "Pano de chão",
+   "precos": [
+    null,
+    null,
+    14.18,
+    29.1,
+    null,
+    3.88,
+    12.48,
+    null
+   ]
+  },
+  {
+   "material": "Sacos de lixo",
+   "precos": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    55.25,
+    null
+   ]
+  },
+  {
+   "material": "Rolo de lã para parede",
+   "precos": [
+    31.19,
+    9.94,
+    null,
+    null,
+    24.98,
+    16.65,
+    null,
+    42.37
+   ]
+  },
+  {
+   "material": "Velcro preto",
+   "precos": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    19.5,
+    null
+   ]
+  },
+  {
+   "material": "Desempenadeira de aço lisa",
+   "precos": [
+    42.07,
+    13.24,
+    20.3,
+    16.69,
+    45.39,
+    11.28,
+    8.99,
+    20.44
+   ]
+  },
+  {
+   "material": "Thinner galão 18L",
+   "precos": [
+    247.96,
+    210.59,
+    128.22,
+    null,
+    186.83,
+    206.01,
+    null,
+    null
+   ]
+  },
+  {
+   "material": "Disco de lixa 80",
+   "precos": [
+    null,
+    null,
+    4.95,
+    14.18,
+    null,
+    5.28,
+    null,
+    5.14
+   ]
+  },
+  {
+   "material": "Tecbond / Cola instantânea",
+   "precos": [
+    null,
+    null,
+    99.17,
+    99.17,
+    null,
+    31.39,
+    39.23,
+    17.29
+   ]
+  },
+  {
+   "material": "Tarucel",
+   "precos": [
+    null,
+    null,
+    1.5,
+    1.5,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "material": "Lixa G36",
+   "precos": [
+    3.29,
+    null,
+    5.2,
+    5.2,
+    4.1,
+    5.62,
+    3.29,
+    6.11
+   ]
+  },
+  {
+   "material": "Lixa G60",
+   "precos": [
+    2.73,
+    0.78,
+    5.72,
+    5.62,
+    3.43,
+    null,
+    3.29,
+    5.44
+   ]
+  },
+  {
+   "material": "Lixa G80",
+   "precos": [
+    2.73,
+    0.86,
+    6.02,
+    5.41,
+    3.17,
+    5.28,
+    3.29,
+    5.14
+   ]
+  },
+  {
+   "material": "Lixa G120",
+   "precos": [
+    2.48,
+    0.53,
+    5.72,
+    3.5,
+    null,
+    4.78,
+    2.9,
+    4.59
+   ]
+  }
+ ],
+ "compras": [
+  {
+   "id": "c1",
+   "fornecedor": "Condor",
+   "total": 2734.12,
+   "data": "2026-09-24",
+   "itens": [
+    "10 un adesivo instantâneo 100g",
+    "200 un disco de lixa metal G36",
+    "200 un disco de lixa metal G60",
+    "200 un disco de lixa metal G80",
+    "200 un disco de lixa metal G120",
+    "100 un pano de chão",
+    "24 un rolo de lã 9 cm",
+    "30 un rolo de lã 23 cm antirespingo",
+    "24 un rolo de lã 23 cm Resimax",
+    "24 un trincha 1\"",
+    "24 un trincha 1/2\"",
+    "24 un trincha 2\""
+   ]
+  },
+  {
+   "id": "c2",
+   "fornecedor": "Itatiaia",
+   "total": 4086.72,
+   "itens": [
+    "288 un fita crepe 48 mm x 50 m",
+    "480 un fita crepe 24 mm x 50 m"
+   ]
+  },
+  {
+   "id": "c3",
+   "fornecedor": "Campeão da Construção",
+   "total": 423.6,
+   "itens": [
+    "200 m de Tarucel 15 mm",
+    "5 un estilete profissional",
+    "1 un disco para lixadeira 8 furos G80"
+   ]
+  },
+  {
+   "id": "c4",
+   "fornecedor": "Unitintas",
+   "total": 2730.3,
+   "itens": [
+    "10 galões de Thinner 700 18 L",
+    "2 galões de primer convertedor de ferrugem DD4 5 L"
+   ]
+  },
+  {
+   "id": "c5",
+   "fornecedor": "Melhores Marcas",
+   "total": 1963.7,
+   "itens": [
+    "12 un espátula de aço 12 cm",
+    "12 un espátula de aço 4 cm",
+    "4 pct saco de lixo reforçado 100 L c/100",
+    "20 m velcro 50 mm macho/fêmea",
+    "15 un desempenadeira de aço lisa",
+    "1 un óculos de sobrepor incolor",
+    "1 un protetor auditivo concha 22 dB",
+    "1 un kit protetor auditivo p/ capacete",
+    "1 un respirador semifacial 2 filtros",
+    "2 un filtros químicos VO+GA",
+    "100 pares luva látex/neoprene"
+   ]
+  },
+  {
+   "id": "c6",
+   "fornecedor": "Pepe Tintas",
+   "total": 367.53,
+   "itens": [
+    "24 un rolo de lã zero gota 15 cm",
+    "5 un escova de aço com cabo"
+   ]
+  }
+ ],
+ "totalInformado": 12305.97
+}

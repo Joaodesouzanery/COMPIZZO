@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compizzo Admin</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="brand"><img src="assets/logo.svg" alt="Compizzo"><b>Compizzo</b></div>
+    <div class="obra-pick"><span class="mono">OBRA</span><select id="obraSel"></select></div>
+    <div class="mono sec">WORKSPACE</div>
+    <nav id="nav"></nav>
+    <div class="side-foot">
+      <button class="btn ghost sm" id="btnExport">Exportar dados</button>
+      <button class="btn ghost sm" id="btnReset">Restaurar base</button>
+    </div>
+  </aside>
+  <main class="main"><div id="view"></div></main>
+</div>
+<div id="modal" class="modal" hidden><div class="mbox" id="mbox"></div></div>
+<script src="assets/app.js"></script>
+</body></html>
