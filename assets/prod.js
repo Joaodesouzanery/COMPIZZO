@@ -164,15 +164,15 @@ function calView() {
   const mes = tab.cm || '2026-10', [Y, M] = mes.split('-').map(Number), first = `${mes}-01`, nd = new Date(Date.UTC(Y, M, 0)).getUTCDate();
   const start = addDays(first, -dowIdx(first)), weeks = Math.ceil((dowIdx(first) + nd) / 7);
   const nomes = [...new Set(S.calendario.flatMap(e => e.equipe))].sort(), fo = tab.cf || '';
-  const ents = S.calendario.filter(e => (obraF === 'all' || e.obraId === obraF) && (!fo || e.equipe.includes(fo)));
+  const ents = S.calendario.filter(e => !e.substituidoPor && (obraF === 'all' || e.obraId === obraF) && (!fo || e.equipe.includes(fo)));
   const by = {}; ents.forEach(e => (by[e.data] = by[e.data] || []).push(e));
   let cells = '';
   for (let w = 0; w < weeks; w++) for (let d = 0; d < 7; d++) {
     const dt = addDays(start, w * 7 + d), inM = dt.startsWith(mes), fer = S.feriados[dt];
-    cells += `<div class="cd ${inM ? '' : 'out'} ${d === 5 ? 'sab' : ''} ${d === 6 ? 'dom' : ''} ${dt === today() ? 'hoje' : ''}"><div class="cdn"><b>${+dt.slice(8)}</b>${fer ? `<span class="pill r" title="${esc(fer)}">feriado</span>` : ''}</div>${fer ? `<small class="bad">${esc(fer)}</small>` : ''}${(by[dt] || []).map(e => `<div class="chip ${TCLASS[e.tipo] || 'to'}" data-cal="${e.id}" title="${esc(e.texto)}"><b>${obraF === 'all' ? esc(short(obraNome(e.obraId))) + ' · ' : ''}${esc(e.tipo.charAt(0) + e.tipo.slice(1).toLowerCase())}</b>${e.cond ? ' <i>(se liberado)</i>' : ''}<br>${esc(e.texto)}${e.equipe.length ? `<small>${esc(e.equipe.join(', '))}</small>` : ''}</div>`).join('')}</div>`;
+    cells += `<div class="cd ${inM ? '' : 'out'} ${d === 5 ? 'sab' : ''} ${d === 6 ? 'dom' : ''} ${dt === today() ? 'hoje' : ''}"><div class="cdn"><b>${+dt.slice(8)}</b>${fer ? `<span class="pill r" title="${esc(fer)}">feriado</span>` : ''}</div>${fer ? `<small class="bad">${esc(fer)}</small>` : ''}${(by[dt] || []).map(e => `<div class="chip ${TCLASS[e.tipo] || 'to'}" data-cal="${e.id}" title="${esc(e.texto)}"><b>${obraF === 'all' ? esc(short(obraNome(e.obraId))) + ' · ' : ''}${esc(e.tipo.charAt(0) + e.tipo.slice(1).toLowerCase())}</b>${e.cond ? ' <i>(se liberado)</i>' : ''}<br>${e.turno && e.turno !== 'dia' ? `<i>${esc(e.turno)}:</i> ` : ''}${e.parado ? '<b>PARADO</b>' : esc(e.texto)}${e.nota ? `<small>${esc(e.nota)}</small>` : ''}${e.equipe.length ? `<small>${esc(e.equipe.join(', '))}</small>` : ''}</div>`).join('')}</div>`;
   }
   const alerts = [];
-  const byDay = {}; S.calendario.filter(e => e.data.startsWith(mes)).forEach(e => (byDay[e.data] = byDay[e.data] || []).push(e));
+  const byDay = {}; S.calendario.filter(e => !e.substituidoPor && e.data.startsWith(mes)).forEach(e => (byDay[e.data] = byDay[e.data] || []).push(e));
   for (const [dt, es] of Object.entries(byDay)) {
     if (S.feriados[dt]) alerts.push(`${fdate(dt)} é feriado (${S.feriados[dt]}) e há atividade programada em ${[...new Set(es.map(e => short(obraNome(e.obraId))))].join(', ')} — confirmar execução ou remanejar.`);
     const who = {}; es.forEach(e => e.equipe.forEach(n => { (who[n] = who[n] || new Set()).add(e.obraId); }));
@@ -311,6 +311,8 @@ EXT.click.push(async e => {
       rdSync(); if (!rd.obraId || !rd.data) return alert('Selecione obra e data.'), true;
       if (a === 'save') { const ruim = rd.materiais.find(m => m.materialId && (+m.qtd || 0) <= 0); if (ruim) return alert('Informe a quantidade dos materiais do estoque.'), true; }
       rd.fases = rd.fases.filter(l => l.faseId || l.nome || +l.qtd);
+      const dupR = S.rdos.find(z => z.id !== rd.id && z.obraId === rd.obraId && z.data === rd.data && z.status === 'salvo');
+      if (dupR && !confirm(`Já existe um RDO salvo de ${obraNome(rd.obraId)} em ${fdate(rd.data)}. Criar mesmo assim (duplicado)?`)) return true;
       const prev = S.rdos.findIndex(z => z.id === rd.id), was = prev >= 0 ? S.rdos[prev].status : '';
       rd.status = a === 'save' ? 'salvo' : (was === 'salvo' ? 'salvo' : 'rascunho');
       if (a === 'save') applyRdoStock(rd); else if (was !== 'salvo') removeRdoStock(rd.id);

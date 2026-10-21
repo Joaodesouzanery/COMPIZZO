@@ -29,7 +29,8 @@ async function load() {
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) { alert('Não foi possível salvar localmente.'); } };
 const idb = () => new Promise((res, rej) => { const r = indexedDB.open('compizzo', 1); r.onupgradeneeded = () => r.result.createObjectStore('files', { keyPath: 'id' }); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
 async function putFile(f) { const id = uid('f'); const db = await idb(); await new Promise(r => { const t = db.transaction('files', 'readwrite'); t.objectStore('files').put({ id, name: f.name, type: f.type, blob: f }); t.oncomplete = r; }); return { id, name: f.name, type: f.type, date: today() }; }
-async function openFile(id) { const db = await idb(); db.transaction('files').objectStore('files').get(id).onsuccess = e => { const r = e.target.result; if (r) window.open(URL.createObjectURL(r.blob), '_blank'); else alert('Arquivo não encontrado neste navegador.'); }; }
+async function openFile(id) {
+  if (String(id).startsWith('url:')) { window.open(id.slice(4), '_blank'); return; } const db = await idb(); db.transaction('files').objectStore('files').get(id).onsuccess = e => { const r = e.target.result; if (r) window.open(URL.createObjectURL(r.blob), '_blank'); else alert('Arquivo não encontrado neste navegador.'); }; }
 
 /* ---------- regras de negócio ---------- */
 const stat = m => (m.qtd <= 0 ? 'zero' : m.qtd <= m.critica ? 'crit' : 'ok');
@@ -109,7 +110,7 @@ const VIEWS = {
       <div class="ticks">${ticks}</div><div class="legend"><span>▌ Em estoque</span><span class="amb">▌ Crítico</span><span class="red">▌ Zerado</span><span>Cada marca é um material</span></div></div></div>
     <div class="grid g2"><div class="card"><div class="row sp"><h2>Alertas de estoque</h2><button class="btn sm" data-nav="estoque">Ver estoque</button></div><div class="list">${alertList}</div></div>
       <div><div class="card"><div class="mono">Gasto em compras</div><div class="kpi"><div class="v">${brl(gasto)}</div></div><small class="sub">${S.compras.length} fornecedores · informado ${brl(S.totalInformado)} ${Math.abs(gasto - S.totalInformado) < .02 ? '<span class="ok">✓ confere</span>' : '<span class="bad">≠ diverge</span>'}</small></div>
-      ${metaCard()}<div class="card"><h2>Boletos a vencer</h2><div class="list">${bol.map(({ b, i }) => `<div class="it"><div class="t"><b>${esc(b.fornecedor)} · NF ${esc(b.nf)}</b><small>próx. venc. ${fdate(i.prox)}</small></div><span class="pill ${i.dias < 0 ? 'r' : i.dias <= 7 ? 'a' : ''}">${i.dias < 0 ? 'vencido' : 'em ' + i.dias + ' d'}</span></div>`).join('') || '<p class="sub">Sem boletos abertos.</p>'}</div></div></div></div>
+      ${pendCard()}${metaCard()}<div class="card"><h2>Boletos a vencer</h2><div class="list">${bol.map(({ b, i }) => `<div class="it"><div class="t"><b>${esc(b.fornecedor)} · NF ${esc(b.nf)}</b><small>próx. venc. ${fdate(i.prox)}</small></div><span class="pill ${i.dias < 0 ? 'r' : i.dias <= 7 ? 'a' : ''}">${i.dias < 0 ? 'vencido' : 'em ' + i.dias + ' d'}</span></div>`).join('') || '<p class="sub">Sem boletos abertos.</p>'}</div></div></div></div>
     <div class="card"><h2>Últimas retiradas</h2>${retiradasTable(retiradasF().slice(-8).reverse())}</div>`;
   },
   obras() {
@@ -167,7 +168,7 @@ const VIEWS = {
     } else if (CAD[t]) { body = CAD[t](); }
     else {
       const av = S.avaliadores; const d = new Date(); const q = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')} · ${d.getDate() <= 15 ? '1ª' : '2ª'} quinzena`;
-      body = `<div class="card"><div class="grid g3"><div><label class="mono">Funcionário</label><br><select id="aF">${S.funcionarios.map(f => `<option value="${f.id}">${esc(f.nome)} — ${esc(obraNome(f.obraId))}</option>`).join('')}</select></div><div><label class="mono">Período</label><br><input id="aP" value="${q}" style="width:100%"></div><div class="row"><div><label class="mono">Faltas</label><br><input id="aFa" type="number" min="0" value="0" style="width:90px"></div><div><label class="mono">Atrasos</label><br><input id="aAt" type="number" min="0" value="0" style="width:90px"></div></div></div>
+      body = `<div class="card"><div class="grid g3"><div><label class="mono">Funcionário</label><br><select id="aF">${S.funcionarios.map(f => `<option value="${f.id}">${esc(f.nome)} — ${esc(obraNome(f.obraId))}</option>`).join('')}</select><small id="aFh" class="sub" style="display:block;margin:4px 0 0">${faltasHint(S.funcionarios[0].id)}</small></div><div><label class="mono">Período</label><br><input id="aP" value="${q}" style="width:100%"></div><div class="row"><div><label class="mono">Faltas</label><br><input id="aFa" type="number" min="0" value="${faltasDe(S.funcionarios[0].id).length}" style="width:90px"></div><div><label class="mono">Atrasos</label><br><input id="aAt" type="number" min="0" value="0" style="width:90px"></div></div></div>
       <p class="sub" style="margin-top:14px">Notas de 0 a 10 por competência. Nota final = média ×10 − faltas×5 − atrasos.</p>
       <div class="tw"><table><tr><th>Competência</th>${av.map(a => `<th class="n">${esc(a)}</th>`).join('')}</tr>${COMPS.map((c, i) => `<tr><td>${c}</td>${av.map((a, j) => `<td class="n"><input class="sc" data-c="${i}" data-a="${j}" type="number" min="0" max="10" step="0.5" style="width:80px"></td>`).join('')}</tr>`).join('')}</table></div>
       <div class="row sp" style="margin-top:14px"><div id="prev" class="kpi"><div class="mono">Resultado</div><div class="v">—</div></div><button class="btn blue" data-act="saveAval">Salvar avaliação</button></div></div>`;
@@ -255,6 +256,7 @@ const readAsDataless = f => f;
 /* ---------- eventos ---------- */
 document.addEventListener('click', async e => {
   for (const fn of EXT.click) if (await fn(e)) return;
+  const qb = e.target.closest('[data-q]'); if (qb) { S.perguntasAbertas = S.perguntasAbertas.filter(x => x.id !== qb.dataset.q); save(); render(); return; }
   const t = e.target.closest('[data-nav],[data-act],[data-fs],[data-ct],[data-mt],[data-pay],[data-open]'); if (!t) { if (e.target.id === 'modal') closeModal(); return; }
   const d = t.dataset;
   if (d.nav) { view = d.nav; render(); window.scrollTo(0, 0); }
@@ -307,7 +309,12 @@ document.addEventListener('change', async e => {
   if (t.dataset.up) { const b = S.boletos.find(x => x.id === t.dataset.up); for (const f of t.files) (b.arquivos = b.arquivos || []).push(await putFile(f)); save(); render(); }
   else if (t.dataset.cc) cdraft[+t.dataset.cc].criar = t.checked;
   else if (t.id === 'obraSel') { obraF = t.value; render(); }
+  else if (t.id === 'aF') { $('#aFa').value = faltasDe(t.value).length; $('#aFh').textContent = faltasHint(t.value); $('#aFa').dispatchEvent(new Event('input', { bubbles: true })); }
 });
 $('#btnExport').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(S, null, 1)], { type: 'application/json' })); a.download = 'compizzo-dados-' + today() + '.json'; a.click(); };
 $('#btnReset').onclick = () => { if (confirm('Descartar alterações locais e voltar à base publicada?')) { localStorage.removeItem(LS); location.reload(); } };
+function pendCard() { const q = S.perguntasAbertas || []; if (!q.length) return ''; return `<div class="alert" style="margin-bottom:14px"><b>${q.length} pergunta(s) em aberto</b><ul style="margin:6px 0 0;padding-left:18px">${q.map(x => `<li>${esc(x.texto)} <button class="btn sm" data-q="${x.id}">Resolvida</button></li>`).join('')}</ul></div>`; }
+function quinzena(d = new Date()) { const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), a = d.getDate() <= 15; return { ini: `${y}-${m}-${a ? '01' : '16'}`, fim: `${y}-${m}-${a ? '15' : '31'}` }; }
+function faltasDe(funcId) { const q = quinzena(); return (S.faltas || []).filter(x => x.funcId === funcId && x.data >= q.ini && x.data <= q.fim); }
+function faltasHint(funcId) { const l = faltasDe(funcId); return l.length ? `${l.length} falta(s) registrada(s) nesta quinzena: ${l.map(x => fdate(x.data)).join(', ')}` : 'Nenhuma falta registrada nesta quinzena.'; }
 function metaCard() { const m = S.metaMensal; if (!m) return ''; return `<div class="card"><div class="mono">Meta de faturamento · ${esc(m.periodo)}</div><div class="kpi"><div class="v">${brl(m.totalBruto)}</div></div><small class="sub">líquido previsto ${brl(m.totalLiquido)} · ${m.obras.length} frentes</small> <button class="btn sm" data-nav="prod" data-goto="mc">Ver</button></div>`; }

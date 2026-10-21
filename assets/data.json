@@ -1,5 +1,5 @@
 {
- "version": 5,
+ "version": 6,
  "obras": [
   {
    "id": "o1",
@@ -76,8 +76,10 @@
    "precoPiso": 0,
    "modoReceita": "preco",
    "aliases": [
-    "parque cidade"
-   ]
+    "parque cidade",
+    "alvorada"
+   ],
+   "inicio": "2026-10-05"
   },
   {
    "id": "o7",
@@ -448,7 +450,8 @@
    "heDom": null,
    "nomeCompleto": "Matheus",
    "aliases": [
-    "matheus"
+    "matheus",
+    "mateus"
    ],
    "obrasRdo": [],
    "rdosN": 0
@@ -3027,7 +3030,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k106"
+   "id": "k106",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o3",
@@ -3043,7 +3047,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k107"
+   "id": "k107",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o4",
@@ -3059,7 +3064,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k108"
+   "id": "k108",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o1",
@@ -3078,7 +3084,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k109"
+   "id": "k109",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o3",
@@ -3094,7 +3101,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k110"
+   "id": "k110",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o4",
@@ -3110,7 +3118,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k111"
+   "id": "k111",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o1",
@@ -4872,6 +4881,216 @@
    "cond": "",
    "fonte": "Meta 4",
    "id": "k218"
+  },
+  {
+   "id": "k1219",
+   "obraId": "o1",
+   "data": "2026-10-19",
+   "turno": "dia",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento e demarcação de pendências para pintura",
+   "equipe": [
+    "Iramilton",
+    "Samuel",
+    "Romário",
+    "Thiago",
+    "Wanderson",
+    "Claudiney"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "Wanderson e Claudiney pela manhã",
+   "fonte": "Agenda do dia",
+   "chave": "o1|2026-10-19|dia|lixamento e demarcacao de pendencias para pintura"
+  },
+  {
+   "id": "k1221",
+   "obraId": "o3",
+   "data": "2026-10-19",
+   "turno": "dia",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Lixamento e tratamento de piso liberado — 1º Subsolo",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o3|2026-10-19|dia|lixamento e tratamento de piso liberado 1 subsolo"
+  },
+  {
+   "id": "k1223",
+   "obraId": "o4",
+   "data": "2026-10-19",
+   "turno": "manhã",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Preparação e check list",
+   "equipe": [
+    "Roniele",
+    "Matheus"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o4|2026-10-19|manhã|preparacao e check list"
+  },
+  {
+   "id": "k1225",
+   "obraId": "o4",
+   "data": "2026-10-19",
+   "turno": "tarde",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura da 1ª cor",
+   "equipe": [
+    "Wanderson",
+    "Claudiney",
+    "Matheus"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o4|2026-10-19|tarde|pintura da 1 cor"
+  },
+  {
+   "id": "k1227",
+   "obraId": "o1",
+   "data": "2026-10-20",
+   "turno": "manhã",
+   "tipo": "OUTRO",
+   "tipos": [
+    "OUTRO"
+   ],
+   "texto": "Aula de orientação — execução de barrado em epóxi",
+   "equipe": [],
+   "cond": "",
+   "parado": false,
+   "nota": "Equipe completa",
+   "fonte": "Agenda do dia",
+   "chave": "o1|2026-10-20|manhã|aula de orientacao execucao de barrado em epoxi"
+  },
+  {
+   "id": "k1229",
+   "obraId": "o1",
+   "data": "2026-10-20",
+   "turno": "tarde",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Preparação para pintura do barrado (1º e 2º Subsolo)",
+   "equipe": [],
+   "cond": "",
+   "parado": false,
+   "nota": "Restante da equipe (Samuel vai para o Horizon e 2 funcionários vão para a 314)",
+   "fonte": "Agenda do dia",
+   "chave": "o1|2026-10-20|tarde|preparacao para pintura do barrado 1 e 2 subsolo"
+  },
+  {
+   "id": "k1231",
+   "obraId": "o3",
+   "data": "2026-10-20",
+   "turno": "manhã",
+   "tipo": "OUTRO",
+   "tipos": [
+    "OUTRO"
+   ],
+   "texto": "PARADO",
+   "equipe": [],
+   "cond": "",
+   "parado": true,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o3|2026-10-20|manhã|parado"
+  },
+  {
+   "id": "k1233",
+   "obraId": "o3",
+   "data": "2026-10-20",
+   "turno": "tarde",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Finalizar lixamento da área liberada + iniciar preenchimento de juntas",
+   "equipe": [
+    "Renan",
+    "Samuel"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o3|2026-10-20|tarde|finalizar lixamento da area liberada iniciar preenchimento de juntas"
+  },
+  {
+   "id": "k1235",
+   "obraId": "o4",
+   "data": "2026-10-20",
+   "turno": "manhã",
+   "tipo": "OUTRO",
+   "tipos": [
+    "OUTRO"
+   ],
+   "texto": "PARADO",
+   "equipe": [],
+   "cond": "",
+   "parado": true,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o4|2026-10-20|manhã|parado"
+  },
+  {
+   "id": "k1237",
+   "obraId": "o4",
+   "data": "2026-10-20",
+   "turno": "tarde",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura da 2ª cor",
+   "equipe": [
+    "Roniele"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "Roniele + 2 funcionários da Supera (nomes a confirmar)",
+   "fonte": "Agenda do dia",
+   "chave": "o4|2026-10-20|tarde|pintura da 2 cor"
+  },
+  {
+   "id": "k1239",
+   "obraId": "o6",
+   "data": "2026-10-20",
+   "turno": "dia",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [
+    "MANUTENÇÃO"
+   ],
+   "texto": "Preparação de campo para repintura e check list",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o6|2026-10-20|dia|preparacao de campo para repintura e check list"
   }
  ],
  "agenda": [
@@ -7828,6 +8047,347 @@
    ],
    "responsavelId": "f17",
    "pessoasConferidas": 1
+  },
+  {
+   "id": "rdom_o6_2026-10-19",
+   "chave": "rdo|o6|2026-10-19",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o6",
+   "data": "2026-10-19",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [
+    "Jhone"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "fases": [],
+   "servicos": [
+    "Check list de obra"
+   ],
+   "descricao": "Check list de obra no Parque Cidade.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "proximo": "",
+   "respNome": "",
+   "respData": "2026-10-19",
+   "fotosQtd": 0
+  },
+  {
+   "id": "rdom_o3_2026-10-19",
+   "chave": "rdo|o3|2026-10-19",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o3",
+   "data": "2026-10-19",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [
+    "Samuel"
+   ],
+   "maoObraIds": [
+    "f5"
+   ],
+   "fases": [],
+   "servicos": [
+    "Lixamento de piso de concreto"
+   ],
+   "descricao": "Lixamento de piso de concreto (Samuel). Renan faltou.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Renan faltou.",
+   "fotos": [],
+   "proximo": "",
+   "respNome": "",
+   "respData": "2026-10-19",
+   "fotosQtd": 0
+  },
+  {
+   "id": "rdom_o4_2026-10-19",
+   "chave": "rdo|o4|2026-10-19",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o4",
+   "data": "2026-10-19",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [],
+   "maoObraIds": [],
+   "fases": [
+    {
+     "faseId": "fa6",
+     "nome": "",
+     "qtd": 80,
+     "un": "m²"
+    }
+   ],
+   "servicos": [
+    "Pintura 1ª cor"
+   ],
+   "descricao": "Pintura da 1ª cor realizada com sucesso.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Engenharia do condomínio liberou a pintura do restante da área.",
+   "fotos": [],
+   "proximo": "Amanhã será realizado mais pintura.",
+   "respNome": "",
+   "respData": "2026-10-19",
+   "fotosQtd": 0
+  },
+  {
+   "id": "rdom_o1_2026-10-19",
+   "chave": "rdo|o1|2026-10-19",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o1",
+   "data": "2026-10-19",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [],
+   "maoObraIds": [],
+   "fases": [],
+   "servicos": [
+    "Lixamento e tratamento do barrado"
+   ],
+   "descricao": "Lixamento e tratamento do barrado em andamento, seguindo o planejamento.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "proximo": "",
+   "respNome": "",
+   "respData": "2026-10-19",
+   "fotosQtd": 0
+  },
+  {
+   "id": "rdom_o1_2026-10-20",
+   "chave": "rdo|o1|2026-10-20",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o1",
+   "data": "2026-10-20",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [],
+   "maoObraIds": [],
+   "fases": [],
+   "servicos": [
+    "Revisão de fita",
+    "Selamento com massa"
+   ],
+   "descricao": "1º Subsolo: revisão da fita + selamento com massa.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [
+    {
+     "id": "url:assets/rdo-fotos/2026-10-20-supera-1.jpg",
+     "name": "Foto 1 — Supera 20/10"
+    },
+    {
+     "id": "url:assets/rdo-fotos/2026-10-20-supera-2.jpg",
+     "name": "Foto 2 — Supera 20/10"
+    }
+   ],
+   "proximo": "",
+   "respNome": "",
+   "respData": "2026-10-20",
+   "fotosQtd": 2
+  },
+  {
+   "id": "rdom_o1_2026-10-21",
+   "chave": "rdo|o1|2026-10-21",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o1",
+   "data": "2026-10-21",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [
+    "Wanderson",
+    "Claudiney"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f6"
+   ],
+   "fases": [],
+   "servicos": [
+    "Barrado — 2ª demão"
+   ],
+   "descricao": "Barrado em andamento, execução da 2ª demão.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [
+    "Área não liberada"
+   ],
+   "ocHoras": {},
+   "obs": "Pintura branca não está sendo realizada: a liberação do campo existe, mas estão entregando a área suja. Será cobrada a limpeza dos meios-fios com WAP.",
+   "fotos": [],
+   "proximo": "",
+   "respNome": "",
+   "respData": "2026-10-21",
+   "fotosQtd": 0
+  },
+  {
+   "id": "rdom_o3_2026-10-21",
+   "chave": "rdo|o3|2026-10-21",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o3",
+   "data": "2026-10-21",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [
+    "Renan",
+    "Samuel"
+   ],
+   "maoObraIds": [
+    "f4",
+    "f5"
+   ],
+   "fases": [],
+   "servicos": [
+    "Preparação para primer"
+   ],
+   "descricao": "Preparação para primer em andamento.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "proximo": "",
+   "respNome": "",
+   "respData": "2026-10-21",
+   "fotosQtd": 0
+  },
+  {
+   "id": "rdom_o4_2026-10-21",
+   "chave": "rdo|o4|2026-10-21",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o4",
+   "data": "2026-10-21",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [
+    "Roniele",
+    "Thiago",
+    "Iramilton",
+    "Matheus"
+   ],
+   "maoObraIds": [
+    "f3",
+    "f8",
+    "f7",
+    "f11"
+   ],
+   "fases": [],
+   "servicos": [
+    "Pintura"
+   ],
+   "descricao": "Pintura em andamento.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "proximo": "",
+   "respNome": "",
+   "respData": "2026-10-21",
+   "fotosQtd": 0
+  },
+  {
+   "id": "rdom_o6_2026-10-21",
+   "chave": "rdo|o6|2026-10-21",
+   "importado": false,
+   "origem": "mensagem",
+   "status": "salvo",
+   "obraId": "o6",
+   "data": "2026-10-21",
+   "titulo": "",
+   "responsavel": "",
+   "clima": "",
+   "maoObra": [
+    "Jhone"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "fases": [],
+   "servicos": [
+    "Lixamento"
+   ],
+   "descricao": "Realizando lixamento no Alvorada.",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "proximo": "",
+   "respNome": "",
+   "respData": "2026-10-21",
+   "fotosQtd": 0
   }
  ],
  "metaMensal": {
@@ -7919,5 +8479,38 @@
   ],
   "totalBruto": 485555.37,
   "totalLiquido": 295610.98
- }
+ },
+ "faltas": [
+  {
+   "id": "fl0",
+   "funcId": "f4",
+   "data": "2026-10-19",
+   "obraId": "o3",
+   "motivo": "Faltou (Horizon)",
+   "chave": "f4|2026-10-19",
+   "fonte": "mensagem"
+  }
+ ],
+ "perguntasAbertas": [
+  {
+   "id": "q1",
+   "texto": "Tiago, Thiaguinho e Thiago são a mesma pessoa? (hoje todos ligados ao cadastro “Thiago”)"
+  },
+  {
+   "id": "q2",
+   "texto": "A mensagem sem data (Jhone/Horizon/314/Supera) foi assumida como 19/10 — confirme."
+  },
+  {
+   "id": "q3",
+   "texto": "O Brasal Orla não aparece nas agendas de 19–21/10: segue em andamento, parado ou concluído?"
+  },
+  {
+   "id": "q4",
+   "texto": "Iramilton (líder do Brasal) foi para a 314 em 21/10 — confirma?"
+  },
+  {
+   "id": "q5",
+   "texto": "20/10, 314 — pintura da 2ª cor: quais 2 funcionários da Supera acompanharam o Roniele?"
+  }
+ ]
 }
