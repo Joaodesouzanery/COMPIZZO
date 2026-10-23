@@ -1,5 +1,5 @@
 {
- "version": 6,
+ "version": 7,
  "obras": [
   {
    "id": "o1",
@@ -3190,7 +3190,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k115"
+   "id": "k115",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o3",
@@ -3206,7 +3207,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k116"
+   "id": "k116",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o4",
@@ -3223,7 +3225,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k117"
+   "id": "k117",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o1",
@@ -5091,6 +5094,125 @@
    "nota": "",
    "fonte": "Agenda do dia",
    "chave": "o6|2026-10-20|dia|preparacao de campo para repintura e check list"
+  },
+  {
+   "id": "k1230",
+   "obraId": "o1",
+   "data": "2026-10-22",
+   "turno": "dia",
+   "tipo": "BARRADO",
+   "tipos": [
+    "BARRADO"
+   ],
+   "texto": "Pintura de barrado — 2º Subsolo",
+   "equipe": [
+    "Wanderson",
+    "Iramilton",
+    "Claudiney",
+    "Thiago"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o1|2026-10-22|dia|pintura de barrado 2 subsolo"
+  },
+  {
+   "id": "k1232",
+   "obraId": "o3",
+   "data": "2026-10-22",
+   "turno": "dia",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Finalização da preparação para o primer",
+   "equipe": [
+    "Samuel",
+    "Matheus"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o3|2026-10-22|dia|finalizacao da preparacao para o primer"
+  },
+  {
+   "id": "k1234",
+   "obraId": "o4",
+   "data": "2026-10-22",
+   "turno": "dia",
+   "tipo": "DEMARCAÇÃO",
+   "tipos": [
+    "DEMARCAÇÃO"
+   ],
+   "texto": "Demarcação — somente fita crepe",
+   "equipe": [
+    "Roniele",
+    "Renan"
+   ],
+   "cond": "aguardar liberação",
+   "parado": false,
+   "nota": "AGUARDAR LIBERAÇÃO DA ENGENHARIA",
+   "fonte": "Agenda do dia",
+   "chave": "o4|2026-10-22|dia|demarcacao somente fita crepe"
+  },
+  {
+   "id": "k1236",
+   "obraId": "o7",
+   "data": "2026-10-22",
+   "turno": "dia",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [
+    "MANUTENÇÃO"
+   ],
+   "texto": "Vinicius Lime CSS: verificar",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o7|2026-10-22|dia|vinicius lime css verificar"
+  },
+  {
+   "id": "k1238",
+   "obraId": "o6",
+   "data": "2026-10-22",
+   "turno": "dia",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [
+    "MANUTENÇÃO"
+   ],
+   "texto": "Parque Cidade: preparação para repintura",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o6|2026-10-22|dia|parque cidade preparacao para repintura"
+  },
+  {
+   "id": "k1240",
+   "obraId": "o6",
+   "data": "2026-10-22",
+   "turno": "dia",
+   "tipo": "MANUTENÇÃO",
+   "tipos": [
+    "MANUTENÇÃO"
+   ],
+   "texto": "Alvorada: revisão",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "parado": false,
+   "nota": "",
+   "fonte": "Agenda do dia",
+   "chave": "o6|2026-10-22|dia|alvorada revisao"
   }
  ],
  "agenda": [
@@ -8492,14 +8614,6 @@
   }
  ],
  "perguntasAbertas": [
-  {
-   "id": "q1",
-   "texto": "Tiago, Thiaguinho e Thiago são a mesma pessoa? (hoje todos ligados ao cadastro “Thiago”)"
-  },
-  {
-   "id": "q2",
-   "texto": "A mensagem sem data (Jhone/Horizon/314/Supera) foi assumida como 19/10 — confirme."
-  },
   {
    "id": "q3",
    "texto": "O Brasal Orla não aparece nas agendas de 19–21/10: segue em andamento, parado ou concluído?"

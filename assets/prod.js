@@ -169,7 +169,7 @@ function calView() {
   let cells = '';
   for (let w = 0; w < weeks; w++) for (let d = 0; d < 7; d++) {
     const dt = addDays(start, w * 7 + d), inM = dt.startsWith(mes), fer = S.feriados[dt];
-    cells += `<div class="cd ${inM ? '' : 'out'} ${d === 5 ? 'sab' : ''} ${d === 6 ? 'dom' : ''} ${dt === today() ? 'hoje' : ''}"><div class="cdn"><b>${+dt.slice(8)}</b>${fer ? `<span class="pill r" title="${esc(fer)}">feriado</span>` : ''}</div>${fer ? `<small class="bad">${esc(fer)}</small>` : ''}${(by[dt] || []).map(e => `<div class="chip ${TCLASS[e.tipo] || 'to'}" data-cal="${e.id}" title="${esc(e.texto)}"><b>${obraF === 'all' ? esc(short(obraNome(e.obraId))) + ' · ' : ''}${esc(e.tipo.charAt(0) + e.tipo.slice(1).toLowerCase())}</b>${e.cond ? ' <i>(se liberado)</i>' : ''}<br>${e.turno && e.turno !== 'dia' ? `<i>${esc(e.turno)}:</i> ` : ''}${e.parado ? '<b>PARADO</b>' : esc(e.texto)}${e.nota ? `<small>${esc(e.nota)}</small>` : ''}${e.equipe.length ? `<small>${esc(e.equipe.join(', '))}</small>` : ''}</div>`).join('')}</div>`;
+    cells += `<div class="cd ${inM ? '' : 'out'} ${d === 5 ? 'sab' : ''} ${d === 6 ? 'dom' : ''} ${dt === today() ? 'hoje' : ''}"><div class="cdn"><b>${+dt.slice(8)}</b>${fer ? `<span class="pill r" title="${esc(fer)}">feriado</span>` : ''}</div>${fer ? `<small class="bad">${esc(fer)}</small>` : ''}${(by[dt] || []).map(e => `<div class="chip ${TCLASS[e.tipo] || 'to'}" data-cal="${e.id}" title="${esc(e.texto)}"><b>${obraF === 'all' ? esc(short(obraNome(e.obraId))) + ' · ' : ''}${esc(e.tipo.charAt(0) + e.tipo.slice(1).toLowerCase())}</b>${e.cond ? ` <i>(${esc(e.cond)})</i>` : ''}<br>${e.turno && e.turno !== 'dia' ? `<i>${esc(e.turno)}:</i> ` : ''}${e.parado ? '<b>PARADO</b>' : esc(e.texto)}${e.nota ? `<small>${esc(e.nota)}</small>` : ''}${e.equipe.length ? `<small>${esc(e.equipe.join(', '))}</small>` : ''}</div>`).join('')}</div>`;
   }
   const alerts = [];
   const byDay = {}; S.calendario.filter(e => !e.substituidoPor && e.data.startsWith(mes)).forEach(e => (byDay[e.data] = byDay[e.data] || []).push(e));
@@ -285,7 +285,7 @@ EXT.click.push(async e => {
   const pt = e.target.closest('[data-pt]'); if (pt) { rdSync(); tab.p = pt.dataset.pt; tab.rdoEdit = false; render(); return true; }
   const cm = e.target.closest('[data-cm]'); if (cm) { tab.cm = cm.dataset.cm; render(); return true; }
   const cal = e.target.closest('[data-cal]');
-  if (cal) { const x = S.calendario.find(z => z.id === cal.dataset.cal); modal(`<h2>${esc(obraNome(x.obraId))} · ${fdate(x.data)}</h2><p><span class="pill">${esc(x.tipo)}</span> ${x.cond ? '<span class="pill a">se liberado</span>' : ''}</p><p>${esc(x.texto)}</p><p class="sub">Equipe: ${esc(x.equipe.join(', ') || '—')} · fonte: ${esc(x.fonte)}</p><div class="row sp"><button class="btn" data-act="close">Fechar</button><button class="btn" data-pm="delCal:${x.id}">Excluir</button></div>`); return true; }
+  if (cal) { const x = S.calendario.find(z => z.id === cal.dataset.cal); modal(`<h2>${esc(obraNome(x.obraId))} · ${fdate(x.data)}</h2><p><span class="pill">${esc(x.tipo)}</span> ${x.cond ? `<span class="pill a">${esc(x.cond)}</span>` : ''}</p><p>${esc(x.texto)}</p><p class="sub">Equipe: ${esc(x.equipe.join(', ') || '—')} · fonte: ${esc(x.fonte)}</p><div class="row sp"><button class="btn" data-act="close">Fechar</button><button class="btn" data-pm="delCal:${x.id}">Excluir</button></div>`); return true; }
   const r = e.target.closest('[data-rd]');
   if (r) {
     const [a, b, c] = r.dataset.rd.split(':');
