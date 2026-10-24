@@ -110,7 +110,7 @@ const VIEWS = {
       <div class="ticks">${ticks}</div><div class="legend"><span>▌ Em estoque</span><span class="amb">▌ Crítico</span><span class="red">▌ Zerado</span><span>Cada marca é um material</span></div></div></div>
     <div class="grid g2"><div class="card"><div class="row sp"><h2>Alertas de estoque</h2><button class="btn sm" data-nav="estoque">Ver estoque</button></div><div class="list">${alertList}</div></div>
       <div><div class="card"><div class="mono">Gasto em compras</div><div class="kpi"><div class="v">${brl(gasto)}</div></div><small class="sub">${S.compras.length} fornecedores · informado ${brl(S.totalInformado)} ${Math.abs(gasto - S.totalInformado) < .02 ? '<span class="ok">✓ confere</span>' : '<span class="bad">≠ diverge</span>'}</small></div>
-      ${pendCard()}${metaCard()}<div class="card"><h2>Boletos a vencer</h2><div class="list">${bol.map(({ b, i }) => `<div class="it"><div class="t"><b>${esc(b.fornecedor)} · NF ${esc(b.nf)}</b><small>próx. venc. ${fdate(i.prox)}</small></div><span class="pill ${i.dias < 0 ? 'r' : i.dias <= 7 ? 'a' : ''}">${i.dias < 0 ? 'vencido' : 'em ' + i.dias + ' d'}</span></div>`).join('') || '<p class="sub">Sem boletos abertos.</p>'}</div></div></div></div>
+      ${pendCard()}${metaCard()}${typeof cxCard === 'function' ? cxCard() : ''}<div class="card"><h2>Boletos a vencer</h2><div class="list">${bol.map(({ b, i }) => `<div class="it"><div class="t"><b>${esc(b.fornecedor)} · NF ${esc(b.nf)}</b><small>próx. venc. ${fdate(i.prox)}</small></div><span class="pill ${i.dias < 0 ? 'r' : i.dias <= 7 ? 'a' : ''}">${i.dias < 0 ? 'vencido' : 'em ' + i.dias + ' d'}</span></div>`).join('') || '<p class="sub">Sem boletos abertos.</p>'}</div></div></div></div>
     <div class="card"><h2>Últimas retiradas</h2>${retiradasTable(retiradasF().slice(-8).reverse())}</div>`;
   },
   obras() {
@@ -122,6 +122,7 @@ const VIEWS = {
     const sel = obraF !== 'all' ? Object.entries(S.retiradas.filter(r => r.obraId === obraF).reduce((m, r) => (m[r.materialId] = (m[r.materialId] || 0) + r.qtd, m), {})) : [];
     return `${head('Obras', 'Gestão', '<button class="btn pri" data-act="novaObra">Nova obra</button>')}<p class="sub">Todas as retiradas do estoque central são atribuídas a uma obra.</p>
     <div class="card tw"><table><tr><th>Obra</th><th>Status</th><th class="n">Retiradas</th><th class="n">Unidades retiradas</th><th class="n">Equipe</th><th class="n">Nota média</th></tr>${rows}</table></div>
+    ${typeof cxObrasCard === 'function' ? cxObrasCard() : ''}
     ${obraF !== 'all' ? `<div class="card"><h2>Materiais consumidos · ${esc(obraNome(obraF))}</h2><table>${sel.map(([id, q]) => `<tr><td>${esc((S.materiais.find(m => m.id === id) || {}).nome)}</td><td class="n">${num(q)}</td></tr>`).join('') || '<tr><td>Sem retiradas.</td></tr>'}</table></div>` : ''}`;
   },
   estoque() {
@@ -141,12 +142,14 @@ const VIEWS = {
     if (t === 'compras') {
       body = `<div class="card row sp"><div><div class="mono">Valor total das compras</div><div class="kpi"><div class="v">${brl(soma)}</div></div></div><div>${Math.abs(soma - S.totalInformado) < .02 ? `<span class="pill g">Soma confere com ${brl(S.totalInformado)}</span>` : `<span class="pill r">Soma ${brl(soma)} ≠ informado ${brl(S.totalInformado)}</span>`}</div></div>
       <div class="grid g3">${S.compras.map(c => { const bs = S.boletos.filter(b => b.compraId === c.id); return `<div class="card"><div class="row sp"><h2>${esc(c.fornecedor)}</h2><b>${brl(c.total)}</b></div><div class="mono" style="margin:6px 0">${(c.total / soma * 100).toFixed(1)}% do total${bs.length ? ' · ' + bs.length + ' boleto(s)' : ''}</div><ul style="margin:0;padding-left:18px;color:var(--mut);font-size:13px">${c.itens.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`; }).join('')}</div>`;
+    } else if (t === 'cx') {
+      body = CAD.cx();
     } else {
       const rows = S.cotacoes.map(c => { const v = c.precos.filter(x => x != null).sort((a, b) => a - b); const min = v[0], sec = v[1], max = v[v.length - 1];
         return `<tr><td><b>${esc(c.material)}</b></td>${c.precos.map(p => `<td class="n ${p == null ? '' : p === min ? 'best' : p === sec ? 'second' : p === max ? 'worst' : ''}">${p == null ? '–' : brl(p)}</td>`).join('')}<td class="n">${v.length > 1 ? brl(max - min) : '—'}</td></tr>`; }).join('');
       body = `<div class="card tw"><table><tr><th>Material</th>${S.fornecedores.map(f => `<th class="n">${esc(f)}</th>`).join('')}<th class="n">Diferença</th></tr>${rows}</table><div class="legend"><span class="grn">■ Melhor preço</span><span class="amb">■ 2º melhor</span><span class="red">■ Mais caro</span></div></div>`;
     }
-    return `${head('Compras e orçamentos', 'Comparativo', '<button class="btn pri" data-act="importCompras">Importar compras</button>')}<div class="tabs"><button data-ct="compras" class="${t === 'compras' ? 'on' : ''}">Compras</button><button data-ct="comp" class="${t === 'comp' ? 'on' : ''}">Comparativo de preços</button></div>${body}`;
+    return `${head('Compras e orçamentos', t === 'cx' ? 'Caixinha / Linha direta' : 'Comparativo', t === 'cx' ? '<button class="btn pri" data-cx="new">Novo lançamento</button>' : '<button class="btn pri" data-act="importCompras">Importar compras</button>')}<div class="tabs"><button data-ct="compras" class="${t === 'compras' ? 'on' : ''}">Compras</button><button data-ct="comp" class="${t === 'comp' ? 'on' : ''}">Comparativo de preços</button><button data-ct="cx" class="${t === 'cx' ? 'on' : ''}">Caixinha / Linha direta</button></div>${body}`;
   },
   boletos() {
     return `${head('Boletos', 'Contas a pagar', '<button class="btn pri" data-act="novoBoleto">Novo boleto</button>')}<p class="sub">Cruzamos parcelas × nota fiscal × compra do orçamento. PDFs e imagens ficam no histórico (neste navegador).</p>

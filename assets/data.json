@@ -1,5 +1,5 @@
 {
- "version": 7,
+ "version": 8,
  "obras": [
   {
    "id": "o1",
@@ -8625,6 +8625,220 @@
   {
    "id": "q5",
    "texto": "20/10, 314 — pintura da 2ª cor: quais 2 funcionários da Supera acompanharam o Roniele?"
+  },
+  {
+   "id": "q6",
+   "texto": "LEMBRETE: você disse que vai adicionar mais compras da Caixinha / Linha direta — já enviou tudo?"
+  },
+  {
+   "id": "q7",
+   "texto": "Caixinha: o Pix de R$ 90 (16/10) foi para a pessoa física Antonio Cícero — é reembolso/adiantamento? Sem NF."
+  },
+  {
+   "id": "q8",
+   "texto": "Caixinha: as NFs de 21/10 (Condor e Melhores Marcas) foram emitidas em 22/10 — a compra foi mesmo no dia 21?"
+  },
+  {
+   "id": "q9",
+   "texto": "Caixinha: o abastecimento da SPIN (17/10) não tinha valor no texto; usei R$ 319,76 pagos do cupom. A botina do Iramilton fica sem obra (EPI)?"
+  }
+ ],
+ "caixinha": [
+  {
+   "data": "2026-10-21",
+   "dataDoc": "2026-10-22",
+   "tipo": "Compra direta",
+   "fornecedor": "Condor",
+   "descricao": "Rolos de lã 23 cm \"Brasileirinho\" anti-gota",
+   "itens": [
+    {
+     "desc": "Rolo de lã 23 cm Brasil anti-gota (Atlas)",
+     "qtd": 12,
+     "un": "un",
+     "vUnit": 17.68
+    }
+   ],
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 212.16
+    }
+   ],
+   "solicitante": "Sr. Bené",
+   "valorTexto": 212.16,
+   "valorDoc": 212.16,
+   "docTipo": "NF-e",
+   "docNumero": "622576",
+   "docSerie": "1",
+   "docChave": "53261003261204000174550010006225761199113180",
+   "formaPgto": "Caixinha",
+   "obs": "Chave de acesso lida em foto (44 dígitos; confira).",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-21-condor-nf622576.jpg",
+     "name": "2026-10-21-condor-nf622576.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "valorPago": null,
+   "id": "cx1",
+   "chave": "ck|53261003261204000174550010006225761199113180"
+  },
+  {
+   "data": "2026-10-21",
+   "dataDoc": "2026-10-22",
+   "tipo": "Compra direta",
+   "fornecedor": "Melhores Marcas",
+   "descricao": "Botina elástico BP PR Safety Flex (CA 43164)",
+   "itens": [
+    {
+     "desc": "Botina elástico BP PR Safety Flex CA 43164",
+     "qtd": 1,
+     "un": "par",
+     "vUnit": 69.25
+    }
+   ],
+   "obras": [],
+   "solicitante": "Iramilton",
+   "valorTexto": 69.25,
+   "valorDoc": 69.25,
+   "docTipo": "NF-e",
+   "docNumero": "306963",
+   "docSerie": "001",
+   "formaPgto": "Caixinha",
+   "obs": "EPI do Iramilton (sem obra definida).",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-21-melhores-marcas-nf306963.jpg",
+     "name": "2026-10-21-melhores-marcas-nf306963.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docChave": "",
+   "valorPago": null,
+   "id": "cx2",
+   "chave": "nf|melhores marcas|306963|001"
+  },
+  {
+   "data": "2026-10-17",
+   "dataDoc": "2026-10-17",
+   "tipo": "Combustível",
+   "fornecedor": "Posto Guará II",
+   "descricao": "Abastecimento SPIN — gasolina comum 51,245 L × R$ 6,34 (R$ 324,89 − desconto R$ 5,13)",
+   "itens": [
+    {
+     "desc": "Gasolina comum",
+     "qtd": 51.245,
+     "un": "L",
+     "vUnit": 6.34
+    }
+   ],
+   "obras": [],
+   "solicitante": "",
+   "valorTexto": null,
+   "valorDoc": 324.89,
+   "valorPago": 319.76,
+   "docTipo": "NFC-e",
+   "docNumero": "78070",
+   "docSerie": "102",
+   "formaPgto": "Pix",
+   "obs": "Veículo SPIN. Texto sem valor; usado o do cupom.",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-17-abastecimento-spin.jpg",
+     "name": "2026-10-17-abastecimento-spin.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docChave": "",
+   "id": "cx3",
+   "chave": "nf|posto guara ii|78070|102"
+  },
+  {
+   "data": "2026-10-16",
+   "dataDoc": "2026-10-16",
+   "tipo": "Pix / Reembolso",
+   "fornecedor": "Antonio Cícero Araújo Gomes do Vale (Pix)",
+   "descricao": "Compra de tambor de álcool",
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 45.0
+    },
+    {
+     "obraId": "o6",
+     "valor": 45.0
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 90.0,
+   "valorDoc": 90.0,
+   "docTipo": "Comprovante Pix",
+   "pixId": "E3187249520261016103443401GCknO9",
+   "formaPgto": "Pix",
+   "obs": "Pix de pessoa física (sem NF): reembolso ou adiantamento? Divisão 50/50 entre Supera e Parque Cidade.",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-16-pix-tambor-alcool.jpg",
+     "name": "2026-10-16-pix-tambor-alcool.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "docSerie": "",
+   "docChave": "",
+   "itens": [],
+   "valorPago": null,
+   "id": "cx4",
+   "chave": "px|E3187249520261016103443401GCknO9"
+  },
+  {
+   "data": "2026-10-15",
+   "dataDoc": "2026-10-15",
+   "tipo": "Compra direta",
+   "fornecedor": "Campeão da Construção",
+   "descricao": "Sika Graunt 250 (25 kg)",
+   "itens": [
+    {
+     "desc": "Sika Graunt 250 25 kg",
+     "qtd": 3,
+     "un": "un",
+     "vUnit": 54.73
+    }
+   ],
+   "obras": [
+    {
+     "obraId": "o6",
+     "valor": 135.0
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 135.0,
+   "valorDoc": 135.0,
+   "docTipo": "NF-e",
+   "docNumero": "1022960",
+   "docSerie": "1",
+   "formaPgto": "Caixinha",
+   "obs": "Valor bruto 164,19 − desconto 29,19. Destinatário na NF: \"Compizzo Epox\".",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-15-campeao-nf1022960.jpg",
+     "name": "2026-10-15-campeao-nf1022960.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docChave": "",
+   "valorPago": null,
+   "id": "cx5",
+   "chave": "nf|campeao da construcao|1022960|1"
   }
  ]
 }

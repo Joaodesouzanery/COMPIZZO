@@ -29,3 +29,11 @@ create table agenda (id uuid primary key default gen_random_uuid(), data date, e
 do $$ declare t text; begin foreach t in array array['cargos','equipes','fases','metas','rdos','calendario','agenda'] loop
  execute format('alter table %I enable row level security', t);
  execute format('create policy "auth_all" on %I for all to authenticated using (true) with check (true)', t); end loop; end $$;
+
+-- Fase 6: Caixinha / Linha direta
+create table caixinha (id uuid primary key default gen_random_uuid(), chave text unique, data date not null, data_doc date, tipo text, fornecedor text, descricao text, solicitante text, valor_texto numeric, valor_doc numeric, valor_pago numeric, forma_pgto text, doc_tipo text, doc_numero text, doc_serie text, doc_chave text, pix_id text, estoque boolean default false, obs text, itens jsonb default '[]');
+create table caixinha_rateio (id uuid primary key default gen_random_uuid(), caixinha_id uuid references caixinha on delete cascade, obra_id uuid references obras, valor numeric);
+create table caixinha_anexos (id uuid primary key default gen_random_uuid(), caixinha_id uuid references caixinha on delete cascade, nome text, caminho text);
+do $$ declare t text; begin foreach t in array array['caixinha','caixinha_rateio','caixinha_anexos'] loop
+ execute format('alter table %I enable row level security', t);
+ execute format('create policy "auth_all" on %I for all to authenticated using (true) with check (true)', t); end loop; end $$;
