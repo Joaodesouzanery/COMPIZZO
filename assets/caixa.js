@@ -41,7 +41,7 @@ function cxPorObra(list) {
   list.forEach(r => { const v = cxVal(r), os = (r.obras && r.obras.length) ? r.obras : [{ obraId: '', valor: v }]; os.forEach(o => { m[o.obraId] = (m[o.obraId] || 0) + (o.valor ?? v / os.length); }); });
   return m;
 }
-const cxNomeObra = id => (id ? short(obraNome(id)) : 'Geral / Frota');
+const cxNomeObra = id => (id === 'estoque' ? 'Estoque central' : id ? short(obraNome(id)) : 'Geral / Frota');
 const cxMeses = () => [...new Set(cxArr().map(r => r.data.slice(0, 7)))].sort();
 
 function cxView() {
@@ -193,5 +193,89 @@ EXT.change.push(async e => {
   if (t.id === 'cxFile') { cxSyncRows(); for (const f of t.files) if (!cxState.files.some(x => x.name === f.name && x.size === f.size)) cxState.files.push(f); cxDraw(); return true; }
   if (t.dataset.cxatt) { const r = cxArr().find(x => x.id === t.dataset.cxatt); for (const f of t.files) { if ((r.anexos || []).some(a => a.name === f.name)) continue; (r.anexos = r.anexos || []).push(await putFile(f)); } save(); cxDetail(r.id); render(); return true; }
   if (t.dataset.cxk) { cxSyncRows(); if (/:(obrasTxt|ok|anexo|valorTexto|valorDoc|fornecedor|data)$/.test(t.dataset.cxk)) cxDraw(); return true; }
+  return false;
+});
+
+
+/* ---------- importação em lote de imagens / ZIP, com conferência antes de anexar ---------- */
+const cxImg = { items: [], busy: false, ocr: false };
+const cxLoadScript = src => new Promise((res, rej) => { if (document.querySelector(`script[src="${src}"]`)) return res(); const t = document.createElement('script'); t.src = src; t.onload = res; t.onerror = () => rej(new Error('Não foi possível carregar ' + src)); document.head.appendChild(t); });
+async function cxHash(f) { try { const b = await f.arrayBuffer(); const h = await crypto.subtle.digest('SHA-1', b); return [...new Uint8Array(h)].map(x => x.toString(16).padStart(2, '0')).join(''); } catch (e) { return ''; } }
+const cxRowLabel = r => `${fdate(r.data).slice(0, 5)} · ${r.fornecedor.slice(0, 28)} · ${brl(cxVal(r))}${r.docNumero ? ' · NF ' + r.docNumero : ''}`;
+const cxIsDup = (name, hash) => cxArr().some(r => (r.anexos || []).some(a => (hash && a.hash === hash) || String(a.name).toLowerCase() === name.toLowerCase() || String(a.id).endsWith('/' + name)));
+const GEN_TOK = new Set(['compra', 'direta', 'abastecimento', 'comercial', 'ltda', 'combustiveis', 'combustivel', 'veiculos', 'para', 'pix', 'avulsa', 'informado', 'fornecedor', 'oficina']);
+// pontuação: quanto o texto (nome do arquivo + OCR) combina com um lançamento
+function cxScore(text, row) {
+  const raw = String(text || '').toLowerCase(), t = norm(text || ''), digits = raw.replace(/\D/g, ''), alnum = raw.replace(/[^a-z0-9]/g, '');
+  let s = 0; const why = [];
+  if (row.docNumero && String(row.docNumero).replace(/\D/g, '').length >= 5 && digits.includes(String(row.docNumero).replace(/\D/g, ''))) { s += 6; why.push('nº da nota'); }
+  if (row.docChave && String(row.docChave).length >= 30 && digits.includes(String(row.docChave).slice(6, 26))) { s += 6; why.push('chave de acesso'); }
+  if (row.pixId && alnum.includes(String(row.pixId).toLowerCase().replace(/[^a-z0-9]/g, '').slice(-14))) { s += 6; why.push('ID do Pix'); }
+  const vals = [...new Set([row.valorTexto, row.valorDoc, row.valorPago].filter(v => v != null && v > 0).map(v => v.toFixed(2)))];
+  for (const v of vals) { const br = v.replace('.', ','), us = v; if (raw.includes(br) || raw.includes(us) || digits.includes(v.replace('.', '') + '0') && false) { s += 4; why.push('valor ' + br); break; } }
+  const toks = norm(row.fornecedor).split(' ').filter(w => w.length >= 4 && !GEN_TOK.has(w));
+  if (toks.some(w => t.includes(w))) { s += 2; why.push('fornecedor'); }
+  [row.dataDoc, row.data].filter(Boolean).forEach(d => { const [y, m, dd] = d.split('-'); if (raw.includes(`${dd}/${m}/${y}`) || raw.includes(`${dd}-${m}-${y}`) || raw.includes(`${y}${m}${dd}`) || raw.includes(`${y}-${m}-${dd}`)) { s += 1; if (!why.includes('data')) why.push('data'); } });
+  return { s, why };
+}
+function cxBest(it) {
+  const text = it.name + ' ' + (it.ocr || ''); let best = null;
+  for (const r of cxArr()) { const sc = cxScore(text, r); if (!best || sc.s > best.s) best = { ...sc, id: r.id }; }
+  const second = cxArr().filter(r => r.id !== (best && best.id)).map(r => cxScore(text, r).s).sort((a, b) => b - a)[0] || 0;
+  if (best && best.s >= 3 && best.s > second) { it.rowId = best.id; it.score = best.s; it.why = best.why; } else { it.rowId = ''; it.score = best ? best.s : 0; it.why = best ? best.why : []; }
+  it.conf = !it.rowId ? 'sem' : it.score >= 8 ? 'alta' : it.score >= 5 ? 'média' : 'baixa';
+}
+function cxImgOpen() {
+  cxImg.items = [];
+  modal(`<h2>Importar imagens da Caixinha</h2><p class="sub">Envie várias imagens/PDF ou um <b>.zip</b>. O sistema sugere de qual compra cada imagem é (pelo nome do arquivo e, se você ligar o OCR, pelo texto da foto: nº da nota, valor, fornecedor, chave, Pix). Você confere antes de anexar; arquivos já anexados são ignorados.</p>
+  <label class="dz" style="display:block;cursor:pointer">Escolher imagens, PDFs ou ZIP<input type="file" id="cxMulti" accept="image/*,application/pdf,.zip,application/zip" multiple hidden></label>
+  <div class="row" style="margin:10px 0"><button class="btn" data-cxi="ocr">Ler textos das imagens (OCR — experimental)</button><span id="cxStat" class="sub" style="margin:0"></span></div><div id="cxImgRows"></div>
+  <div class="row sp" style="margin-top:14px"><button class="btn" data-act="close">Cancelar</button><button class="btn pri" data-cxi="apply">Anexar selecionadas</button></div>`);
+  cxImgDraw();
+}
+function cxImgDraw() {
+  const el = $('#cxImgRows'); if (!el) return;
+  const opts = sel => `<option value="">— sem correspondência —</option>${cxArr().slice().sort((a, b) => b.data.localeCompare(a.data)).map(r => `<option value="${r.id}" ${r.id === sel ? 'selected' : ''}>${esc(cxRowLabel(r))}</option>`).join('')}`;
+  el.innerHTML = cxImg.items.length ? `<div class="tw"><table><tr><th></th><th>Imagem</th><th>Compra identificada</th><th>Confiança</th><th>Situação</th></tr>${cxImg.items.map((it, i) => `<tr><td><img src="${it.url}" alt="" style="height:54px;border-radius:6px"></td><td>${esc(it.name)}<small style="display:block;color:var(--mut)">${Math.round(it.file.size / 1024)} KB${it.ocr ? ' · OCR lido' : ''}</small></td><td><select data-cxi-sel="${i}" style="max-width:340px">${opts(it.rowId)}</select><small style="display:block;color:var(--mut)">${esc((it.why || []).join(', '))}</small></td><td><span class="pill ${it.conf === 'alta' ? 'g' : it.conf === 'média' ? 'b' : it.conf === 'baixa' ? 'a' : 'r'}">${it.conf}</span></td><td>${it.dup ? '<span class="pill a">já anexada — ignorar</span>' : it.rowId ? '<span class="pill g">anexar</span>' : '<span class="pill r">escolha a compra</span>'} <label class="row" style="display:inline-flex"><input type="checkbox" data-cxi-ck="${i}" ${it.ok && !it.dup ? 'checked' : ''} ${it.dup ? 'disabled' : ''}> usar</label></td></tr>`).join('')}</table></div>` : '<p class="sub">Nenhuma imagem escolhida.</p>';
+}
+async function cxImgAdd(files) {
+  const st = $('#cxStat'); const list = [];
+  for (const f of files) {
+    if (/\.zip$/i.test(f.name) || f.type === 'application/zip') {
+      try { if (!window.JSZip) await cxLoadScript('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'); const z = await JSZip.loadAsync(f);
+        for (const [n, e] of Object.entries(z.files)) { if (e.dir || /(^|\/)(__MACOSX|\.)/.test(n) || !/\.(jpe?g|png|webp|gif|pdf)$/i.test(n)) continue; const b = await e.async('blob'); const base = n.split('/').pop(); list.push(new File([b], base, { type: /pdf$/i.test(base) ? 'application/pdf' : 'image/' + base.split('.').pop().toLowerCase().replace('jpg', 'jpeg') })); }
+      } catch (err) { alert('Não consegui abrir o ZIP: ' + err.message + '. Envie as imagens soltas.'); }
+    } else list.push(f);
+  }
+  for (const f of list) {
+    if (cxImg.items.some(x => x.file.name === f.name && x.file.size === f.size)) continue;
+    const hash = await cxHash(f), it = { file: f, name: f.name, hash, url: f.type.startsWith('image/') ? URL.createObjectURL(f) : 'assets/logo.svg', ok: true, dup: cxIsDup(f.name, hash), ocr: '' };
+    cxBest(it); it.ok = !!it.rowId; cxImg.items.push(it);
+  }
+  if (st) st.textContent = `${cxImg.items.length} arquivo(s)`; cxImgDraw();
+}
+async function cxImgOcr() {
+  const st = $('#cxStat'); const todo = cxImg.items.filter(i => !i.ocr && i.file.type.startsWith('image/')); if (!todo.length) return alert('Nada para ler.');
+  try { st.textContent = 'Carregando OCR…'; await cxLoadScript('https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js'); const w = await Tesseract.createWorker('por');
+    let n = 0; for (const it of todo) { st.textContent = `Lendo ${++n}/${todo.length}…`; const r = await w.recognize(it.file); it.ocr = r.data.text || ''; cxBest(it); it.ok = !!it.rowId; cxImgDraw(); }
+    await w.terminate(); st.textContent = 'OCR concluído — confira as sugestões.';
+  } catch (e) { st.textContent = ''; alert('OCR indisponível agora (' + e.message + '). Selecione a compra manualmente.'); }
+}
+async function cxImgApply() {
+  const sel = cxImg.items.filter(i => i.ok && !i.dup && i.rowId); if (!sel.length) return alert('Nenhuma imagem selecionada com compra identificada.');
+  let n = 0, sk = 0;
+  for (const it of sel) { const r = cxArr().find(x => x.id === it.rowId); if (!r || cxIsDup(it.name, it.hash)) { sk++; continue; } const a = await putFile(it.file); a.hash = it.hash; (r.anexos = r.anexos || []).push(a); if (r.docTipo === 'Sem documento') r.docTipo = /pdf$/i.test(it.name) ? 'Outro documento' : r.docTipo; n++; }
+  save(); closeModal(); render(); alert(`${n} imagem(ns) anexada(s)${sk ? `, ${sk} ignorada(s) por já existirem` : ''}.`);
+}
+EXT.click.push(async e => {
+  const b = e.target.closest('[data-cxi]'); if (!b) return false; const a = b.dataset.cxi;
+  if (a === 'open') cxImgOpen(); else if (a === 'ocr') await cxImgOcr(); else if (a === 'apply') await cxImgApply();
+  return true;
+});
+EXT.change.push(async e => {
+  const t = e.target;
+  if (t.id === 'cxMulti') { await cxImgAdd([...t.files]); return true; }
+  if (t.dataset.cxiSel !== undefined) { const it = cxImg.items[+t.dataset.cxiSel]; it.rowId = t.value; it.ok = !!t.value; it.conf = t.value ? 'manual' : 'sem'; it.why = []; cxImgDraw(); return true; }
+  if (t.dataset.cxiCk !== undefined) { cxImg.items[+t.dataset.cxiCk].ok = t.checked; return true; }
   return false;
 });

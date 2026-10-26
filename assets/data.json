@@ -1,5 +1,5 @@
 {
- "version": 8,
+ "version": 9,
  "obras": [
   {
    "id": "o1",
@@ -1004,6 +1004,17 @@
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
+  },
+  {
+   "id": "m39",
+   "nome": "Rodo p/ Primer",
+   "codigo": "",
+   "unidade": "un",
+   "qtd": 4,
+   "critica": 2,
+   "ultimoPedido": "2026-10-07",
+   "nota": "Entrada via caixinha (07/10)",
+   "origemCx": "cx-rodo"
   }
  ],
  "pedidos": [
@@ -1069,7 +1080,15 @@
   }
  ],
  "retiradas": [],
- "ajustes": [],
+ "ajustes": [
+  {
+   "data": "2026-10-07",
+   "materialId": "m39",
+   "nome": "Rodo p/ Primer",
+   "de": 0,
+   "para": 4
+  }
+ ],
  "avaliacoes": [],
  "boletos": [
   {
@@ -1099,8 +1118,39 @@
      "pago": false
     }
    ],
-   "obs": "Boleto 1: R$ 757,49 + tarifa bancária R$ 4,00. NF-e 607512, 22 volumes.",
+   "obs": "Boleto 1: R$ 757,49 + tarifa bancária R$ 4,00. NF-e 607512, 22 volumes. Informado em 09/10: materiais para estoque; boleto enviado ao e-mail do financeiro. Lançamento no Conta Azul (CA): não confirmado.",
    "arquivos": []
+  },
+  {
+   "id": "b2",
+   "fornecedor": "Condor",
+   "compraId": "c7",
+   "nf": "(a informar)",
+   "emissao": "2026-10-09",
+   "totalNF": 4187.04,
+   "parcelas": [
+    {
+     "n": 1,
+     "venc": "2026-11-05",
+     "valor": 1395.68,
+     "pago": false
+    },
+    {
+     "n": 2,
+     "venc": "2026-12-03",
+     "valor": 1395.68,
+     "pago": false
+    },
+    {
+     "n": 3,
+     "venc": "2026-12-31",
+     "valor": 1395.68,
+     "pago": false
+    }
+   ],
+   "obs": "Compra faturada de 09/10 (3 parcelas iguais). Nº da NF e arquivos do boleto pendentes.",
+   "arquivos": [],
+   "chave": "bol|condor|2026-10-09"
   }
  ],
  "fornecedores": [
@@ -1528,6 +1578,17 @@
     "24 un rolo de lã zero gota 15 cm",
     "5 un escova de aço com cabo"
    ]
+  },
+  {
+   "id": "c7",
+   "fornecedor": "Condor (compra faturada 09/10)",
+   "total": 4187.04,
+   "data": "2026-10-09",
+   "itens": [
+    "Materiais — itens não informados (NF a anexar)"
+   ],
+   "avulsa": true,
+   "chave": "cmp|condor|2026-10-09|4187.04"
   }
  ],
  "totalInformado": 12305.97,
@@ -6186,7 +6247,29 @@
     "f9"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi9",
@@ -6243,7 +6326,29 @@
     "f14"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi10",
@@ -6308,7 +6413,29 @@
     "f14"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi11",
@@ -6370,7 +6497,34 @@
     "f7"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Primer UR",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi12",
@@ -6432,7 +6586,34 @@
     "f7"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Primer UR",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi13",
@@ -6485,7 +6666,29 @@
     "f14"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi14",
@@ -6538,7 +6741,29 @@
     "f14"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi15",
@@ -6591,7 +6816,29 @@
     "f14"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi16",
@@ -6642,7 +6889,29 @@
     "f14"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi17",
@@ -6695,7 +6964,29 @@
     "f14"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi18",
@@ -6756,7 +7047,29 @@
     "f16"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi19",
@@ -6792,7 +7105,29 @@
    "respData": "2026-07-23",
    "maoObraOrig": [],
    "maoObraIds": [],
-   "pessoasConferidas": 0
+   "pessoasConferidas": 0,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi20",
@@ -6828,7 +7163,29 @@
    "respData": "2026-07-24",
    "maoObraOrig": [],
    "maoObraIds": [],
-   "pessoasConferidas": 0
+   "pessoasConferidas": 0,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi21",
@@ -6889,7 +7246,29 @@
     "f9"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi22",
@@ -6944,7 +7323,29 @@
     "f6"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi23",
@@ -6997,7 +7398,29 @@
     "f16"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi24",
@@ -7052,7 +7475,29 @@
     "f16"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi25",
@@ -7105,7 +7550,29 @@
     "f16"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi26",
@@ -7166,7 +7633,29 @@
     "f16"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi27",
@@ -7225,7 +7714,29 @@
     "f14"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 3
+   "pessoasConferidas": 3,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi28",
@@ -7283,7 +7794,29 @@
     "f1",
     "f9"
    ],
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi29",
@@ -7334,7 +7867,29 @@
     "f1"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi30",
@@ -7385,7 +7940,29 @@
     "f6"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 4
+   "pessoasConferidas": 4,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi31",
@@ -7444,7 +8021,29 @@
     "f6"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 6
+   "pessoasConferidas": 6,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi32",
@@ -7498,7 +8097,29 @@
     "f7"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 2
+   "pessoasConferidas": 2,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi33",
@@ -7536,7 +8157,29 @@
    "respData": "2026-08-25",
    "maoObraOrig": [],
    "maoObraIds": [],
-   "pessoasConferidas": 0
+   "pessoasConferidas": 0,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi34",
@@ -7600,7 +8243,29 @@
     "f1",
     "f6"
    ],
-   "pessoasConferidas": 7
+   "pessoasConferidas": 7,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi35",
@@ -7679,7 +8344,29 @@
     "f13"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 7
+   "pessoasConferidas": 7,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi36",
@@ -7739,7 +8426,29 @@
     "f10"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 1
+   "pessoasConferidas": 1,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi37",
@@ -7784,7 +8493,29 @@
     "f10"
    ],
    "responsavelId": "f13",
-   "pessoasConferidas": 1
+   "pessoasConferidas": 1,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi38",
@@ -7826,7 +8557,29 @@
    "maoObraOrig": [],
    "maoObraIds": [],
    "responsavelId": "f17",
-   "pessoasConferidas": 0
+   "pessoasConferidas": 0,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi39",
@@ -7891,7 +8644,29 @@
     "f3"
    ],
    "responsavelId": "f2",
-   "pessoasConferidas": 6
+   "pessoasConferidas": 6,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi40",
@@ -7967,7 +8742,29 @@
     "f6"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 6
+   "pessoasConferidas": 6,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi41",
@@ -8016,7 +8813,29 @@
    "maoObraOrig": [],
    "maoObraIds": [],
    "responsavelId": "f17",
-   "pessoasConferidas": 0
+   "pessoasConferidas": 0,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi42",
@@ -8059,7 +8878,29 @@
     "f10"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 1
+   "pessoasConferidas": 1,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi43",
@@ -8125,7 +8966,29 @@
     "f6"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 8
+   "pessoasConferidas": 8,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdoi44",
@@ -8168,7 +9031,29 @@
     "f13"
    ],
    "responsavelId": "f17",
-   "pessoasConferidas": 1
+   "pessoasConferidas": 1,
+   "materiaisTpl": [
+    {
+     "nome": "Tinta Amarela",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Tinta Vermelha",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Solvente",
+     "origem": "fora do estoque",
+     "qtd": null
+    },
+    {
+     "nome": "Fita Crepe",
+     "origem": "fora do estoque",
+     "qtd": null
+    }
+   ]
   },
   {
    "id": "rdom_o6_2026-10-19",
@@ -8641,6 +9526,26 @@
   {
    "id": "q9",
    "texto": "Caixinha: o abastecimento da SPIN (17/10) não tinha valor no texto; usei R$ 319,76 pagos do cupom. A botina do Iramilton fica sem obra (EPI)?"
+  },
+  {
+   "id": "q10",
+   "texto": "Boleto Condor (22/10, 19/11, 17/12): já foi lançado no Conta Azul (CA)? A parcela de 22/10 já venceu — foi paga?"
+  },
+  {
+   "id": "q11",
+   "texto": "Compra faturada Condor de 09/10 (R$ 4.187,04, 3× R$ 1.395,68): qual o nº da NF e quais materiais?"
+  },
+  {
+   "id": "q12",
+   "texto": "Panos de chão (08/10, R$ 216,00): quantas unidades, de qual fornecedor, e entram no estoque?"
+  },
+  {
+   "id": "q13",
+   "texto": "Reembolso da plotagem Migráfica (R$ 36): quem pediu o reembolso? Dividi 50/50 entre 314 e Concessionária Lime."
+  },
+  {
+   "id": "q14",
+   "texto": "Cupom do CRETA (13/10) saiu \"em contingência / pendente de autorização\" — confirmar se foi autorizado. Há cupons dos abastecimentos SPIN/STRADA?"
   }
  ],
  "caixinha": [
@@ -8758,7 +9663,8 @@
    "pixId": "",
    "docChave": "",
    "id": "cx3",
-   "chave": "nf|posto guara ii|78070|102"
+   "chave": "nf|posto guara ii|78070|102",
+   "veiculo": "Spin"
   },
   {
    "data": "2026-10-16",
@@ -8839,6 +9745,529 @@
    "valorPago": null,
    "id": "cx5",
    "chave": "nf|campeao da construcao|1022960|1"
+  },
+  {
+   "data": "2026-10-24",
+   "dataDoc": "2026-10-24",
+   "tipo": "Combustível",
+   "fornecedor": "Comercial de Combustível MAM Ltda",
+   "descricao": "Abastecimento MOBI — gasolina comum 36,727 L × R$ 6,09",
+   "itens": [
+    {
+     "desc": "Gasolina comum",
+     "qtd": 36.727,
+     "un": "L",
+     "vUnit": 6.09
+    }
+   ],
+   "valorTexto": 223.67,
+   "valorDoc": 223.67,
+   "docTipo": "NFC-e",
+   "docNumero": "761932",
+   "docSerie": "1",
+   "docChave": "53261010702904001126500010007619321165841237",
+   "formaPgto": "Cartão de crédito",
+   "veiculo": "Mobi",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-24-mobi-nfce761932.jpg",
+     "name": "2026-10-24-mobi-nfce761932.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "obs": "",
+   "valorPago": null,
+   "solicitante": "",
+   "obras": [],
+   "id": "cx6",
+   "chave": "ck|53261010702904001126500010007619321165841237"
+  },
+  {
+   "data": "2026-10-15",
+   "dataDoc": "2026-10-15",
+   "tipo": "Compra direta",
+   "fornecedor": "Unitintas",
+   "descricao": "Disco de lixa — 30 un abrasivo papel grão 150 p/ máquina teto e parede 180 mm Atlas",
+   "itens": [
+    {
+     "desc": "Abrasivo papel grão 150 180 mm Atlas",
+     "qtd": 30,
+     "un": "un",
+     "vUnit": 4.5
+    }
+   ],
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 135.0
+    }
+   ],
+   "valorTexto": 135.0,
+   "valorDoc": 135.0,
+   "docTipo": "NF-e",
+   "docNumero": "249608",
+   "docSerie": "1",
+   "docChave": "53261002107803001813550010002496081024217638",
+   "formaPgto": "Pix",
+   "obs": "NF com endereço do destinatário em Ipu-CE (cadastro do cliente na Unitintas).",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-15-unitintas-nf249608.jpg",
+     "name": "2026-10-15-unitintas-nf249608.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "valorPago": null,
+   "solicitante": "",
+   "veiculo": "",
+   "id": "cx7",
+   "chave": "ck|53261002107803001813550010002496081024217638"
+  },
+  {
+   "data": "2026-10-14",
+   "dataDoc": "2026-10-14",
+   "tipo": "Compra direta",
+   "fornecedor": "Unitintas",
+   "descricao": "Disco de lixa — 10 un abrasivo papel grão 150 180 mm Atlas",
+   "itens": [
+    {
+     "desc": "Abrasivo papel grão 150 180 mm Atlas",
+     "qtd": 10,
+     "un": "un",
+     "vUnit": 4.5
+    }
+   ],
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 45.0
+    }
+   ],
+   "valorTexto": 45.0,
+   "valorDoc": 45.0,
+   "docTipo": "NF-e",
+   "docNumero": "249469",
+   "docSerie": "1",
+   "docChave": "53261002107803001813550010002494691024189736",
+   "formaPgto": "Cartão",
+   "obs": "NF com endereço do destinatário em Ipu-CE.",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-14-unitintas-nf249469.jpg",
+     "name": "2026-10-14-unitintas-nf249469.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "valorPago": null,
+   "solicitante": "",
+   "veiculo": "",
+   "id": "cx8",
+   "chave": "ck|53261002107803001813550010002494691024189736"
+  },
+  {
+   "data": "2026-10-13",
+   "dataDoc": "2026-10-13",
+   "tipo": "Combustível",
+   "fornecedor": "Gascol Combustíveis para Veículos Ltda",
+   "descricao": "Abastecimento CRETA — gasolina aditivada 39,956 L × R$ 6,58",
+   "itens": [
+    {
+     "desc": "Gasolina aditivada",
+     "qtd": 39.956,
+     "un": "L",
+     "vUnit": 6.58
+    }
+   ],
+   "valorTexto": 262.91,
+   "valorDoc": 262.91,
+   "docTipo": "NFC-e",
+   "docNumero": "1049104",
+   "docSerie": "023",
+   "docChave": "",
+   "formaPgto": "Pix",
+   "obs": "Cupom emitido em contingência (\"pendente de autorização\") — conferir se a NFC-e foi autorizada.",
+   "veiculo": "Creta",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-13-creta-nfce1049104.jpg",
+     "name": "2026-10-13-creta-nfce1049104.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "valorPago": null,
+   "solicitante": "",
+   "obras": [],
+   "id": "cx9",
+   "chave": "nf|gascol combustiveis para veiculos ltda|1049104|023"
+  },
+  {
+   "data": "2026-10-13",
+   "dataDoc": "2026-10-13",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento (Pix a Antonio Cícero)",
+   "descricao": "Abastecimento STRADA — comprovante Pix",
+   "valorTexto": 150.0,
+   "valorDoc": 150.0,
+   "docTipo": "Comprovante Pix",
+   "pixId": "E3187249520261013105034518B9YVLe",
+   "formaPgto": "Pix",
+   "obs": "Pix para pessoa física; sem cupom do posto.",
+   "veiculo": "Strada",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-13-pix-strada-150.jpg",
+     "name": "2026-10-13-pix-strada-150.jpg"
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "docSerie": "",
+   "docChave": "",
+   "itens": [],
+   "valorPago": null,
+   "docNumero": "",
+   "solicitante": "",
+   "obras": [],
+   "id": "cx10",
+   "chave": "px|E3187249520261013105034518B9YVLe"
+  },
+  {
+   "data": "2026-10-13",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento SPIN",
+   "valorTexto": 341.9,
+   "docTipo": "Sem documento",
+   "veiculo": "Spin",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "obs": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "obras": [],
+   "id": "cx11",
+   "chave": "tx|2026-10-13|341.90|abastecimento|abastecimento spin"
+  },
+  {
+   "data": "2026-10-08",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento SPIN",
+   "valorTexto": 372.58,
+   "docTipo": "Sem documento",
+   "veiculo": "Spin",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "obs": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "obras": [],
+   "id": "cx12",
+   "chave": "tx|2026-10-08|372.58|abastecimento|abastecimento spin"
+  },
+  {
+   "data": "2026-10-08",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Panos de chão",
+   "valorTexto": 216.0,
+   "docTipo": "Sem documento",
+   "obs": "Quantidade e fornecedor não informados.",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "",
+   "obras": [],
+   "id": "cx13",
+   "chave": "tx|2026-10-08|216.00|compra direta fornecedor nao informado|panos de chao"
+  },
+  {
+   "data": "2026-10-08",
+   "tipo": "Outro",
+   "fornecedor": "Oficina (fornecedor não informado)",
+   "descricao": "Conserto de furo no pneu da Strada",
+   "valorTexto": 50.0,
+   "docTipo": "Sem documento",
+   "veiculo": "Strada",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "obs": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "obras": [],
+   "id": "cx14",
+   "chave": "tx|2026-10-08|50.00|oficina fornecedor nao informado|conserto de furo no pneu da strada"
+  },
+  {
+   "data": "2026-10-07",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Rodo de primer — 2 un para o Horizon e 4 un para o estoque",
+   "itens": [
+    {
+     "desc": "Rodo para primer",
+     "qtd": 6,
+     "un": "un",
+     "vUnit": null
+    }
+   ],
+   "obras": [
+    {
+     "obraId": "o3",
+     "valor": 60.98
+    },
+    {
+     "obraId": "estoque",
+     "valor": 121.96
+    }
+   ],
+   "valorTexto": 182.94,
+   "docTipo": "Sem documento",
+   "estoque": true,
+   "estoqueQtd": 4,
+   "estoqueItem": "Rodo p/ Primer",
+   "obs": "Rateio proporcional às unidades (2/6 Horizon, 4/6 estoque).",
+   "anexos": [],
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "",
+   "id": "cx15",
+   "chave": "tx|2026-10-07|182.94|compra direta fornecedor nao informado|rodo de primer 2 un para o horizon e 4 u"
+  },
+  {
+   "data": "2026-10-07",
+   "tipo": "Pix / Reembolso",
+   "fornecedor": "Migráfica",
+   "descricao": "Plotagem de projetos — 314 e CSS Asa Norte (solicitação de reembolso)",
+   "obras": [
+    {
+     "obraId": "o4",
+     "valor": 18.0
+    },
+    {
+     "obraId": "o7",
+     "valor": 18.0
+    }
+   ],
+   "valorTexto": 36.0,
+   "docTipo": "Sem documento",
+   "obs": "Reembolso a solicitante (não informado). Rateio 50/50 entre 314 e Concessionária Lime.",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "",
+   "id": "cx16",
+   "chave": "tx|2026-10-07|36.00|migrafica|plotagem de projetos 314 e css asa norte"
+  },
+  {
+   "data": "2026-10-06",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento STRADA",
+   "valorTexto": 150.0,
+   "docTipo": "Sem documento",
+   "veiculo": "Strada",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "obs": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "obras": [],
+   "id": "cx17",
+   "chave": "tx|2026-10-06|150.00|abastecimento|abastecimento strada"
+  },
+  {
+   "data": "2026-10-06",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Álcool",
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 90.0
+    }
+   ],
+   "valorTexto": 90.0,
+   "docTipo": "Sem documento",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "obs": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "",
+   "id": "cx18",
+   "chave": "tx|2026-10-06|90.00|compra direta fornecedor nao informado|alcool"
+  },
+  {
+   "data": "2026-10-06",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Gás do alojamento",
+   "valorTexto": 125.0,
+   "docTipo": "Sem documento",
+   "obs": "Alojamento (despesa geral).",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "",
+   "obras": [],
+   "id": "cx19",
+   "chave": "tx|2026-10-06|125.00|compra direta fornecedor nao informado|gas do alojamento"
+  },
+  {
+   "data": "2026-10-03",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento SPIN",
+   "valorTexto": 335.85,
+   "docTipo": "Sem documento",
+   "veiculo": "Spin",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "obs": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "obras": [],
+   "id": "cx20",
+   "chave": "tx|2026-10-03|335.85|abastecimento|abastecimento spin"
+  },
+  {
+   "data": "2026-10-02",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Extensões do escritório",
+   "valorTexto": 121.0,
+   "docTipo": "Sem documento",
+   "obs": "Escritório (despesa geral).",
+   "anexos": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "dataDoc": "",
+   "formaPgto": "",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "",
+   "obras": [],
+   "id": "cx21",
+   "chave": "tx|2026-10-02|121.00|compra direta fornecedor nao informado|extensoes do escritorio"
+  }
+ ],
+ "importacoes": [
+  {
+   "fonte": "ConstruData — Relatório de RDOs",
+   "periodo": "08/06/2026 a 18/10/2026",
+   "gerado": "18/10/2026 22:56",
+   "rdos": 44,
+   "m2": 25150,
+   "pessoas": 144,
+   "fotos": 181,
+   "paginas": 87
   }
  ]
 }

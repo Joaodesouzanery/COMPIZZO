@@ -69,6 +69,16 @@ function findFunc(name) {
   return S.funcionarios.find(f => al(f).includes(n)) || S.funcionarios.find(f => al(f).some(x => n.startsWith(x + ' ') || x.startsWith(n + ' '))) || null;
 }
 const retiradasF = () => S.retiradas.filter(r => obraF === 'all' || r.obraId === obraF);
+function boletosBody() {
+  return `<p class="sub">Cruzamos parcelas × nota fiscal × compra do orçamento. PDFs e imagens ficam no histórico (neste navegador).</p>
+    ${S.boletos.map(b => { const i = boletoInfo(b); return `<div class="card"><div class="row sp"><div><h2>${esc(b.fornecedor)} · NF ${esc(b.nf)}</h2><div class="mono">emissão ${fdate(b.emissao)} · total NF ${brl(b.totalNF)}</div></div><div class="row"><label class="btn sm">Anexar PDF/imagem<input type="file" accept="application/pdf,image/*" multiple hidden data-up="${b.id}"></label></div></div>
+      <div class="grid g3" style="margin:12px 0"><div class="alert" style="background:var(--soft);border-color:var(--line)"><div class="mono">Σ parcelas × NF</div>${i.nfOk ? `<b class="ok">✓ ${brl(i.soma)} confere</b>` : `<b class="bad">✗ ${brl(i.soma)} ≠ ${brl(b.totalNF)} (dif ${brl(i.soma - b.totalNF)})</b>`}</div>
+        <div class="alert" style="background:var(--soft);border-color:var(--line)"><div class="mono">NF × orçamento (${esc(i.compra ? i.compra.fornecedor : '—')})</div>${i.compra ? (Math.abs(i.dif) < .02 ? '<b class="ok">✓ igual</b>' : `<b class="amb">Orçado ${brl(i.compra.total)} · NF ${brl(b.totalNF)} → falta ${brl(i.dif)} (entrega parcial?)</b>`) : 'sem compra vinculada'}</div>
+        <div class="alert" style="background:var(--soft);border-color:var(--line)"><div class="mono">Pago / em aberto</div><b>${brl(i.pago)}</b> / <b>${brl(i.soma - i.pago)}</b></div></div>
+      <table><tr><th>Parcela</th><th>Vencimento</th><th class="n">Valor</th><th>Situação</th></tr>${b.parcelas.map((p, k) => { const d = Math.round((new Date(p.venc) - new Date(today())) / 864e5); return `<tr><td>${p.n}/${b.parcelas.length}</td><td>${fdate(p.venc)}</td><td class="n">${brl(p.valor)}</td><td>${p.pago ? '<span class="pill g">Pago</span>' : `<span class="pill ${d < 0 ? 'r' : d <= 7 ? 'a' : ''}">${d < 0 ? 'Vencido' : 'Em ' + d + ' d'}</span>`} <button class="btn sm" data-pay="${b.id}:${k}">${p.pago ? 'Desfazer' : 'Marcar pago'}</button></td></tr>`; }).join('')}</table>
+      ${b.obs ? `<p class="sub" style="margin-top:10px">${esc(b.obs)}</p>` : ''}
+      <div class="row" style="margin-top:8px"><span class="mono">Arquivos</span>${(b.arquivos || []).map(a => `<button class="btn sm" data-open="${a.id}">📎 ${esc(a.name)} · ${fdate(a.date)}</button>`).join('') || '<small class="sub" style="margin:0">nenhum anexado</small>'}</div></div>`; }).join('') || '<div class="dz">Sem boletos.</div>'}`;
+}
 function boletoInfo(b) {
   const soma = b.parcelas.reduce((a, p) => a + p.valor, 0);
   const compra = S.compras.find(c => c.id === b.compraId);
@@ -80,7 +90,7 @@ function boletoInfo(b) {
 }
 
 /* ---------- UI base ---------- */
-const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['estoque', 'Estoque'], ['prod', 'Produção e RDO'], ['compras', 'Compras e orçamentos'], ['boletos', 'Boletos'], ['mao', 'Mão de obra']];
+const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['estoque', 'Estoque'], ['prod', 'Produção e RDO'], ['compras', 'Compras e orçamentos'], ['mao', 'Mão de obra']];
 const EXT = { click: [], input: [], change: [] }, CAD = {}, PROD = {};
 function renderNav() {
   const al = S.materiais.filter(m => stat(m) !== 'ok').length;
@@ -137,11 +147,14 @@ const VIEWS = {
     ${S.ajustes.length ? `<div class="card"><h2>Ajustes de contagem</h2><div class="tw"><table><tr><th>Data</th><th>Material</th><th class="n">De</th><th class="n">Para</th></tr>${S.ajustes.slice().reverse().slice(0, 60).map(a => `<tr><td>${fdate(a.data)}</td><td>${esc(a.nome)}</td><td class="n">${num(a.de)}</td><td class="n">${num(a.para)}</td></tr>`).join('')}</table></div></div>` : ''}`;
   },
   compras() {
-    const t = tab.c || 'compras', soma = S.compras.reduce((a, c) => a + c.total, 0);
+    const t = tab.c || 'compras', soma = S.compras.filter(c => !c.avulsa).reduce((a, c) => a + c.total, 0);
     let body;
     if (t === 'compras') {
-      body = `<div class="card row sp"><div><div class="mono">Valor total das compras</div><div class="kpi"><div class="v">${brl(soma)}</div></div></div><div>${Math.abs(soma - S.totalInformado) < .02 ? `<span class="pill g">Soma confere com ${brl(S.totalInformado)}</span>` : `<span class="pill r">Soma ${brl(soma)} ≠ informado ${brl(S.totalInformado)}</span>`}</div></div>
-      <div class="grid g3">${S.compras.map(c => { const bs = S.boletos.filter(b => b.compraId === c.id); return `<div class="card"><div class="row sp"><h2>${esc(c.fornecedor)}</h2><b>${brl(c.total)}</b></div><div class="mono" style="margin:6px 0">${(c.total / soma * 100).toFixed(1)}% do total${bs.length ? ' · ' + bs.length + ' boleto(s)' : ''}</div><ul style="margin:0;padding-left:18px;color:var(--mut);font-size:13px">${c.itens.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`; }).join('')}</div>`;
+      const fat = S.compras.filter(c => c.avulsa);
+      body = `<div class="card row sp"><div><div class="mono">Valor total das compras (orçamento)</div><div class="kpi"><div class="v">${brl(soma)}</div></div></div><div>${Math.abs(soma - S.totalInformado) < .02 ? `<span class="pill g">Soma confere com ${brl(S.totalInformado)}</span>` : `<span class="pill r">Soma ${brl(soma)} ≠ informado ${brl(S.totalInformado)}</span>`}</div></div>
+      <div class="grid g3">${S.compras.filter(c => !c.avulsa).map(c => { const bs = S.boletos.filter(b => b.compraId === c.id); return `<div class="card"><div class="row sp"><h2>${esc(c.fornecedor)}</h2><b>${brl(c.total)}</b></div><div class="mono" style="margin:6px 0">${(c.total / soma * 100).toFixed(1)}% do total${bs.length ? ' · ' + bs.length + ' boleto(s)' : ''}</div><ul style="margin:0;padding-left:18px;color:var(--mut);font-size:13px">${c.itens.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`; }).join('')}</div>`;
+    } else if (t === 'bol') {
+      body = boletosBody();
     } else if (t === 'cx') {
       body = CAD.cx();
     } else {
@@ -149,18 +162,10 @@ const VIEWS = {
         return `<tr><td><b>${esc(c.material)}</b></td>${c.precos.map(p => `<td class="n ${p == null ? '' : p === min ? 'best' : p === sec ? 'second' : p === max ? 'worst' : ''}">${p == null ? '–' : brl(p)}</td>`).join('')}<td class="n">${v.length > 1 ? brl(max - min) : '—'}</td></tr>`; }).join('');
       body = `<div class="card tw"><table><tr><th>Material</th>${S.fornecedores.map(f => `<th class="n">${esc(f)}</th>`).join('')}<th class="n">Diferença</th></tr>${rows}</table><div class="legend"><span class="grn">■ Melhor preço</span><span class="amb">■ 2º melhor</span><span class="red">■ Mais caro</span></div></div>`;
     }
-    return `${head('Compras e orçamentos', t === 'cx' ? 'Caixinha / Linha direta' : 'Comparativo', t === 'cx' ? '<button class="btn pri" data-cx="new">Novo lançamento</button>' : '<button class="btn pri" data-act="importCompras">Importar compras</button>')}<div class="tabs"><button data-ct="compras" class="${t === 'compras' ? 'on' : ''}">Compras</button><button data-ct="comp" class="${t === 'comp' ? 'on' : ''}">Comparativo de preços</button><button data-ct="cx" class="${t === 'cx' ? 'on' : ''}">Caixinha / Linha direta</button></div>${body}`;
+    return `${head('Compras e orçamentos', t === 'cx' ? 'Caixinha / Linha direta' : t === 'bol' ? 'Contas a pagar' : 'Comparativo', t === 'cx' ? '<button class="btn" data-cxi="open">Importar imagens / ZIP</button><button class="btn pri" data-cx="new">Novo lançamento</button>' : t === 'bol' ? '<button class="btn pri" data-act="novoBoleto">Novo boleto</button>' : '<button class="btn pri" data-act="importCompras">Importar compras</button>')}<div class="tabs"><button data-ct="compras" class="${t === 'compras' ? 'on' : ''}">Compras</button><button data-ct="comp" class="${t === 'comp' ? 'on' : ''}">Comparativo de preços</button><button data-ct="bol" class="${t === 'bol' ? 'on' : ''}">Boletos${S.boletos.some(b => b.parcelas.some(p => !p.pago && p.venc < today())) ? ' <span class="pill r">!</span>' : ''}</button><button data-ct="cx" class="${t === 'cx' ? 'on' : ''}">Caixinha / Linha direta</button></div>${body}`;
   },
-  boletos() {
-    return `${head('Boletos', 'Contas a pagar', '<button class="btn pri" data-act="novoBoleto">Novo boleto</button>')}<p class="sub">Cruzamos parcelas × nota fiscal × compra do orçamento. PDFs e imagens ficam no histórico (neste navegador).</p>
-    ${S.boletos.map(b => { const i = boletoInfo(b); return `<div class="card"><div class="row sp"><div><h2>${esc(b.fornecedor)} · NF ${esc(b.nf)}</h2><div class="mono">emissão ${fdate(b.emissao)} · total NF ${brl(b.totalNF)}</div></div><div class="row"><label class="btn sm">Anexar PDF/imagem<input type="file" accept="application/pdf,image/*" multiple hidden data-up="${b.id}"></label></div></div>
-      <div class="grid g3" style="margin:12px 0"><div class="alert" style="background:var(--soft);border-color:var(--line)"><div class="mono">Σ parcelas × NF</div>${i.nfOk ? `<b class="ok">✓ ${brl(i.soma)} confere</b>` : `<b class="bad">✗ ${brl(i.soma)} ≠ ${brl(b.totalNF)} (dif ${brl(i.soma - b.totalNF)})</b>`}</div>
-        <div class="alert" style="background:var(--soft);border-color:var(--line)"><div class="mono">NF × orçamento (${esc(i.compra ? i.compra.fornecedor : '—')})</div>${i.compra ? (Math.abs(i.dif) < .02 ? '<b class="ok">✓ igual</b>' : `<b class="amb">Orçado ${brl(i.compra.total)} · NF ${brl(b.totalNF)} → falta ${brl(i.dif)} (entrega parcial?)</b>`) : 'sem compra vinculada'}</div>
-        <div class="alert" style="background:var(--soft);border-color:var(--line)"><div class="mono">Pago / em aberto</div><b>${brl(i.pago)}</b> / <b>${brl(i.soma - i.pago)}</b></div></div>
-      <table><tr><th>Parcela</th><th>Vencimento</th><th class="n">Valor</th><th>Situação</th></tr>${b.parcelas.map((p, k) => { const d = Math.round((new Date(p.venc) - new Date(today())) / 864e5); return `<tr><td>${p.n}/${b.parcelas.length}</td><td>${fdate(p.venc)}</td><td class="n">${brl(p.valor)}</td><td>${p.pago ? '<span class="pill g">Pago</span>' : `<span class="pill ${d < 0 ? 'r' : d <= 7 ? 'a' : ''}">${d < 0 ? 'Vencido' : 'Em ' + d + ' d'}</span>`} <button class="btn sm" data-pay="${b.id}:${k}">${p.pago ? 'Desfazer' : 'Marcar pago'}</button></td></tr>`; }).join('')}</table>
-      ${b.obs ? `<p class="sub" style="margin-top:10px">${esc(b.obs)}</p>` : ''}
-      <div class="row" style="margin-top:8px"><span class="mono">Arquivos</span>${(b.arquivos || []).map(a => `<button class="btn sm" data-open="${a.id}">📎 ${esc(a.name)} · ${fdate(a.date)}</button>`).join('') || '<small class="sub" style="margin:0">nenhum anexado</small>'}</div></div>`; }).join('') || '<div class="dz">Sem boletos.</div>'}`;
-  },
+  boletos() { return `${head('Boletos', 'Contas a pagar', '<button class="btn pri" data-act="novoBoleto">Novo boleto</button>')}${boletosBody()}`; },
+
   mao() {
     const t = tab.m || 'ranking', funcs = S.funcionarios.filter(f => obraF === 'all' || f.obraId === obraF);
     let body;

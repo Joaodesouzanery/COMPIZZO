@@ -266,11 +266,12 @@ function covView() {
 }
 
 VIEWS.prod = () => {
-  const t = tab.p || 'rdo';
-  const tabs = [['rdo', 'RDO'], ['cov', 'Cobertura diária'], ['metas', 'Metas de produção'], ['mc', 'Metas e calendário'], ['agenda', 'Agenda semanal']];
+  const t = tab.p || 'geral';
+  const tabs = [['geral', 'Geral'], ['rdo', 'RDO'], ['cov', 'Cobertura diária'], ['metas', 'Metas de produção'], ['mc', 'Metas e calendário'], ['agenda', 'Agenda semanal']];
   if (t === 'rdo' && rd && tab.rdoEdit) return rdoForm();
+  if (t === 'rdo' && tab.rv) return rdoFicha(tab.rv);
   const act = t === 'rdo' ? '<button class="btn pri" data-rd="new">Novo RDO</button>' : '';
-  const body = t === 'rdo' ? rdoList() : t === 'cov' ? covView() : t === 'metas' ? metasView() : t === 'mc' ? calView() : agendaView();
+  const body = t === 'geral' ? geralView() : t === 'rdo' ? rdoListV2() : t === 'cov' ? covView() : t === 'metas' ? metasView() : t === 'mc' ? calView() : agendaView();
   return `${head('Produção e RDO', 'Diário de obra · metas · calendário', act)}<div class="tabs">${tabs.map(([k, l]) => `<button data-pt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
 };
 
@@ -282,7 +283,7 @@ EXT.click.push(async e => {
   const cvm = e.target.closest('[data-cvm]'); if (cvm) { tab.cvm = cvm.dataset.cvm; render(); return true; }
   const cv = e.target.closest('[data-cv]');
   if (cv) { const [a, x, y] = cv.dataset.cv.split(':'); if (a === 'open') { rd = JSON.parse(JSON.stringify(S.rdos.find(z => z.id === x))); } else { rd = novoRdo(); rd.obraId = x; rd.data = y; rd.respData = y; } tab.p = 'rdo'; tab.rdoEdit = true; render(); return true; }
-  const pt = e.target.closest('[data-pt]'); if (pt) { rdSync(); tab.p = pt.dataset.pt; tab.rdoEdit = false; render(); return true; }
+  const pt = e.target.closest('[data-pt]'); if (pt) { rdSync(); tab.p = pt.dataset.pt; tab.rdoEdit = false; tab.rv = null; render(); return true; }
   const cm = e.target.closest('[data-cm]'); if (cm) { tab.cm = cm.dataset.cm; render(); return true; }
   const cal = e.target.closest('[data-cal]');
   if (cal) { const x = S.calendario.find(z => z.id === cal.dataset.cal); modal(`<h2>${esc(obraNome(x.obraId))} · ${fdate(x.data)}</h2><p><span class="pill">${esc(x.tipo)}</span> ${x.cond ? `<span class="pill a">${esc(x.cond)}</span>` : ''}</p><p>${esc(x.texto)}</p><p class="sub">Equipe: ${esc(x.equipe.join(', ') || '—')} · fonte: ${esc(x.fonte)}</p><div class="row sp"><button class="btn" data-act="close">Fechar</button><button class="btn" data-pm="delCal:${x.id}">Excluir</button></div>`); return true; }
