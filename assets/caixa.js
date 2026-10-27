@@ -44,17 +44,52 @@ function cxPorObra(list) {
 const cxNomeObra = id => (id === 'estoque' ? 'Estoque central' : id ? short(obraNome(id)) : 'Geral / Frota');
 const cxMeses = () => [...new Set(cxArr().map(r => r.data.slice(0, 7)))].sort();
 
+function cxFiltros() { tab.cxf = tab.cxf || {}; return tab.cxf; }
+function cxFiltrar(all) {
+  const f = cxFiltros(), q = norm(f.q || '');
+  return all.filter(r => {
+    if (f.mes && f.mes !== 'all' && !r.data.startsWith(f.mes)) return false;
+    if (f.de && r.data < f.de) return false; if (f.ate && r.data > f.ate) return false;
+    const obrasR = (r.obras || []).map(o => o.obraId);
+    if (obraF !== 'all' && !obrasR.includes(obraF)) return false;
+    if (f.obra && f.obra !== 'all' && !(f.obra === '-' ? !obrasR.length : obrasR.includes(f.obra))) return false;
+    if (f.tipo && f.tipo !== 'all' && r.tipo !== f.tipo) return false;
+    if (f.forn && f.forn !== 'all' && r.fornecedor !== f.forn) return false;
+    if (f.veic && f.veic !== 'all' && (r.veiculo || '') !== f.veic) return false;
+    if (f.pgto && f.pgto !== 'all' && (r.formaPgto || '—') !== f.pgto) return false;
+    const fl = cxFlags(r);
+    if (f.doc === 'sem' && !(r.docTipo === 'Sem documento' || !r.docTipo)) return false;
+    if (f.doc === 'com' && (r.docTipo === 'Sem documento' || !r.docTipo)) return false;
+    if (f.doc === 'anexo' && !(r.anexos || []).length) return false;
+    if (f.doc === 'semanexo' && (r.anexos || []).length) return false;
+    if (f.doc === 'pend' && !fl.some(x => x[0] === 'r' || x[0] === 'a')) return false;
+    if (f.vmin && cxVal(r) < cxNum(f.vmin)) return false; if (f.vmax && cxVal(r) > cxNum(f.vmax)) return false;
+    if (q && !norm([r.fornecedor, r.descricao, r.solicitante, r.veiculo, r.docNumero, r.obs, (r.obras || []).map(o => cxNomeObra(o.obraId)).join(' ')].join(' ')).includes(q)) return false;
+    return true;
+  });
+}
+function cxCsv(list) {
+  const q = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+  const rows = [['Data', 'Tipo', 'Fornecedor', 'Descrição', 'Obra(s)', 'Solicitante', 'Veículo', 'Forma pgto', 'Valor', 'Documento', 'Nº doc', 'Anexos', 'Pendências'].map(q).join(';')];
+  list.forEach(r => rows.push([fdate(r.data), r.tipo, r.fornecedor, r.descricao, (r.obras || []).map(o => cxNomeObra(o.obraId) + ' ' + o.valor.toFixed(2).replace('.', ',')).join(' + '), r.solicitante, r.veiculo, r.formaPgto, cxVal(r).toFixed(2).replace('.', ','), r.docTipo, r.docNumero, (r.anexos || []).length, cxFlags(r).map(x => x[1]).join(' | ')].map(q).join(';')));
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + rows.join('\n')], { type: 'text/csv;charset=utf-8' })); a.download = 'caixinha-' + today() + '.csv'; a.click();
+}
 function cxView() {
-  const all = cxArr(), meses = cxMeses();
+  const all = cxArr(), meses = cxMeses(), f = cxFiltros();
   if (!all.length) return `<div class="card"><p class="sub">Nenhum lançamento ainda. Clique em “Novo lançamento” para colar o texto do grupo e anexar as fotos.</p></div>`;
-  const mes = tab.cxm && meses.includes(tab.cxm) ? tab.cxm : meses[meses.length - 1];
-  const list = all.filter(r => r.data.startsWith(mes) && (obraF === 'all' || (r.obras || []).some(o => o.obraId === obraF))).sort((a, b) => b.data.localeCompare(a.data));
-  const total = list.reduce((a, r) => a + cxVal(r), 0), po = cxPorObra(list), pt = {}, pf = {};
-  list.forEach(r => { pt[r.tipo] = (pt[r.tipo] || 0) + cxVal(r); pf[r.fornecedor] = (pf[r.fornecedor] || 0) + cxVal(r); });
-  const bar = (o, k) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([n, v]) => `<div class="row sp" style="padding:3px 0;border-bottom:1px solid var(--line)"><span>${esc(k ? k(n) : n)}</span><b>${brl(v)}</b></div>`).join('');
-  const rows = list.map(r => { const fl = cxFlags(r); return `<tr><td>${fdate(r.data)}</td><td><b>${esc(r.fornecedor)}</b><small style="display:block;color:var(--mut)">${esc(r.tipo)}</small></td><td>${esc(r.descricao)}${r.solicitante ? `<small style="display:block;color:var(--mut)">${esc(r.solicitante)}</small>` : ''}</td><td>${(r.obras || []).map(o => esc(cxNomeObra(o.obraId))).join(' + ') || 'Geral / Frota'}</td><td class="n"><b>${brl(cxVal(r))}</b></td><td>${esc(r.docTipo || '—')}${r.docNumero ? ` <small style="color:var(--mut)">nº ${esc(r.docNumero)}</small>` : ''}${(r.anexos || []).length ? ` 📎${r.anexos.length}` : ''}</td><td>${fl.length ? fl.map(x => `<span class="pill ${x[0]}" title="${esc(x[1])}">${x[0] === 'r' ? '!' : '•'}</span>`).join(' ') : '<span class="pill g">ok</span>'}</td><td><button class="btn sm" data-cxd="${r.id}">Abrir</button></td></tr>`; }).join('');
-  return `<div class="tabs">${meses.map(m => `<button data-cxm="${m}" class="${m === mes ? 'on' : ''}">${MESES[+m.slice(5) - 1].slice(0, 3)}/${m.slice(2, 4)}</button>`).join('')}</div>
-  <div class="grid g3" style="margin-bottom:14px"><div class="card" style="margin:0"><div class="mono">Total do mês</div><div class="kpi"><div class="v">${brl(total)}</div></div><small class="sub">${list.length} lançamento(s)</small></div><div class="card" style="margin:0"><div class="mono">Por obra (com rateio)</div>${bar(po, cxNomeObra)}</div><div class="card" style="margin:0"><div class="mono">Por tipo</div>${bar(pt)}<div class="mono" style="margin-top:8px">Por fornecedor</div>${bar(pf)}</div></div>
+  if (f.mes === undefined) f.mes = meses[meses.length - 1];
+  const list = cxFiltrar(all).sort((a, b) => b.data.localeCompare(a.data));
+  const uniq = (fn) => [...new Set(all.map(fn).filter(Boolean))].sort();
+  const sel = (k, l, opts, all0 = 'Todos') => `<div><label class="mono">${l}</label><br><select data-cxf="${k}"><option value="all">${all0}</option>${opts.map(([v, t]) => `<option value="${esc(v)}" ${f[k] === v ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select></div>`;
+  const ativos = ['obra', 'tipo', 'forn', 'veic', 'pgto'].filter(k => f[k] && f[k] !== 'all').length + ['doc', 'q', 'de', 'ate', 'vmin', 'vmax'].filter(k => f[k]).length;
+  const po = cxPorObra(list), obraSel = obraF !== 'all' ? obraF : (f.obra && f.obra !== 'all' && f.obra !== '-' ? f.obra : null), total = obraSel ? (po[obraSel] || 0) : list.reduce((a, r) => a + cxVal(r), 0), pt = {}, pf = {}, pv = {};
+  list.forEach(r => { pt[r.tipo] = (pt[r.tipo] || 0) + cxVal(r); pf[r.fornecedor] = (pf[r.fornecedor] || 0) + cxVal(r); if (r.veiculo) pv[r.veiculo] = (pv[r.veiculo] || 0) + cxVal(r); });
+  const bar = (o, k) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([n, v]) => `<div class="row sp" style="padding:3px 0;border-bottom:1px solid var(--line)"><span>${esc(k ? k(n) : n)}</span><b>${brl(v)}</b></div>`).join('') || '<small class="sub">—</small>';
+  const rows = list.map(r => { const fl = cxFlags(r); return `<tr><td>${fdate(r.data)}</td><td><b>${esc(r.fornecedor)}</b><small style="display:block;color:var(--mut)">${esc(r.tipo)}${r.veiculo ? ' · ' + esc(r.veiculo) : ''}</small></td><td>${esc(r.descricao)}${r.solicitante ? `<small style="display:block;color:var(--mut)">${esc(r.solicitante)}</small>` : ''}</td><td>${(r.obras || []).map(o => esc(cxNomeObra(o.obraId))).join(' + ') || 'Geral / Frota'}</td><td class="n"><b>${brl(cxVal(r))}</b></td><td>${esc(r.docTipo || '—')}${r.docNumero ? ` <small style="color:var(--mut)">nº ${esc(r.docNumero)}</small>` : ''}${(r.anexos || []).length ? ` 📎${r.anexos.length}` : ''}</td><td>${fl.length ? fl.map(x => `<span class="pill ${x[0]}" title="${esc(x[1])}">${x[0] === 'r' ? '!' : '•'}</span>`).join(' ') : '<span class="pill g">ok</span>'}</td><td><button class="btn sm" data-cxd="${r.id}">Abrir</button></td></tr>`; }).join('');
+  return `<div class="card" style="margin-bottom:14px"><div class="row sp" style="margin-bottom:8px"><div class="tabs" style="margin:0"><button data-cxf-mes="all" class="${f.mes === 'all' ? 'on' : ''}">Todos</button>${meses.map(m => `<button data-cxf-mes="${m}" class="${f.mes === m ? 'on' : ''}">${MESES[+m.slice(5) - 1].slice(0, 3)}/${m.slice(2, 4)}</button>`).join('')}</div><div class="row"><span class="mono">${list.length} de ${all.length} lançamentos</span>${ativos ? '<button class="btn sm" data-cxf-clear="1">Limpar filtros (' + ativos + ')</button>' : ''}<button class="btn sm" data-cxf-csv="1">Exportar CSV</button></div></div>
+  <div class="grid g4" style="gap:8px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"><div><label class="mono">Buscar</label><br><input id="cxq" data-cxf="q" placeholder="fornecedor, descrição, NF…" value="${esc(f.q || '')}" style="width:100%"></div>${sel('obra', 'Obra', [['-', 'Sem obra (geral/frota)'], ...S.obras.map(o => [o.id, short(o.nome)]), ['estoque', 'Estoque central']])}${sel('tipo', 'Tipo', CX_TIPOS.map(t => [t, t]))}${sel('forn', 'Fornecedor', uniq(r => r.fornecedor).map(t => [t, t]))}${sel('veic', 'Veículo', uniq(r => r.veiculo).map(t => [t, t]))}${sel('pgto', 'Pagamento', uniq(r => r.formaPgto || '—').map(t => [t, t]))}
+  <div><label class="mono">Documento</label><br><select data-cxf="doc"><option value="">Todos</option>${[['sem', 'Sem documento'], ['com', 'Com documento'], ['semanexo', 'Sem imagem anexa'], ['anexo', 'Com imagem anexa'], ['pend', 'Com pendência']].map(([v, t]) => `<option value="${v}" ${f.doc === v ? 'selected' : ''}>${t}</option>`).join('')}</select></div><div><label class="mono">De</label><br><input type="date" data-cxf="de" value="${f.de || ''}"></div><div><label class="mono">Até</label><br><input type="date" data-cxf="ate" value="${f.ate || ''}"></div><div><label class="mono">Valor mín.</label><br><input data-cxf="vmin" value="${esc(f.vmin || '')}" style="width:90px"></div><div><label class="mono">Valor máx.</label><br><input data-cxf="vmax" value="${esc(f.vmax || '')}" style="width:90px"></div></div></div>
+  <div class="grid g3" style="margin-bottom:14px"><div class="card" style="margin:0"><div class="mono">Total no filtro</div><div class="kpi"><div class="v">${brl(total)}</div></div><small class="sub">${list.length} lançamento(s)${obraSel ? ' · parte desta obra (com rateio)' : list.length ? ' · média ' + brl(total / list.length) : ''}</small></div><div class="card" style="margin:0"><div class="mono">Por obra (com rateio)</div>${bar(po, cxNomeObra)}</div><div class="card" style="margin:0"><div class="mono">Por tipo</div>${bar(pt)}<div class="mono" style="margin-top:8px">Por veículo</div>${bar(pv)}<div class="mono" style="margin-top:8px">Por fornecedor</div>${bar(pf)}</div></div>
   <div class="card tw"><table><tr><th>Data</th><th>Fornecedor</th><th>Descrição</th><th>Obra(s)</th><th class="n">Valor</th><th>Documento</th><th>Conferência</th><th></th></tr>${rows || '<tr><td colspan="8">Nada neste filtro.</td></tr>'}</table><p class="sub" style="margin-top:8px">Esta aba é separada das compras de orçamento: não entra no total de compras nem nos boletos.</p></div>`;
 }
 CAD.cx = cxView;
@@ -177,7 +212,9 @@ function cxDetail(id) {
 
 EXT.click.push(async e => {
   const gcx = e.target.closest('[data-goto-cx]'); if (gcx) { tab.c = 'cx'; return false; }
-  const m = e.target.closest('[data-cxm]'); if (m) { tab.cxm = m.dataset.cxm; render(); return true; }
+  const m = e.target.closest('[data-cxf-mes]'); if (m) { cxFiltros().mes = m.dataset.cxfMes; render(); return true; }
+  if (e.target.closest('[data-cxf-clear]')) { tab.cxf = { mes: 'all' }; render(); return true; }
+  if (e.target.closest('[data-cxf-csv]')) { cxCsv(cxFiltrar(cxArr()).sort((a, b) => b.data.localeCompare(a.data))); return true; }
   const d = e.target.closest('[data-cxd]'); if (d) { cxDetail(d.dataset.cxd); return true; }
   const b = e.target.closest('[data-cx]'); if (!b) return false;
   const [a, id] = b.dataset.cx.split(':');
@@ -279,3 +316,6 @@ EXT.change.push(async e => {
   if (t.dataset.cxiCk !== undefined) { cxImg.items[+t.dataset.cxiCk].ok = t.checked; return true; }
   return false;
 });
+
+EXT.change.push(async e => { const t = e.target; if (t.dataset.cxf && t.id !== 'cxq') { cxFiltros()[t.dataset.cxf] = t.value; render(); return true; } return false; });
+EXT.input.push(e => { const t = e.target; if (t.id === 'cxq') { cxFiltros().q = t.value; const p = t.selectionStart; render(); const n = $('#cxq'); n.focus(); n.setSelectionRange(p, p); return true; } return false; });
