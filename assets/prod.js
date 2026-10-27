@@ -267,11 +267,11 @@ function covView() {
 
 VIEWS.prod = () => {
   const t = tab.p || 'geral';
-  const tabs = [['geral', 'Geral'], ['rdo', 'RDO'], ['cov', 'Cobertura diária'], ['metas', 'Metas de produção'], ['mc', 'Metas e calendário'], ['agenda', 'Agenda semanal']];
+  const tabs = [['geral', 'Geral'], ['desemp', 'Desempenho'], ['rdo', 'RDO'], ['cov', 'Cobertura diária'], ['metas', 'Metas de produção'], ['mc', 'Metas e calendário'], ['agenda', 'Agenda semanal']];
   if (t === 'rdo' && rd && tab.rdoEdit) return rdoForm();
   if (t === 'rdo' && tab.rv) return rdoFicha(tab.rv);
   const act = t === 'rdo' ? '<button class="btn pri" data-rd="new">Novo RDO</button>' : '';
-  const body = t === 'geral' ? geralView() : t === 'rdo' ? rdoListV2() : t === 'cov' ? covView() : t === 'metas' ? metasView() : t === 'mc' ? calView() : agendaView();
+  const body = t === 'geral' ? geralView() : t === 'desemp' ? desempenhoView() : t === 'rdo' ? rdoListV2() : t === 'cov' ? covView() : t === 'metas' ? metasView() : t === 'mc' ? calView() : agendaView();
   return `${head('Produção e RDO', 'Diário de obra · metas · calendário', act)}<div class="tabs">${tabs.map(([k, l]) => `<button data-pt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
 };
 
