@@ -14,7 +14,7 @@ const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '
   .replace(/(\d)\s*(mm|cm|m|l|g|un)\b/g, '$1$2').replace(/["'`´’]/g, '').replace(/[^a-z0-9 ,.]/g, ' ').replace(/\s+/g, ' ').trim();
 const STOP = new Set(['de', 'da', 'do', 'das', 'dos', 'com', 'para', 'p', 'e', 'a', 'o', 'un', 'und', 'tam']);
 const toks = s => norm(s).split(' ').filter(w => w && !STOP.has(w)).map(w => (w.length > 3 && w.endsWith('s') ? w.slice(0, -1) : w));
-const ALIAS = [[/fita grossa/, 'Fita 48mm'], [/fita fina/, 'Fita 24mm'], [/^lona\b/, 'Lona 110M'], [/rolo (de )?5 ?(mm|cm)/, 'Rolo 5CM'], [/rolo (de )?9 ?(mm|cm)/, 'Rolo 9CM'],
+const ALIAS = [[/\blona\b/, 'Lona 110M'], [/caixa de fita.*24 un/, 'Fita 48mm'], [/fita grossa/, 'Fita 48mm'], [/fita fina/, 'Fita 24mm'], [/^lona\b/, 'Lona 110M'], [/rolo (de )?5 ?(mm|cm)/, 'Rolo 5CM'], [/rolo (de )?9 ?(mm|cm)/, 'Rolo 9CM'],
   [/^trena/, 'Trena 5M'], [/oculos/, 'Óculos de proteção'], [/mascara.*(filtro)/, 'Kit Máscaras com 2 filtros'], [/mascara pff2/, 'Máscaras PFF2'], [/^galocha/, 'Galochas'], [/^macac/, 'Macacões'], [/^desempenadeira/, 'Desempenadeiras']];
 
 let S, view = 'today', obraF = 'all', tab = {};
@@ -49,19 +49,20 @@ function matchMat(q) {
   const nq = norm(q);
   for (const [re, nome] of ALIAS) if (re.test(nq)) { const m = S.materiais.find(x => x.nome === nome); if (m) return m; }
   const qt = toks(q); if (!qt.length) return null;
-  let best = null, bs = 0;
+  let best = null, bs = 0, empate = false;
   for (const m of S.materiais) {
     const mt = toks(m.nome); const inter = qt.filter(t => mt.includes(t)).length;
     let sc = (2 * inter) / (qt.length + mt.length);
     if (qt.some(t => /^\d+[a-z]*$/.test(t) && !mt.includes(t))) sc *= 0.5; // grão/medida diferente = outro item
-    if (sc > bs) { bs = sc; best = m; }
+    if (sc > bs + 1e-9) { bs = sc; best = m; empate = false; } else if (Math.abs(sc - bs) < 1e-9 && sc > 0) empate = true;
   }
-  return bs >= 0.5 ? best : null;
+  return bs > 0.5 && !empate ? best : null; // empate (ex.: “espátulas” = 4 cm ou 12 cm?) ou palavra solta (“rolos brancos”) → não adivinha
 }
 function findObra(name) {
   const n = norm(name || ''); if (!n) return null;
-  const al = o => [norm(o.nome), ...(o.aliases || [])];
-  return S.obras.find(o => al(o).includes(n)) || S.obras.find(o => al(o).some(x => x && (x.includes(n) || n.includes(x)))) || null;
+  const sw = t => String(t).replace(/\b(da|de|do|das|dos)\b/g, ' ').replace(/\s+/g, ' ').trim(), n2 = sw(n);
+  const al = o => [norm(o.nome), ...(o.aliases || [])].map(sw);
+  return S.obras.find(o => al(o).includes(n2)) || S.obras.find(o => al(o).some(x => x && (x.includes(n2) || n2.includes(x)))) || null;
 }
 function findFunc(name) {
   const n = norm(name || '').replace(/\(.*?\)/g, '').replace(/\./g, ' ').replace(/\s+/g, ' ').trim(); if (!n) return null;
@@ -90,7 +91,7 @@ function boletoInfo(b) {
 }
 
 /* ---------- UI base ---------- */
-const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['estoque', 'Estoque'], ['prod', 'Produção e RDO'], ['compras', 'Compras e orçamentos'], ['mao', 'Mão de obra']];
+const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['contratos', 'Contratos'], ['estoque', 'Estoque'], ['prod', 'Produção e RDO'], ['compras', 'Compras e orçamentos'], ['mao', 'Mão de obra']];
 const EXT = { click: [], input: [], change: [] }, CAD = {}, PROD = {};
 function renderNav() {
   const al = S.materiais.filter(m => stat(m) !== 'ok').length;
@@ -110,7 +111,7 @@ const VIEWS = {
     const pct = ms.length ? (ok / ms.length * 100) : 0;
     const ticks = [...ms].sort((a, b) => ({ ok: 0, crit: 1, zero: 2 }[stat(a)] - { ok: 0, crit: 1, zero: 2 }[stat(b)])).map(m => `<i class="${{ ok: '', crit: 'a', zero: 'r' }[stat(m)]}" title="${esc(m.nome)}"></i>`).join('');
     const rh = retiradasF().filter(r => r.data === today());
-    const gasto = S.compras.reduce((a, c) => a + c.total, 0);
+    const gasto = S.compras.filter(c => !c.avulsa).reduce((a, c) => a + c.total, 0);
     const bol = S.boletos.map(b => ({ b, i: boletoInfo(b) })).filter(x => x.i.prox).sort((a, b) => a.i.prox.localeCompare(b.i.prox));
     const alertList = [...zero, ...crit].slice(0, 8).map(m => `<div class="it"><div class="t"><b>${esc(m.nome)}</b><small>${num(m.qtd)} ${esc(m.unidade)} · crítico ≤ ${m.critica}</small></div>${statPill(m)}</div>`).join('') || '<p class="sub">Nenhum alerta. 🎉</p>';
     return `${head(`${hi}, Compizzo`, new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }), `<button class="btn pri" data-act="retirada">Nova retirada</button>`)}
@@ -119,8 +120,8 @@ const VIEWS = {
       <div><div class="grid g4"><div class="kpi"><div class="mono">Itens</div><div class="v">${ms.length}</div></div><div class="kpi"><div class="mono">OK</div><div class="v">${ok}</div></div><div class="kpi"><div class="mono">Críticos</div><div class="v amb">${crit.length}</div></div><div class="kpi"><div class="mono">Sem estoque</div><div class="v red">${zero.length}</div></div></div>
       <div class="ticks">${ticks}</div><div class="legend"><span>▌ Em estoque</span><span class="amb">▌ Crítico</span><span class="red">▌ Zerado</span><span>Cada marca é um material</span></div></div></div>
     <div class="grid g2"><div class="card"><div class="row sp"><h2>Alertas de estoque</h2><button class="btn sm" data-nav="estoque">Ver estoque</button></div><div class="list">${alertList}</div></div>
-      <div><div class="card"><div class="mono">Gasto em compras</div><div class="kpi"><div class="v">${brl(gasto)}</div></div><small class="sub">${S.compras.length} fornecedores · informado ${brl(S.totalInformado)} ${Math.abs(gasto - S.totalInformado) < .02 ? '<span class="ok">✓ confere</span>' : '<span class="bad">≠ diverge</span>'}</small></div>
-      ${pendCard()}${metaCard()}${typeof cxCard === 'function' ? cxCard() : ''}<div class="card"><h2>Boletos a vencer</h2><div class="list">${bol.map(({ b, i }) => `<div class="it"><div class="t"><b>${esc(b.fornecedor)} · NF ${esc(b.nf)}</b><small>próx. venc. ${fdate(i.prox)}</small></div><span class="pill ${i.dias < 0 ? 'r' : i.dias <= 7 ? 'a' : ''}">${i.dias < 0 ? 'vencido' : 'em ' + i.dias + ' d'}</span></div>`).join('') || '<p class="sub">Sem boletos abertos.</p>'}</div></div></div></div>
+      <div><div class="card"><div class="mono">Gasto em compras</div><div class="kpi"><div class="v">${brl(gasto)}</div></div><small class="sub">${S.compras.filter(c => !c.avulsa).length} fornecedores · informado ${brl(S.totalInformado)} ${Math.abs(gasto - S.totalInformado) < .02 ? '<span class="ok">✓ confere</span>' : '<span class="bad">≠ diverge</span>'}</small></div>
+      ${typeof pendCard === 'function' ? pendCard() : ''}${metaCard()}${typeof cxCard === 'function' ? cxCard() : ''}<div class="card"><h2>Boletos a vencer</h2><div class="list">${bol.map(({ b, i }) => `<div class="it"><div class="t"><b>${esc(b.fornecedor)} · NF ${esc(b.nf)}</b><small>próx. venc. ${fdate(i.prox)}</small></div><span class="pill ${i.dias < 0 ? 'r' : i.dias <= 7 ? 'a' : ''}">${i.dias < 0 ? 'vencido' : 'em ' + i.dias + ' d'}</span></div>`).join('') || '<p class="sub">Sem boletos abertos.</p>'}</div></div></div></div>
     <div class="card"><h2>Últimas retiradas</h2>${retiradasTable(retiradasF().slice(-8).reverse())}</div>`;
   },
   obras() {
@@ -186,45 +187,67 @@ const VIEWS = {
 };
 function retiradasTable(rs) {
   if (!rs.length) return '<p class="sub">Nenhuma retirada registrada ainda.</p>';
-  return `<div class="tw"><table><tr><th>Data</th><th>Material</th><th class="n">Qtd</th><th>Obra</th><th>Obs</th></tr>${rs.map(r => `<tr><td>${fdate(r.data)}</td><td>${esc((S.materiais.find(m => m.id === r.materialId) || {}).nome || r.nomeOriginal)}</td><td class="n">${num(r.qtd)}</td><td>${esc(obraNome(r.obraId))}</td><td>${r.faltou ? `<span class="pill r">faltou ${num(r.faltou)}</span>` : esc(r.obs || '')}</td></tr>`).join('')}</table></div>`;
+  return `<div class="tw"><table><tr><th>Data</th><th>Material</th><th class="n">Qtd</th><th>Obra / destino</th><th>Responsável</th><th>Obs</th></tr>${rs.map(r => `<tr><td>${fdate(r.data)}</td><td>${esc((S.materiais.find(m => m.id === r.materialId) || {}).nome || r.nomeOriginal)}</td><td class="n">${num(r.qtd)}</td><td>${r.obraId ? esc(obraNome(r.obraId)) : `<span class="pill a">${esc(r.destinoTxt || 'a informar')}</span>`}</td><td>${esc(r.responsavel || '—')}</td><td>${r.pendente ? `<span class="pill a">identificar ${esc(r.pendente)}</span> ` : ''}${r.faltou ? `<span class="pill r">faltou ${num(r.faltou)}</span> ` : ''}${esc(r.obs || '')}</td></tr>`).join('')}</table></div>`;
 }
 
 /* ---------- ações / modais ---------- */
 const matOpts = sel => S.materiais.map(m => `<option value="${m.id}" ${m.id === sel ? 'selected' : ''}>${esc(m.nome)} (${num(m.qtd)})</option>`).join('');
 const obraOpts = sel => S.obras.map(o => `<option value="${o.id}" ${o.id === sel ? 'selected' : ''}>${esc(o.nome)}</option>`).join('');
+const dataBR = t => { const m = String(t || '').match(/(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?/); if (!m) return ''; const y = m[3] ? (m[3].length === 2 ? '20' + m[3] : m[3]) : today().slice(0, 4); return `${y}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`; };
 function parseRetiradas(txt) {
   const out = [];
+  // formato novo: "RETIRADA DE MATERIAL DO ESTOQUE" + Data / Destino / Materiais retirados / Responsável pela retirada
+  const blocks = txt.split(/(?=RETIRADA DE MATERIAL DO ESTOQUE)/i).filter(b => /RETIRADA DE MATERIAL/i.test(b));
+  for (const blk of blocks) {
+    const g = re => ((blk.match(re) || [])[1] || '').trim();
+    const data = dataBR(g(/data:\s*([^\n]+)/i)) || today(), dest = g(/destino:\s*([^\n]+)/i), resp = g(/respons[aá]vel[^:\n]*:\s*([^\n]+)/i);
+    const lista = (blk.match(/materiais retirados:\s*([\s\S]*?)(?:👷|respons[aá]vel|$)/i) || [])[1] || '';
+    const o = /a informar/i.test(dest) ? null : findObra(dest.replace(/^obra\s+/i, ''));
+    for (const l of lista.split('\n')) {
+      const t = l.replace(/^[\s*•\-–]+/, '').trim(); if (!t) continue;
+      const m = t.match(/^(\d+(?:[.,]\d+)?)\s+(.+)$/); if (!m) continue;
+      const nome = m[2].replace(/\s*\(.*?\)\s*$/, '').trim(), mt = matchMat(nome) || matchMat(m[2]);
+      out.push({ mat: m[2].trim(), qtd: parseBR(m[1]), obraTxt: dest, m: mt, o, data, resp, destinoTxt: dest });
+    }
+  }
+  if (out.length) return out;
   for (const blk of txt.split(/RETIRADA DE ESTOQUE/i).slice(1).length ? txt.split(/RETIRADA DE ESTOQUE/i).slice(1) : [txt]) {
     const g = re => (blk.match(re) || [])[1];
     const mat = g(/material:\s*(.+)/i), qt = g(/quantidade:\s*([^\n]+)/i), ob = g(/obra[^:\n]*:\s*(.+)/i);
     if (!mat || !qt) continue;
     const qn = parseBR((qt.match(/[\d.,]+/) || ['0'])[0]);
     const m = matchMat(mat), o = findObra(ob);
-    out.push({ mat: mat.trim(), qtd: qn, obraTxt: (ob || '').trim(), m, o });
+    out.push({ mat: mat.trim(), qtd: qn, obraTxt: (ob || '').trim(), m, o, data: today(), resp: '', destinoTxt: (ob || '').trim() });
   }
   return out;
 }
 function rowHtml(r, i) {
-  return `<tr data-i="${i}"><td><select class="rm">${r.m ? '' : '<option value="">— escolher —</option>'}${matOpts(r.m && r.m.id)}</select><small style="color:var(--mut)">${esc(r.mat || '')}</small></td><td><input class="rq" type="number" step="any" value="${r.qtd}" style="width:80px"></td><td><select class="ro">${r.o ? '' : '<option value="">— escolher —</option>'}${obraOpts(r.o && r.o.id)}</select>${r.o ? '' : `<small class="bad">“${esc(r.obraTxt)}” não cadastrada</small>`}</td></tr>`;
+  return `<tr data-i="${i}"><td><input type="date" class="rd" value="${r.data || today()}" style="width:132px"></td><td><select class="rm">${r.m ? '' : '<option value="">— identificar depois —</option>'}${matOpts(r.m && r.m.id)}</select><small style="color:var(--mut)">${esc(r.mat || '')}</small></td><td><input class="rq" type="number" step="any" value="${r.qtd}" style="width:80px"></td><td><select class="ro">${r.o ? '' : '<option value="">— a informar —</option>'}${obraOpts(r.o && r.o.id)}</select>${r.o ? '' : `<small class="amb">${esc(r.obraTxt || 'sem destino')}</small>`}${r.resp ? `<small style="display:block;color:var(--mut)">resp.: ${esc(r.resp)}</small>` : ''}</td></tr>`;
 }
 let draft = [];
 function openRetirada() {
   draft = [];
-  modal(`<h2>Nova retirada de estoque</h2><label>Cole a mensagem (📦 RETIRADA DE ESTOQUE – COMPIZZO) — pode colar várias</label><textarea id="rt" placeholder="🛠️ Material: Rolo 23cm&#10;📊 Quantidade: 5&#10;🏗️ Obra de destino: Supera"></textarea>
+  modal(`<h2>Nova retirada de estoque</h2><label>Cole a mensagem (📦 RETIRADA DE ESTOQUE ou “RETIRADA DE MATERIAL DO ESTOQUE” com Data/Destino/Materiais/Responsável) — pode colar várias</label><textarea id="rt" placeholder="🛠️ Material: Rolo 23cm&#10;📊 Quantidade: 5&#10;🏗️ Obra de destino: Supera"></textarea>
   <div class="row" style="margin-top:10px"><button class="btn" data-act="parseRet">Interpretar</button><button class="btn" data-act="addRow">+ linha manual</button></div><div id="rprev"></div><div class="row sp" style="margin-top:14px"><button class="btn" data-act="close">Cancelar</button><button class="btn pri" data-act="confRet">Confirmar retirada</button></div>`);
 }
-function drawDraft() { $('#rprev').innerHTML = draft.length ? `<table style="margin-top:10px"><tr><th>Material</th><th>Qtd</th><th>Obra</th></tr>${draft.map(rowHtml).join('')}</table>` : ''; }
-function syncDraft() { document.querySelectorAll('#rprev tr[data-i]').forEach(tr => { const r = draft[+tr.dataset.i]; r.m = S.materiais.find(m => m.id === tr.querySelector('.rm').value) || null; r.qtd = parseFloat(tr.querySelector('.rq').value) || 0; r.o = S.obras.find(o => o.id === tr.querySelector('.ro').value) || null; }); }
+function drawDraft() { $('#rprev').innerHTML = draft.length ? `<table style="margin-top:10px"><tr><th>Data</th><th>Material</th><th>Qtd</th><th>Destino</th></tr>${draft.map(rowHtml).join('')}</table>` : ''; }
+function syncDraft() { document.querySelectorAll('#rprev tr[data-i]').forEach(tr => { const r = draft[+tr.dataset.i]; r.m = S.materiais.find(m => m.id === tr.querySelector('.rm').value) || null; const dt = tr.querySelector('.rd'); if (dt) r.data = dt.value; r.qtd = parseFloat(tr.querySelector('.rq').value) || 0; r.o = S.obras.find(o => o.id === tr.querySelector('.ro').value) || null; }); }
 function confirmRetirada() {
   syncDraft();
-  if (!draft.length || draft.some(r => !r.m || !r.o || !(r.qtd > 0))) return alert('Preencha material, quantidade (>0) e obra em todas as linhas.');
+  if (!draft.length || draft.some(r => !(r.qtd > 0))) return alert('Informe a quantidade (>0) em todas as linhas.');
+  let n = 0, dup = 0, pend = 0;
   for (const r of draft) {
-    const faltou = Math.max(0, r.qtd - r.m.qtd); r.m.qtd = Math.max(0, r.m.qtd - r.qtd);
-    S.retiradas.push({ id: uid('r'), data: today(), materialId: r.m.id, qtd: r.qtd, obraId: r.o.id, nomeOriginal: r.mat, faltou: faltou || undefined });
+    const ch = `ret|${r.data || today()}|${norm(r.m ? r.m.nome : r.mat)}|${r.qtd}|${r.o ? r.o.id : norm(r.destinoTxt || '')}`;
+    const dest = norm(r.destinoTxt || '');
+    if (S.retiradas.some(x => x.chave === ch || (x.data === (r.data || today()) && +x.qtd === +r.qtd && ((r.m && x.materialId === r.m.id) || norm(x.nomeOriginal) === norm(r.mat)) && ((r.o && x.obraId === r.o.id) || (!r.o && !x.obraId) || (dest && norm(x.destinoTxt || '') === dest))))) { dup++; continue; }
+    const rec = { id: uid('r'), chave: ch, data: r.data || today(), materialId: r.m ? r.m.id : '', qtd: r.qtd, obraId: r.o ? r.o.id : '', destinoTxt: r.destinoTxt || '', responsavel: r.resp || '', nomeOriginal: r.mat, origem: 'app' };
+    if (!r.o) rec.pendente = 'destino'; if (!r.m) rec.pendente = ((rec.pendente || '') + ' material').trim();
+    if (r.m) { const falt = Math.max(0, r.qtd - r.m.qtd); r.m.qtd = Math.max(0, r.m.qtd - r.qtd); if (falt) rec.faltou = falt; }
+    if (rec.pendente) pend++; S.retiradas.push(rec); n++;
   }
   save(); closeModal(); render();
-  const al = draft.filter(r => stat(r.m) !== 'ok').map(r => r.m.nome);
-  if (al.length) alert('Atenção — estoque baixo/zerado: ' + al.join(', '));
+  const al = draft.filter(r => r.m && stat(r.m) !== 'ok').map(r => r.m.nome);
+  alert(`${n} retirada(s) registrada(s)${dup ? `, ${dup} já existia(m) e foi(ram) ignorada(s)` : ''}${pend ? `, ${pend} com pendência (destino ou material a identificar)` : ''}.` + (al.length ? '\nAtenção — estoque baixo/zerado: ' + al.join(', ') : ''));
 }
 function openContagem() {
   modal(`<h2>Importar lista de materiais</h2><label>Modo</label><select id="cm"><option value="set">Contagem — substitui o saldo</option><option value="add">Entrada — soma ao estoque</option></select><label>Cole a lista (uma linha por item)</label><textarea id="ct" placeholder="Thinner 6&#10;Fita grossa 1cx&#10;8 tecbonds"></textarea><div class="row" style="margin-top:10px"><button class="btn" data-act="parseCont">Interpretar</button></div><div id="cprev"></div><div class="row sp" style="margin-top:14px"><button class="btn" data-act="close">Cancelar</button><button class="btn pri" data-act="confCont">Aplicar</button></div>`);
@@ -278,7 +301,7 @@ document.addEventListener('click', async e => {
     if (a === 'close') closeModal();
     else if (a === 'retirada') openRetirada();
     else if (a === 'parseRet') { const p = parseRetiradas($('#rt').value); if (!p.length) return alert('Não encontrei Material/Quantidade na mensagem.'); draft = draft.concat(p); drawDraft(); }
-    else if (a === 'addRow') { syncDraft(); draft.push({ mat: '', qtd: 1, obraTxt: '', m: null, o: obraF !== 'all' ? S.obras.find(o => o.id === obraF) : null }); drawDraft(); }
+    else if (a === 'addRow') { syncDraft(); draft.push({ mat: '', qtd: 1, obraTxt: '', m: null, data: today(), resp: '', o: obraF !== 'all' ? S.obras.find(o => o.id === obraF) : null }); drawDraft(); }
     else if (a === 'confRet') confirmRetirada();
     else if (a === 'contagem') { openContagem(); }
     else if (a === 'parseCont') { cdraft = parseLista($('#ct').value); drawCont(); }
@@ -321,7 +344,7 @@ document.addEventListener('change', async e => {
 });
 $('#btnExport').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(S, null, 1)], { type: 'application/json' })); a.download = 'compizzo-dados-' + today() + '.json'; a.click(); };
 $('#btnReset').onclick = () => { if (confirm('Descartar alterações locais e voltar à base publicada?')) { localStorage.removeItem(LS); location.reload(); } };
-function pendCard() { const q = S.perguntasAbertas || []; if (!q.length) return ''; return `<div class="alert" style="margin-bottom:14px"><b>${q.length} pergunta(s) em aberto</b><ul style="margin:6px 0 0;padding-left:18px">${q.map(x => `<li>${esc(x.texto)} <button class="btn sm" data-q="${x.id}">Resolvida</button></li>`).join('')}</ul></div>`; }
+// pendCard() está em assets/pend.js
 function quinzena(d = new Date()) { const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), a = d.getDate() <= 15; return { ini: `${y}-${m}-${a ? '01' : '16'}`, fim: `${y}-${m}-${a ? '15' : '31'}` }; }
 function faltasDe(funcId) { const q = quinzena(); return (S.faltas || []).filter(x => x.funcId === funcId && x.data >= q.ini && x.data <= q.fim); }
 function faltasHint(funcId) { const l = faltasDe(funcId); return l.length ? `${l.length} falta(s) registrada(s) nesta quinzena: ${l.map(x => fdate(x.data)).join(', ')}` : 'Nenhuma falta registrada nesta quinzena.'; }

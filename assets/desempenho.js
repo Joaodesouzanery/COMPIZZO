@@ -14,6 +14,7 @@ function dPeriodo() {
 // custo diário de uma pessoa (R$/dia) ou null se não houver taxa
 function custoDia(f) {
   const c = cfgD(), cg = S.cargos.find(x => x.nome === f.funcao) || {};
+  if (numI(f.custoDiaFixo) != null) return numI(f.custoDiaFixo); // já inclui encargos (ex.: salário + encargos ÷ 22)
   let v = numI(f.diaria) ?? numI(cg.diaria);
   if (v == null) { const h = numI(f.taxaHora) ?? numI(cg.taxaHora); if (h != null) v = h * c.jornada; }
   if (v == null) { const sal = numI(f.salario) ?? numI(cg.salario); if (sal != null) v = sal / c.diasMes; }

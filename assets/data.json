@@ -1,72 +1,77 @@
 {
- "version": 9,
+ "version": 10,
  "obras": [
   {
    "id": "o1",
    "nome": "Supera 613 Sul",
    "status": "Em andamento",
    "bac": 326855.0,
-   "precoPiso": 0,
-   "modoReceita": "preco",
+   "precoPiso": 28.94,
+   "modoReceita": "peso",
    "inicio": "2026-07-13",
    "aliases": [
     "supera",
     "supera 613 sul",
     "supera 613 sul nestor"
-   ]
+   ],
+   "contratoId": "ct4"
   },
   {
    "id": "o2",
    "nome": "Brasal Orla — Lago Sul",
    "status": "Em andamento",
    "bac": 0,
-   "precoPiso": 0,
-   "modoReceita": "preco",
+   "precoPiso": 38.64,
+   "modoReceita": "peso",
    "inicio": "2026-07-13",
    "aliases": [
     "brasal",
     "brasal lago sul orla",
     "brasal lago sul",
     "brasal orla"
-   ]
+   ],
+   "contratoId": "ct1"
   },
   {
    "id": "o3",
    "nome": "Emplavi Horizon",
    "status": "Em andamento",
    "bac": 0,
-   "precoPiso": 0,
-   "modoReceita": "preco",
+   "precoPiso": 28.9,
+   "modoReceita": "peso",
    "inicio": "2026-09-28",
    "aliases": [
     "emplavi horizon",
     "horizon"
-   ]
+   ],
+   "contratoId": "ct2"
   },
   {
    "id": "o4",
    "nome": "314",
    "status": "Em andamento",
    "bac": 195900.65,
-   "precoPiso": 0,
-   "modoReceita": "preco",
+   "precoPiso": 60.65,
+   "modoReceita": "peso",
    "inicio": "2026-08-31",
    "aliases": [
     "314",
     "sqs 314",
     "sqs 314 bloco d"
-   ]
+   ],
+   "contratoId": "ct5"
   },
   {
    "id": "o5",
    "nome": "Parque Nacional",
    "status": "Programada",
    "bac": 0,
-   "precoPiso": 0,
-   "modoReceita": "preco",
+   "precoPiso": 32.762,
+   "modoReceita": "peso",
    "aliases": [
     "parque nacional"
-   ]
+   ],
+   "contratoId": "ct3"
   },
   {
    "id": "o6",
@@ -77,7 +82,8 @@
    "modoReceita": "preco",
    "aliases": [
     "parque cidade",
-    "alvorada"
+    "alvorada",
+    "parque da cidade"
    ],
    "inicio": "2026-10-05"
   },
@@ -183,17 +189,18 @@
    "obrasRdo": [
     "o1"
    ],
-   "rdosN": 11
+   "rdosN": 11,
+   "naLista": false
   },
   {
    "id": "f2",
    "nome": "Wanderson",
-   "funcao": "Líder",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "funcao": "Pintor",
+   "matricula": "67",
+   "setor": "BSB",
    "obraId": "o1",
    "local": "",
-   "admissao": "",
+   "admissao": "2025-08-07",
    "contrato": "CLT",
    "regime": "Padrão (5x2)",
    "equipeId": "e1",
@@ -213,17 +220,20 @@
     "o1",
     "o12"
    ],
-   "rdosN": 23
+   "rdosN": 23,
+   "funcaoOriginal": "Pintor",
+   "naLista": true,
+   "custoDiaFixo": 374.79
   },
   {
    "id": "f3",
    "nome": "Roniele",
    "funcao": "Pintor",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "matricula": "127",
+   "setor": "BRASILIA",
    "obraId": "o1",
    "local": "",
-   "admissao": "",
+   "admissao": "2026-08-21",
    "contrato": "CLT",
    "regime": "Padrão (5x2)",
    "equipeId": "e1",
@@ -239,14 +249,17 @@
    "obrasRdo": [
     "o1"
    ],
-   "rdosN": 4
+   "rdosN": 4,
+   "funcaoOriginal": "PINTOR",
+   "naLista": true,
+   "custoDiaFixo": 393.62
   },
   {
    "id": "f4",
    "nome": "Renan",
    "funcao": "1/2 Oficial de Pintor",
    "matricula": "",
-   "setor": "Frente de Trabalho",
+   "setor": "",
    "obraId": "o3",
    "local": "",
    "admissao": "",
@@ -260,22 +273,25 @@
    "heDom": null,
    "nomeCompleto": "Francisco Renan",
    "aliases": [
+    "francisco renan",
     "renan"
    ],
    "obrasRdo": [
     "o1"
    ],
-   "rdosN": 1
+   "rdosN": 1,
+   "funcaoOriginal": "1/2 Of. de Pintor",
+   "naLista": true
   },
   {
    "id": "f5",
    "nome": "Samuel",
    "funcao": "Ajudante",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "matricula": "126",
+   "setor": "Alojamento BSB",
    "obraId": "o1",
    "local": "",
-   "admissao": "",
+   "admissao": "2026-08-18",
    "contrato": "CLT",
    "regime": "Padrão (5x2)",
    "equipeId": "e1",
@@ -291,17 +307,20 @@
    "obrasRdo": [
     "o1"
    ],
-   "rdosN": 6
+   "rdosN": 6,
+   "funcaoOriginal": "Ajudante de Obras",
+   "naLista": true,
+   "custoDiaFixo": 307.83
   },
   {
    "id": "f6",
    "nome": "Claudiney",
-   "funcao": "1/2 Oficial de Pintor",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "funcao": "Ajudante",
+   "matricula": "115",
+   "setor": "Alojamento BSB",
    "obraId": "o1",
    "local": "",
-   "admissao": "",
+   "admissao": "2026-05-18",
    "contrato": "CLT",
    "regime": "Padrão (5x2)",
    "equipeId": "e1",
@@ -317,17 +336,20 @@
    "obrasRdo": [
     "o1"
    ],
-   "rdosN": 17
+   "rdosN": 17,
+   "funcaoOriginal": "Ajudante de Obra",
+   "naLista": true,
+   "custoDiaFixo": 307.83
   },
   {
    "id": "f7",
    "nome": "Iramilton",
-   "funcao": "Líder",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "funcao": "Pintor",
+   "matricula": "78",
+   "setor": "BSB",
    "obraId": "o2",
    "local": "",
-   "admissao": "",
+   "admissao": "2025-09-01",
    "contrato": "CLT",
    "regime": "Padrão (5x2)",
    "equipeId": "e2",
@@ -336,7 +358,7 @@
    "salario": null,
    "heSab": null,
    "heDom": null,
-   "nomeCompleto": "Iramilton Madeira da Conceissao",
+   "nomeCompleto": "Iramilton Madeira da Conceissão",
    "aliases": [
     "iramilton madeira",
     "iramilton"
@@ -346,17 +368,20 @@
     "o12",
     "o1"
    ],
-   "rdosN": 19
+   "rdosN": 19,
+   "funcaoOriginal": "Pintor",
+   "naLista": true,
+   "custoDiaFixo": 367.31
   },
   {
    "id": "f8",
    "nome": "Thiago",
    "funcao": "Ajudante",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "matricula": "125",
+   "setor": "Alojamento BSB",
    "obraId": "o2",
    "local": "",
-   "admissao": "",
+   "admissao": "2026-08-18",
    "contrato": "CLT",
    "regime": "Padrão (5x2)",
    "equipeId": "e2",
@@ -374,17 +399,20 @@
    "obrasRdo": [
     "o1"
    ],
-   "rdosN": 5
+   "rdosN": 5,
+   "funcaoOriginal": "Ajudante de Obras",
+   "naLista": true,
+   "custoDiaFixo": 307.83
   },
   {
    "id": "f9",
    "nome": "Romário",
    "funcao": "Ajudante",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "matricula": "116",
+   "setor": "Alojamento BSB",
    "obraId": "o2",
    "local": "",
-   "admissao": "",
+   "admissao": "2026-05-20",
    "contrato": "CLT",
    "regime": "Padrão (5x2)",
    "equipeId": "e2",
@@ -401,17 +429,20 @@
     "o1",
     "o2"
    ],
-   "rdosN": 16
+   "rdosN": 16,
+   "funcaoOriginal": "Ajudante",
+   "naLista": true,
+   "custoDiaFixo": 307.83
   },
   {
    "id": "f10",
    "nome": "Jhone",
    "funcao": "1/2 Oficial de Pintor",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "matricula": "30",
+   "setor": "Alojamento BSB",
    "obraId": "o6",
    "local": "",
-   "admissao": "",
+   "admissao": "2024-10-24",
    "contrato": "CLT",
    "regime": "Padrão (5x2)",
    "equipeId": "e5",
@@ -429,7 +460,10 @@
     "o1",
     "o10"
    ],
-   "rdosN": 6
+   "rdosN": 6,
+   "funcaoOriginal": "1/2 Of. Pintor",
+   "naLista": true,
+   "custoDiaFixo": 325.44
   },
   {
    "id": "f11",
@@ -454,7 +488,8 @@
     "mateus"
    ],
    "obrasRdo": [],
-   "rdosN": 0
+   "rdosN": 0,
+   "naLista": false
   },
   {
    "id": "f12",
@@ -478,14 +513,15 @@
     "arlindo"
    ],
    "obrasRdo": [],
-   "rdosN": 0
+   "rdosN": 0,
+   "naLista": false
   },
   {
    "id": "f13",
    "nome": "Antonio Cicero",
    "funcao": "Encarregado",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "matricula": "Enc-001",
+   "setor": "",
    "obraId": "o6",
    "local": "",
    "admissao": "",
@@ -506,7 +542,9 @@
     "o1",
     "o4"
    ],
-   "rdosN": 2
+   "rdosN": 2,
+   "funcaoOriginal": "Encarregado",
+   "naLista": true
   },
   {
    "id": "f14",
@@ -536,7 +574,8 @@
     "o2",
     "o12"
    ],
-   "rdosN": 16
+   "rdosN": 16,
+   "naLista": false
   },
   {
    "id": "f15",
@@ -562,7 +601,8 @@
    "obrasRdo": [
     "o12"
    ],
-   "rdosN": 6
+   "rdosN": 6,
+   "naLista": false
   },
   {
    "id": "f16",
@@ -588,7 +628,8 @@
    "obrasRdo": [
     "o1"
    ],
-   "rdosN": 12
+   "rdosN": 12,
+   "naLista": false
   },
   {
    "id": "f17",
@@ -602,13 +643,13 @@
     "vinicus martins",
     "vinicius"
    ],
-   "funcao": "Engenheiro",
-   "matricula": "",
-   "setor": "Frente de Trabalho",
+   "funcao": "Engenheiro Civil",
+   "matricula": "Eng-001",
+   "setor": "Engenharia / Planejamento",
    "obraId": "",
    "local": "",
    "admissao": "",
-   "contrato": "CLT",
+   "contrato": "PJ",
    "regime": "Padrão (5x2)",
    "equipeId": "",
    "status": "Ativo",
@@ -617,7 +658,9 @@
    "heSab": null,
    "heDom": null,
    "obrasRdo": [],
-   "rdosN": 0
+   "rdosN": 0,
+   "funcaoOriginal": "Engenheiro Civil",
+   "naLista": true
   }
  ],
  "avaliadores": [
@@ -630,7 +673,7 @@
    "nome": "Thinner 18L",
    "codigo": "THN05L",
    "unidade": "un",
-   "qtd": 0.0,
+   "qtd": 0,
    "critica": 5,
    "ultimoPedido": "2025-11-01",
    "nota": null
@@ -640,7 +683,7 @@
    "nome": "Fita 48mm",
    "codigo": "FT48X24",
    "unidade": "cx",
-   "qtd": 4.0,
+   "qtd": 3,
    "critica": 1,
    "ultimoPedido": "2025-12-10",
    "nota": "Planilha: 4 cx (24un)"
@@ -650,7 +693,7 @@
    "nome": "Fita 24mm",
    "codigo": "FT24X48",
    "unidade": "cx",
-   "qtd": 5.0,
+   "qtd": 4,
    "critica": 1,
    "ultimoPedido": "2025-12-05",
    "nota": "Planilha: 5 cx (48un)"
@@ -660,7 +703,7 @@
    "nome": "Lona 110M",
    "codigo": "PLP110M",
    "unidade": "rolos",
-   "qtd": 12.0,
+   "qtd": 11,
    "critica": 5,
    "ultimoPedido": "2025-10-20",
    "nota": null
@@ -670,7 +713,7 @@
    "nome": "Plug macho branco",
    "codigo": "PMB10A",
    "unidade": "un",
-   "qtd": 19.0,
+   "qtd": 19,
    "critica": 5,
    "ultimoPedido": "2025-11-15",
    "nota": null
@@ -680,7 +723,7 @@
    "nome": "Plug fêmea branco",
    "codigo": "PFB10A",
    "unidade": "un",
-   "qtd": 20.0,
+   "qtd": 20,
    "critica": 5,
    "ultimoPedido": "2025-11-15",
    "nota": null
@@ -690,7 +733,7 @@
    "nome": "Disco de corte diamantado",
    "codigo": "DCD9IN",
    "unidade": "un",
-   "qtd": 17.0,
+   "qtd": 17,
    "critica": 5,
    "ultimoPedido": "2025-12-01",
    "nota": null
@@ -700,7 +743,7 @@
    "nome": "Trena 5M",
    "codigo": "TRN05M",
    "unidade": "un",
-   "qtd": 2.0,
+   "qtd": 1,
    "critica": 5,
    "ultimoPedido": "2025-11-20",
    "nota": null
@@ -710,7 +753,7 @@
    "nome": "Fita isolante 18MM",
    "codigo": "FI18MM",
    "unidade": "un",
-   "qtd": 10.0,
+   "qtd": 10,
    "critica": 5,
    "ultimoPedido": "2025-10-25",
    "nota": null
@@ -720,7 +763,7 @@
    "nome": "Estiletes",
    "codigo": "ESTPAD",
    "unidade": "un",
-   "qtd": 3.0,
+   "qtd": 3,
    "critica": 5,
    "ultimoPedido": "2025-12-08",
    "nota": null
@@ -730,7 +773,7 @@
    "nome": "Rolo 9CM",
    "codigo": "RL9CM",
    "unidade": "rolos",
-   "qtd": 2.0,
+   "qtd": 0,
    "critica": 5,
    "ultimoPedido": "2025-11-05",
    "nota": null
@@ -740,7 +783,7 @@
    "nome": "Rolo 23cm",
    "codigo": "RL23CM",
    "unidade": "rolos",
-   "qtd": 3.0,
+   "qtd": 3,
    "critica": 5,
    "ultimoPedido": "2025-11-05",
    "nota": null
@@ -750,7 +793,7 @@
    "nome": "Óculos de proteção",
    "codigo": "OCPROT",
    "unidade": "un",
-   "qtd": 18.0,
+   "qtd": 18,
    "critica": 5,
    "ultimoPedido": "2025-10-01",
    "nota": null
@@ -760,7 +803,7 @@
    "nome": "Protetores auriculares",
    "codigo": "PRTAUR",
    "unidade": "un",
-   "qtd": 84.0,
+   "qtd": 84,
    "critica": 20,
    "ultimoPedido": "2025-10-01",
    "nota": null
@@ -770,7 +813,7 @@
    "nome": "Panos de chão",
    "codigo": "PNLMP",
    "unidade": "un",
-   "qtd": 0.0,
+   "qtd": 0,
    "critica": 5,
    "ultimoPedido": "2025-12-12",
    "nota": null
@@ -780,7 +823,7 @@
    "nome": "Suporte de rolo pintura comum (23Cm)",
    "codigo": "SRPC01",
    "unidade": "un",
-   "qtd": 4.0,
+   "qtd": 4,
    "critica": 5,
    "ultimoPedido": "2025-11-05",
    "nota": null
@@ -790,7 +833,7 @@
    "nome": "Rolo 5CM",
    "codigo": "SRPT01",
    "unidade": "un",
-   "qtd": 5.0,
+   "qtd": 5,
    "critica": 5,
    "ultimoPedido": "2025-11-05",
    "nota": null
@@ -800,7 +843,7 @@
    "nome": "Disco de lixa",
    "codigo": "DLX120",
    "unidade": "un",
-   "qtd": 10.0,
+   "qtd": 10,
    "critica": 5,
    "ultimoPedido": "2025-12-03",
    "nota": null
@@ -810,7 +853,7 @@
    "nome": "Bota TAM 43",
    "codigo": "BTA42",
    "unidade": "un",
-   "qtd": 7.0,
+   "qtd": 7,
    "critica": 5,
    "ultimoPedido": "2025-10-01",
    "nota": null
@@ -820,7 +863,7 @@
    "nome": "Bota TAM 40",
    "codigo": "BTA40",
    "unidade": "un",
-   "qtd": 0.0,
+   "qtd": 0,
    "critica": 5,
    "ultimoPedido": "2025-10-01",
    "nota": null
@@ -830,7 +873,7 @@
    "nome": "Luva pigmentada",
    "codigo": "LVPGM",
    "unidade": "pares",
-   "qtd": 0.0,
+   "qtd": 0,
    "critica": 5,
    "ultimoPedido": "2025-10-01",
    "nota": null
@@ -840,7 +883,7 @@
    "nome": "Capacete amarelo",
    "codigo": "CAPAM",
    "unidade": "un",
-   "qtd": 11.0,
+   "qtd": 11,
    "critica": 5,
    "ultimoPedido": "2025-10-01",
    "nota": null
@@ -850,7 +893,7 @@
    "nome": "Capacete marrom",
    "codigo": "CAPMR",
    "unidade": "un",
-   "qtd": 1.0,
+   "qtd": 1,
    "critica": 5,
    "ultimoPedido": "2025-10-01",
    "nota": null
@@ -860,7 +903,7 @@
    "nome": "Velcro Preto",
    "codigo": "VELCPR",
    "unidade": "m",
-   "qtd": 20.0,
+   "qtd": 20,
    "critica": 5,
    "ultimoPedido": null,
    "nota": "Planilha: 20M"
@@ -870,7 +913,7 @@
    "nome": "Plugs Steck",
    "codigo": "PLGSTCK",
    "unidade": "un",
-   "qtd": 5.0,
+   "qtd": 5,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -880,7 +923,7 @@
    "nome": "Luva Látex Bicolor",
    "codigo": "LNS",
    "unidade": "rolos",
-   "qtd": 96.0,
+   "qtd": 96,
    "critica": 20,
    "ultimoPedido": null,
    "nota": null
@@ -890,7 +933,7 @@
    "nome": "Galochas",
    "codigo": "GLCH",
    "unidade": "pares",
-   "qtd": 0.0,
+   "qtd": 0,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -900,7 +943,7 @@
    "nome": "Máscaras PFF2",
    "codigo": "MSCR",
    "unidade": "un",
-   "qtd": 100.0,
+   "qtd": 100,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -910,7 +953,7 @@
    "nome": "Desempenadeiras",
    "codigo": "DSPN",
    "unidade": "un",
-   "qtd": 27.0,
+   "qtd": 27,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -920,7 +963,7 @@
    "nome": "Calça (Uniforme)",
    "codigo": "CLC",
    "unidade": "un",
-   "qtd": 10.0,
+   "qtd": 10,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -930,7 +973,7 @@
    "nome": "Camisa GG (Uniforme)",
    "codigo": "CMSGG",
    "unidade": "un",
-   "qtd": 0.0,
+   "qtd": 0,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -940,7 +983,7 @@
    "nome": "Camisa G (Uniforme)",
    "codigo": "CMSG",
    "unidade": "un",
-   "qtd": 33.0,
+   "qtd": 33,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -950,7 +993,7 @@
    "nome": "Camisa M (Uniforme)",
    "codigo": "CMSM",
    "unidade": "un",
-   "qtd": 0.0,
+   "qtd": 0,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -960,7 +1003,7 @@
    "nome": "Macacões",
    "codigo": "MCC",
    "unidade": "un",
-   "qtd": 10.0,
+   "qtd": 10,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -970,7 +1013,7 @@
    "nome": "Espátula 4cm",
    "codigo": null,
    "unidade": "un",
-   "qtd": 10.0,
+   "qtd": 10,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -980,7 +1023,7 @@
    "nome": "Espátula 12cm",
    "codigo": null,
    "unidade": "un",
-   "qtd": 15.0,
+   "qtd": 15,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -990,7 +1033,7 @@
    "nome": "Abafadores",
    "codigo": null,
    "unidade": "un",
-   "qtd": 10.0,
+   "qtd": 10,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -1000,7 +1043,7 @@
    "nome": "Kit Máscaras com 2 filtros",
    "codigo": null,
    "unidade": "un",
-   "qtd": 11.0,
+   "qtd": 11,
    "critica": 5,
    "ultimoPedido": null,
    "nota": null
@@ -1079,7 +1122,113 @@
    "obs": null
   }
  ],
- "retiradas": [],
+ "retiradas": [
+  {
+   "id": "r2tzugm",
+   "chave": "ret|2026-10-23|lona 110m|1|o6",
+   "data": "2026-10-23",
+   "materialId": "m4",
+   "qtd": 1,
+   "obraId": "o6",
+   "destinoTxt": "Parque da Cidade",
+   "responsavel": "Cícero",
+   "nomeOriginal": "rolo de lona",
+   "origem": "app"
+  },
+  {
+   "id": "rd8vnhf",
+   "chave": "ret|2026-10-23|fita 48mm|1|o6",
+   "data": "2026-10-23",
+   "materialId": "m2",
+   "qtd": 1,
+   "obraId": "o6",
+   "destinoTxt": "Parque da Cidade",
+   "responsavel": "Cícero",
+   "nomeOriginal": "caixa de fita (24 unidades)",
+   "origem": "app",
+   "obs": "Interpretado como caixa de fita 48 mm (caixa com 24 un) — confirmar."
+  },
+  {
+   "id": "rfl7ys5",
+   "chave": "ret|2026-10-23|espatulas|2|o6",
+   "data": "2026-10-23",
+   "materialId": "",
+   "qtd": 2,
+   "obraId": "o6",
+   "destinoTxt": "Parque da Cidade",
+   "responsavel": "Cícero",
+   "nomeOriginal": "espátulas",
+   "origem": "app",
+   "pendente": "material",
+   "obs": "Tamanho não informado (4 cm ou 12 cm?)."
+  },
+  {
+   "id": "ru3hvyi",
+   "chave": "ret|2026-10-23|rolos brancos|3|o6",
+   "data": "2026-10-23",
+   "materialId": "",
+   "qtd": 3,
+   "obraId": "o6",
+   "destinoTxt": "Parque da Cidade",
+   "responsavel": "Cícero",
+   "nomeOriginal": "rolos brancos",
+   "origem": "app",
+   "pendente": "material",
+   "obs": "Tipo/medida não informados."
+  },
+  {
+   "id": "ro7djxj",
+   "chave": "ret|2026-10-23|rolo 9cm|5|o6",
+   "data": "2026-10-23",
+   "materialId": "m11",
+   "qtd": 5,
+   "obraId": "o6",
+   "destinoTxt": "Parque da Cidade",
+   "responsavel": "Cícero",
+   "nomeOriginal": "rolos de 9 cm",
+   "origem": "app",
+   "faltou": 3
+  },
+  {
+   "id": "rkown17",
+   "chave": "ret|2026-10-27|fita 24mm|1|o4",
+   "data": "2026-10-27",
+   "materialId": "m3",
+   "qtd": 1,
+   "obraId": "o4",
+   "destinoTxt": "Obra 314 Sul",
+   "responsavel": "Valim",
+   "nomeOriginal": "caixa de fita 24 mm",
+   "origem": "app"
+  },
+  {
+   "id": "rwqp43r",
+   "chave": "ret|2026-10-28|rolo 9cm|2|a informar",
+   "data": "2026-10-28",
+   "materialId": "m11",
+   "qtd": 2,
+   "obraId": "",
+   "destinoTxt": "A informar",
+   "responsavel": "Valim",
+   "nomeOriginal": "rolos de pintura de 9 cm",
+   "origem": "app",
+   "pendente": "destino",
+   "faltou": 2
+  },
+  {
+   "id": "r2ckcw8",
+   "chave": "ret|2026-10-28|trena 5m|1|a informar",
+   "data": "2026-10-28",
+   "materialId": "m8",
+   "qtd": 1,
+   "obraId": "",
+   "destinoTxt": "A informar",
+   "responsavel": "Valim",
+   "nomeOriginal": "trena de 5 m",
+   "origem": "app",
+   "pendente": "destino"
+  }
+ ],
  "ajustes": [
   {
    "data": "2026-10-07",
@@ -5723,6 +5872,15 @@
    "salario": null,
    "heSab": null,
    "heDom": null
+  },
+  {
+   "id": "cg7",
+   "nome": "Engenheiro Civil",
+   "taxaHora": null,
+   "salario": null,
+   "heSab": null,
+   "heDom": null,
+   "diaria": null
   }
  ],
  "equipes": [
@@ -9395,6 +9553,127 @@
    "respNome": "",
    "respData": "2026-10-21",
    "fotosQtd": 0
+  },
+  {
+   "id": "rdoa_o1_2026-10-28",
+   "chave": "rdo|o1|2026-10-28",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o1",
+   "data": "2026-10-28",
+   "titulo": "",
+   "responsavel": "Antonio Cicero",
+   "respNome": "Antonio Cicero",
+   "clima": "",
+   "maoObra": [
+    "Iramilton",
+    "Claudiney"
+   ],
+   "maoObraIds": [
+    "f7",
+    "f6"
+   ],
+   "fases": [
+    {
+     "faseId": "",
+     "nome": "Pintura de vagas externas - INTERTRAVADO · 22 vagas comuns (15 metros x 22)",
+     "qtd": 22,
+     "un": "un"
+    }
+   ],
+   "servicos": [
+    "Pintura de vagas externas - INTERTRAVADO",
+    "22 vagas comuns (15 metros x 22)"
+   ],
+   "descricao": "Pintura de vagas externas - INTERTRAVADO · 22 vagas comuns (15 metros x 22)",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-10-28",
+   "local": "SGAS 613",
+   "encarregado": "Antonio Cicero",
+   "cargosDia": {
+    "Iramilton": "Pintor",
+    "Claudiney": "ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o6_2026-10-28",
+   "chave": "rdo|o6|2026-10-28",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o6",
+   "data": "2026-10-28",
+   "titulo": "",
+   "responsavel": "Antonio Cicero",
+   "respNome": "Antonio Cicero",
+   "clima": "",
+   "maoObra": [
+    "Wanderson",
+    "Roniele",
+    "Jhone",
+    "Thiago",
+    "Matheus",
+    "Renan",
+    "Samuel"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f3",
+    "f10",
+    "f8",
+    "f11",
+    "f4",
+    "f5"
+   ],
+   "fases": [
+    {
+     "faseId": "fa1",
+     "nome": "",
+     "qtd": 214,
+     "un": "m²"
+    }
+   ],
+   "servicos": [
+    "Repintura (prejuízo mão de obra)",
+    "lixamento de piso de concreto - 214 m²."
+   ],
+   "descricao": "Repintura (prejuízo mão de obra) lixamento de piso de concreto - 214 m².",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [
+    "Máquina de pintura e lixamento"
+   ],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "área liberada após lixamento de área completa. Prejuízo na sequência de execução gerando atraso na execução da pintura",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-10-28",
+   "local": "quadra 500 sudoeste",
+   "encarregado": "Antonio Cicero",
+   "cargosDia": {
+    "Wanderson": "Pintor",
+    "Roniele": "Pintor",
+    "Jhone": "1/2 of de pintor",
+    "Thiago": "ajudante",
+    "Matheus": "ajudante",
+    "Renan": "1/2of de pintor",
+    "Samuel": "Ajudante"
+   }
   }
  ],
  "metaMensal": {
@@ -9546,6 +9825,42 @@
   {
    "id": "q14",
    "texto": "Cupom do CRETA (13/10) saiu \"em contingência / pendente de autorização\" — confirmar se foi autorizado. Há cupons dos abastecimentos SPIN/STRADA?"
+  },
+  {
+   "id": "q15",
+   "texto": "Estoque 23/10: \"caixa de fita (24 unidades)\" é a caixa de fita 48 mm (que vem com 24 un)? Lancei assim."
+  },
+  {
+   "id": "q16",
+   "texto": "Estoque 23/10: as \"02 espátulas\" são de 4 cm ou 12 cm? E os \"03 rolos brancos\": que tipo/medida? (ficaram sem baixa no estoque)"
+  },
+  {
+   "id": "q17",
+   "texto": "Estoque 23 e 28/10: o saldo de Rolo 9 cm no sistema era 2 un e as retiradas somam 7 — faltaram 5. Fazer uma contagem do estoque?"
+  },
+  {
+   "id": "q18",
+   "texto": "Estoque 28/10: qual o destino da retirada de 2 rolos de 9 cm e 1 trena (Valim)? Está como \"a informar\". E quem é o Valim (cadastrar como funcionário/responsável)?"
+  },
+  {
+   "id": "q19",
+   "texto": "Apontamento Supera 28/10: \"22 vagas comuns (15 metros x 22)\" — são 22 vagas de 15 m (=330 m) cada ou 15 m no total? Lancei 22 un."
+  },
+  {
+   "id": "q20",
+   "texto": "Funcionários: o Matheus (e Arlindo, Walace, Roberty, Edson, Antônio Oliver) não estão na planilha de cadastro. Ainda trabalham? O Matheus aparece nos apontamentos de 28/10 como ajudante."
+  },
+  {
+   "id": "q21",
+   "texto": "Funcionários sem custo/dia: Renan (faltam matrícula, admissão, departamento e salário), Antonio Cicero (encarregado) e Vinicius (PJ). Quais os salários ou diárias?"
+  },
+  {
+   "id": "q22",
+   "texto": "Contratos: o BAC dos RDOs (Supera R$ 326.855,00; 314 R$ 195.900,65) não bate com o valor dos contratos (Supera R$ 1.199.944,15; 314 R$ 291.282,45). O BAC é o valor de uma etapa?"
+  },
+  {
+   "id": "q23",
+   "texto": "Contratos: Horizon/Parque Nacional/Brasal/Supera/314 cadastrados. Novo contrato pendente de formalização — enviar quando estiver pronto. Faltam também as datas de início/fim e as medições (valores já faturados) de cada contrato."
   }
  ],
  "caixinha": [
@@ -10268,6 +10583,381 @@
    "pessoas": 144,
    "fotos": 181,
    "paginas": 87
+  }
+ ],
+ "contratos": [
+  {
+   "id": "ct1",
+   "nome": "Brasal Orla — Lago Sul",
+   "obraId": "o2",
+   "total": 489584.07,
+   "mo": 236949.07,
+   "mat": 252635.0,
+   "metragem": "6.131,44 m²",
+   "m2": 6131.44,
+   "itens": [
+    {
+     "n": 1,
+     "desc": "SE MO — Pintura em epóxi",
+     "qtd": 6131.44,
+     "un": "m²",
+     "vUnit": 38.64,
+     "total": 236949.07,
+     "tipo": "MO"
+    },
+    {
+     "n": 2,
+     "desc": "SE MAT — Pintura epóxi sobre piso",
+     "qtd": 6131.91,
+     "un": "m²",
+     "vUnit": 41.2,
+     "total": 252635.0,
+     "tipo": "MAT"
+    }
+   ],
+   "nota": "Meta mensal divide o R$ 38,64 em pintura/demarcação R$ 24,35 + primer/raspadinha R$ 14,29.",
+   "somaMO": 236949.07,
+   "somaMAT": 252635.0,
+   "status": "Ativo"
+  },
+  {
+   "id": "ct2",
+   "nome": "Horizon (Emplavi)",
+   "obraId": "o3",
+   "total": 363654.55,
+   "mo": 183624.55,
+   "mat": 180030.0,
+   "metragem": "5.414,47 m² + 88 un.",
+   "m2": 5414.47,
+   "itens": [
+    {
+     "n": 1,
+     "desc": "Acrílica cinza ardósia, barrado de paredes e pilares",
+     "qtd": 994.12,
+     "un": "m²",
+     "vUnit": 24.0,
+     "total": 23858.88,
+     "tipo": "MO"
+    },
+    {
+     "n": 2,
+     "desc": "Acrílica ouro real, barrado de paredes e pilares",
+     "qtd": 99.41,
+     "un": "m²",
+     "vUnit": 21.63,
+     "total": 2150.24,
+     "tipo": "MO"
+    },
+    {
+     "n": 3,
+     "desc": "Epóxi branco, faixa de pedestre",
+     "qtd": 57.7,
+     "un": "m²",
+     "vUnit": 33.98,
+     "total": 1960.65,
+     "tipo": "MO"
+    },
+    {
+     "n": 4,
+     "desc": "Epóxi fendi, circulação de pedestre",
+     "qtd": 326.35,
+     "un": "m²",
+     "vUnit": 28.9,
+     "total": 9431.52,
+     "tipo": "MO"
+    },
+    {
+     "n": 5,
+     "desc": "Epóxi cinza ardósia, áreas técnicas e bicicletários",
+     "qtd": 1436.07,
+     "un": "m²",
+     "vUnit": 28.9,
+     "total": 41502.42,
+     "tipo": "MO"
+    },
+    {
+     "n": 6,
+     "desc": "Epóxi antiderrapante, rampa",
+     "qtd": 190.52,
+     "un": "m²",
+     "vUnit": 28.9,
+     "total": 5506.03,
+     "tipo": "MO"
+    },
+    {
+     "n": 7,
+     "desc": "Epóxi cinza escuro, delimitação de vagas",
+     "qtd": 186.18,
+     "un": "m²",
+     "vUnit": 30.9,
+     "total": 5752.96,
+     "tipo": "MO"
+    },
+    {
+     "n": 8,
+     "desc": "Epóxi cinza claro, piso interno de vagas",
+     "qtd": 1884.1,
+     "un": "m²",
+     "vUnit": 28.92,
+     "total": 54488.17,
+     "tipo": "MO"
+    },
+    {
+     "n": 9,
+     "desc": "Epóxi cinza escuro, piso e desenhos do bicicletário",
+     "qtd": 16.32,
+     "un": "m²",
+     "vUnit": 30.9,
+     "total": 504.29,
+     "tipo": "MO"
+    },
+    {
+     "n": 10,
+     "desc": "Epóxi cinza claro, piso do bicicletário",
+     "qtd": 63.28,
+     "un": "m²",
+     "vUnit": 30.9,
+     "total": 1955.35,
+     "tipo": "MO"
+    },
+    {
+     "n": 11,
+     "desc": "Epóxi cinza ardósia, desenhos do bicicletário",
+     "qtd": 11.95,
+     "un": "m²",
+     "vUnit": 8.75,
+     "total": 104.56,
+     "tipo": "MO"
+    },
+    {
+     "n": 12,
+     "desc": "Poliuretano antiderrapante, piso do térreo",
+     "qtd": 148.47,
+     "un": "m²",
+     "vUnit": 30.9,
+     "total": 4587.72,
+     "tipo": "MO"
+    },
+    {
+     "n": 13,
+     "desc": "Símbolo PNE",
+     "qtd": 3,
+     "un": "un",
+     "vUnit": 38.5,
+     "total": 115.5,
+     "tipo": "MO"
+    },
+    {
+     "n": 14,
+     "desc": "Faixas de pedestre",
+     "qtd": 9,
+     "un": "un",
+     "vUnit": 33.98,
+     "total": 305.82,
+     "tipo": "MO"
+    },
+    {
+     "n": 15,
+     "desc": "Setas",
+     "qtd": 32,
+     "un": "un",
+     "vUnit": 32.16,
+     "total": 1029.12,
+     "tipo": "MO"
+    },
+    {
+     "n": 16,
+     "desc": "Bonecos da circulação",
+     "qtd": 14,
+     "un": "un",
+     "vUnit": 33.98,
+     "total": 475.72,
+     "tipo": "MO"
+    },
+    {
+     "n": 17,
+     "desc": "Sinalização de extintor",
+     "qtd": 20,
+     "un": "un",
+     "vUnit": 32.16,
+     "total": 643.2,
+     "tipo": "MO"
+    },
+    {
+     "n": 18,
+     "desc": "Figuras do bicicletário",
+     "qtd": 2,
+     "un": "un",
+     "vUnit": 47.2,
+     "total": 94.4,
+     "tipo": "MO"
+    },
+    {
+     "n": 19,
+     "desc": "Lombada de borracha",
+     "qtd": 8,
+     "un": "un",
+     "vUnit": 2376.0,
+     "total": 19008.0,
+     "tipo": "MO"
+    },
+    {
+     "n": 21,
+     "desc": "Frete previsto",
+     "qtd": 1,
+     "un": "vb",
+     "vUnit": 10150.0,
+     "total": 10150.0,
+     "tipo": "MO"
+    },
+    {
+     "n": 0,
+     "desc": "Material Concrecor (faturamento direto)",
+     "qtd": 1,
+     "un": "vb",
+     "vUnit": 180030.0,
+     "total": 180030.0,
+     "tipo": "MAT"
+    }
+   ],
+   "nota": "Mão de obra + frete = R$ 183.624,55; material Concrecor faturado direto.",
+   "somaMO": 183624.55,
+   "somaMAT": 180030.0,
+   "status": "Ativo"
+  },
+  {
+   "id": "ct3",
+   "nome": "Parque Nacional",
+   "obraId": "o5",
+   "total": 527390.55,
+   "mo": 254570.9,
+   "mat": 272819.65,
+   "metragem": "7.770,310 m²",
+   "m2": 7770.31,
+   "itens": [
+    {
+     "n": 1,
+     "desc": "SE — Execução de pintura epóxi (cód. 6774)",
+     "qtd": 7770.31,
+     "un": "m²",
+     "vUnit": 32.762,
+     "total": 254570.9,
+     "tipo": "MO"
+    },
+    {
+     "n": 2,
+     "desc": "Primer (cód. 9069)",
+     "qtd": 2590.11,
+     "un": "L",
+     "vUnit": 27.1533,
+     "total": 70330.03,
+     "tipo": "MAT"
+    },
+    {
+     "n": 3,
+     "desc": "Tinta epóxi (cód. 29307)",
+     "qtd": 4642.278,
+     "un": "kg",
+     "vUnit": 43.61859,
+     "total": 202489.62,
+     "tipo": "MAT"
+    }
+   ],
+   "somaMO": 254570.9,
+   "somaMAT": 272819.65,
+   "status": "Ativo"
+  },
+  {
+   "id": "ct4",
+   "nome": "Supera 613 Sul",
+   "obraId": "o1",
+   "total": 1199944.15,
+   "mo": 592324.15,
+   "mat": 607620.0,
+   "metragem": "12.794,06 m² piso + 5.337,40 m² paredes + 6.962,01 m demarcação + 473,55 m² meio-fio",
+   "m2": 18605.01,
+   "itens": [
+    {
+     "n": 1,
+     "desc": "Pintura epóxi em piso",
+     "qtd": 12794.06,
+     "un": "m²",
+     "vUnit": 28.94,
+     "total": 370260.1,
+     "tipo": "MO"
+    },
+    {
+     "n": 2,
+     "desc": "Pintura epóxi em paredes",
+     "qtd": 5337.4,
+     "un": "m²",
+     "vUnit": 27.65,
+     "total": 147579.11,
+     "tipo": "MO"
+    },
+    {
+     "n": 3,
+     "desc": "Pintura epóxi para demarcações e sinalizações",
+     "qtd": 6962.01,
+     "un": "m",
+     "vUnit": 8.75,
+     "total": 60917.59,
+     "tipo": "MO"
+    },
+    {
+     "n": 4,
+     "desc": "Pintura de meio-fio externo com tinta poliuretano",
+     "qtd": 473.55,
+     "un": "m²",
+     "vUnit": 28.7,
+     "total": 13590.89,
+     "tipo": "MO"
+    },
+    {
+     "n": 5,
+     "desc": "Faturamento direto (material)",
+     "qtd": 1,
+     "un": "vb",
+     "vUnit": 607620.0,
+     "total": 607620.0,
+     "tipo": "MAT"
+    }
+   ],
+   "somaMO": 592347.69,
+   "somaMAT": 607620.0,
+   "status": "Ativo"
+  },
+  {
+   "id": "ct5",
+   "nome": "SQS 314",
+   "obraId": "o4",
+   "total": 291282.45,
+   "mo": 218364.65,
+   "mat": 72917.8,
+   "metragem": "1.081 m² + repintura (sem metragem)",
+   "m2": 1081.0,
+   "itens": [
+    {
+     "n": 1,
+     "desc": "Remoção do epóxi + aplicação (itens 1 e 5, mão de obra) — contrato R$ 60,65 (proposta R$ 58,65)",
+     "qtd": 1081,
+     "un": "m²",
+     "vUnit": 60.65,
+     "total": 65562.65,
+     "tipo": "MO"
+    }
+   ],
+   "nota": "Valor de MO do contrato (R$ 218.364,65) cobre também repintura sem metragem.",
+   "somaMO": 65562.65,
+   "somaMAT": 0,
+   "status": "Ativo"
+  }
+ ],
+ "lembretes": [
+  {
+   "id": "lb1",
+   "texto": "Segunda-feira: cobrar a programação semanal e falar com o Vinicius.",
+   "dow": 0
   }
  ]
 }
