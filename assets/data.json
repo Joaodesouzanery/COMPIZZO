@@ -1,5 +1,5 @@
 {
- "version": 10,
+ "version": 11,
  "obras": [
   {
    "id": "o1",
@@ -686,7 +686,12 @@
    "qtd": 3,
    "critica": 1,
    "ultimoPedido": "2025-12-10",
-   "nota": "Planilha: 4 cx (24un)"
+   "nota": "Planilha: 4 cx (24un)",
+   "embalagem": {
+    "un": "cx",
+    "qtd": 24,
+    "base": "un"
+   }
   },
   {
    "id": "m3",
@@ -696,7 +701,12 @@
    "qtd": 4,
    "critica": 1,
    "ultimoPedido": "2025-12-05",
-   "nota": "Planilha: 5 cx (48un)"
+   "nota": "Planilha: 5 cx (48un)",
+   "embalagem": {
+    "un": "cx",
+    "qtd": 48,
+    "base": "un"
+   }
   },
   {
    "id": "m4",
@@ -743,7 +753,7 @@
    "nome": "Trena 5M",
    "codigo": "TRN05M",
    "unidade": "un",
-   "qtd": 1,
+   "qtd": 6,
    "critica": 5,
    "ultimoPedido": "2025-11-20",
    "nota": null
@@ -773,7 +783,7 @@
    "nome": "Rolo 9CM",
    "codigo": "RL9CM",
    "unidade": "rolos",
-   "qtd": 0,
+   "qtd": 24,
    "critica": 5,
    "ultimoPedido": "2025-11-05",
    "nota": null
@@ -783,7 +793,7 @@
    "nome": "Rolo 23cm",
    "codigo": "RL23CM",
    "unidade": "rolos",
-   "qtd": 3,
+   "qtd": 27,
    "critica": 5,
    "ultimoPedido": "2025-11-05",
    "nota": null
@@ -956,7 +966,12 @@
    "qtd": 27,
    "critica": 5,
    "ultimoPedido": null,
-   "nota": null
+   "nota": null,
+   "embalagem": {
+    "un": "cx",
+    "qtd": 6,
+    "base": "un"
+   }
   },
   {
    "id": "m30",
@@ -9861,6 +9876,22 @@
   {
    "id": "q23",
    "texto": "Contratos: Horizon/Parque Nacional/Brasal/Supera/314 cadastrados. Novo contrato pendente de formalização — enviar quando estiver pronto. Faltam também as datas de início/fim e as medições (valores já faturados) de cada contrato."
+  },
+  {
+   "id": "q24",
+   "texto": "Embalagens: luva (pacote = 12 pares) — qual luva do estoque (pigmentada ou látex bicolor)? Filtro de máscara (cx = 6) é item novo ou parte do \"Kit Máscaras com 2 filtros\"?"
+  },
+  {
+   "id": "q25",
+   "texto": "Compra no crédito de 30/10 (R$ 810,86, cartão do Eduardo, fatura 15/11): enviar NF/cupom; confirmar que os 24 rolos 9 cm, 24 rolos 23 cm e 5 trenas devem dar entrada no estoque (lançado) e rolos 5 cm vão direto à 314."
+  },
+  {
+   "id": "q26",
+   "texto": "Notas emitidas: enviar NFS-e 531 (Alvorada) e 550 (Horizon) substituídas, medições anteriores da Supera (1ª–3ª), 314 (1ª parcela) e o contrato do Parque Esplanada (NFS-e 539, R$ 28.522,52) — sem contrato cadastrado."
+  },
+  {
+   "id": "q27",
+   "texto": "Retenções reais nas notas ≈ 18,65% (federais 16,65% + ISS 2%), mas a meta mensal usa 35% de dedução: qual a premissa correta para o líquido?"
   }
  ],
  "caixinha": [
@@ -10571,6 +10602,178 @@
    "obras": [],
    "id": "cx21",
    "chave": "tx|2026-10-02|121.00|compra direta fornecedor nao informado|extensoes do escritorio"
+  },
+  {
+   "dataDoc": "2026-10-31",
+   "pixId": "",
+   "docSerie": "3",
+   "docChave": "53001081205559782000146000000000513826101793444273",
+   "formaPgto": "Caixinha",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": 70.0,
+   "docNumero": "5136",
+   "solicitante": "",
+   "veiculo": "MOBI",
+   "obras": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [
+    {
+     "id": "url:assets/caixinha/2026-10-31-lavagem-mobi-nfse5136.jpg",
+     "name": "2026-10-31-lavagem-mobi-nfse5136.jpg"
+    }
+   ],
+   "obs": "NFS-e DPS 1250; CNPJ do prestador 05.559.762/0001-46; tomador 32.215.569/0002-41 (filial 0002).",
+   "data": "2026-10-31",
+   "tipo": "Compra direta",
+   "fornecedor": "Orlando José da Silva Lava Jato ME",
+   "descricao": "Lavagem do MOBI",
+   "valorTexto": 70.0,
+   "docTipo": "NFS-e",
+   "chave": "ck|53001081205559782000146000000000513826101793444273",
+   "id": "cx22"
+  },
+  {
+   "dataDoc": "",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "formaPgto": "Caixinha",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "",
+   "obras": [
+    {
+     "obraId": "o6",
+     "valor": 90.0
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Mesmo valor de 06/10 e 16/10, mas data/descrição distintas — não é duplicado.",
+   "data": "2026-10-30",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Álcool — Parque Cidade",
+   "valorTexto": 90.0,
+   "docTipo": "Sem documento",
+   "chave": "tx|2026-10-30|90.00|compra direta fornecedor nao informado|alcool parque cidade",
+   "id": "cx23"
+  },
+  {
+   "dataDoc": "",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "formaPgto": "Cartão de crédito (Eduardo)",
+   "itens": [
+    {
+     "desc": "Rolo 5 cm",
+     "qtd": 6,
+     "un": "un",
+     "destino": "314"
+    },
+    {
+     "desc": "Rolo 9 cm",
+     "qtd": 24,
+     "un": "un",
+     "destino": "estoque"
+    },
+    {
+     "desc": "Rolo 23 cm",
+     "qtd": 24,
+     "un": "un",
+     "destino": "estoque"
+    },
+    {
+     "desc": "Trena 5 m",
+     "qtd": 5,
+     "un": "un",
+     "destino": "estoque"
+    }
+   ],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "",
+   "obras": [
+    {
+     "obraId": "estoque",
+     "valor": 810.86
+    }
+   ],
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Pago no cartão do Eduardo, fatura em 15/11. Rateio por obra a definir (6 rolos 5 cm → 314; demais → estoque). Entrada no estoque lançada. Valor integral no estoque central até definir o rateio do rolo 5 cm da 314.",
+   "data": "2026-10-30",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra no crédito (fornecedor não informado)",
+   "descricao": "6 rolos 5 cm (314), 24 rolos 9 cm, 24 rolos 23 cm e 5 trenas (estoque)",
+   "valorTexto": 810.86,
+   "docTipo": "Sem documento",
+   "vencimento": "2026-11-15",
+   "entradaEstoque": true,
+   "chave": "tx|2026-10-30|810.86|compra no credito|rolos trenas",
+   "id": "cx24"
+  },
+  {
+   "dataDoc": "",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "formaPgto": "Caixinha",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "MOBI",
+   "obras": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "data": "2026-10-29",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento MOBI — 5 L (para chegar ao posto mais barato)",
+   "valorTexto": 32.85,
+   "docTipo": "Sem documento",
+   "chave": "tx|2026-10-29|32.85|abastecimento|mobi 5l",
+   "id": "cx25"
+  },
+  {
+   "dataDoc": "",
+   "pixId": "",
+   "docSerie": "",
+   "docChave": "",
+   "formaPgto": "Pix",
+   "itens": [],
+   "valorPago": null,
+   "valorDoc": null,
+   "docNumero": "",
+   "solicitante": "",
+   "veiculo": "MOBI",
+   "obras": [],
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "data": "2026-10-29",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento MOBI — pago no Pix (C6)",
+   "valorTexto": 201.25,
+   "docTipo": "Sem documento",
+   "chave": "tx|2026-10-29|201.25|abastecimento|mobi pix c6",
+   "id": "cx26"
   }
  ],
  "importacoes": [
@@ -10958,6 +11161,148 @@
    "id": "lb1",
    "texto": "Segunda-feira: cobrar a programação semanal e falar com o Vinicius.",
    "dow": 0
+  }
+ ],
+ "embalagensPendentes": [
+  {
+   "texto": "Luva: 1 pacote = 12 pares (qual luva: pigmentada ou látex bicolor?)",
+   "qtd": 12,
+   "un": "pacote",
+   "base": "pares"
+  },
+  {
+   "texto": "Filtro para máscara: 1 caixa = 6 un (item novo ou parte do Kit Máscaras com 2 filtros?)",
+   "qtd": 6,
+   "un": "cx",
+   "base": "un"
+  }
+ ],
+ "notasEmitidas": [
+  {
+   "id": "nf539",
+   "numero": "539",
+   "data": "2026-10-06",
+   "tomador": "Parque Esplanada Empreendimentos Imobiliários SA",
+   "cnpj": "34.693.800/0001-57",
+   "descricao": "Sistema antiderrapante em piso",
+   "bruto": 28522.52,
+   "retFederal": 4749.0,
+   "iss": 570.45,
+   "liquido": 23203.07,
+   "substitui": "",
+   "obraId": null,
+   "contratoId": null,
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-539-parque-esplanada.pdf",
+    "name": "nfse-539-parque-esplanada.pdf"
+   },
+   "status": "emitida"
+  },
+  {
+   "id": "nf544",
+   "numero": "544",
+   "data": "2026-10-08",
+   "tomador": "Parque Alvorada Empreendimentos Imobiliários SA",
+   "cnpj": "35.539.981/0001-24",
+   "descricao": "Serviço de manutenção",
+   "bruto": 3500.0,
+   "retFederal": 582.75,
+   "iss": 70.0,
+   "liquido": 2847.25,
+   "substitui": "531",
+   "obraId": "o6",
+   "contratoId": null,
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-544-parque-alvorada.pdf",
+    "name": "nfse-544-parque-alvorada.pdf"
+   },
+   "status": "emitida"
+  },
+  {
+   "id": "nf548",
+   "numero": "548",
+   "data": "2026-10-20",
+   "tomador": "Condomínio do Bloco B da SQS 314",
+   "cnpj": "26.989.004/0001-38",
+   "descricao": "Revestimento epóxi em piso — 2ª parcela",
+   "bruto": 43672.93,
+   "retFederal": 7271.53,
+   "iss": 873.46,
+   "liquido": 35527.94,
+   "substitui": "",
+   "obraId": "o4",
+   "contratoId": "ct5",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-548-314-2parcela.pdf",
+    "name": "nfse-548-314-2parcela.pdf"
+   },
+   "status": "emitida"
+  },
+  {
+   "id": "nf549",
+   "numero": "549",
+   "data": "2026-10-20",
+   "tomador": "Confed. Nacional do Comércio de Bens, Serv. e Turismo (CNC)",
+   "cnpj": "33.423.575/0001-76",
+   "descricao": "Pintura epóxi — 4ª medição",
+   "bruto": 50000.0,
+   "retFederal": 8325.0,
+   "iss": 1000.0,
+   "liquido": 40675.0,
+   "substitui": "",
+   "obraId": "o1",
+   "contratoId": "ct4",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-549-supera-4medicao.pdf",
+    "name": "nfse-549-supera-4medicao.pdf"
+   },
+   "status": "emitida"
+  },
+  {
+   "id": "nf551",
+   "numero": "551",
+   "data": "2026-10-27",
+   "tomador": "Emplavi 720 Empreendimentos Imobiliários Ltda",
+   "cnpj": "39.360.493/0001-06",
+   "descricao": "Pintura epóxi nos subsolos — Horizon Club Residence — 1ª medição",
+   "bruto": 16820.87,
+   "retFederal": 2800.68,
+   "iss": 336.42,
+   "liquido": 13683.77,
+   "substitui": "550",
+   "obraId": "o3",
+   "contratoId": "ct2",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-551-horizon-1medicao.pdf",
+    "name": "nfse-551-horizon-1medicao.pdf"
+   },
+   "status": "emitida"
+  }
+ ],
+ "entradas": [
+  {
+   "id": "en1",
+   "data": "2026-10-30",
+   "materialId": "m11",
+   "qtd": 24,
+   "origem": "cx24",
+   "chave": "ent|tx|2026-10-30|810.86|compra no credito|rolos trenas|Rolo 9CM"
+  },
+  {
+   "id": "en2",
+   "data": "2026-10-30",
+   "materialId": "m12",
+   "qtd": 24,
+   "origem": "cx24",
+   "chave": "ent|tx|2026-10-30|810.86|compra no credito|rolos trenas|Rolo 23cm"
+  },
+  {
+   "id": "en3",
+   "data": "2026-10-30",
+   "materialId": "m8",
+   "qtd": 5,
+   "origem": "cx24",
+   "chave": "ent|tx|2026-10-30|810.86|compra no credito|rolos trenas|Trena 5M"
   }
  ]
 }

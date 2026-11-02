@@ -206,8 +206,16 @@ function parseRetiradas(txt) {
     for (const l of lista.split('\n')) {
       const t = l.replace(/^[\s*•\-–]+/, '').trim(); if (!t) continue;
       const m = t.match(/^(\d+(?:[.,]\d+)?)\s+(.+)$/); if (!m) continue;
-      const nome = m[2].replace(/\s*\(.*?\)\s*$/, '').trim(), mt = matchMat(nome) || matchMat(m[2]);
-      out.push({ mat: m[2].trim(), qtd: parseBR(m[1]), obraTxt: dest, m: mt, o, data, resp, destinoTxt: dest });
+      let nome = m[2].replace(/\s*\(.*?\)\s*$/, '').trim(), qtd = parseBR(m[1]), emb = '';
+      const pk = nome.match(/^(caixas?|cx|pacotes?|pct)\s+(?:de\s+)?(.+)$/i), un = nome.match(/^(unidades?|un)\s+(?:de\s+)?(.+)$/i);
+      if (pk) nome = pk[2]; else if (un) nome = un[2];
+      const mt = matchMat(nome) || matchMat(m[2]);
+      if (mt && mt.embalagem && (pk || un)) { // converte caixa/pacote <-> unidade conforme a unidade do estoque
+        const e = mt.embalagem, est = norm(mt.unidade);
+        if (pk && est !== norm(e.un) && est !== 'cx' && est !== 'pct') { qtd *= e.qtd; emb = `${m[1]} ${pk[1]} × ${e.qtd}`; }
+        else if (un && (est === 'cx' || est === norm(e.un))) { qtd /= e.qtd; emb = `${m[1]} un ÷ ${e.qtd}`; }
+      }
+      out.push({ mat: m[2].trim() + (emb ? ` [${emb}]` : ''), qtd, obraTxt: dest, m: mt, o, data, resp, destinoTxt: dest });
     }
   }
   if (out.length) return out;

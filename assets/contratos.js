@@ -18,6 +18,18 @@ function ctCruzamentos(c) {
     if (c.id === 'ct1' && itens.length === 2 && Math.abs(itens[0].p + itens[1].p - 38.64) < 0.005) out.push(['g', `Meta mensal: ${brl(itens[0].p)} + ${brl(itens[1].p)} = R$ 38,64 do contrato (preço dividido por fase) ✔`]); }
   return out;
 }
+const pc1 = (n, d) => Number(n || 0).toFixed(d).replace('.', ',');
+function notasCard() {
+  const ns = (S.notasEmitidas || []).filter(n => n.status !== 'cancelada');
+  if (!ns.length) return '';
+  const T = k => ns.reduce((a, n) => a + (n[k] || 0), 0), ret = T('retFederal') + T('iss'), bruto = T('bruto');
+  const rows = ns.slice().sort((a, b) => b.data.localeCompare(a.data)).map(n => { const c = (S.contratos || []).find(x => x.id === n.contratoId), pr = n.bruto ? (n.retFederal + n.iss) / n.bruto * 100 : 0;
+    return `<tr><td>${esc(n.numero)}${n.substitui ? `<small style="display:block;color:var(--mut)">substitui ${esc(n.substitui)}</small>` : ''}</td><td>${fdate(n.data)}</td><td>${esc(n.tomador)}<small style="display:block;color:var(--mut)">${esc(n.descricao)}</small></td><td>${c ? esc(c.nome) : '<span class="pill a">sem contrato</span>'}</td><td class="n">${brl(n.bruto)}</td><td class="n">${pc1(pr, 2)}%</td><td class="n">${brl(n.liquido)}</td><td>${n.arquivo ? `<a href="${esc(n.arquivo.id.replace('url:', ''))}" target="_blank">PDF</a>` : ''}</td></tr>`; }).join('');
+  const por = (S.contratos || []).map(c => { const f = ns.filter(n => n.contratoId === c.id).reduce((a, n) => a + n.bruto, 0); return f ? `${esc(short(c.nome))}: ${brl(f)} (${pc1(f / c.mo * 100, 1)}% da MO)` : ''; }).filter(Boolean).join(' · ');
+  return `<div class="card tw" style="margin-top:14px"><div class="row sp"><h2>Notas emitidas (NFS-e / medições)</h2><small class="sub">${ns.length} notas · bruto ${brl(bruto)} · retido ${brl(ret)} (${pc1(ret / bruto * 100, 2)}%) · líquido ${brl(T('liquido'))}</small></div>
+  <table class="zebra"><tr><th>Nº</th><th>Data</th><th>Tomador / serviço</th><th>Contrato</th><th class="n">Bruto</th><th class="n">Retenção</th><th class="n">Líquido</th><th></th></tr>${rows}</table>
+  <p class="sub" style="margin:8px 0 0">${por || ''}<br>Notas substituídas (531, 550) não entram na soma. Retenção = federais + ISS 2%. A meta mensal desconta 35%; compare.</p></div>`;
+}
 function contratosView() {
   const cs = S.contratos || [];
   if (!cs.length) return `${head('Contratos', 'Carteira', '')}<div class="card"><p class="sub">Nenhum contrato cadastrado.</p></div>`;
@@ -28,7 +40,7 @@ function contratosView() {
   <div class="card tw"><table class="zebra"><tr><th>Contrato / obra</th><th class="n">Valor total</th><th class="n">Mão de obra</th><th class="n">Material</th><th class="n">m² nos RDOs</th><th class="n">Receita ganha (estim.)</th><th class="n">Já medido</th><th>Vigência</th></tr>${rows}</table><p class="sub" style="margin-top:8px">Clique em um contrato para ver itens, preços unitários, avanço e cruzamentos. “Receita ganha” = quantidade lançada nos RDOs × preço de MO × peso da fase (hoje só a fase Lixamento tem lançamentos com fase).</p></div>
   <div class="grid g2" style="margin-top:14px;grid-template-columns:1fr 1fr"><div class="card" style="margin:0"><h2>Valor por contrato (MO × material)</h2><div style="margin-top:8px">${hbars(cs.map(c => ({ l: short(c.nome), vals: [c.mo, c.mat], colors: ['#0b3fbf', '#c4c4cc'] })), { fmt: brl })}<div class="legend"><span><i class="sw" style="border-color:#0b3fbf;background:#0b3fbf"></i>mão de obra</span><span><i class="sw" style="border-color:#c4c4cc;background:#c4c4cc"></i>material</span></div></div></div>
   <div class="card" style="margin:0"><h2>O que os contratos habilitam</h2><ul style="margin:8px 0 0;padding-left:18px;line-height:1.6"><li><b>Preço por fase e receita ganha</b>: m² lançados no RDO × preço unitário do contrato.</li><li><b>Avanço físico</b>: m² executados × metragem contratada, por contrato e por item (piso, parede, demarcação…).</li><li><b>Saldo e medição</b>: contrato − já medido/faturado = a faturar.</li><li><b>Margem real</b>: receita de MO − custo de mão de obra (diárias × presença) − material da Caixinha.</li><li><b>Meta mensal</b>: conferir os preços da meta com os do contrato.</li><li><b>Material direto</b>: separar o que o cliente fatura direto (não é receita nem custo da Compizzo).</li><li><b>Alertas</b>: atraso de cronograma e BAC ≠ contrato.</li></ul></div></div>`;
-  if (!sel) return `${head('Contratos', 'Carteira de contratos ativos', '')}${lista}`;
+  if (!sel) return `${head('Contratos', 'Carteira de contratos ativos', '')}${lista}${notasCard()}`;
   const c = cs.find(x => x.id === sel), e = ex[sel], o = ctObra(c), cr = ctCruzamentos(c), medido = +c.medido || 0;
   const itens = c.itens.map(i => { const tot = i.total, pct = c.mo && i.tipo === 'MO' ? tot / c.mo * 100 : null; return `<tr><td>${i.n || ''}</td><td>${esc(i.desc)}<small style="display:block;color:var(--mut)">${i.tipo === 'MAT' ? 'material' : 'mão de obra'}</small></td><td class="n">${nfmt(i.qtd)} ${esc(i.un)}</td><td class="n">${i.vUnit != null ? brl(i.vUnit) : '—'}</td><td class="n">${brl(tot)}</td><td class="n">${pct != null ? pct.toFixed(1).replace('.', ',') + '%' : '—'}</td></tr>`; }).join('');
   return `${head(esc(c.nome), 'Contrato · ' + (o ? o.nome : 'sem obra'), '<button class="btn" data-ct="back">Voltar à carteira</button>')}
