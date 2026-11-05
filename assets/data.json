@@ -1,5 +1,5 @@
 {
- "version": 13,
+ "version": 14,
  "obras": [
   {
    "id": "o1",
@@ -75,18 +75,16 @@
   },
   {
    "id": "o6",
-   "nome": "Parque Cidade — Manutenção",
+   "nome": "Parque Cidade",
    "status": "Em andamento",
    "bac": 0,
    "precoPiso": 0,
    "modoReceita": "preco",
    "aliases": [
     "parque cidade",
-    "alvorada",
     "parque da cidade"
    ],
-   "inicio": "2026-10-05",
-   "contratoId": "ct7"
+   "inicio": "2026-10-05"
   },
   {
    "id": "o7",
@@ -176,7 +174,21 @@
     "esplanada"
    ],
    "inicio": "2026-10-01",
-   "contratoId": "ct6"
+   "paiId": "o6"
+  },
+  {
+   "id": "o14",
+   "nome": "Parque Alvorada",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "aliases": [
+    "alvorada",
+    "parque alvorada"
+   ],
+   "inicio": "2026-10-05",
+   "paiId": "o6"
   }
  ],
  "funcionarios": [
@@ -3750,7 +3762,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k131"
+   "id": "k131",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o2",
@@ -3766,7 +3779,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k132"
+   "id": "k132",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o3",
@@ -3782,7 +3796,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k133"
+   "id": "k133",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o1",
@@ -3800,7 +3815,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k134"
+   "id": "k134",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o2",
@@ -3817,7 +3833,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k135"
+   "id": "k135",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o3",
@@ -3833,7 +3850,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k136"
+   "id": "k136",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o1",
@@ -3851,7 +3869,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k137"
+   "id": "k137",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o2",
@@ -3868,7 +3887,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k138"
+   "id": "k138",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o3",
@@ -3885,7 +3905,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k139"
+   "id": "k139",
+   "substituidoPor": "Agenda do dia"
   },
   {
    "obraId": "o1",
@@ -3903,7 +3924,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k140"
+   "id": "k140",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o2",
@@ -3920,7 +3942,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k141"
+   "id": "k141",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o3",
@@ -3937,7 +3960,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k142"
+   "id": "k142",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o1",
@@ -3955,7 +3979,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k143"
+   "id": "k143",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o2",
@@ -3969,7 +3994,8 @@
    "equipe": [],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k144"
+   "id": "k144",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o1",
@@ -5493,6 +5519,706 @@
    "nota": "",
    "fonte": "Agenda do dia",
    "chave": "o6|2026-10-22|dia|alvorada revisao"
+  },
+  {
+   "id": "k1241",
+   "obraId": "o1",
+   "data": "2026-11-02",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — feriado Finados",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o1|2026-11-02|dia|parado feriado finados"
+  },
+  {
+   "id": "k1242",
+   "obraId": "o4",
+   "data": "2026-11-02",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final",
+   "equipe": [
+    "Roniele",
+    "Iramilton",
+    "Jhone",
+    "Claudiney"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-02|dia|check list final"
+  },
+  {
+   "id": "k1243",
+   "obraId": "o6",
+   "data": "2026-11-02",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura — revisão das vagas",
+   "equipe": [
+    "Wanderson",
+    "Renan",
+    "Matheus",
+    "Thiago",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-02|dia|pintura revisao das vagas"
+  },
+  {
+   "id": "k1244",
+   "obraId": "o3",
+   "data": "2026-11-02",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — feriado Finados",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o3|2026-11-02|dia|parado feriado finados"
+  },
+  {
+   "id": "k1245",
+   "obraId": "o1",
+   "data": "2026-11-03",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Barrado / pintura externa (dependendo do tempo) + Lixamento em piso de concreto (analisar o campo de execução)",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Claudiney"
+   ],
+   "cond": "dependendo do tempo",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o1|2026-11-03|dia|barrado pintura externa dependendo do tempo lixamento em piso de concreto analisar o campo de execucao"
+  },
+  {
+   "id": "k1246",
+   "obraId": "o4",
+   "data": "2026-11-03",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-03|dia|check list final",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1247",
+   "obraId": "o6",
+   "data": "2026-11-03",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Check list — finalização da pintura",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-03|dia|check list finalizacao da pintura",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1248",
+   "obraId": "o1",
+   "data": "2026-11-04",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Barrado / pintura externa (dependendo do tempo) + Lixamento em piso de concreto (analisar o campo de execução)",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Claudiney"
+   ],
+   "cond": "dependendo do tempo",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o1|2026-11-04|dia|barrado pintura externa dependendo do tempo lixamento em piso de concreto analisar o campo de execucao"
+  },
+  {
+   "id": "k1249",
+   "obraId": "o4",
+   "data": "2026-11-04",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-04|dia|check list final",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1250",
+   "obraId": "o6",
+   "data": "2026-11-04",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Check list — finalização da pintura",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-04|dia|check list finalizacao da pintura",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1251",
+   "obraId": "o1",
+   "data": "2026-11-05",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Barrado / pintura externa (dependendo do tempo) + Lixamento em piso de concreto (analisar o campo de execução)",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Claudiney"
+   ],
+   "cond": "dependendo do tempo",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o1|2026-11-05|dia|barrado pintura externa dependendo do tempo lixamento em piso de concreto analisar o campo de execucao",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1252",
+   "obraId": "o4",
+   "data": "2026-11-05",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-05|dia|check list final",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1253",
+   "obraId": "o6",
+   "data": "2026-11-05",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Check list — finalização da pintura",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-05|dia|check list finalizacao da pintura",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1254",
+   "obraId": "o1",
+   "data": "2026-11-06",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Barrado / pintura externa (dependendo do tempo) + Lixamento em piso de concreto (analisar o campo de execução)",
+   "equipe": [
+    "Iramilton",
+    "Thiago",
+    "Claudiney"
+   ],
+   "cond": "dependendo do tempo",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o1|2026-11-06|dia|barrado pintura externa dependendo do tempo lixamento em piso de concreto analisar o campo de execucao"
+  },
+  {
+   "id": "k1255",
+   "obraId": "o4",
+   "data": "2026-11-06",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Check list final",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-06|dia|check list final"
+  },
+  {
+   "id": "k1256",
+   "obraId": "o6",
+   "data": "2026-11-06",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Check list — finalização da pintura",
+   "equipe": [
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-06|dia|check list finalizacao da pintura"
+  },
+  {
+   "id": "k1257",
+   "obraId": "o3",
+   "data": "2026-11-03",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o3|2026-11-03|dia|parado",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1258",
+   "obraId": "o3",
+   "data": "2026-11-04",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Atividade a definir",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "atividade a definir",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-04|dia|atividade a definir",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1259",
+   "obraId": "o3",
+   "data": "2026-11-05",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Atividade a definir",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "atividade a definir",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-05|dia|atividade a definir",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1260",
+   "obraId": "o3",
+   "data": "2026-11-06",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Atividade a definir",
+   "equipe": [
+    "Renan"
+   ],
+   "cond": "atividade a definir",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-06|dia|atividade a definir"
+  },
+  {
+   "id": "k1261",
+   "obraId": "o2",
+   "data": "2026-11-03",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Lixamento da área não lixada e liberação para o primer + Check list local com raspadinha + polimento para nova raspadinha",
+   "equipe": [
+    "Roniele",
+    "Samuel",
+    "Renan"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-03|dia|lixamento da area nao lixada e liberacao para o primer check list local com raspadinha polimento para nova raspadinha",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1262",
+   "obraId": "o2",
+   "data": "2026-11-04",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Lixamento da área não lixada e liberação para o primer + Check list local com raspadinha + polimento para nova raspadinha",
+   "equipe": [
+    "Roniele",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-04|dia|lixamento da area nao lixada e liberacao para o primer check list local com raspadinha polimento para nova raspadinha",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1263",
+   "obraId": "o2",
+   "data": "2026-11-05",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Primer no local não realizado — 1º Subsolo + Raspadinha de tinta",
+   "equipe": [
+    "Roniele",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-05|dia|primer no local nao realizado 1 subsolo raspadinha de tinta",
+   "substituidoPor": "Agenda do dia"
+  },
+  {
+   "id": "k1264",
+   "obraId": "o2",
+   "data": "2026-11-06",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Lixamento da área não lixada e liberação para o primer + Check list local com raspadinha + polimento para nova raspadinha",
+   "equipe": [
+    "Roniele",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-06|dia|lixamento da area nao lixada e liberacao para o primer check list local com raspadinha polimento para nova raspadinha"
+  },
+  {
+   "id": "k1265",
+   "obraId": "o4",
+   "data": "2026-11-03",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura da demarcação de vagas e sinalização de incêndio",
+   "equipe": [
+    "Roniele",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-03|dia|pintura da demarcacao de vagas e sinalizacao de incendio"
+  },
+  {
+   "id": "k1266",
+   "obraId": "o6",
+   "data": "2026-11-03",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalização — check list final. Recolher os materiais no fim do dia",
+   "equipe": [
+    "Wanderson",
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-03|dia|finalizacao check list final recolher os materiais no fim do dia"
+  },
+  {
+   "id": "k1267",
+   "obraId": "o3",
+   "data": "2026-11-03",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — Eng. Vinicius verifica a liberação do campo para o serviço completo no 1º Subsolo",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o3|2026-11-03|dia|parado eng vinicius verifica a liberacao do campo para o servico completo no 1 subsolo"
+  },
+  {
+   "id": "k1268",
+   "obraId": "o2",
+   "data": "2026-11-03",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Verificar o deslocamento de máquinas e ferramentas. Preparação e lixamento — 1º Subsolo; área do refeitório (270 m²); check list do restante do piso para revisão da raspadinha",
+   "equipe": [
+    "Renan",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-03|dia|verificar o deslocamento de maquinas e ferramentas preparacao e lixamento 1 subsolo area do refeitorio 270 m check list do restante do piso para revisao da raspadinha"
+  },
+  {
+   "id": "k1269",
+   "obraId": "o4",
+   "data": "2026-11-04",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura da demarcação de vagas e sinalização de incêndio + Check list final",
+   "equipe": [
+    "Roniele",
+    "Wanderson",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-04|dia|pintura da demarcacao de vagas e sinalizacao de incendio check list final"
+  },
+  {
+   "id": "k1270",
+   "obraId": "o6",
+   "data": "2026-11-04",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalização — check list final. Recolher os materiais no fim do dia",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-04|dia|finalizacao check list final recolher os materiais no fim do dia"
+  },
+  {
+   "id": "k1271",
+   "obraId": "o3",
+   "data": "2026-11-04",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — volta programada para 09/11",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o3|2026-11-04|dia|parado volta programada para 09 11"
+  },
+  {
+   "id": "k1272",
+   "obraId": "o2",
+   "data": "2026-11-04",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Solicitar o projeto impresso para iniciar a demarcação das cores. Preparação e lixamento — 1º Subsolo; área do refeitório (270 m²); check list do restante do piso para realizar a pintura",
+   "equipe": [
+    "Renan",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-04|dia|solicitar o projeto impresso para iniciar a demarcacao das cores preparacao e lixamento 1 subsolo area do refeitorio 270 m check list do restante do piso para realizar a pintura"
+  },
+  {
+   "id": "k1273",
+   "obraId": "o1",
+   "data": "2026-11-05",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura externa (dependendo do tempo). SUBSOLO: foco em finalizar a repintura dos barrados e a pintura de sinalização, números e incêndio — 1º Subsolo",
+   "equipe": [
+    "Iramilton",
+    "Claudiney",
+    "Wanderson",
+    "Thiago"
+   ],
+   "cond": "dependendo do tempo",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o1|2026-11-05|dia|pintura externa dependendo do tempo subsolo foco em finalizar a repintura dos barrados e a pintura de sinalizacao numeros e incendio 1 subsolo"
+  },
+  {
+   "id": "k1274",
+   "obraId": "o4",
+   "data": "2026-11-05",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Pintura da demarcação de vagas e sinalização de incêndio + Check list final",
+   "equipe": [
+    "Roniele",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-05|dia|pintura da demarcacao de vagas e sinalizacao de incendio check list final"
+  },
+  {
+   "id": "k1275",
+   "obraId": "o6",
+   "data": "2026-11-05",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "OBJETIVO: FINALIZAR HOJE (05/11). Finalização — check list final. Recolher os materiais no fim do dia",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-05|dia|objetivo finalizar hoje 05 11 finalizacao check list final recolher os materiais no fim do dia"
+  },
+  {
+   "id": "k1276",
+   "obraId": "o3",
+   "data": "2026-11-05",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — volta programada para 09/11",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o3|2026-11-05|dia|parado volta programada para 09 11"
+  },
+  {
+   "id": "k1277",
+   "obraId": "o2",
+   "data": "2026-11-05",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Solicitar o projeto impresso para iniciar a demarcação das cores. Preparação e lixamento — 1º Subsolo; área do refeitório (270 m²); check list do restante do piso para realizar a pintura",
+   "equipe": [
+    "Renan",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Agenda do dia",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-05|dia|solicitar o projeto impresso para iniciar a demarcacao das cores preparacao e lixamento 1 subsolo area do refeitorio 270 m check list do restante do piso para realizar a pintura"
   }
  ],
  "agenda": [
@@ -9949,16 +10675,16 @@
    "texto": "Retenções reais nas notas ≈ 18,65% (federais 16,65% + ISS 2%), mas a meta mensal usa 35% de dedução: qual a premissa correta para o líquido?"
   },
   {
-   "id": "q28",
-   "texto": "Contratos Parque Esplanada (ct6) e Parque Alvorada (ct7) criados sem valores: enviar valor total (MO e material), metragem, datas de início/fim e medições anteriores. NFS-e 539 (R$ 28.522,52) e 544 (R$ 3.500,00) já vinculadas."
-  },
-  {
-   "id": "q29",
-   "texto": "Preços por fase (R$/m²) e salários/diárias ainda faltam para fechar receita, custo e lucro por contrato e rendimento por peão."
-  },
-  {
    "id": "q30",
    "texto": "Retirada de 05/11 (Cícero): destino \"A informar\" — para qual obra foram 4 rolos de 9 cm, 2 rolos de 23 cm e 5 panos? Panos de chão: estoque 0, faltaram 5 → contagem física."
+  },
+  {
+   "id": "q31",
+   "texto": "Programação 02–06/11: Renan está alocado no Horizon (qua–sex, \"atividade a definir\") mas a agenda do dia o põe no Brasal; Horizon só volta em 09/11. Onde ele fica? Brasal precisa do projeto impresso (demarcação das cores) — quem solicita e até quando?"
+  },
+  {
+   "id": "q32",
+   "texto": "Parque Esplanada e Parque Alvorada tratados como sub-obras do Parque Cidade (sem contrato na carteira de 5). Confirmar; e enviar o que foi contratado/valor de cada serviço."
   }
  ],
  "caixinha": [
@@ -10914,7 +11640,8 @@
    "nota": "Meta mensal divide o R$ 38,64 em pintura/demarcação R$ 24,35 + primer/raspadinha R$ 14,29.",
    "somaMO": 236949.07,
    "somaMAT": 252635.0,
-   "status": "Ativo"
+   "status": "Ativo",
+   "ativo": true
   },
   {
    "id": "ct2",
@@ -11119,7 +11846,8 @@
    "nota": "Mão de obra + frete = R$ 183.624,55; material Concrecor faturado direto.",
    "somaMO": 183624.55,
    "somaMAT": 180030.0,
-   "status": "Ativo"
+   "status": "Ativo",
+   "ativo": true
   },
   {
    "id": "ct3",
@@ -11161,7 +11889,8 @@
    ],
    "somaMO": 254570.9,
    "somaMAT": 272819.65,
-   "status": "Ativo"
+   "status": "Ativo",
+   "ativo": true
   },
   {
    "id": "ct4",
@@ -11221,7 +11950,8 @@
    ],
    "somaMO": 592347.69,
    "somaMAT": 607620.0,
-   "status": "Ativo"
+   "status": "Ativo",
+   "ativo": true
   },
   {
    "id": "ct5",
@@ -11246,39 +11976,8 @@
    "nota": "Valor de MO do contrato (R$ 218.364,65) cobre também repintura sem metragem.",
    "somaMO": 65562.65,
    "somaMAT": 0,
-   "status": "Ativo"
-  },
-  {
-   "id": "ct6",
-   "nome": "Parque Esplanada",
-   "obraId": "o13",
-   "total": 0,
-   "mo": 0,
-   "mat": 0,
-   "metragem": "",
-   "m2": 0,
-   "itens": [],
-   "nota": "Contrato criado a partir da NFS-e 539 (serviço: sistema antiderrapante em piso). Valores do contrato a informar.",
-   "somaMO": 0,
-   "somaMAT": 0,
-   "status": "ativo",
-   "semValor": true
-  },
-  {
-   "id": "ct7",
-   "nome": "Parque Alvorada",
-   "obraId": "o6",
-   "total": 0,
-   "mo": 0,
-   "mat": 0,
-   "metragem": "",
-   "m2": 0,
-   "itens": [],
-   "nota": "Contrato criado a partir da NFS-e 544 (serviço de manutenção; 544 substitui a 531). Valores do contrato a informar.",
-   "somaMO": 0,
-   "somaMAT": 0,
-   "status": "ativo",
-   "semValor": true
+   "status": "Ativo",
+   "ativo": true
   }
  ],
  "lembretes": [
@@ -11316,7 +12015,6 @@
    "liquido": 23203.07,
    "substitui": "",
    "obraId": "o13",
-   "contratoId": "ct6",
    "arquivo": {
     "id": "url:assets/nfs/nfse-539-parque-esplanada.pdf",
     "name": "nfse-539-parque-esplanada.pdf"
@@ -11335,8 +12033,7 @@
    "iss": 70.0,
    "liquido": 2847.25,
    "substitui": "531",
-   "obraId": "o6",
-   "contratoId": "ct7",
+   "obraId": "o14",
    "arquivo": {
     "id": "url:assets/nfs/nfse-544-parque-alvorada.pdf",
     "name": "nfse-544-parque-alvorada.pdf"

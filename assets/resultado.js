@@ -5,6 +5,8 @@ const pc1r = (n, d = 1) => Number(n || 0).toFixed(d).replace('.', ',');
 const ticksBar = (pct, cor = 'var(--blue)', n = 40) => { const on = Math.round(Math.max(0, Math.min(100, pct || 0)) / 100 * n); return `<div class="tk">${Array.from({ length: n }, (_, i) => `<i style="${i < on ? 'background:' + cor : ''}"></i>`).join('')}</div>`; };
 function resPer() { const sv = tab.dp; tab.dp = tab.rp || 'tudo'; const p = dPeriodo(); tab.dp = sv; return p; }
 const resIn = (d, per) => d >= per.ini && d <= per.fim;
+// obra + sub-obras (ex.: Parque Cidade = Esplanada + Alvorada)
+const obraFamilia = id => [id, ...S.obras.filter(o => o.paiId === id).map(o => o.id)];
 
 
 /* custo/dia: real; ou estimado pela média do mesmo cargo (função vazia = Ajudante); null se não houver base */
@@ -35,7 +37,7 @@ function resMaterial(obraId, per) {
 }
 
 function resCalc(c, per) {
-  const rdos = S.rdos.filter(r => r.status === 'salvo' && r.obraId === c.obraId && resIn(r.data, per));
+  const ids = c.ids || obraFamilia(c.obraId), rdos = S.rdos.filter(r => r.status === 'salvo' && ids.includes(r.obraId) && resIn(r.data, per));
   const dias = {}, pess = {}; let rec = 0, m2 = 0, cmo = 0, cmoEst = 0, cmatRdo = 0, hh = 0, semTaxa = new Set(), estim = new Set(), pessDia = 0;
   const conhecidos = S.funcionarios.map(f => custoDia(f)).filter(x => x != null), mediaCusto = conhecidos.length ? conhecidos.reduce((a, b) => a + b, 0) / conhecidos.length : 0;
   rdos.forEach(r => {
@@ -50,12 +52,12 @@ function resCalc(c, per) {
       p.rec += k.receita * wts[i] / wsum; p.m2 += k.m2 * wts[i] / wsum;
     });
   });
-  const mat = resMaterial(c.obraId, per), cmatEst = mat.v;
-  const cxo = cxPorObra(S.caixinha.filter(x => resIn(x.data, per)))[c.obraId] || 0;
-  const ns = (S.notasEmitidas || []).filter(n => n.contratoId === c.id && resIn(n.data, per));
+  const mats = ids.map(i => resMaterial(i, per)), mat = { v: mats.reduce((a, m) => a + m.v, 0), sem: mats.flatMap(m => m.sem) }, cmatEst = mat.v;
+  const cxm = cxPorObra(S.caixinha.filter(x => resIn(x.data, per))), cxo = ids.reduce((a, i) => a + (cxm[i] || 0), 0);
+  const ns = (S.notasEmitidas || []).filter(n => (c.ids ? ids.includes(n.obraId) && !n.contratoId : n.contratoId === c.id) && resIn(n.data, per));
   const fat = ns.reduce((a, n) => a + n.bruto, 0), liq = ns.reduce((a, n) => a + n.liquido, 0);
   const diasN = Object.keys(dias).length, custoTot = cmo + cmatRdo + cxo + cmatEst;
-  return { c, o: ctObra(c), rdos, dias, pess: Object.values(pess), rec, m2, cmo, cmoEst, estim: [...estim], cmatRdo, cmatEst, matSem: mat.sem, rdoSemM2: rdos.filter(r => !rdoCalc(r).m2).length, cxo, custoTot, fat, liq, nNotas: ns.length, diasN, hh, pessDia, semTaxa: [...semTaxa],
+  return { c, o: ctObra(c), ids, rdos, dias, pess: Object.values(pess), rec, m2, cmo, cmoEst, estim: [...estim], cmatRdo, cmatEst, matSem: mat.sem, rdoSemM2: rdos.filter(r => !rdoCalc(r).m2).length, cxo, custoTot, fat, liq, nNotas: ns.length, diasN, hh, pessDia, semTaxa: [...semTaxa],
     lucro: rec - custoTot, lucroCaixa: liq - custoTot, margem: rec ? (rec - custoTot) / rec * 100 : null };
 }
 
@@ -121,7 +123,7 @@ function resumoContratoCard(R) {
 }
 
 function resultadoView() {
-  const per = resPer(), cs = S.contratos || [], sel = obraF !== 'all' ? cs.find(c => c.obraId === obraF) : null;
+  const per = resPer(), cs = (S.contratos || []).filter(c => c.ativo !== false), sel = obraF !== 'all' ? cs.find(c => obraFamilia(c.obraId).includes(obraF)) : null;
   const all = cs.map(c => resCalc(c, per)), Rs = sel ? all.filter(R => R.c.id === sel.id) : all;
   const tabs = `<div class="tabs">${[['tudo', 'Tudo'], ['mes', 'Mês atual'], ['quin', 'Quinzena'], ['sem', 'Semana']].map(([k, l]) => `<button data-rp="${k}" class="${(tab.rp || 'tudo') === k ? 'on' : ''}">${l}</button>`).join('')}</div>`;
   const sub = sel ? 'Contrato · ' + short(sel.nome) : 'Todos os contratos';
@@ -132,10 +134,12 @@ function resultadoView() {
   const mx = Math.max(1, ...Rs.flatMap(R => [R.rec, R.custoTot, Math.abs(R.lucro)]));
   const bar = (v, cor) => `<div class="row" style="gap:8px;flex-wrap:nowrap"><div style="flex:1;background:var(--soft);border-radius:4px;height:8px"><div style="width:${Math.max(v > 0 ? 1 : 0, Math.abs(v) / mx * 100)}%;background:${cor};height:8px;border-radius:4px"></div></div><small style="min-width:92px;text-align:right">${brl(v)}</small></div>`;
   const barras = Rs.map(R => `<div style="margin-bottom:10px"><b style="font-size:12.5px">${esc(short(R.c.nome))}</b>${bar(R.rec, '#1f8a4c')}${bar(R.custoTot, '#c0392b')}${bar(R.lucro, R.lucro >= 0 ? '#0b3fbf' : '#c0392b')}</div>`).join('');
-  const tbl = `<div class="card tw" style="margin-bottom:14px"><div class="row sp"><h2>Resultado por contrato</h2><span class="mono">${esc(per.rot)}</span></div><table class="zebra"><tr><th>Contrato</th><th class="n">MO contratada</th><th class="n">Receita est.</th><th class="n">Faturado</th><th class="n">Custo MO</th><th class="n">Material + Caixinha</th><th class="n">Lucro est.</th><th class="n">Margem</th><th class="n">MO/dia</th><th class="n">m²/dia</th></tr>${all.map(resumoContratoCard).join('')}</table></div>`;
+  const avulsos = S.obras.filter(o => !o.paiId && o.status !== 'Concluída' && !cs.some(c => obraFamilia(c.obraId).includes(o.id))).map(o => resCalc({ id: 'x' + o.id, nome: o.nome, obraId: o.id, ids: obraFamilia(o.id), mo: 0, semValor: true }, per)).filter(R => R.rdos.length || R.fat || R.cxo || R.cmo);
+  const avTbl = avulsos.length ? `<div class="card tw" style="margin-bottom:14px"><div class="row sp"><h2>Obras e serviços fora da carteira de 5 contratos</h2><span class="mono">sub-obras somadas na obra-mãe</span></div><table class="zebra"><tr><th>Obra (com sub-obras)</th><th class="n">Receita est.</th><th class="n">Faturado (NFS-e)</th><th class="n">Custo MO</th><th class="n">Material + Caixinha</th><th class="n">Resultado</th></tr>${avulsos.map(R => `<tr class="clk" data-rs="${R.c.obraId}"><td><b>${esc(short(R.c.nome))}</b><small style="display:block;color:var(--mut)">${R.ids.slice(1).map(i => esc(short(obraNome(i)))).join(' · ') || 'sem sub-obras'}</small></td><td class="n">${mon(R.rec || null)}</td><td class="n">${mon(R.fat || null)}</td><td class="n">${brl(R.cmo)}</td><td class="n">${brl(R.cmatRdo + R.cmatEst + R.cxo)}</td><td class="n ${R.fat - R.custoTot >= 0 ? 'grn' : 'red'}">${brl(R.fat - R.custoTot)}<small style="display:block;color:var(--mut)">faturado − custo</small></td></tr>`).join('')}</table></div>` : '';
+  const tbl = `<div class="card tw" style="margin-bottom:14px"><div class="row sp"><h2>Resultado por contrato</h2><span class="mono">${esc(per.rot)}</span></div><table class="zebra"><tr><th>Contrato</th><th class="n">MO contratada</th><th class="n">Receita est.</th><th class="n">Faturado</th><th class="n">Custo MO</th><th class="n">Material + Caixinha</th><th class="n">Lucro est.</th><th class="n">Margem</th><th class="n">MO/dia</th><th class="n">m²/dia</th></tr>${all.map(resumoContratoCard).join('')}</table></div>${avTbl}`;
   const grafs = `<div class="grid g2" style="margin-bottom:14px;grid-template-columns:1.6fr 1fr">${cardG('Acumulado no tempo', 'receita × custo de MO × resultado', ser.days.length ? svgLines(ser.days, ser.series, { label: 'resultado acumulado' }) + `<div class="legend">${ser.series.map(s => `<span><i class="sw" style="border-color:${s.color};background:${s.color}"></i>${s.name}</span>`).join('')}</div>` : '<p class="sub">Sem RDOs no período.</p>')}${cardG('Receita × custo × lucro', 'por contrato', barras + '<div class="legend"><span class="grn">▌ receita</span><span class="red">▌ custo</span><span class="blue">▌ lucro</span></div>')}</div>`;
   const pess = sel ? resPessoas(Rs[0]) : `<div class="card"><p class="sub" style="margin:0">Selecione uma obra/contrato no menu lateral (ou clique numa linha) para ver o rendimento por pessoa e a produtividade da equipe.</p></div>`;
-  return `${head('Resultado', sub, `<button class="btn" data-need="1">O que preciso enviar</button><button class="btn" data-rs="all">Todos os contratos</button>`)}${tabs}${resKpis(tot)}${resQualidade(all)}${resControles()}${resAvisos(Rs)}${sel ? '' : tbl}${grafs}${sel ? '' : ''}${pess}`;
+  return `${head('Resultado', sub, `<button class="btn" data-rs="all">Todos os contratos</button>`)}${tabs}${resKpis(tot)}${resQualidade(all)}${resControles()}${resAvisos(Rs)}${sel ? '' : tbl}${grafs}${sel ? '' : ''}${pess}`;
 }
 VIEWS.res = resultadoView;
 EXT.change.push(async e => { const t = e.target; if (!t.dataset || !t.dataset.rcfg) return false; cfgD()[t.dataset.rcfg] = t.type === 'checkbox' ? t.checked : t.value; save(); render(); return true; });
@@ -149,8 +153,10 @@ EXT.click.push(async e => {
 /* resumo do contrato selecionado, no topo das demais abas */
 function ctStrip() {
   if (obraF === 'all' || view === 'res' || view === 'contratos') return '';
-  const c = (S.contratos || []).find(x => x.obraId === obraF); if (!c) return '';
+  const cs = (S.contratos || []).filter(c => c.ativo !== false), mae = (getObra(obraF) || {}).paiId || obraF;
+  let c = cs.find(x => obraFamilia(x.obraId).includes(obraF)), semCt = false;
+  if (!c) { c = { id: 'x' + mae, nome: obraNome(mae), obraId: mae, ids: obraFamilia(mae), mo: 0, semValor: true }; semCt = true; }
   const R = resCalc(c, { ini: '2000-01-01', fim: '2100-01-01' }), pct = c.mo ? R.fat / c.mo * 100 : 0;
-  return `<div class="card strip" style="margin-bottom:14px"><div class="row sp"><div><span class="mono">Contrato</span> <b>${esc(c.nome)}</b> ${c.semValor ? '<span class="pill a">valor a informar</span>' : `<span class="pill b">MO ${brl(c.mo)}</span>`}</div><div class="row"><button class="btn sm" data-ctgo="${c.id}">Ver contrato</button><button class="btn sm" data-rs="${c.obraId}">Ver resultado</button></div></div>
+  return `<div class="card strip" style="margin-bottom:14px"><div class="row sp"><div><span class="mono">${semCt ? 'Obra fora da carteira' : 'Contrato'}</span> <b>${esc(c.nome)}</b> ${semCt ? '<span class="pill">sem contrato ativo</span>' : `<span class="pill b">MO ${brl(c.mo)}</span>`}${R.ids.length > 1 ? ` <small class="sub">inclui ${R.ids.slice(1).map(i => esc(short(obraNome(i)))).join(' e ')}</small>` : ''}</div><div class="row">${semCt ? '' : `<button class="btn sm" data-ctgo="${c.id}">Ver contrato</button>`}<button class="btn sm" data-rs="${mae}">Ver resultado</button></div></div>
   <div class="row" style="gap:22px;margin-top:8px"><span><span class="mono">Faturado</span><br><b>${mon(R.fat || null)}</b></span><span><span class="mono">Receita est.</span><br><b>${mon(R.rec || null)}</b></span><span><span class="mono">Custo</span><br><b>${brl(R.custoTot)}</b></span><span><span class="mono">Lucro est.</span><br><b class="${R.lucro >= 0 ? 'grn' : 'red'}">${brl(R.lucro)}</b></span><span><span class="mono">m² / dias RDO</span><br><b>${nfmt(R.m2)} / ${R.diasN}</b></span>${c.mo ? `<div style="flex:1;min-width:160px"><span class="mono">Faturado × MO ${pc1r(pct)}%</span>${ticksBar(pct, 'var(--grn)', 30)}</div>` : ''}</div></div>`;
 }

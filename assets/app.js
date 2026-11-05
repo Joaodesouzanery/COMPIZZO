@@ -91,12 +91,17 @@ function boletoInfo(b) {
 }
 
 /* ---------- UI base ---------- */
-const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['contratos', 'Contratos'], ['res', 'Resultado'], ['estoque', 'Estoque'], ['prod', 'Produção e RDO'], ['compras', 'Compras e orçamentos'], ['mao', 'Mão de obra']];
+const NAV = [['today', 'Dashboard'], ['obras', 'Obras'], ['contratos', 'Contratos'], ['res', 'Resultado'], ['prod', 'Produção e RDO'], ['mao', 'Mão de obra'], ['estoque', 'Estoque'], ['compras', 'Compras e orçamentos']];
+const NAV_GRP = { today: 'Visão geral', prod: 'Operação' };
+const ICO = { today: 'M3 12l9-8 9 8M5 10v10h14V10', obras: 'M3 21V8l9-5 9 5v13M9 21v-6h6v6', contratos: 'M7 3h8l4 4v14H7zM14 3v5h5M10 13h6M10 17h6', res: 'M4 20V10M10 20V4M16 20v-8M22 20H2', prod: 'M4 4h16v16H4zM4 10h16M10 4v16', mao: 'M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8M22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8', estoque: 'M21 8l-9-5-9 5v8l9 5 9-5zM3 8l9 5 9-5M12 13v8', compras: 'M3 4h2l2.5 11h11L21 7H6M9 20a1 1 0 100-2 1 1 0 000 2M18 20a1 1 0 100-2 1 1 0 000 2' };
+const icon = k => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${ICO[k] || ICO.today}"/></svg>`;
 const EXT = { click: [], input: [], change: [] }, CAD = {}, PROD = {};
 function renderNav() {
   const al = S.materiais.filter(m => stat(m) !== 'ok').length;
-  $('#nav').innerHTML = NAV.map(([k, l]) => `<button data-nav="${k}" class="${view === k ? 'on' : ''}">${l}${k === 'estoque' && al ? `<span class="pill r badge">${al}</span>` : ''}</button>`).join('');
-  $('#obraSel').innerHTML = `<option value="all">Todas as obras / contratos</option>` + S.obras.map(o => `<option value="${o.id}" ${o.id === obraF ? 'selected' : ''}>${esc(o.nome)}</option>`).join('');
+  $('#nav').innerHTML = NAV.map(([k, l]) => `${NAV_GRP[k] ? `<div class="mono navg">${NAV_GRP[k]}</div>` : ''}<button data-nav="${k}" class="${view === k ? 'on' : ''}">${icon(k)}<span>${l}</span>${k === 'estoque' && al ? `<span class="pill r badge">${al}</span>` : ''}</button>`).join('');
+  const opt = o => `<option value="${o.id}" ${o.id === obraF ? 'selected' : ''}>${o.paiId ? '↳ ' : ''}${esc(o.nome)}</option>`;
+  const ordem = S.obras.filter(o => !o.paiId).flatMap(o => [o, ...S.obras.filter(x => x.paiId === o.id)]);
+  $('#obraSel').innerHTML = `<option value="all">Todas as obras / contratos</option>` + ordem.map(opt).join('');
 }
 function render() { renderNav(); $('#view').innerHTML = (typeof ctStrip === 'function' ? ctStrip() : '') + VIEWS[view](); }
 function modal(html) { $('#mbox').innerHTML = html; $('#modal').hidden = false; }
