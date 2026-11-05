@@ -49,7 +49,7 @@ function semanaView() {
       const m2 = salvo ? rdoCalc(salvo).m2 : 0; m2tot += m2;
       const st = salvo ? `<span class="pill g">✔ RDO${m2 ? ' · ' + nfmt(m2) + ' m²' : ''}</span>` : rasc ? '<span class="pill a">◐ rascunho</span>' : exp ? `<button class="cv no" data-cv="new:${o.id}:${d}" style="width:auto;display:inline-block;padding:2px 8px">✖ sem RDO</button>` : d > hoje && diaUtil(d) ? '<span class="pill">a vir</span>' : '<span class="cv na" style="display:inline">▫</span>';
       const qtd = salvo ? (salvo.maoObra || []).length || salvo.pessoas || 0 : 0;
-      return `<td style="min-width:150px;vertical-align:top;font-size:12px;background:${S.feriados[d] ? '#fdecea' : dowIdx(d) === 5 ? '#fff2e0' : 'transparent'}">${st}${qtd ? `<small style="display:block;color:var(--mut)">${qtd} pessoa(s)</small>` : ''}<div style="margin-top:4px;color:var(--mut)">${plano.map(esc).join('<br>') || '<i>sem plano</i>'}</div></td>`;
+      return `<td style="min-width:150px;vertical-align:top;font-size:12px;background:${S.feriados[d] ? 'var(--redS)' : dowIdx(d) === 5 ? 'var(--ambS)' : 'transparent'}">${st}${qtd ? `<small style="display:block;color:var(--mut)">${qtd} pessoa(s)</small>` : ''}<div style="margin-top:4px;color:var(--mut)">${plano.map(esc).join('<br>') || '<i>sem plano</i>'}</div></td>`;
     }).join('');
     return `<tr><td style="min-width:120px"><i class="sw" style="border-color:${obraCor(o.id)};background:${obraCor(o.id)}22"></i><b>${esc(short(o.nome))}</b></td>${cels}</tr>`; }).join('');
   const porObra = {}; falt.forEach(x => (porObra[x.o.id] = porObra[x.o.id] || { o: x.o, d: [] }).d.push(x.d));

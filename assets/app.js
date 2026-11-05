@@ -91,14 +91,14 @@ function boletoInfo(b) {
 }
 
 /* ---------- UI base ---------- */
-const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['contratos', 'Contratos'], ['estoque', 'Estoque'], ['prod', 'Produção e RDO'], ['compras', 'Compras e orçamentos'], ['mao', 'Mão de obra']];
+const NAV = [['today', 'Hoje'], ['obras', 'Obras'], ['contratos', 'Contratos'], ['res', 'Resultado'], ['estoque', 'Estoque'], ['prod', 'Produção e RDO'], ['compras', 'Compras e orçamentos'], ['mao', 'Mão de obra']];
 const EXT = { click: [], input: [], change: [] }, CAD = {}, PROD = {};
 function renderNav() {
   const al = S.materiais.filter(m => stat(m) !== 'ok').length;
   $('#nav').innerHTML = NAV.map(([k, l]) => `<button data-nav="${k}" class="${view === k ? 'on' : ''}">${l}${k === 'estoque' && al ? `<span class="pill r badge">${al}</span>` : ''}</button>`).join('');
-  $('#obraSel').innerHTML = `<option value="all">Todas as obras</option>` + S.obras.map(o => `<option value="${o.id}" ${o.id === obraF ? 'selected' : ''}>${esc(o.nome)}</option>`).join('');
+  $('#obraSel').innerHTML = `<option value="all">Todas as obras / contratos</option>` + S.obras.map(o => `<option value="${o.id}" ${o.id === obraF ? 'selected' : ''}>${esc(o.nome)}</option>`).join('');
 }
-function render() { renderNav(); $('#view').innerHTML = VIEWS[view](); }
+function render() { renderNav(); $('#view').innerHTML = (typeof ctStrip === 'function' ? ctStrip() : '') + VIEWS[view](); }
 function modal(html) { $('#mbox').innerHTML = html; $('#modal').hidden = false; }
 const closeModal = () => { $('#modal').hidden = true; };
 const head = (title, sub, actions = '') => `<div class="top"><div><div class="mono">${esc(sub)}</div><h1>${title}</h1></div><div class="row">${actions}</div></div>`;

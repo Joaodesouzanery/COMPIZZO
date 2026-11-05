@@ -1,5 +1,5 @@
 {
- "version": 11,
+ "version": 12,
  "obras": [
   {
    "id": "o1",
@@ -85,7 +85,8 @@
     "alvorada",
     "parque da cidade"
    ],
-   "inicio": "2026-10-05"
+   "inicio": "2026-10-05",
+   "contratoId": "ct7"
   },
   {
    "id": "o7",
@@ -162,6 +163,20 @@
     "geely 509 norte",
     "509 norte"
    ]
+  },
+  {
+   "id": "o13",
+   "nome": "Parque Esplanada",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "aliases": [
+    "parque esplanada",
+    "esplanada"
+   ],
+   "inicio": "2026-10-01",
+   "contratoId": "ct6"
   }
  ],
  "funcionarios": [
@@ -9892,6 +9907,14 @@
   {
    "id": "q27",
    "texto": "Retenções reais nas notas ≈ 18,65% (federais 16,65% + ISS 2%), mas a meta mensal usa 35% de dedução: qual a premissa correta para o líquido?"
+  },
+  {
+   "id": "q28",
+   "texto": "Contratos Parque Esplanada (ct6) e Parque Alvorada (ct7) criados sem valores: enviar valor total (MO e material), metragem, datas de início/fim e medições anteriores. NFS-e 539 (R$ 28.522,52) e 544 (R$ 3.500,00) já vinculadas."
+  },
+  {
+   "id": "q29",
+   "texto": "Preços por fase (R$/m²) e salários/diárias ainda faltam para fechar receita, custo e lucro por contrato e rendimento por peão."
   }
  ],
  "caixinha": [
@@ -10774,6 +10797,32 @@
    "docTipo": "Sem documento",
    "chave": "tx|2026-10-29|201.25|abastecimento|mobi pix c6",
    "id": "cx26"
+  },
+  {
+   "id": "cx27",
+   "chave": "tx|2026-11-03|146.65|abastecimento|mobi",
+   "data": "2026-11-03",
+   "dataDoc": "",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento MOBI",
+   "itens": [],
+   "obras": [],
+   "solicitante": "",
+   "veiculo": "MOBI",
+   "valorTexto": 146.65,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": ""
   }
  ],
  "importacoes": [
@@ -11154,6 +11203,38 @@
    "somaMO": 65562.65,
    "somaMAT": 0,
    "status": "Ativo"
+  },
+  {
+   "id": "ct6",
+   "nome": "Parque Esplanada",
+   "obraId": "o13",
+   "total": 0,
+   "mo": 0,
+   "mat": 0,
+   "metragem": "",
+   "m2": 0,
+   "itens": [],
+   "nota": "Contrato criado a partir da NFS-e 539 (serviço: sistema antiderrapante em piso). Valores do contrato a informar.",
+   "somaMO": 0,
+   "somaMAT": 0,
+   "status": "ativo",
+   "semValor": true
+  },
+  {
+   "id": "ct7",
+   "nome": "Parque Alvorada",
+   "obraId": "o6",
+   "total": 0,
+   "mo": 0,
+   "mat": 0,
+   "metragem": "",
+   "m2": 0,
+   "itens": [],
+   "nota": "Contrato criado a partir da NFS-e 544 (serviço de manutenção; 544 substitui a 531). Valores do contrato a informar.",
+   "somaMO": 0,
+   "somaMAT": 0,
+   "status": "ativo",
+   "semValor": true
   }
  ],
  "lembretes": [
@@ -11190,8 +11271,8 @@
    "iss": 570.45,
    "liquido": 23203.07,
    "substitui": "",
-   "obraId": null,
-   "contratoId": null,
+   "obraId": "o13",
+   "contratoId": "ct6",
    "arquivo": {
     "id": "url:assets/nfs/nfse-539-parque-esplanada.pdf",
     "name": "nfse-539-parque-esplanada.pdf"
@@ -11211,7 +11292,7 @@
    "liquido": 2847.25,
    "substitui": "531",
    "obraId": "o6",
-   "contratoId": null,
+   "contratoId": "ct7",
    "arquivo": {
     "id": "url:assets/nfs/nfse-544-parque-alvorada.pdf",
     "name": "nfse-544-parque-alvorada.pdf"
