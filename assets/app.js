@@ -14,7 +14,7 @@ const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '
   .replace(/(\d)\s*(mm|cm|m|l|g|un)\b/g, '$1$2').replace(/["'`´’]/g, '').replace(/[^a-z0-9 ,.]/g, ' ').replace(/\s+/g, ' ').trim();
 const STOP = new Set(['de', 'da', 'do', 'das', 'dos', 'com', 'para', 'p', 'e', 'a', 'o', 'un', 'und', 'tam']);
 const toks = s => norm(s).split(' ').filter(w => w && !STOP.has(w)).map(w => (w.length > 3 && w.endsWith('s') ? w.slice(0, -1) : w));
-const ALIAS = [[/\blona\b/, 'Lona 110M'], [/caixa de fita.*24 un/, 'Fita 48mm'], [/fita grossa/, 'Fita 48mm'], [/fita fina/, 'Fita 24mm'], [/^lona\b/, 'Lona 110M'], [/rolo (de )?5 ?(mm|cm)/, 'Rolo 5CM'], [/rolo (de )?9 ?(mm|cm)/, 'Rolo 9CM'],
+const ALIAS = [[/\blona\b/, 'Lona 110M'], [/caixa de fita.*24 un/, 'Fita 48mm'], [/fita grossa/, 'Fita 48mm'], [/fita fina/, 'Fita 24mm'], [/^lona\b/, 'Lona 110M'], [/rolos? (de )?0?5 ?(mm|cm)/, 'Rolo 5CM'], [/rolos? (de )?0?9 ?(mm|cm)/, 'Rolo 9CM'], [/rolos?( [a-z]+)? (de )?23 ?(mm|cm)/, 'Rolo 23cm'], [/^panos?( de chao)?$/, 'Panos de chão'],
   [/^trena/, 'Trena 5M'], [/oculos/, 'Óculos de proteção'], [/mascara.*(filtro)/, 'Kit Máscaras com 2 filtros'], [/mascara pff2/, 'Máscaras PFF2'], [/^galocha/, 'Galochas'], [/^macac/, 'Macacões'], [/^desempenadeira/, 'Desempenadeiras']];
 
 let S, view = 'today', obraF = 'all', tab = {};
@@ -168,13 +168,13 @@ const VIEWS = {
   boletos() { return `${head('Boletos', 'Contas a pagar', '<button class="btn pri" data-act="novoBoleto">Novo boleto</button>')}${boletosBody()}`; },
 
   mao() {
-    const t = tab.m || 'ranking', funcs = S.funcionarios.filter(f => obraF === 'all' || f.obraId === obraF);
+    const t = tab.m || 'pessoas', funcs = S.funcionarios.filter(f => obraF === 'all' || f.obraId === obraF);
     let body;
     if (t === 'ranking') {
       const rk = funcs.map(f => { const av = S.avaliacoes.filter(a => a.funcId === f.id).sort((a, b) => a.periodo.localeCompare(b.periodo)); return { f, last: av[av.length - 1], n: av.length }; }).sort((a, b) => (b.last?.nota ?? -1) - (a.last?.nota ?? -1));
       body = `<div class="card tw"><table><tr><th>#</th><th>Funcionário</th><th>Obra</th><th>Último período</th><th class="n">Faltas</th><th class="n">Atrasos</th><th class="n">Nota</th><th>Classificação</th><th class="n">Avaliações</th></tr>${rk.map((r, i) => `<tr><td>${i + 1}</td><td><b>${esc(r.f.nome)}</b></td><td>${esc(obraNome(r.f.obraId))}</td><td>${r.last ? esc(r.last.periodo) : '—'}</td><td class="n">${r.last?.faltas ?? '—'}</td><td class="n">${r.last?.atrasos ?? '—'}</td><td class="n"><b>${r.last ? r.last.nota.toFixed(1) : '—'}</b></td><td>${r.last ? `<span class="pill ${classCss(r.last.cls)}">${r.last.cls}</span>` : '<span class="pill">Sem avaliação</span>'}</td><td class="n">${r.n}</td></tr>`).join('') || '<tr><td>Sem funcionários.</td></tr>'}</table></div>
       <div class="card"><h2>Histórico</h2><div class="tw"><table><tr><th>Período</th><th>Funcionário</th><th>Obra</th><th class="n">Média</th><th class="n">Faltas</th><th class="n">Atrasos</th><th class="n">Nota final</th><th>Classificação</th></tr>${S.avaliacoes.filter(a => funcs.some(f => f.id === a.funcId)).slice().reverse().map(a => `<tr><td>${esc(a.periodo)}</td><td>${esc((S.funcionarios.find(f => f.id === a.funcId) || {}).nome)}</td><td>${esc(obraNome(a.obraId))}</td><td class="n">${a.media.toFixed(2)}</td><td class="n">${a.faltas}</td><td class="n">${a.atrasos}</td><td class="n"><b>${a.nota.toFixed(1)}</b></td><td><span class="pill ${classCss(a.cls)}">${a.cls}</span></td></tr>`).join('') || '<tr><td>Nenhuma avaliação ainda.</td></tr>'}</table></div></div>`;
-    } else if (CAD[t]) { body = CAD[t](); }
+    } else if (CAD[t]) { body = CAD[t](); } else if (t === 'pessoas' && typeof pessoasView === 'function') { body = pessoasView(); }
     else {
       const av = S.avaliadores; const d = new Date(); const q = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')} · ${d.getDate() <= 15 ? '1ª' : '2ª'} quinzena`;
       body = `<div class="card"><div class="grid g3"><div><label class="mono">Funcionário</label><br><select id="aF">${S.funcionarios.map(f => `<option value="${f.id}">${esc(f.nome)} — ${esc(obraNome(f.obraId))}</option>`).join('')}</select><small id="aFh" class="sub" style="display:block;margin:4px 0 0">${faltasHint(S.funcionarios[0].id)}</small></div><div><label class="mono">Período</label><br><input id="aP" value="${q}" style="width:100%"></div><div class="row"><div><label class="mono">Faltas</label><br><input id="aFa" type="number" min="0" value="${faltasDe(S.funcionarios[0].id).length}" style="width:90px"></div><div><label class="mono">Atrasos</label><br><input id="aAt" type="number" min="0" value="0" style="width:90px"></div></div></div>
@@ -182,7 +182,7 @@ const VIEWS = {
       <div class="tw"><table><tr><th>Competência</th>${av.map(a => `<th class="n">${esc(a)}</th>`).join('')}</tr>${COMPS.map((c, i) => `<tr><td>${c}</td>${av.map((a, j) => `<td class="n"><input class="sc" data-c="${i}" data-a="${j}" type="number" min="0" max="10" step="0.5" style="width:80px"></td>`).join('')}</tr>`).join('')}</table></div>
       <div class="row sp" style="margin-top:14px"><div id="prev" class="kpi"><div class="mono">Resultado</div><div class="v">—</div></div><button class="btn blue" data-act="saveAval">Salvar avaliação</button></div></div>`;
     }
-    return `${head('Mão de obra', 'Avaliação de desempenho · quinzenal', `<button class="btn" data-mt="func">Cadastros</button>`)}<div class="tabs">${[['ranking', 'Ranking e histórico'], ['aval', 'Nova avaliação'], ['func', 'Funcionários'], ['equipes', 'Equipes'], ['cargos', 'Cargos']].map(([k, l]) => `<button data-mt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
+    return `${head('Mão de obra', 'Avaliação de desempenho · quinzenal', `<button class="btn" data-mt="func">Cadastros</button>`)}<div class="tabs">${[['pessoas', 'Pessoas'], ['ranking', 'Ranking e histórico'], ['aval', 'Nova avaliação'], ['func', 'Funcionários'], ['equipes', 'Equipes'], ['cargos', 'Cargos']].map(([k, l]) => `<button data-mt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
   }
 };
 function retiradasTable(rs) {

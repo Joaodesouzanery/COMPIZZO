@@ -1,6 +1,6 @@
 /* Produção e RDO → aba "Desempenho": cobrança semanal, equipes, pessoas, receita, custo e margem. */
 'use strict';
-const cfgD = () => (S.config = Object.assign({ jornada: 8, encargos: 0, diasMes: 22, impostos: 30, retencao: 5 }, S.config || {}));
+const cfgD = () => (S.config = Object.assign({ jornada: 8, encargos: 0, diasMes: 22, impostos: 30, retencao: 5, custoEstimado: true, rateio: 'igual' }, S.config || {}));
 const numI = v => (v === '' || v == null ? null : (typeof v === 'number' ? v : parseBR(v)));
 const mondayOf = iso => addDays(iso, -dowIdx(iso));
 function dSemana() { const t = tab.dw; if (t) return t; const h = today(); return dowIdx(h) === 0 ? addDays(mondayOf(h), -7) : mondayOf(h); }

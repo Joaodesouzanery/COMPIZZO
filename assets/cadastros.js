@@ -31,6 +31,7 @@ const FUNC_FIELDS = () => [
   { k: 'regime', l: 'Regime de trabalho', t: 'select', opts: REGIMES },
   { k: 'equipeId', l: 'Equipe', t: 'select', opts: [['', '— Sem equipe (definir depois) —'], ...S.equipes.map(e => [e.id, e.nome])] },
   { k: 'status', l: 'Status', t: 'select', opts: FUNC_STATUS },
+  { k: 'custoDiaFixo', l: 'Custo/dia com encargos (R$)', t: 'num', hint: '(salário + encargos) ÷ 22; vazio = calcula do salário ou taxa' },
   { k: 'taxaHora', l: 'Taxa horária (R$)', t: 'num' },
   { k: 'salario', l: 'Salário bruto (R$)', t: 'num' },
   { k: 'heSab', l: 'HE sábado — exceção (R$)', t: 'num', hint: 'vazio = usa o cargo' },
@@ -58,7 +59,7 @@ EXT.click.push(async e => {
   const t = e.target.closest('[data-cad]'); if (!t) return false;
   const [a, id] = t.dataset.cad.split(':');
   if (a === 'newFunc') { editId = null; formModal('Novo funcionário', FUNC_FIELDS(), { status: 'Ativo', contrato: 'CLT', regime: 'Padrão (5x2)', setor: 'Frente de Trabalho', obraId: obraF !== 'all' ? obraF : '' }, 'saveFunc'); }
-  else if (a === 'editFunc') { editId = id; const x = S.funcionarios.find(z => z.id === id); formModal('Editar funcionário', FUNC_FIELDS(), { ...x, taxaHora: MON(x.taxaHora), salario: MON(x.salario), heSab: MON(x.heSab), heDom: MON(x.heDom) }, 'saveFunc'); }
+  else if (a === 'editFunc') { editId = id; const x = S.funcionarios.find(z => z.id === id); formModal('Editar funcionário', FUNC_FIELDS(), { ...x, custoDiaFixo: MON(x.custoDiaFixo), taxaHora: MON(x.taxaHora), salario: MON(x.salario), heSab: MON(x.heSab), heDom: MON(x.heDom) }, 'saveFunc'); }
   else if (a === 'saveFunc') {
     const fl = FUNC_FIELDS(), o = readForm(fl); if (!o.nome || !o.funcao) return alert('Informe nome e função/cargo.'), true;
     if (editId) { const x = S.funcionarios.find(z => z.id === editId); if (o.nome !== x.nome) S.rdos.forEach(r => { r.maoObra = (r.maoObra || []).map(n => (n === x.nome ? o.nome : n)); if (r.responsavel === x.nome) r.responsavel = o.nome; }); Object.assign(x, o); } else S.funcionarios.push({ id: uid('f'), aliases: [], ...o });

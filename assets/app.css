@@ -81,3 +81,12 @@ svg line{stroke:var(--line)}svg text{fill:var(--mut)}
 :root[data-theme=dark] .side,:root[data-theme=dark] .main{box-shadow:none}
 :root[data-theme=dark] img[src$="logo.svg"]{filter:none}
 @media print{:root[data-theme=dark]{--bg:#fff;--panel:#fff;--soft:#f6f6f8;--line:#ddd;--ink:#111;--mut:#555}}
+
+/* ---- Pessoas: cartões, presença ---- */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-bottom:14px}
+.pc{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:14px;cursor:pointer;transition:transform .12s,box-shadow .12s}.pc:hover{transform:translateY(-2px);box-shadow:0 6px 16px #0001}
+.av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:600;font-size:14px;flex:none}
+.pm{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}.pm div{display:flex;flex-direction:column;gap:2px}.pm b{font-size:15px}
+.pst{display:flex;gap:2px;height:16px;margin-top:10px}.pst i{flex:1;border-radius:2px;background:var(--line)}
+.pmap{border-collapse:separate;border-spacing:0}.pmap th,.pmap td{padding:3px 2px}.pmc{width:22px;min-width:22px;text-align:center;font-size:10px}.pmc i{display:block;height:14px;border-radius:3px;margin:auto;width:16px}.pmc.off{background:var(--soft)}
+@media(max-width:560px){.pgrid{grid-template-columns:1fr}}
