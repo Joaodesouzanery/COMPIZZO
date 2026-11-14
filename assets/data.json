@@ -1,5 +1,5 @@
 {
- "version": 14,
+ "version": 15,
  "obras": [
   {
    "id": "o1",
@@ -688,6 +688,19 @@
    "rdosN": 0,
    "funcaoOriginal": "Engenheiro Civil",
    "naLista": true
+  },
+  {
+   "id": "f18",
+   "nome": "Valim",
+   "funcao": "Administrativo / Financeiro e Estoque",
+   "status": "Ativo",
+   "contrato": "",
+   "custoDiaFixo": 0,
+   "administrativo": true,
+   "naLista": false,
+   "aliases": [],
+   "obraId": "",
+   "obs": "Administrativo: sem custo de obra, fora dos RDOs."
   }
  ],
  "avaliadores": [
@@ -1309,6 +1322,48 @@
    "origem": "app",
    "pendente": "destino",
    "faltou": 5
+  },
+  {
+   "data": "2026-11-05",
+   "materialId": "",
+   "qtd": 1,
+   "obraId": "",
+   "destinoTxt": "Em posse do responsável: uso nas visitas e obras",
+   "posse": "Vinicius",
+   "responsavel": "Vinicius",
+   "nomeOriginal": "trena 8m",
+   "pendente": "material",
+   "id": "r1111",
+   "chave": "ret|2026-11-05|trena 8m|1|posse",
+   "origem": "mensagem"
+  },
+  {
+   "data": "2026-11-05",
+   "materialId": "",
+   "qtd": 1,
+   "obraId": "",
+   "destinoTxt": "Em posse do responsável: uso nas visitas e obras",
+   "posse": "Vinicius",
+   "responsavel": "Vinicius",
+   "nomeOriginal": "espátula",
+   "pendente": "material",
+   "obs": "Quantidade não informada (assumido 1).",
+   "id": "r1112",
+   "chave": "ret|2026-11-05|espatula|1|posse",
+   "origem": "mensagem"
+  },
+  {
+   "id": "r11p",
+   "chave": "ret|2026-11-10|panos|2|o1",
+   "data": "2026-11-10",
+   "materialId": "m15",
+   "qtd": 2,
+   "obraId": "o1",
+   "destinoTxt": "Supera",
+   "responsavel": "",
+   "nomeOriginal": "panos de chão",
+   "origem": "mensagem",
+   "faltou": 2
   }
  ],
  "ajustes": [
@@ -10470,6 +10525,753 @@
     "Renan": "1/2of de pintor",
     "Samuel": "Ajudante"
    }
+  },
+  {
+   "id": "rdoa_o2_2026-11-03",
+   "chave": "rdo|o2|2026-11-03",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o2",
+   "data": "2026-11-03",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Renan",
+    "Samuel"
+   ],
+   "maoObraIds": [
+    "f4",
+    "f5"
+   ],
+   "fases": [],
+   "servicos": [
+    "Lixamento de piso de concreto (área do refeitório, 270 m²)"
+   ],
+   "descricao": "Lixamento de piso de concreto (área do refeitório, 270 m²)",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [
+    "Politriz grande",
+    "Lixadeira de mão"
+   ],
+   "ocorrencias": [
+    "Área não liberada"
+   ],
+   "ocHoras": {},
+   "obs": "Semana 03–06/11: execução lenta, produção baixa — Brasal não liberou o campo.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-03",
+   "local": "SETOR DE CLUBES SUL",
+   "encarregado": "",
+   "cargosDia": {
+    "Renan": "1/2 Oficial de Pintor",
+    "Samuel": "Ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o2_2026-11-04",
+   "chave": "rdo|o2|2026-11-04",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o2",
+   "data": "2026-11-04",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Renan",
+    "Samuel"
+   ],
+   "maoObraIds": [
+    "f4",
+    "f5"
+   ],
+   "fases": [],
+   "servicos": [
+    "Lixamento de piso de concreto (área do refeitório, 270 m²)"
+   ],
+   "descricao": "Lixamento de piso de concreto (área do refeitório, 270 m²)",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [
+    "Politriz grande",
+    "Lixadeira de mão"
+   ],
+   "ocorrencias": [
+    "Área não liberada"
+   ],
+   "ocHoras": {},
+   "obs": "Semana 03–06/11: execução lenta, produção baixa — Brasal não liberou o campo.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-04",
+   "local": "SETOR DE CLUBES SUL",
+   "encarregado": "",
+   "cargosDia": {
+    "Renan": "1/2 Oficial de Pintor",
+    "Samuel": "Ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o2_2026-11-05",
+   "chave": "rdo|o2|2026-11-05",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o2",
+   "data": "2026-11-05",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Renan",
+    "Samuel"
+   ],
+   "maoObraIds": [
+    "f4",
+    "f5"
+   ],
+   "fases": [],
+   "servicos": [
+    "Lixamento de piso de concreto (área do refeitório, 270 m²) + Check list p/ pintura 1º Subsolo"
+   ],
+   "descricao": "Lixamento de piso de concreto (área do refeitório, 270 m²) + Check list p/ pintura 1º Subsolo",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [
+    "Politriz grande",
+    "Lixadeira de mão"
+   ],
+   "ocorrencias": [
+    "Área não liberada"
+   ],
+   "ocHoras": {},
+   "obs": "Semana 03–06/11: execução lenta, produção baixa — Brasal não liberou o campo.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-05",
+   "local": "SETOR DE CLUBES SUL",
+   "encarregado": "",
+   "cargosDia": {
+    "Renan": "1/2 Oficial de Pintor",
+    "Samuel": "Ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o2_2026-11-06",
+   "chave": "rdo|o2|2026-11-06",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o2",
+   "data": "2026-11-06",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Renan",
+    "Samuel"
+   ],
+   "maoObraIds": [
+    "f4",
+    "f5"
+   ],
+   "fases": [
+    {
+     "faseId": "fa1",
+     "nome": "",
+     "qtd": 270,
+     "un": "m²"
+    }
+   ],
+   "servicos": [
+    "Lixamento de piso de concreto (270 m² do refeitório, mesma área dos 4 dias) + Check list p/ pintura 1º Subsolo"
+   ],
+   "descricao": "Lixamento de piso de concreto (270 m² do refeitório, mesma área dos 4 dias) + Check list p/ pintura 1º Subsolo",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [
+    "Politriz grande",
+    "Lixadeira de mão"
+   ],
+   "ocorrencias": [
+    "Área não liberada"
+   ],
+   "ocHoras": {},
+   "obs": "Semana 03–06/11: execução lenta, produção baixa — Brasal não liberou o campo. Equipe deslocada após o meio-dia: o local de início do primer ficou travado para arremate de alvenaria na rampa de acesso ao piso.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-06",
+   "local": "SETOR DE CLUBES SUL",
+   "encarregado": "",
+   "cargosDia": {
+    "Renan": "1/2 Oficial de Pintor",
+    "Samuel": "Ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o1_2026-11-03",
+   "chave": "rdo|o1|2026-11-03",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o1",
+   "data": "2026-11-03",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Wanderson",
+    "Iramilton",
+    "Thiago",
+    "Claudiney"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f8",
+    "f6"
+   ],
+   "fases": [
+    {
+     "faseId": "fa8",
+     "nome": "",
+     "qtd": 35,
+     "un": "un"
+    }
+   ],
+   "servicos": [
+    "Pintura de demarcação de vagas externas (35 un) + pintura de meio-fio (1ª demão de primer, tinta epóxi)"
+   ],
+   "descricao": "Pintura de demarcação de vagas externas (35 un) + pintura de meio-fio (1ª demão de primer, tinta epóxi)",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Reserviço visando solicitação de medição.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-03",
+   "local": "SGAS 613 SUL",
+   "encarregado": "",
+   "cargosDia": {
+    "Wanderson": "Pintor",
+    "Iramilton": "Pintor",
+    "Thiago": "Ajudante",
+    "Claudiney": "Ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o1_2026-11-04",
+   "chave": "rdo|o1|2026-11-04",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o1",
+   "data": "2026-11-04",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Wanderson",
+    "Iramilton",
+    "Thiago",
+    "Claudiney"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f8",
+    "f6"
+   ],
+   "fases": [],
+   "servicos": [
+    "Pintura de demarcação de vagas externas (mesmas 35 vagas, demão) + pintura de meio-fio (1ª demão de primer, tinta epóxi)"
+   ],
+   "descricao": "Pintura de demarcação de vagas externas (mesmas 35 vagas, demão) + pintura de meio-fio (1ª demão de primer, tinta epóxi)",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Reserviço visando solicitação de medição.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-04",
+   "local": "SGAS 613 SUL",
+   "encarregado": "",
+   "cargosDia": {
+    "Wanderson": "Pintor",
+    "Iramilton": "Pintor",
+    "Thiago": "Ajudante",
+    "Claudiney": "Ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o1_2026-11-05",
+   "chave": "rdo|o1|2026-11-05",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o1",
+   "data": "2026-11-05",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Iramilton",
+    "Thiago",
+    "Claudiney"
+   ],
+   "maoObraIds": [
+    "f7",
+    "f8",
+    "f6"
+   ],
+   "fases": [],
+   "servicos": [
+    "Repintura do barrado + teste de repintura nas vagas"
+   ],
+   "descricao": "Repintura do barrado + teste de repintura nas vagas",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Reserviço visando solicitação de medição. Wanderson faltou.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-05",
+   "local": "SGAS 613 SUL",
+   "encarregado": "",
+   "cargosDia": {
+    "Iramilton": "Pintor",
+    "Thiago": "Ajudante",
+    "Claudiney": "Ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o1_2026-11-06",
+   "chave": "rdo|o1|2026-11-06",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o1",
+   "data": "2026-11-06",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Wanderson",
+    "Iramilton",
+    "Thiago",
+    "Claudiney"
+   ],
+   "maoObraIds": [
+    "f2",
+    "f7",
+    "f8",
+    "f6"
+   ],
+   "fases": [],
+   "servicos": [
+    "Repintura do barrado"
+   ],
+   "descricao": "Repintura do barrado",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Reserviço visando solicitação de medição.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-06",
+   "local": "SGAS 613 SUL",
+   "encarregado": "",
+   "cargosDia": {
+    "Wanderson": "Pintor",
+    "Iramilton": "Pintor",
+    "Thiago": "Ajudante",
+    "Claudiney": "Ajudante"
+   }
+  },
+  {
+   "id": "rdoa_o4_2026-11-03",
+   "chave": "rdo|o4|2026-11-03",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o4",
+   "data": "2026-11-03",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Roniele",
+    "Matheus"
+   ],
+   "maoObraIds": [
+    "f3",
+    "f11"
+   ],
+   "fases": [],
+   "servicos": [
+    "Pintura de demarcação de vagas e circulação de pedestres"
+   ],
+   "descricao": "Pintura de demarcação de vagas e circulação de pedestres",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-03",
+   "local": "SQS 314 BLOCO B",
+   "encarregado": "",
+   "cargosDia": {
+    "Roniele": "Pintor",
+    "Matheus": ""
+   }
+  },
+  {
+   "id": "rdoa_o4_2026-11-04",
+   "chave": "rdo|o4|2026-11-04",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o4",
+   "data": "2026-11-04",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Roniele",
+    "Matheus"
+   ],
+   "maoObraIds": [
+    "f3",
+    "f11"
+   ],
+   "fases": [],
+   "servicos": [
+    "Pintura de demarcação de vagas e circulação de pedestres"
+   ],
+   "descricao": "Pintura de demarcação de vagas e circulação de pedestres",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-04",
+   "local": "SQS 314 BLOCO B",
+   "encarregado": "",
+   "cargosDia": {
+    "Roniele": "Pintor",
+    "Matheus": ""
+   }
+  },
+  {
+   "id": "rdoa_o4_2026-11-05",
+   "chave": "rdo|o4|2026-11-05",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o4",
+   "data": "2026-11-05",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Roniele",
+    "Matheus"
+   ],
+   "maoObraIds": [
+    "f3",
+    "f11"
+   ],
+   "fases": [],
+   "servicos": [
+    "Pintura de demarcação de vagas e circulação de pedestres + sinalização"
+   ],
+   "descricao": "Pintura de demarcação de vagas e circulação de pedestres + sinalização",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-05",
+   "local": "SQS 314 BLOCO B",
+   "encarregado": "",
+   "cargosDia": {
+    "Roniele": "Pintor",
+    "Matheus": ""
+   }
+  },
+  {
+   "id": "rdoa_o4_2026-11-06",
+   "chave": "rdo|o4|2026-11-06",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o4",
+   "data": "2026-11-06",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Roniele",
+    "Matheus"
+   ],
+   "maoObraIds": [
+    "f3",
+    "f11"
+   ],
+   "fases": [],
+   "servicos": [
+    "Pintura de demarcação de vagas e circulação de pedestres + sinalização"
+   ],
+   "descricao": "Pintura de demarcação de vagas e circulação de pedestres + sinalização",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Roniele com produção baixa.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-06",
+   "local": "SQS 314 BLOCO B",
+   "encarregado": "",
+   "cargosDia": {
+    "Roniele": "Pintor",
+    "Matheus": ""
+   }
+  },
+  {
+   "id": "rdoa_o6_2026-11-03",
+   "chave": "rdo|o6|2026-11-03",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o6",
+   "data": "2026-11-03",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Jhone"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "fases": [],
+   "servicos": [
+    "Check list final de entrega da obra; manutenção"
+   ],
+   "descricao": "Check list final de entrega da obra; manutenção",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Manutenção, prejuízo de mão de obra.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-03",
+   "local": "SQSW 500",
+   "encarregado": "",
+   "cargosDia": {
+    "Jhone": "1/2 Oficial de Pintor"
+   }
+  },
+  {
+   "id": "rdoa_o6_2026-11-04",
+   "chave": "rdo|o6|2026-11-04",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o6",
+   "data": "2026-11-04",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Jhone"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "fases": [],
+   "servicos": [
+    "Check list final de entrega da obra; manutenção"
+   ],
+   "descricao": "Check list final de entrega da obra; manutenção",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Manutenção, prejuízo de mão de obra.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-04",
+   "local": "SQSW 500",
+   "encarregado": "",
+   "cargosDia": {
+    "Jhone": "1/2 Oficial de Pintor"
+   }
+  },
+  {
+   "id": "rdoa_o6_2026-11-05",
+   "chave": "rdo|o6|2026-11-05",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o6",
+   "data": "2026-11-05",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Jhone"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "fases": [],
+   "servicos": [
+    "Check list final de entrega da obra; manutenção"
+   ],
+   "descricao": "Check list final de entrega da obra; manutenção",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Manutenção, prejuízo de mão de obra.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-05",
+   "local": "SQSW 500",
+   "encarregado": "",
+   "cargosDia": {
+    "Jhone": "1/2 Oficial de Pintor"
+   }
+  },
+  {
+   "id": "rdoa_o6_2026-11-06",
+   "chave": "rdo|o6|2026-11-06",
+   "importado": false,
+   "origem": "apontamento",
+   "status": "salvo",
+   "obraId": "o6",
+   "data": "2026-11-06",
+   "titulo": "",
+   "responsavel": "",
+   "respNome": "",
+   "clima": "",
+   "maoObra": [
+    "Jhone"
+   ],
+   "maoObraIds": [
+    "f10"
+   ],
+   "fases": [],
+   "servicos": [
+    "Check list final de entrega da obra; manutenção"
+   ],
+   "descricao": "Check list final de entrega da obra; manutenção",
+   "hh": "",
+   "horasSemProd": "",
+   "motivoSemProd": "",
+   "materiais": [],
+   "equipamentos": [],
+   "ocorrencias": [],
+   "ocHoras": {},
+   "obs": "Manutenção, prejuízo de mão de obra.",
+   "fotos": [],
+   "fotosQtd": 0,
+   "proximo": "",
+   "respData": "2026-11-06",
+   "local": "SQSW 500",
+   "encarregado": "",
+   "cargosDia": {
+    "Jhone": "1/2 Oficial de Pintor"
+   }
   }
  ],
  "metaMensal": {
@@ -10571,6 +11373,15 @@
    "motivo": "Faltou (Horizon)",
    "chave": "f4|2026-10-19",
    "fonte": "mensagem"
+  },
+  {
+   "id": "fl1",
+   "funcId": "f2",
+   "data": "2026-11-05",
+   "obraId": "o1",
+   "motivo": "Faltou (Supera)",
+   "chave": "f2|2026-11-05",
+   "fonte": "apontamento"
   }
  ],
  "perguntasAbertas": [
@@ -10685,6 +11496,22 @@
   {
    "id": "q32",
    "texto": "Parque Esplanada e Parque Alvorada tratados como sub-obras do Parque Cidade (sem contrato na carteira de 5). Confirmar; e enviar o que foi contratado/valor de cada serviço."
+  },
+  {
+   "id": "q33",
+   "texto": "Tarefas: confirmar a frequência das tarefas do Valim (materiais/estoque/retiradas = semanal? salários = mensal?) e completar o \"etc.\"; o modelo de apontamento do Vinicius é tarefa única?"
+  },
+  {
+   "id": "q34",
+   "texto": "NFS-e: quais das medições já foram RECEBIDAS (e em que data)? O sistema só sabe que foram faturadas. Enviar também a 1ª parcela da SQS 314 e as notas 501, 522 (substituídas)."
+  },
+  {
+   "id": "q35",
+   "texto": "Parque Nacional faturou 40% (entrada, NFS-e 508) mas não tem RDO lançado: a obra já começou? Brasal está faturado em 38,6% e com ~55% de metragem lançada — falta medição?"
+  },
+  {
+   "id": "q36",
+   "texto": "Retirada do Vinicius (05/11): confirmar trena 8 m (não existe no estoque, cadastrar?) e qual espátula (4 ou 12 cm) e a quantidade. Retirada de 10/11 (2 panos, Supera): quem retirou?"
   }
  ],
  "caixinha": [
@@ -11641,7 +12468,8 @@
    "somaMO": 236949.07,
    "somaMAT": 252635.0,
    "status": "Ativo",
-   "ativo": true
+   "ativo": true,
+   "documentos": []
   },
   {
    "id": "ct2",
@@ -11847,7 +12675,8 @@
    "somaMO": 183624.55,
    "somaMAT": 180030.0,
    "status": "Ativo",
-   "ativo": true
+   "ativo": true,
+   "documentos": []
   },
   {
    "id": "ct3",
@@ -11890,7 +12719,8 @@
    "somaMO": 254570.9,
    "somaMAT": 272819.65,
    "status": "Ativo",
-   "ativo": true
+   "ativo": true,
+   "documentos": []
   },
   {
    "id": "ct4",
@@ -11951,7 +12781,8 @@
    "somaMO": 592347.69,
    "somaMAT": 607620.0,
    "status": "Ativo",
-   "ativo": true
+   "ativo": true,
+   "documentos": []
   },
   {
    "id": "ct5",
@@ -11977,7 +12808,8 @@
    "somaMO": 65562.65,
    "somaMAT": 0,
    "status": "Ativo",
-   "ativo": true
+   "ativo": true,
+   "documentos": []
   }
  ],
  "lembretes": [
@@ -12019,7 +12851,11 @@
     "id": "url:assets/nfs/nfse-539-parque-esplanada.pdf",
     "name": "nfse-539-parque-esplanada.pdf"
    },
-   "status": "emitida"
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
   },
   {
    "id": "nf544",
@@ -12038,7 +12874,11 @@
     "id": "url:assets/nfs/nfse-544-parque-alvorada.pdf",
     "name": "nfse-544-parque-alvorada.pdf"
    },
-   "status": "emitida"
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
   },
   {
    "id": "nf548",
@@ -12058,7 +12898,11 @@
     "id": "url:assets/nfs/nfse-548-314-2parcela.pdf",
     "name": "nfse-548-314-2parcela.pdf"
    },
-   "status": "emitida"
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
   },
   {
    "id": "nf549",
@@ -12078,7 +12922,11 @@
     "id": "url:assets/nfs/nfse-549-supera-4medicao.pdf",
     "name": "nfse-549-supera-4medicao.pdf"
    },
-   "status": "emitida"
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
   },
   {
    "id": "nf551",
@@ -12098,7 +12946,179 @@
     "id": "url:assets/nfs/nfse-551-horizon-1medicao.pdf",
     "name": "nfse-551-horizon-1medicao.pdf"
    },
-   "status": "emitida"
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
+  },
+  {
+   "id": "nf502",
+   "numero": "502",
+   "data": "2026-07-16",
+   "tomador": "Confed. Nacional do Comércio de Bens, Serv. e Turismo (CNC)",
+   "cnpj": "33.423.575/0001-76",
+   "descricao": "Pintura epóxi — entrada (1ª medição)",
+   "bruto": 59232.45,
+   "retFederal": 9862.18,
+   "iss": 1184.65,
+   "liquido": 48185.62,
+   "substitui": "501",
+   "obraId": "o1",
+   "contratoId": "ct4",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-502-supera-entrada.pdf",
+    "name": "nfse-502-supera-entrada.pdf"
+   },
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
+  },
+  {
+   "id": "nf524",
+   "numero": "524",
+   "data": "2026-09-03",
+   "tomador": "Confed. Nacional do Comércio de Bens, Serv. e Turismo (CNC)",
+   "cnpj": "33.423.575/0001-76",
+   "descricao": "Pintura epóxi — 2ª medição",
+   "bruto": 79325.85,
+   "retFederal": 13207.74,
+   "iss": 1586.52,
+   "liquido": 64531.59,
+   "substitui": "522",
+   "obraId": "o1",
+   "contratoId": "ct4",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-524-supera-2medicao.pdf",
+    "name": "nfse-524-supera-2medicao.pdf"
+   },
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
+  },
+  {
+   "id": "nf532",
+   "numero": "532",
+   "data": "2026-09-15",
+   "tomador": "Confed. Nacional do Comércio de Bens, Serv. e Turismo (CNC)",
+   "cnpj": "33.423.575/0001-76",
+   "descricao": "Pintura epóxi — 3ª medição",
+   "bruto": 126459.39,
+   "retFederal": 21055.48,
+   "iss": 2529.19,
+   "liquido": 102874.72,
+   "substitui": "",
+   "obraId": "o1",
+   "contratoId": "ct4",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-532-supera-3medicao.pdf",
+    "name": "nfse-532-supera-3medicao.pdf"
+   },
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
+  },
+  {
+   "id": "nf509",
+   "numero": "509",
+   "data": "2026-08-05",
+   "tomador": "INC24 Brasal Incorporações Imobiliárias Ltda",
+   "cnpj": "36.757.871/0001-00",
+   "descricao": "Pintura em epóxi — 1ª medição",
+   "bruto": 21450.0,
+   "retFederal": 3571.42,
+   "iss": 429.0,
+   "liquido": 17449.58,
+   "substitui": "",
+   "obraId": "o2",
+   "contratoId": "ct1",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-509-brasal-1medicao.pdf",
+    "name": "nfse-509-brasal-1medicao.pdf"
+   },
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
+  },
+  {
+   "id": "nf530",
+   "numero": "530",
+   "data": "2026-09-11",
+   "tomador": "INC24 Brasal Incorporações Imobiliárias Ltda",
+   "cnpj": "36.757.871/0001-00",
+   "descricao": "Pintura em epóxi — 2ª medição",
+   "bruto": 17300.05,
+   "retFederal": 2880.45,
+   "iss": 346.0,
+   "liquido": 14073.6,
+   "substitui": "",
+   "obraId": "o2",
+   "contratoId": "ct1",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-530-brasal-2medicao.pdf",
+    "name": "nfse-530-brasal-2medicao.pdf"
+   },
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
+  },
+  {
+   "id": "nf536",
+   "numero": "536",
+   "data": "2026-09-28",
+   "tomador": "INC24 Brasal Incorporações Imobiliárias Ltda",
+   "cnpj": "36.757.871/0001-00",
+   "descricao": "Pintura em epóxi — 3ª medição",
+   "bruto": 52814.74,
+   "retFederal": 8793.65,
+   "iss": 1056.29,
+   "liquido": 42964.8,
+   "substitui": "",
+   "obraId": "o2",
+   "contratoId": "ct1",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-536-brasal-3medicao.pdf",
+    "name": "nfse-536-brasal-3medicao.pdf"
+   },
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
+  },
+  {
+   "id": "nf508",
+   "numero": "508",
+   "data": "2026-08-04",
+   "tomador": "Parque Nacional Empreendimentos Imobiliários S.A.",
+   "cnpj": "41.816.642/0001-40",
+   "descricao": "Execução de pintura epóxi — nota de entrada",
+   "bruto": 101828.36,
+   "retFederal": 16954.41,
+   "iss": 2036.57,
+   "liquido": 82837.38,
+   "substitui": "",
+   "obraId": "o5",
+   "contratoId": "ct3",
+   "arquivo": {
+    "id": "url:assets/nfs/nfse-508-parque-nacional-entrada.pdf",
+    "name": "nfse-508-parque-nacional-entrada.pdf"
+   },
+   "status": "emitida",
+   "recebimento": {
+    "status": "a confirmar",
+    "data": ""
+   }
   }
  ],
  "entradas": [
@@ -12125,6 +13145,164 @@
    "qtd": 5,
    "origem": "cx24",
    "chave": "ent|tx|2026-10-30|810.86|compra no credito|rolos trenas|Trena 5M"
+  }
+ ],
+ "tarefas": [
+  {
+   "id": "t1",
+   "funcId": "f17",
+   "titulo": "Passar cronograma",
+   "frequencia": "mensal",
+   "auto": "",
+   "ativa": true
+  },
+  {
+   "id": "t2",
+   "funcId": "f17",
+   "titulo": "Passar programação mensal",
+   "frequencia": "mensal",
+   "auto": "",
+   "ativa": true
+  },
+  {
+   "id": "t3",
+   "funcId": "f17",
+   "titulo": "Passar programação trimestral",
+   "frequencia": "trimestral",
+   "auto": "",
+   "ativa": true
+  },
+  {
+   "id": "t4",
+   "funcId": "f17",
+   "titulo": "Mandar o modelo de apontamento aos Encarregados",
+   "frequencia": "pontual",
+   "auto": "",
+   "ativa": true
+  },
+  {
+   "id": "t5",
+   "funcId": "f17",
+   "titulo": "Mandar no grupo, todos os dias, a mensagem com os apontamentos no formato fornecido",
+   "frequencia": "diaria",
+   "auto": "apontamento",
+   "ativa": true
+  },
+  {
+   "id": "t6",
+   "funcId": "f18",
+   "titulo": "Mandar materiais, estoque e retiradas",
+   "frequencia": "semanal",
+   "auto": "retiradas",
+   "ativa": true
+  },
+  {
+   "id": "t7",
+   "funcId": "f18",
+   "titulo": "Avaliação dos funcionários",
+   "frequencia": "quinzenal",
+   "auto": "avaliacao",
+   "ativa": true
+  },
+  {
+   "id": "t8",
+   "funcId": "f18",
+   "titulo": "Pagamento dos salários",
+   "frequencia": "mensal",
+   "auto": "",
+   "ativa": true
+  }
+ ],
+ "tarefasLog": [],
+ "apontamentos": [
+  {
+   "id": "ap1",
+   "chave": "apt|o3|2026-11-03|2026-11-06",
+   "obraId": "o3",
+   "ini": "2026-11-03",
+   "fim": "2026-11-06",
+   "enviadoEm": "2026-11-06",
+   "local": "Guará 1",
+   "texto": "OBRA: Horizon | DATA: 03/11/2026 a 06/11/2026 — LOCAL: Guará 1 — EQUIPE DO DIA: Obra parada até dia 09/11/2026",
+   "rdoIds": [],
+   "parada": true
+  },
+  {
+   "id": "ap2",
+   "chave": "apt|o2|2026-11-03|2026-11-06",
+   "obraId": "o2",
+   "ini": "2026-11-03",
+   "fim": "2026-11-06",
+   "enviadoEm": "2026-11-06",
+   "local": "SETOR DE CLUBES SUL",
+   "texto": "OBRA: BRASAL | DATA: 03/11/2026 a 06/11/2026 — LOCAL: SETOR DE CLUBES SUL — EQUIPE: FRANCISCO RENAN E SAMUEL — EQUIPAMENTO: Politriz Grande + Lixadeira de Mão — Lixamento de Piso de Concreto 03/11 270m²; 04/11 270m²; 05/11 270m²+Check List p/ Pintura 1ºSubsolo; 06/11 270m²+Check List p/ Pintura 1ºSubsolo. OBS: Equipe deslocada após o meio-dia devido ao local onde iria ser iniciado o primer ficar travado para arremate de alvenaria na rampa de acesso ao piso. — OBSERVAÇÕES: Execução lenta, produção baixa, culpa da Brasal não liberar o campo.",
+   "rdoIds": [
+    "rdoa_o2_2026-11-03",
+    "rdoa_o2_2026-11-04",
+    "rdoa_o2_2026-11-05",
+    "rdoa_o2_2026-11-06"
+   ],
+   "parada": false
+  },
+  {
+   "id": "ap3",
+   "chave": "apt|o1|2026-11-03|2026-11-06",
+   "obraId": "o1",
+   "ini": "2026-11-03",
+   "fim": "2026-11-06",
+   "enviadoEm": "2026-11-06",
+   "local": "SGAS 613 SUL",
+   "texto": "OBRA: SUPERA | DATA: 03/11/2026 a 06/11/2026 — LOCAL: SGAS 613 SUL — EQUIPE: WANDERSON, IRAMILTON, THIAGO E CLAUDINEY — 03/11 PINTURA DE DEMARCAÇÃO DE VAGAS EXTERNAS (35 UNDS) + PINTURA DE MEIO-FIO (1ºDEMÃO DE PRIMER (TINTA EPOXI)); 04/11 idem; 05/11 REPINTURA BARRADO + TESTE DE REPINTURA NAS VAGAS - WANDERSON FALTOU; 06/11 REPINTURA BARRADO — OBSERVAÇÕES: Execução de reserviço visando solicitação de medição.",
+   "rdoIds": [
+    "rdoa_o1_2026-11-03",
+    "rdoa_o1_2026-11-04",
+    "rdoa_o1_2026-11-05",
+    "rdoa_o1_2026-11-06"
+   ],
+   "parada": false
+  },
+  {
+   "id": "ap4",
+   "chave": "apt|o4|2026-11-03|2026-11-06",
+   "obraId": "o4",
+   "ini": "2026-11-03",
+   "fim": "2026-11-06",
+   "enviadoEm": "2026-11-06",
+   "local": "SQS 314 BLOCO B",
+   "texto": "OBRA: SQS 314 | DATA: 03/11/2026 a 06/11/2026 — LOCAL: SQS 314 BLOCO B — EQUIPE: RONIELE E MATEUS — 03 e 04/11 PINTURA DE DEMARCAÇÃO DE VAGAS E CIRCULAÇÃO DE PEDESTRES; 05 e 06/11 idem + SINALIZAÇÃO — OBSERVAÇÕES: Roniele com produção baixa.",
+   "rdoIds": [
+    "rdoa_o4_2026-11-03",
+    "rdoa_o4_2026-11-04",
+    "rdoa_o4_2026-11-05",
+    "rdoa_o4_2026-11-06"
+   ],
+   "parada": false
+  },
+  {
+   "id": "ap5",
+   "chave": "apt|o6|2026-11-03|2026-11-06",
+   "obraId": "o6",
+   "ini": "2026-11-03",
+   "fim": "2026-11-06",
+   "enviadoEm": "2026-11-06",
+   "local": "SQSW 500",
+   "texto": "OBRA: PARQUE CIDADE | DATA: 03/11/2026 a 06/11/2026 — LOCAL: SQSW 500 — EQUIPE: JHONE — CHECK LIST FINAL ENTREGA OBRA; MANUTENÇÃO — OBSERVAÇÕES: MANUTENÇÃO, PREJUÍZO DE MÃO DE OBRA.",
+   "rdoIds": [
+    "rdoa_o6_2026-11-03",
+    "rdoa_o6_2026-11-04",
+    "rdoa_o6_2026-11-05",
+    "rdoa_o6_2026-11-06"
+   ],
+   "parada": false
+  }
+ ],
+ "paradas": [
+  {
+   "id": "pa1",
+   "obraId": "o3",
+   "ini": "2026-11-03",
+   "fim": "2026-11-06",
+   "motivo": "Obra parada até 09/11/2026 (Guará 1)"
   }
  ]
 }

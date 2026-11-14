@@ -15,7 +15,7 @@ const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '
 const STOP = new Set(['de', 'da', 'do', 'das', 'dos', 'com', 'para', 'p', 'e', 'a', 'o', 'un', 'und', 'tam']);
 const toks = s => norm(s).split(' ').filter(w => w && !STOP.has(w)).map(w => (w.length > 3 && w.endsWith('s') ? w.slice(0, -1) : w));
 const ALIAS = [[/\blona\b/, 'Lona 110M'], [/caixa de fita.*24 un/, 'Fita 48mm'], [/fita grossa/, 'Fita 48mm'], [/fita fina/, 'Fita 24mm'], [/^lona\b/, 'Lona 110M'], [/rolos? (de )?0?5 ?(mm|cm)/, 'Rolo 5CM'], [/rolos? (de )?0?9 ?(mm|cm)/, 'Rolo 9CM'], [/rolos?( [a-z]+)? (de )?23 ?(mm|cm)/, 'Rolo 23cm'], [/^panos?( de chao)?$/, 'Panos de chão'],
-  [/^trena/, 'Trena 5M'], [/oculos/, 'Óculos de proteção'], [/mascara.*(filtro)/, 'Kit Máscaras com 2 filtros'], [/mascara pff2/, 'Máscaras PFF2'], [/^galocha/, 'Galochas'], [/^macac/, 'Macacões'], [/^desempenadeira/, 'Desempenadeiras']];
+  [/^trena( de)? 0?5 ?m/, 'Trena 5M'], [/oculos/, 'Óculos de proteção'], [/mascara.*(filtro)/, 'Kit Máscaras com 2 filtros'], [/mascara pff2/, 'Máscaras PFF2'], [/^galocha/, 'Galochas'], [/^macac/, 'Macacões'], [/^desempenadeira/, 'Desempenadeiras']];
 
 let S, view = 'today', obraF = 'all', tab = {};
 
@@ -192,7 +192,7 @@ const VIEWS = {
 };
 function retiradasTable(rs) {
   if (!rs.length) return '<p class="sub">Nenhuma retirada registrada ainda.</p>';
-  return `<div class="tw"><table><tr><th>Data</th><th>Material</th><th class="n">Qtd</th><th>Obra / destino</th><th>Responsável</th><th>Obs</th></tr>${rs.map(r => `<tr><td>${fdate(r.data)}</td><td>${esc((S.materiais.find(m => m.id === r.materialId) || {}).nome || r.nomeOriginal)}</td><td class="n">${num(r.qtd)}</td><td>${r.obraId ? esc(obraNome(r.obraId)) : `<span class="pill a">${esc(r.destinoTxt || 'a informar')}</span>`}</td><td>${esc(r.responsavel || '—')}</td><td>${r.pendente ? `<span class="pill a">identificar ${esc(r.pendente)}</span> ` : ''}${r.faltou ? `<span class="pill r">faltou ${num(r.faltou)}</span> ` : ''}${esc(r.obs || '')}</td></tr>`).join('')}</table></div>`;
+  return `<div class="tw"><table><tr><th>Data</th><th>Material</th><th class="n">Qtd</th><th>Obra / destino</th><th>Responsável</th><th>Obs</th></tr>${rs.map(r => `<tr><td>${fdate(r.data)}</td><td>${esc((S.materiais.find(m => m.id === r.materialId) || {}).nome || r.nomeOriginal)}</td><td class="n">${num(r.qtd)}</td><td>${r.obraId ? esc(obraNome(r.obraId)) : r.posse ? `<span class="pill b">em posse de ${esc(r.posse)}</span><small style="display:block;color:var(--mut)">${esc(r.destinoTxt.replace(/^Em posse do respons[aá]vel:\s*/i, ''))}</small>` : `<span class="pill a">${esc(r.destinoTxt || 'a informar')}</span>`}</td><td>${esc(r.responsavel || '—')}</td><td>${r.pendente ? `<span class="pill a">identificar ${esc(r.pendente)}</span> ` : ''}${r.faltou ? `<span class="pill r">faltou ${num(r.faltou)}</span> ` : ''}${esc(r.obs || '')}</td></tr>`).join('')}</table></div>`;
 }
 
 /* ---------- ações / modais ---------- */
@@ -210,7 +210,7 @@ function parseRetiradas(txt) {
     const o = /a informar/i.test(dest) ? null : findObra(dest.replace(/^obra\s+/i, ''));
     for (const l of lista.split('\n')) {
       const t = l.replace(/^[\s*•\-–]+/, '').trim(); if (!t) continue;
-      const m = t.match(/^(\d+(?:[.,]\d+)?)\s+(.+)$/); if (!m) continue;
+      const m = t.match(/^(\d+(?:[.,]\d+)?)\s+(.+)$/) || (/^[A-Za-zÀ-ú]/.test(t) ? [t, '1', t] : null); if (!m) continue;
       let nome = m[2].replace(/\s*\(.*?\)\s*$/, '').trim(), qtd = parseBR(m[1]), emb = '';
       const pk = nome.match(/^(caixas?|cx|pacotes?|pct)\s+(?:de\s+)?(.+)$/i), un = nome.match(/^(unidades?|un)\s+(?:de\s+)?(.+)$/i);
       if (pk) nome = pk[2]; else if (un) nome = un[2];
@@ -254,7 +254,8 @@ function confirmRetirada() {
     const dest = norm(r.destinoTxt || '');
     if (S.retiradas.some(x => x.chave === ch || (x.data === (r.data || today()) && +x.qtd === +r.qtd && ((r.m && x.materialId === r.m.id) || norm(x.nomeOriginal) === norm(r.mat)) && ((r.o && x.obraId === r.o.id) || (!r.o && !x.obraId) || (dest && norm(x.destinoTxt || '') === dest))))) { dup++; continue; }
     const rec = { id: uid('r'), chave: ch, data: r.data || today(), materialId: r.m ? r.m.id : '', qtd: r.qtd, obraId: r.o ? r.o.id : '', destinoTxt: r.destinoTxt || '', responsavel: r.resp || '', nomeOriginal: r.mat, origem: 'app' };
-    if (!r.o) rec.pendente = 'destino'; if (!r.m) rec.pendente = ((rec.pendente || '') + ' material').trim();
+    const posse = !r.o && /comigo|uso (nas?|em) visitas|em posse|uso pessoal/i.test(r.destinoTxt || ''); if (posse) rec.posse = r.resp || 'responsável';
+    if (!r.o && !posse) rec.pendente = 'destino'; if (!r.m) rec.pendente = ((rec.pendente || '') + ' material').trim();
     if (r.m) { const falt = Math.max(0, r.qtd - r.m.qtd); r.m.qtd = Math.max(0, r.m.qtd - r.qtd); if (falt) rec.faltou = falt; }
     if (rec.pendente) pend++; S.retiradas.push(rec); n++;
   }

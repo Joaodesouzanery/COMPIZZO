@@ -45,7 +45,7 @@ function semanaView() {
   const linhas = obras.map(o => { const win = obraWindow(o);
     const cels = dias.map(d => {
       const plano = planoDia(o.id, d), rs = S.rdos.filter(r => r.obraId === o.id && r.data === d), salvo = rs.find(r => r.status === 'salvo'), rasc = rs.find(r => r.status !== 'salvo');
-      const exp = d >= win.ini && d <= win.fim && diaUtil(d) && d <= hoje; if (exp) { esp++; if (salvo) ok++; else falt.push({ o, d }); }
+      const exp = d >= win.ini && d <= win.fim && diaUtil(d) && d <= hoje && !obraParada(o.id, d); if (exp) { esp++; if (salvo) ok++; else falt.push({ o, d }); }
       const m2 = salvo ? rdoCalc(salvo).m2 : 0; m2tot += m2;
       const st = salvo ? `<span class="pill g">✔ RDO${m2 ? ' · ' + nfmt(m2) + ' m²' : ''}</span>` : rasc ? '<span class="pill a">◐ rascunho</span>' : exp ? `<button class="cv no" data-cv="new:${o.id}:${d}" style="width:auto;display:inline-block;padding:2px 8px">✖ sem RDO</button>` : d > hoje && diaUtil(d) ? '<span class="pill">a vir</span>' : '<span class="cv na" style="display:inline">▫</span>';
       const qtd = salvo ? (salvo.maoObra || []).length || salvo.pessoas || 0 : 0;

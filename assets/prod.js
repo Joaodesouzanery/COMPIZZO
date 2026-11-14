@@ -220,6 +220,7 @@ function obraWindow(o) {
   return { ini, fim: fim > today() ? today() : fim };
 }
 const diaUtil = d => dowIdx(d) < 6 && !S.feriados[d];
+const obraParada = (id, d) => (S.paradas || []).some(p => p.obraId === id && d >= p.ini && d <= p.fim);
 function covData(mes) {
   const [Y, M] = mes.split('-').map(Number), nd = new Date(Date.UTC(Y, M, 0)).getUTCDate();
   const days = Array.from({ length: nd }, (_, i) => `${mes}-${String(i + 1).padStart(2, '0')}`);
@@ -236,13 +237,13 @@ function covView() {
   const rows = days.slice().reverse().filter(d => d <= today()).map(d => {
     let exp = 0, ok = 0;
     const cells = cols.map(({ o, w }) => {
-      const rs = byKey[o.id + '|' + d] || [], inWin = w && d >= w.ini && d <= w.fim, esperado = inWin && diaUtil(d);
+      const rs = byKey[o.id + '|' + d] || [], inWin = w && d >= w.ini && d <= w.fim, parada = obraParada(o.id, d), esperado = inWin && diaUtil(d) && !parada;
       const salvos = rs.filter(r => r.status === 'salvo'), dr = rs.filter(r => r.status !== 'salvo');
       if (esperado) exp++; if (salvos.length) ok++;
       if (salvos.length) { const m2 = salvos.reduce((a, r) => a + rdoCalc(r).m2, 0); return `<td><button class="cv ok" data-cv="open:${salvos[0].id}" title="${esc(salvos[0].titulo || '')}">✔ ${salvos.length > 1 ? salvos.length + ' RDOs' : 'RDO'}${m2 ? `<br>${num(m2)} m²` : ''}</button></td>`; }
       if (dr.length) return `<td><button class="cv dr" data-cv="open:${dr[0].id}">◐ rascunho</button></td>`;
       if (esperado) return `<td><button class="cv no" data-cv="new:${o.id}:${d}" title="Criar RDO">✖ sem RDO</button></td>`;
-      return `<td><span class="cv na">${inWin ? (S.feriados[d] ? 'feriado' : '') : '▫'}</span></td>`;
+      return `<td><span class="cv na">${inWin ? (parada ? 'parada' : S.feriados[d] ? 'feriado' : '') : '▫'}</span></td>`;
     });
     const fx = !diaUtil(d);
     return `<tr class="${fx ? 'fx' : ''}"><td><b>${fdate(d).slice(0, 5)}</b> <small style="color:var(--mut)">${DOW[dowIdx(d)]}</small>${exp ? `<small style="display:block" class="${ok === exp ? 'ok' : ok ? 'amb' : 'bad'}">${ok} de ${exp}</small>` : ''}</td>${cells.join('')}</tr>`;
@@ -267,11 +268,11 @@ function covView() {
 
 VIEWS.prod = () => {
   const t = tab.p || 'geral';
-  const tabs = [['geral', 'Geral'], ['desemp', 'Desempenho'], ['rdo', 'RDO'], ['plan', 'Semana planejada'], ['cov', 'Cobertura diária'], ['metas', 'Metas de produção'], ['mc', 'Metas e calendário'], ['agenda', 'Agenda semanal']];
+  const tabs = [['geral', 'Geral'], ['desemp', 'Desempenho'], ['rdo', 'RDO'], ['plan', 'Semana planejada'], ['apt', 'Apontamentos'], ['cov', 'Cobertura diária'], ['metas', 'Metas de produção'], ['mc', 'Metas e calendário'], ['agenda', 'Agenda semanal']];
   if (t === 'rdo' && rd && tab.rdoEdit) return rdoForm();
   if (t === 'rdo' && tab.rv) return rdoFicha(tab.rv);
-  const act = t === 'rdo' || t === 'geral' ? '<button class="btn" data-apt-go="open">Colar apontamento</button>' + (t === 'rdo' ? '<button class="btn pri" data-rd="new">Novo RDO</button>' : '') : '';
-  const body = t === 'geral' ? geralView() : t === 'desemp' ? desempenhoView() : t === 'rdo' ? rdoListV2() : t === 'plan' ? semanaPlanView() : t === 'cov' ? covView() : t === 'metas' ? metasView() : t === 'mc' ? calView() : agendaView();
+  const act = t === 'rdo' || t === 'geral' || t === 'apt' ? '<button class="btn" data-apt-go="open">Colar apontamento</button>' + (t === 'rdo' ? '<button class="btn pri" data-rd="new">Novo RDO</button>' : '') : '';
+  const body = t === 'geral' ? geralView() : t === 'desemp' ? desempenhoView() : t === 'rdo' ? rdoListV2() : t === 'plan' ? semanaPlanView() : t === 'apt' ? aptHistView() : t === 'cov' ? covView() : t === 'metas' ? metasView() : t === 'mc' ? calView() : agendaView();
   return `${head('Produção e RDO', 'Diário de obra · metas · calendário', act)}<div class="tabs">${tabs.map(([k, l]) => `<button data-pt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
 };
 

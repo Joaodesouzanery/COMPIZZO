@@ -23,6 +23,10 @@ for n in d.get('notasEmitidas', []):
     if n.get('contratoId') and n['contratoId'] not in {c['id'] for c in ct}: add('ERRO', 'notas', f"NFS-e {n['numero']} aponta para contrato inexistente {n['contratoId']}")
 nums = [n['numero'] for n in d.get('notasEmitidas', [])]
 if len(nums) != len(set(nums)): add('ERRO', 'notas', 'nº de NFS-e repetido')
+for c in ct:
+    f = sum(n['bruto'] for n in d.get('notasEmitidas', []) if n.get('contratoId') == c['id'])
+    if f > c['mo'] + 0.02: add('ERRO', 'contratos', f"{c['nome']}: faturado {brl(f)} maior que a MO contratada {brl(c['mo'])}")
+    else: add('OK', 'contratos', f"{c['nome']}: faturado {brl(f)} = {f / c['mo'] * 100:.1f}% da MO; saldo {brl(c['mo'] - f)}")
 # obras
 ids = {o['id'] for o in d['obras']}
 for o in d['obras']:
