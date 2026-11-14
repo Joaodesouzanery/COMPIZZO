@@ -1,5 +1,5 @@
 {
- "version": 15,
+ "version": 16,
  "obras": [
   {
    "id": "o1",
@@ -189,6 +189,20 @@
    ],
    "inicio": "2026-10-05",
    "paiId": "o6"
+  },
+  {
+   "id": "o15",
+   "nome": "SQSW 102 Bloco I",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "aliases": [
+    "sqsw 102",
+    "102 bloco i",
+    "sqsw 102 bloco i"
+   ],
+   "inicio": "2026-11-12"
   }
  ],
  "funcionarios": [
@@ -701,6 +715,20 @@
    "aliases": [],
    "obraId": "",
    "obs": "Administrativo: sem custo de obra, fora dos RDOs."
+  },
+  {
+   "id": "f19",
+   "nome": "Henrique",
+   "funcao": "Diarista",
+   "status": "Ativo",
+   "contrato": "Diarista",
+   "custoDiaFixo": 170.0,
+   "naLista": false,
+   "aliases": [
+    "henrique diarista"
+   ],
+   "obraId": "o15",
+   "obs": "Diarista: R$ 170 por dia (informado em 12/11)."
   }
  ],
  "avaliadores": [
@@ -11512,6 +11540,26 @@
   {
    "id": "q36",
    "texto": "Retirada do Vinicius (05/11): confirmar trena 8 m (não existe no estoque, cadastrar?) e qual espátula (4 ou 12 cm) e a quantidade. Retirada de 10/11 (2 panos, Supera): quem retirou?"
+  },
+  {
+   "id": "q37",
+   "texto": "Caixinha: \"Passagem 10/11 (adiantamento) R$ 30\" é para quem? É a mesma passagem do diarista Henrique (R$ 60 em 10/11)? Quem adiantou os R$ 60 para reembolsar?"
+  },
+  {
+   "id": "q38",
+   "texto": "Caixinha: \"Diária Henrique 12/11 R$ 170\" apareceu duas vezes (itens l e p) — tratei como a mesma; confirmar. Itens m, o, q e r sem data: assumi 12/11 (m) e 13/11 (o, q, r)."
+  },
+  {
+   "id": "q39",
+   "texto": "99Pop de 13/11 (R$ 14,10, Renan e Samuel): confirmar o desconto dos dois (R$ 7,05 cada?) e o dia em que entra na folha."
+  },
+  {
+   "id": "q40",
+   "texto": "13º: a simulação não inclui Claudiney e Romário (CLT, admitidos em 05/2026) nem Antônio Oliver/Arlindo/Walace/Vinicius — estão fora por vínculo ou foi omissão? Escolher: duas parcelas (1ª até 30/11) ou parcela única (passa do prazo legal)."
+  },
+  {
+   "id": "q41",
+   "texto": "Obra nova SQSW 102 Bloco I (diarista Henrique, R$ 170/dia): enviar contrato/valor, início e escopo; Renan em 11/11 — Horizon (2ª demão de primer) ou Supera → Brasal?"
   }
  ],
  "caixinha": [
@@ -12420,6 +12468,525 @@
    "origem": "mensagem",
    "anexos": [],
    "obs": ""
+  },
+  {
+   "data": "2026-11-05",
+   "dataDoc": "",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento MOBI",
+   "itens": [],
+   "obras": [],
+   "solicitante": "",
+   "valorTexto": 167.7,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "veiculo": "MOBI",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-05|167.70|abastecimento|mobi",
+   "id": "cx28"
+  },
+  {
+   "data": "2026-11-09",
+   "dataDoc": "",
+   "tipo": "Compra direta",
+   "fornecedor": "Ciaimper",
+   "descricao": "Compra direta (itens não informados)",
+   "itens": [],
+   "obras": [],
+   "solicitante": "Valim",
+   "valorTexto": 176.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-09|176.00|ciaimper|compra direta",
+   "id": "cx29"
+  },
+  {
+   "data": "2026-11-10",
+   "dataDoc": "",
+   "tipo": "Pix / Reembolso",
+   "fornecedor": "Adiantamento",
+   "descricao": "Passagem (adiantamento)",
+   "itens": [],
+   "obras": [],
+   "solicitante": "",
+   "valorTexto": 30.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Beneficiário não informado.",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "adiantamento",
+   "acertoStatus": "pendente",
+   "chave": "tx|2026-11-10|30.00|adiantamento passagem",
+   "id": "cx30"
+  },
+  {
+   "data": "2026-11-10",
+   "dataDoc": "",
+   "tipo": "Pix / Reembolso",
+   "fornecedor": "Adiantamento",
+   "descricao": "Adiantamento diarista Henrique — passagem para quinta (12/11)",
+   "itens": [],
+   "obras": [],
+   "solicitante": "",
+   "valorTexto": 60.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Solicitação de reembolso.",
+   "veiculo": "",
+   "pessoa": "Quem adiantou (informar)",
+   "acerto": "reembolsar",
+   "acertoStatus": "pendente",
+   "chave": "tx|2026-11-10|60.00|adiantamento diarista henrique passagem",
+   "id": "cx31"
+  },
+  {
+   "data": "2026-11-10",
+   "dataDoc": "",
+   "tipo": "Pix / Reembolso",
+   "fornecedor": "Antônio Cícero (reembolso)",
+   "descricao": "Álcool — reembolso",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 60.0
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 60.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Solicitação de reembolso.",
+   "veiculo": "",
+   "pessoa": "Antonio Cicero",
+   "acerto": "reembolsar",
+   "acertoStatus": "pendente",
+   "chave": "tx|2026-11-10|60.00|alcool antonio cicero",
+   "id": "cx32"
+  },
+  {
+   "data": "2026-11-10",
+   "dataDoc": "",
+   "tipo": "Alimentação",
+   "fornecedor": "Big Box",
+   "descricao": "Lanches para hora extra",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 39.47
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 39.47,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-10|39.47|lanches hora extra big box",
+   "id": "cx33"
+  },
+  {
+   "data": "2026-11-10",
+   "dataDoc": "",
+   "tipo": "Deslocamento",
+   "fornecedor": "Uber",
+   "descricao": "Uber Horizon → Supera (Francisco Renan)",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 23.95
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 23.95,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Solicitação de reembolso. Atribuído à obra de destino (Supera).",
+   "veiculo": "",
+   "pessoa": "Renan",
+   "acerto": "reembolsar",
+   "acertoStatus": "pendente",
+   "chave": "tx|2026-11-10|23.95|uber horizon supera renan",
+   "id": "cx34"
+  },
+  {
+   "data": "2026-11-11",
+   "dataDoc": "",
+   "tipo": "Deslocamento",
+   "fornecedor": "Uber",
+   "descricao": "Uber deslocamento de funcionários Supera → Brasal (Renan e Mateus)",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o2",
+     "valor": 22.94
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 22.94,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Texto diz que Renan iniciou o dia no Horizon (2ª demão de primer) e foi à tarde para a Brasal (raspadinha); o trecho é Supera → Brasal. Conferir.",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-11|22.94|uber supera brasal renan mateus",
+   "id": "cx35"
+  },
+  {
+   "data": "2026-11-11",
+   "dataDoc": "",
+   "tipo": "Pix / Reembolso",
+   "fornecedor": "Transferência CC Vinicius",
+   "descricao": "Compra de bota (EPI) para diarista, uso em 12/11",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o15",
+     "valor": 50.0
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 50.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Transferência",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "veiculo": "",
+   "pessoa": "Vinicius",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-11|50.00|transferencia cc vinicius bota diarista",
+   "id": "cx36"
+  },
+  {
+   "data": "2026-11-12",
+   "dataDoc": "",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Massa plástica branca p/ arremate técnico",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o4",
+     "valor": 12.89
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 12.89,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-12|12.89|massa plastica branca 314",
+   "id": "cx37"
+  },
+  {
+   "data": "2026-11-12",
+   "dataDoc": "",
+   "tipo": "Diária",
+   "fornecedor": "Diária — Henrique (diarista)",
+   "descricao": "Diária 12/11 — programação de pagamento",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o15",
+     "valor": 170.0
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 170.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Também aparece \"p) Diária Henrique 12/11 R$ 170\" — tratada como a mesma diária (não duplicada).",
+   "veiculo": "",
+   "pessoa": "Henrique",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-12|170.00|diaria henrique sqsw 102",
+   "id": "cx38"
+  },
+  {
+   "data": "2026-11-12",
+   "dataDoc": "",
+   "tipo": "Alimentação",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Lanche para hora extra",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o1",
+     "valor": 41.59
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 41.59,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Data não informada (assumido 12/11, logo após o item de 12/11).",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-12|41.59|lanche hora extra supera",
+   "id": "cx39"
+  },
+  {
+   "data": "2026-11-13",
+   "dataDoc": "",
+   "tipo": "Compra direta",
+   "fornecedor": "Atacadão dia a dia",
+   "descricao": "Rodo para raspadinha",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o3",
+     "valor": 91.47
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 91.47,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-13|91.47|atacadao rodo raspadinha horizon",
+   "id": "cx40"
+  },
+  {
+   "data": "2026-11-13",
+   "dataDoc": "",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento MOBI",
+   "itens": [],
+   "obras": [],
+   "solicitante": "",
+   "valorTexto": 140.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Data não informada (assumido 13/11).",
+   "veiculo": "MOBI",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-13|140.00|abastecimento mobi",
+   "id": "cx41"
+  },
+  {
+   "data": "2026-11-13",
+   "dataDoc": "",
+   "tipo": "Deslocamento",
+   "fornecedor": "Uber",
+   "descricao": "Uber Horizon → Alojamento (Roniele, Samuel e Renan)",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o3",
+     "valor": 8.9
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 8.9,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Data não informada (assumido 13/11).",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-13|8.90|uber horizon alojamento",
+   "id": "cx42"
+  },
+  {
+   "data": "2026-11-13",
+   "dataDoc": "",
+   "tipo": "Deslocamento",
+   "fornecedor": "99Pop",
+   "descricao": "99Pop Alojamento → Horizon (Renan e Samuel)",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o3",
+     "valor": 14.1
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 14.1,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Renan e Samuel não foram de bom grado pela manhã com Cícero/Wanderson; deslocamento pedido para evitar as faltas. Solicitação: descontar o valor dos dois. Data presumida 13/11.",
+   "veiculo": "",
+   "pessoa": "Renan e Samuel",
+   "acerto": "descontar",
+   "acertoStatus": "pendente",
+   "chave": "tx|2026-11-13|14.10|99pop alojamento horizon",
+   "id": "cx43"
   }
  ],
  "importacoes": [
@@ -13303,6 +13870,119 @@
    "ini": "2026-11-03",
    "fim": "2026-11-06",
    "motivo": "Obra parada até 09/11/2026 (Guará 1)"
+  }
+ ],
+ "plano13": {
+  "preparado": "2026-11-12",
+  "vinculo": "projeção até dezembro de 2026",
+  "prazo1": "2026-11-30",
+  "prazo2legal": "2026-12-20",
+  "prazo2prog": "2026-12-18",
+  "linhas": [
+   {
+    "nome": "Antônio Cícero",
+    "bruto": 3000.0,
+    "inss": 248.6,
+    "p1": 1500.0,
+    "p2": 1251.4,
+    "unico": 2751.4,
+    "func": "f13"
+   },
+   {
+    "nome": "Antônio Wanderson",
+    "bruto": 2839.1,
+    "inss": 231.2,
+    "p1": 1419.55,
+    "p2": 1188.35,
+    "unico": 2607.9,
+    "func": "f2"
+   },
+   {
+    "nome": "Francisco Roniele",
+    "bruto": 946.37,
+    "inss": 70.98,
+    "p1": 473.19,
+    "p2": 402.2,
+    "unico": 875.39,
+    "func": "f3"
+   },
+   {
+    "nome": "Francisco Renan",
+    "bruto": 707.93,
+    "inss": 53.09,
+    "p1": 353.97,
+    "p2": 300.87,
+    "unico": 654.84,
+    "func": "f4"
+   },
+   {
+    "nome": "Francisco Mateus",
+    "bruto": 484.75,
+    "inss": 36.36,
+    "p1": 242.38,
+    "p2": 206.01,
+    "unico": 448.39,
+    "func": "f11"
+   },
+   {
+    "nome": "Iramilton Madeira",
+    "bruto": 2839.1,
+    "inss": 231.2,
+    "p1": 1419.55,
+    "p2": 1188.35,
+    "unico": 2607.9,
+    "func": "f7"
+   },
+   {
+    "nome": "Jhones dos Santos",
+    "bruto": 2123.8,
+    "inss": 166.83,
+    "p1": 1061.9,
+    "p2": 895.07,
+    "unico": 1956.97,
+    "func": "f10"
+   },
+   {
+    "nome": "Tiago Rodrigues",
+    "bruto": 646.33,
+    "inss": 48.47,
+    "p1": 323.17,
+    "p2": 274.69,
+    "unico": 597.86,
+    "func": "f8"
+   },
+   {
+    "nome": "Samuel Cardoso",
+    "bruto": 646.33,
+    "inss": 48.47,
+    "p1": 323.17,
+    "p2": 274.69,
+    "unico": 597.86,
+    "func": "f5"
+   }
+  ],
+  "totais": {
+   "bruto": 14233.71,
+   "inss": 1135.2,
+   "p1": 7116.88,
+   "p2": 5981.63,
+   "unico": 13098.51
+  }
+ },
+ "pagamentos": [
+  {
+   "id": "pg1",
+   "tipo": "13º salário — 1ª parcela",
+   "venc": "2026-11-30",
+   "valor": 7116.88,
+   "status": "a pagar"
+  },
+  {
+   "id": "pg2",
+   "tipo": "13º salário — 2ª parcela (líquida)",
+   "venc": "2026-12-18",
+   "valor": 5981.63,
+   "status": "a pagar"
   }
  ]
 }

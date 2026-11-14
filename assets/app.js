@@ -187,7 +187,7 @@ const VIEWS = {
       <div class="tw"><table><tr><th>Competência</th>${av.map(a => `<th class="n">${esc(a)}</th>`).join('')}</tr>${COMPS.map((c, i) => `<tr><td>${c}</td>${av.map((a, j) => `<td class="n"><input class="sc" data-c="${i}" data-a="${j}" type="number" min="0" max="10" step="0.5" style="width:80px"></td>`).join('')}</tr>`).join('')}</table></div>
       <div class="row sp" style="margin-top:14px"><div id="prev" class="kpi"><div class="mono">Resultado</div><div class="v">—</div></div><button class="btn blue" data-act="saveAval">Salvar avaliação</button></div></div>`;
     }
-    return `${head('Mão de obra', 'Avaliação de desempenho · quinzenal', `<button class="btn" data-mt="func">Cadastros</button>`)}<div class="tabs">${[['pessoas', 'Pessoas'], ['ranking', 'Ranking e histórico'], ['aval', 'Nova avaliação'], ['func', 'Funcionários'], ['equipes', 'Equipes'], ['cargos', 'Cargos']].map(([k, l]) => `<button data-mt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
+    return `${head('Mão de obra', 'Avaliação de desempenho · quinzenal', `<button class="btn" data-mt="func">Cadastros</button>`)}<div class="tabs">${[['pessoas', 'Pessoas'], ['ranking', 'Ranking e histórico'], ['aval', 'Nova avaliação'], ['func', 'Funcionários'], ['equipes', 'Equipes'], ['cargos', 'Cargos'], ['folha', 'Folha e 13º']].map(([k, l]) => `<button data-mt="${k}" class="${t === k ? 'on' : ''}">${l}</button>`).join('')}</div>${body}`;
   }
 };
 function retiradasTable(rs) {

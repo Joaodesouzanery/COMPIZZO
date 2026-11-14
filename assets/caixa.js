@@ -1,6 +1,6 @@
 /* Caixinha / Linha direta: compras diretas com NF, cupom ou comprovante (aba dentro de Compras e orçamentos). */
 'use strict';
-const CX_TIPOS = ['Compra direta', 'Combustível', 'Pix / Reembolso', 'Outro'];
+const CX_TIPOS = ['Compra direta', 'Combustível', 'Pix / Reembolso', 'Alimentação', 'Deslocamento', 'Diária', 'Outro'];
 const CX_DOCS = ['NF-e', 'NFC-e', 'Comprovante Pix', 'Outro documento', 'Sem documento'];
 const cxState = { rows: [], files: [] };
 const cxArr = () => (S.caixinha = S.caixinha || []);
