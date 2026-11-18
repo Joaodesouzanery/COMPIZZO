@@ -27,6 +27,22 @@ for c in ct:
     f = sum(n['bruto'] for n in d.get('notasEmitidas', []) if n.get('contratoId') == c['id'])
     if f > c['mo'] + 0.02: add('ERRO', 'contratos', f"{c['nome']}: faturado {brl(f)} maior que a MO contratada {brl(c['mo'])}")
     else: add('OK', 'contratos', f"{c['nome']}: faturado {brl(f)} = {f / c['mo'] * 100:.1f}% da MO; saldo {brl(c['mo'] - f)}")
+# serviços lançados sem preço (contrato com tabela de preços ou obra em modo peso)
+FS = {f['id']: f for f in d['fases']}; OB = {o['id']: o for o in d['obras']}
+for c in ct:
+    ids = {c['obraId']} | {o['id'] for o in d['obras'] if o.get('paiId') == c['obraId']}; sem = collections.Counter()
+    for r in d['rdos']:
+        if r.get('status') != 'salvo' or r.get('obraId') not in ids: continue
+        for l in r.get('fases', []):
+            if not (l.get('qtd') or 0): continue
+            f = FS.get(l.get('faseId')); ok = bool(f) and ((c.get('precos') or {}).get(f['id'], {}).get('preco') or (OB[r['obraId']].get('modoReceita') == 'peso' and f['un'] == 'm²' and OB[r['obraId']].get('precoPiso', 0) > 0))
+            if not ok: sem[(f['nome'] if f else l.get('nome') or 'serviço avulso', l.get('un'))] += 1
+    if sem: add('ALERTA', 'precos', f"{c['nome']}: lançamentos sem preço — " + '; '.join(f'{k[0]} ({k[1]}) x{v}' for k, v in sem.most_common(4)))
+# cobertura de RDO por contrato (dias com RDO salvo)
+for c in ct:
+    ids = {c['obraId']} | {o['id'] for o in d['obras'] if o.get('paiId') == c['obraId']}
+    dias = {r['data'] for r in d['rdos'] if r.get('status') == 'salvo' and r.get('obraId') in ids}
+    add('OK' if len(dias) >= 60 else 'ALERTA', 'dre', f"{c['nome']}: {len(dias)} dias com RDO salvo (resultado só é confiável com RDO em ≥ 80% dos dias úteis)")
 # obras
 ids = {o['id'] for o in d['obras']}
 for o in d['obras']:

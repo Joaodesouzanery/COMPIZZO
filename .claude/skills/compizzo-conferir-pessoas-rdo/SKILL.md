@@ -10,3 +10,6 @@ description: Confere RDOs, presença, custo/dia e programação semanal do Compi
 - Programação: a **agenda do dia substitui a semanal**; listar mudanças de equipe, pessoa em 2 obras no mesmo dia, equipe em obra parada ("atividade a definir"), atividade em feriado, dependências (liberação do campo, projeto impresso).
 - Aderência = dias com atividade prevista que têm RDO salvo.
 - Rode `tools/check_all.py` (seções pessoas, rdo, calendario).
+
+## Para o RDO valer na receita (fase 14)
+Cada serviço do RDO precisa de quantidade na unidade do contrato: piso/barrado/meio-fio em m², demarcação em metros (o contrato da Supera precifica por metro), sinalização por unidade só onde o contrato tem preço por unidade (Horizon). RDO sem quantidade gera custo sem receita no DRE.

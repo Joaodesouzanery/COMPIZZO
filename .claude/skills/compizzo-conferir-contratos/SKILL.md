@@ -12,3 +12,7 @@ Fonte da verdade: `assets/data.json` (`contratos`, `notasEmitidas`, `metaMensal`
 4. Retenção real observada ≈ 18,65% (federais 16,65% + ISS 2%) × premissa da meta mensal (35%): mostrar a diferença, não decidir sozinho.
 5. Nunca invente valores de contrato: campo vazio = "informar" e entra em `perguntasAbertas`.
 Saída: tabela contrato × (total, MO, material, faturado, saldo a faturar) e lista de divergências com valores.
+
+## Preços por serviço e DRE (fase 14)
+- `contratos[].precos` guarda o preço de cada fase/serviço (R$/m², R$/m, R$/un) com a origem (item do contrato). Piso: preço do item × peso da fase ÷ 69; demarcação, barrado e meio-fio usam o preço do próprio item. Serviço lançado sem preço = ALERTA (`tools/check_all.py`, seção `precos`).
+- Resultado › DRE por contrato: faturado − retenções = líquido; − MO (custo/dia × presença) − provisão − material − Caixinha − indiretos. A confiança só é "Alta" com RDO em ≥ 80% dos dias úteis, todas as pessoas com custo/dia e todos os serviços com preço; fora disso o lucro está superestimado e deve ser dito assim.

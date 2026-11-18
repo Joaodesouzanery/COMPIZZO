@@ -15,8 +15,10 @@ const classTipo = s => { const x = (s || '').toLowerCase(); return (TIPO_KW.find
 /* ---------- regras de produção ---------- */
 const getObra = id => S.obras.find(o => o.id === id);
 const fasesAtivas = () => S.fases.filter(f => f.ativa !== false);
+function ctDaObra(o) { return o && (S.contratos || []).find(c => c.ativo !== false && c.precos && (c.obraId === o.id || (o.paiId && c.obraId === o.paiId))); }
 function precoFase(o, f) {
   if (!o || !f) return null;
+  const ct = ctDaObra(o); if (ct && ct.precos[f.id] && ct.precos[f.id].preco > 0) return ct.precos[f.id].preco; // preço do item do contrato
   if (o.modoReceita === 'peso') return f.un === 'm²' && o.precoPiso > 0 ? o.precoPiso * f.peso / 100 : null;
   const p = (o.fasePreco || {})[f.id]; return p > 0 ? p : null;
 }

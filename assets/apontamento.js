@@ -1,6 +1,6 @@
 /* Apontamento diário do campo (formato Encarregado/Presentes/Equipamento/Serviço) → RDO, com mesclagem sem duplicar. */
 'use strict';
-const APT_FASE = [[/lixament/i, 'fa1'], [/trat.*junta|junta.*trinca|check ?list/i, 'fa2'], [/primer/i, 'fa3'], [/raspadinha/i, 'fa5'], [/demarc/i, 'fa7'], [/pintura(?!.*(vaga|demarc))/i, 'fa6']];
+const APT_FASE = [[/lixament/i, 'fa1'], [/trat.*junta|junta.*trinca|check ?list/i, 'fa2'], [/primer/i, 'fa3'], [/raspadinha/i, 'fa5'], [/demarc/i, 'fa7'], [/barrad|parede/i, 'fa9'], [/meio-?fio/i, 'fa10'], [/pintura(?!.*(vaga|demarc))/i, 'fa6']];
 function aptPresentes(txt) {
   const out = [];
   for (const part of String(txt || '').split(/[,;]|\s{2,}/).map(x => x.trim()).filter(Boolean)) {

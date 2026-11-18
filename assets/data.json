@@ -1,5 +1,5 @@
 {
- "version": 17,
+ "version": 19,
  "obras": [
   {
    "id": "o1",
@@ -6864,6 +6864,22 @@
    "peso": 15.5,
    "preco": null,
    "ativa": true
+  },
+  {
+   "id": "fa9",
+   "nome": "Pintura de paredes / barrado",
+   "un": "m²",
+   "peso": 0,
+   "preco": null,
+   "ativa": true
+  },
+  {
+   "id": "fa10",
+   "nome": "Pintura de meio-fio",
+   "un": "m²",
+   "peso": 0,
+   "preco": null,
+   "ativa": true
   }
  ],
  "metas": [],
@@ -7495,8 +7511,8 @@
    "pessoas": 3,
    "fases": [
     {
-     "faseId": "",
-     "nome": "1° demão Primer",
+     "faseId": "fa3",
+     "nome": "",
      "qtd": 1000.0,
      "un": "m²",
      "previsto": 1500.0
@@ -7584,8 +7600,8 @@
    "pessoas": 3,
    "fases": [
     {
-     "faseId": "",
-     "nome": "1° demão Primer",
+     "faseId": "fa3",
+     "nome": "",
      "qtd": 400.0,
      "un": "m²",
      "previsto": 1500.0
@@ -8246,8 +8262,8 @@
    "pessoas": 4,
    "fases": [
     {
-     "faseId": "",
-     "nome": "2°Demão de Primer",
+     "faseId": "fa4",
+     "nome": "",
      "qtd": 2400.0,
      "un": "m²",
      "previsto": 2400.0
@@ -8633,8 +8649,8 @@
    "pessoas": 4,
    "fases": [
     {
-     "faseId": "",
-     "nome": "1°Demão de Primer",
+     "faseId": "fa3",
+     "nome": "",
      "qtd": 2400.0,
      "un": "m²",
      "previsto": 2400.0
@@ -8715,8 +8731,8 @@
    "pessoas": 3,
    "fases": [
     {
-     "faseId": "",
-     "nome": "Raspadinha de tinta",
+     "faseId": "fa5",
+     "nome": "",
      "qtd": 500.0,
      "un": "m²",
      "previsto": 1500.0
@@ -8797,8 +8813,8 @@
    "pessoas": 4,
    "fases": [
     {
-     "faseId": "",
-     "nome": "Pintura Airless",
+     "faseId": "fa6",
+     "nome": "",
      "qtd": 2200.0,
      "un": "m²",
      "previsto": 2200.0
@@ -9336,8 +9352,8 @@
      "previsto": 2500.0
     },
     {
-     "faseId": "",
-     "nome": "Pintura de Barrado",
+     "faseId": "fa9",
+     "nome": "",
      "qtd": 1000.0,
      "un": "m²",
      "previsto": 1000.0
@@ -9431,8 +9447,8 @@
      "previsto": 2500.0
     },
     {
-     "faseId": "",
-     "nome": "Execução de Primer 1º demão",
+     "faseId": "fa3",
+     "nome": "",
      "qtd": 1000.0,
      "un": "m²",
      "previsto": 1000.0
@@ -9642,8 +9658,8 @@
    "pessoas": 6,
    "fases": [
     {
-     "faseId": "",
-     "nome": "Execução de Primer 1ºDemão",
+     "faseId": "fa3",
+     "nome": "",
      "qtd": 2500.0,
      "un": "m²",
      "previsto": 2500.0
@@ -9729,8 +9745,8 @@
    "pessoas": 6,
    "fases": [
     {
-     "faseId": "",
-     "nome": "Execução de Primer",
+     "faseId": "fa3",
+     "nome": "",
      "qtd": 1500.0,
      "un": "m²",
      "previsto": 1500.0
@@ -10455,8 +10471,8 @@
    ],
    "fases": [
     {
-     "faseId": "",
-     "nome": "Pintura de vagas externas - INTERTRAVADO · 22 vagas comuns (15 metros x 22)",
+     "faseId": "fa8",
+     "nome": "",
      "qtd": 22,
      "un": "un"
     }
@@ -13382,7 +13398,63 @@
    "somaMAT": 180030.0,
    "status": "Ativo",
    "ativo": true,
-   "documentos": []
+   "documentos": [],
+   "precos": {
+    "fa1": {
+     "preco": 6.492,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Horizon: epóxi R$ 28,90/m² (preço médio dos itens de piso)"
+    },
+    "fa2": {
+     "preco": 3.3507,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Horizon: epóxi R$ 28,90/m² (preço médio dos itens de piso)"
+    },
+    "fa3": {
+     "preco": 4.1884,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Horizon: epóxi R$ 28,90/m² (preço médio dos itens de piso)"
+    },
+    "fa4": {
+     "preco": 4.1884,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Horizon: epóxi R$ 28,90/m² (preço médio dos itens de piso)"
+    },
+    "fa5": {
+     "preco": 4.1884,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Horizon: epóxi R$ 28,90/m² (preço médio dos itens de piso)"
+    },
+    "fa6": {
+     "preco": 6.492,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Horizon: epóxi R$ 28,90/m² (preço médio dos itens de piso)"
+    },
+    "fa9": {
+     "preco": 24.0,
+     "un": "m²",
+     "item": "barrado acrílica cinza ardósia",
+     "fonte": "Contrato Horizon item 1: R$ 24,00/m²"
+    },
+    "fa8": {
+     "preco": 33.3,
+     "un": "un",
+     "item": "sinalização por unidade (média PNE/faixa/seta/boneco/extintor/figura)",
+     "fonte": "Contrato Horizon itens 13–18: média R$ 33,30/un"
+    },
+    "fa7": {
+     "preco": 8.75,
+     "un": "m",
+     "item": "desenhos (referência item 11)",
+     "fonte": "Estimado do item 11: R$ 8,75"
+    }
+   }
   },
   {
    "id": "ct3",
@@ -13426,7 +13498,45 @@
    "somaMAT": 272819.65,
    "status": "Ativo",
    "ativo": true,
-   "documentos": []
+   "documentos": [],
+   "precos": {
+    "fa1": {
+     "preco": 7.3596,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Parque Nacional: R$ 32,762/m²"
+    },
+    "fa2": {
+     "preco": 3.7985,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Parque Nacional: R$ 32,762/m²"
+    },
+    "fa3": {
+     "preco": 4.7481,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Parque Nacional: R$ 32,762/m²"
+    },
+    "fa4": {
+     "preco": 4.7481,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Parque Nacional: R$ 32,762/m²"
+    },
+    "fa5": {
+     "preco": 4.7481,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Parque Nacional: R$ 32,762/m²"
+    },
+    "fa6": {
+     "preco": 7.3596,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Parque Nacional: R$ 32,762/m²"
+    }
+   }
   },
   {
    "id": "ct4",
@@ -13488,7 +13598,63 @@
    "somaMAT": 607620.0,
    "status": "Ativo",
    "ativo": true,
-   "documentos": []
+   "documentos": [],
+   "precos": {
+    "fa1": {
+     "preco": 6.501,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Supera: pintura epóxi em piso R$ 28,94/m²"
+    },
+    "fa2": {
+     "preco": 3.3554,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Supera: pintura epóxi em piso R$ 28,94/m²"
+    },
+    "fa3": {
+     "preco": 4.1942,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Supera: pintura epóxi em piso R$ 28,94/m²"
+    },
+    "fa4": {
+     "preco": 4.1942,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Supera: pintura epóxi em piso R$ 28,94/m²"
+    },
+    "fa5": {
+     "preco": 4.1942,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Supera: pintura epóxi em piso R$ 28,94/m²"
+    },
+    "fa6": {
+     "preco": 6.501,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato Supera: pintura epóxi em piso R$ 28,94/m²"
+    },
+    "fa7": {
+     "preco": 8.75,
+     "un": "m",
+     "item": "demarcações e sinalizações",
+     "fonte": "Contrato Supera item 3: R$ 8,75/m"
+    },
+    "fa9": {
+     "preco": 27.65,
+     "un": "m²",
+     "item": "paredes",
+     "fonte": "Contrato Supera item 2: R$ 27,65/m²"
+    },
+    "fa10": {
+     "preco": 28.7,
+     "un": "m²",
+     "item": "meio-fio",
+     "fonte": "Contrato Supera item 4: R$ 28,70/m²"
+    }
+   }
   },
   {
    "id": "ct5",
@@ -13515,7 +13681,45 @@
    "somaMAT": 0,
    "status": "Ativo",
    "ativo": true,
-   "documentos": []
+   "documentos": [],
+   "precos": {
+    "fa1": {
+     "preco": 13.6243,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato SQS 314: R$ 60,65/m² (contrato incompleto no sistema)"
+    },
+    "fa2": {
+     "preco": 7.0319,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato SQS 314: R$ 60,65/m² (contrato incompleto no sistema)"
+    },
+    "fa3": {
+     "preco": 8.7899,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato SQS 314: R$ 60,65/m² (contrato incompleto no sistema)"
+    },
+    "fa4": {
+     "preco": 8.7899,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato SQS 314: R$ 60,65/m² (contrato incompleto no sistema)"
+    },
+    "fa5": {
+     "preco": 8.7899,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato SQS 314: R$ 60,65/m² (contrato incompleto no sistema)"
+    },
+    "fa6": {
+     "preco": 13.6243,
+     "un": "m²",
+     "item": "piso (distribuído por peso das fases)",
+     "fonte": "Contrato SQS 314: R$ 60,65/m² (contrato incompleto no sistema)"
+    }
+   }
   }
  ],
  "lembretes": [
