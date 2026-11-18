@@ -1,5 +1,5 @@
 {
- "version": 19,
+ "version": 20,
  "obras": [
   {
    "id": "o1",
@@ -200,9 +200,38 @@
    "aliases": [
     "sqsw 102",
     "102 bloco i",
-    "sqsw 102 bloco i"
+    "sqsw 102 bloco i",
+    "san francisco",
+    "sqnw 102",
+    "sqnw 102 bl i"
    ],
    "inicio": "2026-11-12"
+  },
+  {
+   "id": "o16",
+   "nome": "Faenge — Palazzo 105",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "aliases": [
+    "faenge",
+    "palazzo 105",
+    "faenge palazzo 105"
+   ],
+   "inicio": "2026-11-16"
+  },
+  {
+   "id": "o17",
+   "nome": "Riviera (Manutenção)",
+   "status": "Em andamento",
+   "bac": 0,
+   "precoPiso": 0,
+   "modoReceita": "preco",
+   "aliases": [
+    "riviera"
+   ],
+   "inicio": "2026-11-16"
   }
  ],
  "funcionarios": [
@@ -225,7 +254,8 @@
    "heDom": null,
    "nomeCompleto": "Antonio Oliver Rodrigues de Sousa",
    "aliases": [
-    "antonio oliver"
+    "antonio oliver",
+    "oliver"
    ],
    "obrasRdo": [
     "o1"
@@ -712,9 +742,13 @@
    "custoDiaFixo": 0,
    "administrativo": true,
    "naLista": false,
-   "aliases": [],
+   "aliases": [
+    "william valim",
+    "william"
+   ],
    "obraId": "",
-   "obs": "Administrativo: sem custo de obra, fora dos RDOs."
+   "obs": "Administrativo: sem custo de obra, fora dos RDOs.",
+   "nomeCompleto": "William Valim"
   },
   {
    "id": "f19",
@@ -729,6 +763,19 @@
    ],
    "obraId": "o15",
    "obs": "Diarista: R$ 170 por dia (informado em 12/11)."
+  },
+  {
+   "id": "f20",
+   "nome": "Claudio",
+   "funcao": "(a informar)",
+   "status": "Ativo",
+   "contrato": "CLT",
+   "naLista": false,
+   "aliases": [
+    "claudio"
+   ],
+   "obraId": "o2",
+   "obs": "Funcionário novato (início em 16/11); aguardava exame admissional (raio-x). Função, admissão e salário a informar."
   }
  ],
  "avaliadores": [
@@ -751,7 +798,7 @@
    "nome": "Fita 48mm",
    "codigo": "FT48X24",
    "unidade": "cx",
-   "qtd": 3,
+   "qtd": 1,
    "critica": 1,
    "ultimoPedido": "2025-12-10",
    "nota": "Planilha: 4 cx (24un)",
@@ -766,7 +813,7 @@
    "nome": "Fita 24mm",
    "codigo": "FT24X48",
    "unidade": "cx",
-   "qtd": 4,
+   "qtd": 1,
    "critica": 1,
    "ultimoPedido": "2025-12-05",
    "nota": "Planilha: 5 cx (48un)",
@@ -781,7 +828,7 @@
    "nome": "Lona 110M",
    "codigo": "PLP110M",
    "unidade": "rolos",
-   "qtd": 11,
+   "qtd": 10,
    "critica": 5,
    "ultimoPedido": "2025-10-20",
    "nota": null
@@ -1392,6 +1439,134 @@
    "nomeOriginal": "panos de chão",
    "origem": "mensagem",
    "faltou": 2
+  },
+  {
+   "id": "r1614",
+   "chave": "ret|2026-11-18|lona|1|brasal",
+   "data": "2026-11-18",
+   "materialId": "m4",
+   "qtd": 1,
+   "obraId": "o2",
+   "destinoTxt": "Brasal",
+   "responsavel": "William Valim",
+   "nomeOriginal": "lona",
+   "origem": "mensagem"
+  },
+  {
+   "id": "r1615",
+   "chave": "ret|2026-11-18|caixas de fita 24 mm 96 un|2|brasal",
+   "data": "2026-11-18",
+   "materialId": "m3",
+   "qtd": 2,
+   "obraId": "o2",
+   "destinoTxt": "Brasal",
+   "responsavel": "William Valim",
+   "nomeOriginal": "caixas de fita 24 mm (96 un)",
+   "origem": "mensagem"
+  },
+  {
+   "id": "r1616",
+   "chave": "ret|2026-11-18|caixa de fita 48 mm 24 un|1|brasal",
+   "data": "2026-11-18",
+   "materialId": "m2",
+   "qtd": 1,
+   "obraId": "o2",
+   "destinoTxt": "Brasal",
+   "responsavel": "William Valim",
+   "nomeOriginal": "caixa de fita 48 mm (24 un)",
+   "origem": "mensagem"
+  },
+  {
+   "id": "r1617",
+   "chave": "ret|2026-11-18|pacote de luvas 6 pares|1|brasal",
+   "data": "2026-11-18",
+   "materialId": "",
+   "qtd": 1,
+   "obraId": "o2",
+   "destinoTxt": "Brasal",
+   "responsavel": "William Valim",
+   "nomeOriginal": "½ pacote de luvas (6 pares)",
+   "origem": "mensagem",
+   "obs": "Luva: qual item do estoque (pigmentada ou látex bicolor)? 1 pacote = 12 pares.",
+   "pendente": "material"
+  },
+  {
+   "id": "r1618",
+   "chave": "ret|2026-11-18|thinner|1|brasal",
+   "data": "2026-11-18",
+   "materialId": "m1",
+   "qtd": 1,
+   "obraId": "o2",
+   "destinoTxt": "Brasal",
+   "responsavel": "William Valim",
+   "nomeOriginal": "thinner",
+   "origem": "mensagem",
+   "faltou": 1
+  },
+  {
+   "id": "r1619",
+   "chave": "ret|2026-11-18|panos|6|brasal",
+   "data": "2026-11-18",
+   "materialId": "m15",
+   "qtd": 6,
+   "obraId": "o2",
+   "destinoTxt": "Brasal",
+   "responsavel": "William Valim",
+   "nomeOriginal": "panos",
+   "origem": "mensagem",
+   "faltou": 6
+  },
+  {
+   "id": "r1620",
+   "chave": "ret|2026-11-18|caixa de fita 24 mm 48 un|1|horizon",
+   "data": "2026-11-18",
+   "materialId": "m3",
+   "qtd": 1,
+   "obraId": "o3",
+   "destinoTxt": "Horizon",
+   "responsavel": "William Valim",
+   "nomeOriginal": "caixa de fita 24 mm (48 un)",
+   "origem": "mensagem"
+  },
+  {
+   "id": "r1621",
+   "chave": "ret|2026-11-18|caixa de fita 48 mm 24 un|1|horizon",
+   "data": "2026-11-18",
+   "materialId": "m2",
+   "qtd": 1,
+   "obraId": "o3",
+   "destinoTxt": "Horizon",
+   "responsavel": "William Valim",
+   "nomeOriginal": "caixa de fita 48 mm (24 un)",
+   "origem": "mensagem"
+  },
+  {
+   "id": "r1622",
+   "chave": "ret|2026-11-18|panos|4|horizon",
+   "data": "2026-11-18",
+   "materialId": "m15",
+   "qtd": 4,
+   "obraId": "o3",
+   "destinoTxt": "Horizon",
+   "responsavel": "William Valim",
+   "nomeOriginal": "panos",
+   "origem": "mensagem",
+   "faltou": 4
+  },
+  {
+   "id": "r1623",
+   "chave": "ret|2026-11-18|pacote de luvas 6 pares|1|carro",
+   "data": "2026-11-18",
+   "materialId": "",
+   "qtd": 1,
+   "obraId": "",
+   "destinoTxt": "Carro",
+   "responsavel": "William Valim",
+   "nomeOriginal": "½ pacote de luvas (6 pares)",
+   "origem": "mensagem",
+   "obs": "Luva: qual item do estoque? Uso no carro, sem custo de obra.",
+   "posse": "Carro (frota)",
+   "pendente": "material"
   }
  ],
  "ajustes": [
@@ -4433,7 +4608,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k166"
+   "id": "k166",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o2",
@@ -4449,7 +4625,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k167"
+   "id": "k167",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o3",
@@ -4465,7 +4642,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k168"
+   "id": "k168",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o5",
@@ -4481,7 +4659,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k169"
+   "id": "k169",
+   "substituidoPor": "Programação semanal (obra fora da programação)"
   },
   {
    "obraId": "o1",
@@ -4497,7 +4676,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k170"
+   "id": "k170",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o2",
@@ -4513,7 +4693,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k171"
+   "id": "k171",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o3",
@@ -4529,7 +4710,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k172"
+   "id": "k172",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o5",
@@ -4545,7 +4727,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k173"
+   "id": "k173",
+   "substituidoPor": "Programação semanal (obra fora da programação)"
   },
   {
    "obraId": "o1",
@@ -4561,7 +4744,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k174"
+   "id": "k174",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o2",
@@ -4578,7 +4762,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k175"
+   "id": "k175",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o3",
@@ -4594,7 +4779,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k176"
+   "id": "k176",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o5",
@@ -4610,7 +4796,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k177"
+   "id": "k177",
+   "substituidoPor": "Programação semanal (obra fora da programação)"
   },
   {
    "obraId": "o1",
@@ -4626,7 +4813,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k178"
+   "id": "k178",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o2",
@@ -4640,7 +4828,8 @@
    "equipe": [],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k179"
+   "id": "k179",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o3",
@@ -4656,7 +4845,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k180"
+   "id": "k180",
+   "substituidoPor": "Programação semanal"
   },
   {
    "obraId": "o5",
@@ -4672,7 +4862,8 @@
    ],
    "cond": "",
    "fonte": "Meta 4",
-   "id": "k181"
+   "id": "k181",
+   "substituidoPor": "Programação semanal (obra fora da programação)"
   },
   {
    "obraId": "o1",
@@ -6302,6 +6493,803 @@
    "turno": "dia",
    "parado": false,
    "chave": "o2|2026-11-05|dia|solicitar o projeto impresso para iniciar a demarcacao das cores preparacao e lixamento 1 subsolo area do refeitorio 270 m check list do restante do piso para realizar a pintura"
+  },
+  {
+   "id": "k1278",
+   "obraId": "o1",
+   "data": "2026-11-16",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de pintura: demarcação e números das vagas",
+   "equipe": [
+    "Iramilton",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o1|2026-11-16|dia|execucao de pintura demarcacao e numeros das vagas"
+  },
+  {
+   "id": "k1279",
+   "obraId": "o1",
+   "data": "2026-11-17",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de pintura: demarcação e números das vagas",
+   "equipe": [
+    "Iramilton",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o1|2026-11-17|dia|execucao de pintura demarcacao e numeros das vagas"
+  },
+  {
+   "id": "k1280",
+   "obraId": "o1",
+   "data": "2026-11-18",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o1|2026-11-18|dia|parado"
+  },
+  {
+   "id": "k1281",
+   "obraId": "o1",
+   "data": "2026-11-19",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o1|2026-11-19|dia|parado"
+  },
+  {
+   "id": "k1282",
+   "obraId": "o1",
+   "data": "2026-11-20",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o1|2026-11-20|dia|parado"
+  },
+  {
+   "id": "k1283",
+   "obraId": "o1",
+   "data": "2026-11-21",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o1|2026-11-21|dia|parado"
+  },
+  {
+   "id": "k1284",
+   "obraId": "o4",
+   "data": "2026-11-16",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — verificar possibilidade de encaminhar diarista para executar proteção de colunas; verificar laser",
+   "equipe": [
+    "Wanderson"
+   ],
+   "cond": "verificar",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o4|2026-11-16|dia|parado verificar possibilidade de encaminhar diarista para executar protecao de colunas verificar laser"
+  },
+  {
+   "id": "k1285",
+   "obraId": "o4",
+   "data": "2026-11-17",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — verificar possibilidade de encaminhar diarista para executar proteção de colunas; verificar laser",
+   "equipe": [
+    "Wanderson"
+   ],
+   "cond": "verificar",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o4|2026-11-17|dia|parado verificar possibilidade de encaminhar diarista para executar protecao de colunas verificar laser"
+  },
+  {
+   "id": "k1286",
+   "obraId": "o4",
+   "data": "2026-11-18",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — verificar possibilidade de encaminhar diarista para executar proteção de colunas; verificar laser",
+   "equipe": [
+    "Wanderson"
+   ],
+   "cond": "verificar",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o4|2026-11-18|dia|parado verificar possibilidade de encaminhar diarista para executar protecao de colunas verificar laser"
+  },
+  {
+   "id": "k1287",
+   "obraId": "o4",
+   "data": "2026-11-19",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Eng. Vinicius — mapeamento de áreas a monitorar com eng. Rafael",
+   "equipe": [
+    "Vinicius"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o4|2026-11-19|dia|eng vinicius mapeamento de areas a monitorar com eng rafael"
+  },
+  {
+   "id": "k1288",
+   "obraId": "o4",
+   "data": "2026-11-20",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO",
+   "equipe": [
+    "Vinicius"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o4|2026-11-20|dia|parado"
+  },
+  {
+   "id": "k1289",
+   "obraId": "o4",
+   "data": "2026-11-21",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO",
+   "equipe": [
+    "Vinicius"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o4|2026-11-21|dia|parado"
+  },
+  {
+   "id": "k1290",
+   "obraId": "o6",
+   "data": "2026-11-16",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalizar check-list final",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-16|dia|finalizar check list final"
+  },
+  {
+   "id": "k1291",
+   "obraId": "o6",
+   "data": "2026-11-17",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalizar check-list final",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-17|dia|finalizar check list final"
+  },
+  {
+   "id": "k1292",
+   "obraId": "o6",
+   "data": "2026-11-18",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalizar check-list final",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o6|2026-11-18|dia|finalizar check list final"
+  },
+  {
+   "id": "k1293",
+   "obraId": "o6",
+   "data": "2026-11-19",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — finalizar check-list final",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o6|2026-11-19|dia|parado finalizar check list final"
+  },
+  {
+   "id": "k1294",
+   "obraId": "o6",
+   "data": "2026-11-20",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — finalizar check-list final",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o6|2026-11-20|dia|parado finalizar check list final"
+  },
+  {
+   "id": "k1295",
+   "obraId": "o6",
+   "data": "2026-11-21",
+   "tipo": "PARADO",
+   "tipos": [
+    "PARADO"
+   ],
+   "texto": "PARADO — finalizar check-list final",
+   "equipe": [],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": true,
+   "chave": "o6|2026-11-21|dia|parado finalizar check list final"
+  },
+  {
+   "id": "k1296",
+   "obraId": "o3",
+   "data": "2026-11-16",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de pintura (vagas)",
+   "equipe": [
+    "Samuel",
+    "Roniele",
+    "Renan",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-16|dia|execucao de pintura vagas",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1297",
+   "obraId": "o3",
+   "data": "2026-11-17",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de pintura (vagas)",
+   "equipe": [
+    "Samuel",
+    "Roniele",
+    "Renan",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-17|dia|execucao de pintura vagas",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1298",
+   "obraId": "o3",
+   "data": "2026-11-18",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de pintura (circulação de veículos)",
+   "equipe": [
+    "Samuel",
+    "Roniele",
+    "Renan",
+    "Matheus"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-18|dia|execucao de pintura circulacao de veiculos",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1299",
+   "obraId": "o3",
+   "data": "2026-11-19",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Início da demarcação de vagas e sinalização",
+   "equipe": [
+    "Roniele",
+    "Samuel"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-19|dia|inicio da demarcacao de vagas e sinalizacao",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1300",
+   "obraId": "o3",
+   "data": "2026-11-20",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Início da demarcação de vagas e sinalização",
+   "equipe": [
+    "Roniele",
+    "Samuel",
+    "Matheus",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-20|dia|inicio da demarcacao de vagas e sinalizacao",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1301",
+   "obraId": "o3",
+   "data": "2026-11-21",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Demarcação de vagas e sinalização",
+   "equipe": [
+    "Roniele",
+    "Samuel",
+    "Matheus",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o3|2026-11-21|dia|demarcacao de vagas e sinalizacao",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1302",
+   "obraId": "o2",
+   "data": "2026-11-16",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Verificar liberação p/ pintura; programar pintura de piso (verificar se possível quarta ou quinta)",
+   "equipe": [
+    "Wanderson",
+    "Claudio"
+   ],
+   "cond": "verificar liberação",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-16|dia|verificar liberacao p pintura programar pintura de piso verificar se possivel quarta ou quinta",
+   "m2": 1716,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1303",
+   "obraId": "o2",
+   "data": "2026-11-17",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Verificar liberação p/ pintura; programar pintura de piso (verificar se possível quarta ou quinta)",
+   "equipe": [
+    "Wanderson",
+    "Claudio"
+   ],
+   "cond": "verificar liberação",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-17|dia|verificar liberacao p pintura programar pintura de piso verificar se possivel quarta ou quinta",
+   "m2": 1716,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1304",
+   "obraId": "o2",
+   "data": "2026-11-18",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Polimento, demarcação de circulação de pedestres e aspiração; preparação p/ pintura de quinta (1º Subsolo)",
+   "equipe": [
+    "Wanderson",
+    "Claudio",
+    "Iramilton",
+    "Thiago"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-18|dia|polimento demarcacao de circulacao de pedestres e aspiracao preparacao p pintura de quinta 1 subsolo",
+   "m2": 1716,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1305",
+   "obraId": "o2",
+   "data": "2026-11-19",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de pintura 1º Subsolo",
+   "equipe": [
+    "Matheus",
+    "Renan",
+    "Iramilton",
+    "Wanderson",
+    "Thiago",
+    "Claudio"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-19|dia|execucao de pintura 1 subsolo",
+   "m2": 1716,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1306",
+   "obraId": "o2",
+   "data": "2026-11-20",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de demarcação de vagas/sinalizações e setas",
+   "equipe": [
+    "Renan",
+    "Iramilton",
+    "Wanderson",
+    "Claudio"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-20|dia|execucao de demarcacao de vagas sinalizacoes e setas",
+   "m2": 1716,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1307",
+   "obraId": "o2",
+   "data": "2026-11-21",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de demarcação de vagas/sinalizações e setas",
+   "equipe": [
+    "Renan",
+    "Iramilton",
+    "Wanderson",
+    "Claudio"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o2|2026-11-21|dia|execucao de demarcacao de vagas sinalizacoes e setas",
+   "m2": 1716,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1308",
+   "obraId": "o17",
+   "data": "2026-11-18",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Riviera — lixamento e proteção p/ revisão de pintura (verificar clima)",
+   "equipe": [],
+   "cond": "verificar clima",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o17|2026-11-18|dia|riviera lixamento e protecao p revisao de pintura verificar clima",
+   "local": "Térreo"
+  },
+  {
+   "id": "k1309",
+   "obraId": "o16",
+   "data": "2026-11-16",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalização do check-list final 2º Subsolo (verificar se é possível à tarde após Parque Cidade)",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "verificar",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o16|2026-11-16|dia|finalizacao do check list final 2 subsolo verificar se e possivel a tarde apos parque cidade",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1310",
+   "obraId": "o16",
+   "data": "2026-11-17",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalização do check-list final 2º Subsolo (verificar se é possível à tarde após Parque Cidade)",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "verificar",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o16|2026-11-17|dia|finalizacao do check list final 2 subsolo verificar se e possivel a tarde apos parque cidade",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1311",
+   "obraId": "o16",
+   "data": "2026-11-18",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalização do check-list final 2º Subsolo (verificar se é possível à tarde após Parque Cidade)",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "verificar",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o16|2026-11-18|dia|finalizacao do check list final 2 subsolo verificar se e possivel a tarde apos parque cidade",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1312",
+   "obraId": "o16",
+   "data": "2026-11-19",
+   "tipo": "CHECK LIST / ENTREGA",
+   "tipos": [
+    "CHECK LIST / ENTREGA"
+   ],
+   "texto": "Finalização do check-list final 2º Subsolo",
+   "equipe": [
+    "Jhone"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o16|2026-11-19|dia|finalizacao do check list final 2 subsolo",
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1313",
+   "obraId": "o15",
+   "data": "2026-11-16",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Execução de mobilização; início do lixamento",
+   "equipe": [
+    "Oliver",
+    "Henrique"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o15|2026-11-16|dia|execucao de mobilizacao inicio do lixamento",
+   "m2": 1300,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1314",
+   "obraId": "o15",
+   "data": "2026-11-17",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Execução de lixamento em piso",
+   "equipe": [
+    "Oliver",
+    "Henrique"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o15|2026-11-17|dia|execucao de lixamento em piso",
+   "m2": 1300,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1315",
+   "obraId": "o15",
+   "data": "2026-11-18",
+   "tipo": "PREPARAÇÃO",
+   "tipos": [
+    "PREPARAÇÃO"
+   ],
+   "texto": "Execução de lixamento em piso e preparação de barrado",
+   "equipe": [
+    "Oliver",
+    "Henrique"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o15|2026-11-18|dia|execucao de lixamento em piso e preparacao de barrado",
+   "m2": 1300,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1316",
+   "obraId": "o15",
+   "data": "2026-11-19",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de lixamento em piso e pintura de barrado",
+   "equipe": [
+    "Oliver",
+    "Henrique"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o15|2026-11-19|dia|execucao de lixamento em piso e pintura de barrado",
+   "m2": 1300,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1317",
+   "obraId": "o15",
+   "data": "2026-11-20",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de preparação de piso (revisão de patologias) e pintura de barrado",
+   "equipe": [
+    "Oliver",
+    "Henrique"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o15|2026-11-20|dia|execucao de preparacao de piso revisao de patologias e pintura de barrado",
+   "m2": 1300,
+   "local": "1º Subsolo"
+  },
+  {
+   "id": "k1318",
+   "obraId": "o15",
+   "data": "2026-11-21",
+   "tipo": "PINTURA PISO",
+   "tipos": [
+    "PINTURA PISO"
+   ],
+   "texto": "Execução de preparação de piso (revisão de patologias) e pintura de barrado",
+   "equipe": [
+    "Oliver",
+    "Henrique"
+   ],
+   "cond": "",
+   "fonte": "Programação semanal",
+   "turno": "dia",
+   "parado": false,
+   "chave": "o15|2026-11-21|dia|execucao de preparacao de piso revisao de patologias e pintura de barrado",
+   "m2": 1300,
+   "local": "1º Subsolo"
   }
  ],
  "agenda": [
@@ -11588,6 +12576,30 @@
   {
    "id": "q46",
    "texto": "Big Box de 12/11 (R$ 41,59): NFC-e em contingência, pendente de autorização — verificar na SEFAZ. Atacadão de 13/11: o cupom mostra 3 rodos (R$ 30,49 cada)."
+  },
+  {
+   "id": "q47",
+   "texto": "Claudio (novato, início 16/11): função, data de admissão e salário; exame admissional (raio-x) concluído? Está na equipe do Brasal."
+  },
+  {
+   "id": "q48",
+   "texto": "Obras novas na programação: Faenge — Palazzo 105 (Jhone) e Riviera (manutenção/lixamento, Térreo). Enviar contrato, valor e início; e confirmar se \"SQNW 102 BL I — San Francisco\" é a mesma SQSW 102 Bloco I (assumi que sim)."
+  },
+  {
+   "id": "q49",
+   "texto": "Caixinha 17/11: vassourão, sacos de lixo e panos de chão (R$ 372,00) e parafusos/porcas (R$ 66,00) — para qual obra? Os panos entram no estoque? Abastecimento de R$ 153,54: dia (assumi 17/11)?"
+  },
+  {
+   "id": "q50",
+   "texto": "Retirada de 18/11 (William Valim): qual luva do estoque (pigmentada ou látex bicolor; pacote = 12 pares)? Panos de chão: estoque zerado, faltaram 10 — houve entrada da compra de 17/11?"
+  },
+  {
+   "id": "q51",
+   "texto": "Programação 16–21/11: Brasal trabalha na sexta 20/11 (feriado Consciência Negra) e sábado; pintura do 1º Subsolo (1.716 m²) prevista para 19/11 depende da liberação do campo. Confirmar."
+  },
+  {
+   "id": "q52",
+   "texto": "Parque Nacional não aparece na programação de 16–21/11 (o plano antigo previa escadas com Roniele e Thiago, agora alocados no Horizon e na Supera). A obra está parada? Data de início real?"
   }
  ],
  "caixinha": [
@@ -13142,6 +14154,195 @@
    "acertoStatus": "pendente",
    "chave": "tx|2026-11-13|14.10|99pop alojamento horizon",
    "id": "cx43"
+  },
+  {
+   "data": "2026-11-16",
+   "dataDoc": "",
+   "tipo": "Alimentação",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Almoço (marmita) do Claudio, funcionário novato, enquanto esperava o exame (raio-x)",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o2",
+     "valor": 20.0
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 20.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Obra presumida: Brasal (equipe da programação). Confirmar.",
+   "veiculo": "",
+   "pessoa": "Claudio",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-16|20.00|almoco claudio",
+   "id": "cx44"
+  },
+  {
+   "data": "2026-11-17",
+   "dataDoc": "",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Vassourão, sacos de lixo e panos de chão",
+   "itens": [],
+   "obras": [],
+   "solicitante": "",
+   "valorTexto": 372.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Obra/destino não informado; panos de chão podem ser entrada de estoque — confirmar.",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-17|372.00|vassourao sacos lixo panos",
+   "id": "cx45"
+  },
+  {
+   "data": "2026-11-17",
+   "dataDoc": "",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Parafusos e ferramentas — 2 porcas para lixadeira de mão",
+   "itens": [],
+   "obras": [],
+   "solicitante": "",
+   "valorTexto": 66.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Obra/destino não informado (equipamento).",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-17|66.00|parafusos ferramentas porcas lixadeira",
+   "id": "cx46"
+  },
+  {
+   "data": "2026-11-17",
+   "dataDoc": "",
+   "tipo": "Combustível",
+   "fornecedor": "Abastecimento",
+   "descricao": "Abastecimento MOBI",
+   "itens": [],
+   "obras": [],
+   "solicitante": "",
+   "valorTexto": 153.54,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "Data não informada (assumido 17/11, entre os lançamentos de 17 e 18/11).",
+   "veiculo": "MOBI",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-17|153.54|abastecimento mobi",
+   "id": "cx47"
+  },
+  {
+   "data": "2026-11-18",
+   "dataDoc": "",
+   "tipo": "Compra direta",
+   "fornecedor": "Compra direta (fornecedor não informado)",
+   "descricao": "Álcool — Brasal",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o2",
+     "valor": 90.0
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 90.0,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-18|90.00|alcool brasal",
+   "id": "cx48"
+  },
+  {
+   "data": "2026-11-18",
+   "dataDoc": "",
+   "tipo": "Compra direta",
+   "fornecedor": "Mercado (não informado)",
+   "descricao": "Vassoura de limpeza — Riviera",
+   "itens": [],
+   "obras": [
+    {
+     "obraId": "o17",
+     "valor": 14.99
+    }
+   ],
+   "solicitante": "",
+   "valorTexto": 14.99,
+   "valorPago": null,
+   "valorDoc": null,
+   "docTipo": "Sem documento",
+   "docNumero": "",
+   "docSerie": "",
+   "docChave": "",
+   "pixId": "",
+   "formaPgto": "Caixinha",
+   "estoque": false,
+   "origem": "mensagem",
+   "anexos": [],
+   "obs": "",
+   "veiculo": "",
+   "pessoa": "",
+   "acerto": "",
+   "acertoStatus": "",
+   "chave": "tx|2026-11-18|14.99|vassoura limpeza riviera mercado",
+   "id": "cx49"
   }
  ],
  "importacoes": [
