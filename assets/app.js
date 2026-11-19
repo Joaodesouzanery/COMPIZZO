@@ -96,12 +96,15 @@ const NAV_GRP = { today: 'Visão geral', prod: 'Operação' };
 const ICO = { today: 'M3 12l9-8 9 8M5 10v10h14V10', obras: 'M3 21V8l9-5 9 5v13M9 21v-6h6v6', contratos: 'M7 3h8l4 4v14H7zM14 3v5h5M10 13h6M10 17h6', res: 'M4 20V10M10 20V4M16 20v-8M22 20H2', prod: 'M4 4h16v16H4zM4 10h16M10 4v16', mao: 'M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8M22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8', estoque: 'M21 8l-9-5-9 5v8l9 5 9-5zM3 8l9 5 9-5M12 13v8', compras: 'M3 4h2l2.5 11h11L21 7H6M9 20a1 1 0 100-2 1 1 0 000 2M18 20a1 1 0 100-2 1 1 0 000 2' };
 const icon = k => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${ICO[k] || ICO.today}"/></svg>`;
 const EXT = { click: [], input: [], change: [] }, CAD = {}, PROD = {};
+const obraAtiva = o => (S.contratos || []).some(c => c.ativo && !c.historico && c.obraId === o.id);
+const obraStatusParada = o => o.status === 'Parada';
 function renderNav() {
   const al = S.materiais.filter(m => stat(m) !== 'ok').length;
   $('#nav').innerHTML = NAV.map(([k, l]) => `${NAV_GRP[k] ? `<div class="mono navg">${NAV_GRP[k]}</div>` : ''}<button data-nav="${k}" class="${view === k ? 'on' : ''}">${icon(k)}<span>${l}</span>${k === 'estoque' && al ? `<span class="pill r badge">${al}</span>` : ''}</button>`).join('');
   const opt = o => `<option value="${o.id}" ${o.id === obraF ? 'selected' : ''}>${o.paiId ? '↳ ' : ''}${esc(o.nome)}</option>`;
   const ordem = S.obras.filter(o => !o.paiId).flatMap(o => [o, ...S.obras.filter(x => x.paiId === o.id)]);
-  $('#obraSel').innerHTML = `<option value="all">Todas as obras / contratos</option>` + ordem.map(opt).join('');
+  const at = ordem.filter(o => obraAtiva(o) || o.id === obraF), ar = ordem.filter(o => !at.includes(o));
+  $('#obraSel').innerHTML = `<option value="all">Todas as obras / contratos</option><optgroup label="Obras ativas">${at.map(o => opt(o).replace('</option>', obraStatusParada(o) ? ' (parada)</option>' : '</option>')).join('')}</optgroup>${ar.length ? `<optgroup label="Arquivo / outras">${ar.map(opt).join('')}</optgroup>` : ''}`;
 }
 function render() { renderNav(); $('#view').innerHTML = (typeof ctStrip === 'function' ? ctStrip() : '') + VIEWS[view](); }
 function modal(html) { $('#mbox').innerHTML = html; $('#modal').hidden = false; }
@@ -130,14 +133,16 @@ const VIEWS = {
     <div class="card"><h2>Últimas retiradas</h2>${retiradasTable(retiradasF().slice(-8).reverse())}</div>`;
   },
   obras() {
-    const rows = S.obras.map(o => {
+    const rowOf = o => {
       const rs = S.retiradas.filter(r => r.obraId === o.id); const fs = S.funcionarios.filter(f => f.obraId === o.id);
       const av = S.avaliacoes.filter(a => a.obraId === o.id); const med = av.length ? av.reduce((a, x) => a + x.nota, 0) / av.length : null;
-      return `<tr><td><b>${esc(o.nome)}</b></td><td>${esc(o.status)}</td><td class="n">${rs.length}</td><td class="n">${rs.reduce((a, r) => a + r.qtd, 0)}</td><td class="n">${fs.length}</td><td class="n">${med == null ? '—' : med.toFixed(1)}</td></tr>`;
-    }).join('');
+      return `<tr><td><b>${esc(o.nome)}</b></td><td>${obraStatusParada(o) ? '<span class="pill r">PARADA</span>' : esc(o.status)}</td><td class="n">${rs.length}</td><td class="n">${rs.reduce((a, r) => a + r.qtd, 0)}</td><td class="n">${fs.length}</td><td class="n">${med == null ? '—' : med.toFixed(1)}</td></tr>`;
+    };
+    const th = '<tr><th>Obra</th><th>Status</th><th class="n">Retiradas</th><th class="n">Unidades retiradas</th><th class="n">Equipe</th><th class="n">Nota média</th></tr>', ativas = S.obras.filter(obraAtiva), outras = S.obras.filter(o => !obraAtiva(o)), rows = ativas.map(rowOf).join('');
     const sel = obraF !== 'all' ? Object.entries(S.retiradas.filter(r => r.obraId === obraF).reduce((m, r) => (m[r.materialId] = (m[r.materialId] || 0) + r.qtd, m), {})) : [];
     return `${head('Obras', 'Gestão', '<button class="btn pri" data-act="novaObra">Nova obra</button>')}<p class="sub">Todas as retiradas do estoque central são atribuídas a uma obra.</p>
-    <div class="card tw"><table><tr><th>Obra</th><th>Status</th><th class="n">Retiradas</th><th class="n">Unidades retiradas</th><th class="n">Equipe</th><th class="n">Nota média</th></tr>${rows}</table></div>
+    <div class="card tw"><h2>Obras ativas (${ativas.length})</h2><table>${th}${rows}</table></div>
+    <details class="card tw"><summary style="cursor:pointer"><b>Arquivo / outras obras (${outras.length})</b> <span class="mono">concluídas, programadas e antigas</span></summary><table>${th}${outras.map(rowOf).join('')}</table></details>
     ${typeof cxObrasCard === 'function' ? cxObrasCard() : ''}
     ${obraF !== 'all' ? `<div class="card"><h2>Materiais consumidos · ${esc(obraNome(obraF))}</h2><table>${sel.map(([id, q]) => `<tr><td>${esc((S.materiais.find(m => m.id === id) || {}).nome)}</td><td class="n">${num(q)}</td></tr>`).join('') || '<tr><td>Sem retiradas.</td></tr>'}</table></div>` : ''}`;
   },

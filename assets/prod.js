@@ -29,16 +29,20 @@ function realizadoAcum(obraId, faseId, ini, ate, exceptId) {
 }
 const diaObra = (o, d) => (o && o.inicio ? Math.max(1, dayDiff(o.inicio, d) + 1) : null);
 function rdoCalc(r) {
-  const o = getObra(r.obraId); let m2 = 0, receita = 0, semPreco = 0;
+  const o = getObra(r.obraId); let m2 = 0, receita = 0, semPreco = 0, mx = 0;
   for (const l of r.fases) {
     const q = +l.qtd || 0, f = S.fases.find(x => x.id === l.faseId);
-    if (f && f.un === 'm²') m2 += q; else if (!f && (l.un || 'm²') === 'm²') m2 += q;
+    if ((f && f.un === 'm²') || (!f && (l.un || 'm²') === 'm²')) { m2 += q; mx = Math.max(mx, q); }
     if (f && q) { const p = precoFase(o, f); if (p == null) semPreco++; else receita += q * p; }
   }
   const hh = +r.hh || 0, sp = +r.horasSemProd || 0;
   const custo = r.materiais.reduce((a, m) => a + (+m.qtd || 0) * (+m.preco || 0), 0);
-  return { m2, receita, semPreco, hh, sp, rup: hh && m2 ? hh / m2 : null, custo, ocH: Object.values(r.ocHoras || {}).reduce((a, v) => a + (+v || 0), 0) };
+  const np = (r.maoObra || []).length || +r.pessoas || 0, sus = !!(mx && ((np && mx / np > 150) || mx > 1500));
+  return { m2: sus ? 0 : mx, m2serv: m2, m2raw: mx, sus, receita, semPreco, hh, sp, rup: hh && m2 ? hh / m2 : null, custo, ocH: Object.values(r.ocHoras || {}).reduce((a, v) => a + (+v || 0), 0) };
 }
+/* m² = área única do RDO (maior m² entre as fases, pois o mesmo piso passa por lixa, primer, pintura…); acima de 150 m²/pessoa ou 1.500 m² é suspeito (acumulado/importação) e fica fora da soma */
+const rdoArea = r => { const c = rdoCalc(r); return { area: c.m2raw, servico: c.m2serv, sus: c.sus }; };
+const rdoM2 = r => rdoCalc(r).m2;
 function removeRdoStock(id) {
   S.retiradas = S.retiradas.filter(x => { if (x.rdoId !== id) return true; const m = S.materiais.find(z => z.id === x.materialId); if (m) m.qtd += x.qtd - (x.faltou || 0); return false; });
 }

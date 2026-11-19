@@ -1,5 +1,5 @@
 {
- "version": 20,
+ "version": 21,
  "obras": [
   {
    "id": "o1",
@@ -64,7 +64,7 @@
   {
    "id": "o5",
    "nome": "Parque Nacional",
-   "status": "Programada",
+   "status": "Parada",
    "bac": 0,
    "precoPiso": 32.762,
    "modoReceita": "peso",
@@ -15527,6 +15527,65 @@
    "venc": "2026-12-18",
    "valor": 5981.63,
    "status": "a pagar"
+  }
+ ],
+ "config": {
+  "custosMensais": {
+   "ref": "2026-10",
+   "rotulo": "Outubro/2026 (tabela enviada pelo usuário)",
+   "fixos": [
+    [
+     "Custos fixos (caixa)",
+     46415
+    ],
+    [
+     "13º / férias (provisão)",
+     8370
+    ]
+   ],
+   "variaveis": [
+    [
+     "Bônus / tarefa",
+     11860
+    ],
+    [
+     "Vales",
+     525
+    ],
+    [
+     "Terceirizados",
+     270
+    ],
+    [
+     "ASO / PCMSO / passagens",
+     3861
+    ],
+    [
+     "Rescisões / advogado",
+     11750
+    ]
+   ]
+  }
+ },
+ "contratosHist": [
+  {
+   "id": "ctH1",
+   "nome": "INC13-CT96634 — INC 13 Brasal Incorporações (Goiânia, Setor Marista)",
+   "contratante": "INC 13 Brasal Incorporações",
+   "cnpj": "32.689.220/0001-60",
+   "local": "Goiânia-GO, Setor Marista",
+   "mo": 343279.66,
+   "mat": 549325.0,
+   "total": 892604.66,
+   "m2": 8650,
+   "precoM2MO": 39.69,
+   "precoM2MAT": 63.51,
+   "retencao": "5% (liberada 90 dias após o encerramento)",
+   "ini": "2025-07-17",
+   "fim": "2025-11-30",
+   "assinado": "2025-07-17",
+   "status": "Histórico — a conferir; a ideia é substituir o contrato da Brasal Orla",
+   "obs": "Documento guardado só para consulta; fora dos 5 contratos ativos e do resultado."
   }
  ]
 }
